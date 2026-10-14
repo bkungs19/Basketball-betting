@@ -1,0 +1,48 @@
+name: probe-sgo
+on:
+  push:
+    branches: [claude/probe-sources]
+jobs:
+  probe:
+    runs-on: ubuntu-latest
+    steps:
+      - name: sample event
+        env:
+          SGO_API_KEY: ${{ secrets.SGO_API_KEY }}
+        run: |
+          python3 - <<'PY'
+          import json, os, urllib.request
+          def get(path):
+              req = urllib.request.Request("https://api.sportsgameodds.com/v2" + path, headers={"x-api-key": os.environ["SGO_API_KEY"]})
+              with urllib.request.urlopen(req, timeout=60) as r:
+                  return json.load(r)
+          try:
+              print("USAGE", json.dumps(get("/account/usage"))[:1500])
+          except Exception as e:
+              print("usage fail", e)
+          d = get("/events?leagueID=NBA&oddsAvailable=true&limit=1")
+          print("TOPKEYS", list(d.keys()), "nextCursor" in d)
+          ev = d["data"][0]
+          print("EVENT KEYS", list(ev.keys()))
+          for k in ev:
+              if k not in ("odds", "players"):
+                  print("FIELD", k, json.dumps(ev[k])[:600])
+          players = ev.get("players", {})
+          print("NPLAYERS", len(players))
+          for pid in list(players)[:2]:
+              print("PLAYER", pid, json.dumps(players[pid]))
+          odds = ev.get("odds", {})
+          print("NODDS", len(odds))
+          stats = {}
+          for oid, o in odds.items():
+              key = (o.get("statID"), o.get("periodID"), o.get("betTypeID"), o.get("statEntityID") in players)
+              stats[key] = stats.get(key, 0) + 1
+          for k, v in sorted(stats.items(), key=lambda x: -x[1])[:60]:
+              print("MARKET", k, v)
+          shown = 0
+          for oid, o in odds.items():
+              if o.get("statEntityID") in players and o.get("periodID") == "game" and o.get("betTypeID") == "ou" and o.get("statID") in ("points", "threePointersMade"):
+                  print("ODD", oid, json.dumps(o)[:2500])
+                  shown += 1
+                  if shown >= 3: break
+          PY
