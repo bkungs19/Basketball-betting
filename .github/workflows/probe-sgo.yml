@@ -12,10 +12,28 @@ jobs:
         run: |
           python3 - <<'PY'
           import json, os, urllib.request
-          def get(path):
-              req = urllib.request.Request("https://api.sportsgameodds.com/v2" + path, headers={"x-api-key": os.environ["SGO_API_KEY"]})
-              with urllib.request.urlopen(req, timeout=60) as r:
-                  return json.load(r)
+          import urllib.error
+          KEY = os.environ["SGO_API_KEY"]
+          print("key length", len(KEY), "stripped", len(KEY.strip()))
+          def get(path, mode="header"):
+              url = "https://api.sportsgameodds.com/v2" + path
+              headers = {"User-Agent": "basketball-betting/1.0", "Accept": "application/json"}
+              if mode == "header":
+                  headers["x-api-key"] = KEY.strip()
+              else:
+                  url += ("&" if "?" in url else "?") + "apiKey=" + KEY.strip()
+              req = urllib.request.Request(url, headers=headers)
+              try:
+                  with urllib.request.urlopen(req, timeout=60) as r:
+                      return json.load(r)
+              except urllib.error.HTTPError as e:
+                  print("HTTP", e.code, mode, path, e.read()[:800])
+                  raise
+          for mode in ("header", "query"):
+              try:
+                  get("/events?leagueID=NBA&limit=1", mode); print("mode ok", mode)
+              except Exception as e:
+                  print("mode fail", mode, e)
           try:
               print("USAGE", json.dumps(get("/account/usage"))[:1500])
           except Exception as e:
