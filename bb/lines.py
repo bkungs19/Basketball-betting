@@ -19,6 +19,7 @@ LINES_DIR = DATA / "lines"
 
 LINE_COLUMNS = [
     "date", "event_id", "start", "home", "away", "sgo_player_id", "player_name", "player_team", "opp",
+    "team_nick", "opp_nick",
     "stat", "book", "line", "over_odds", "under_odds", "available", "deeplink",
     "fetched_at",
 ]
@@ -56,6 +57,7 @@ def fetch_events(day: dt.date) -> list[dict]:
 def parse_event(ev: dict, day: dt.date, fetched_at: str) -> list[dict]:
     teams = ev.get("teams", {})
     short = {side: t.get("names", {}).get("short") or t.get("teamID") for side, t in teams.items()}
+    nick = {side: t.get("names", {}).get("medium") or "" for side, t in teams.items()}
     team_by_id = {t.get("teamID"): short[side] for side, t in teams.items()}
     players = ev.get("players", {})
     odds = ev.get("odds", {})
@@ -71,7 +73,8 @@ def parse_event(ev: dict, day: dt.date, fetched_at: str) -> list[dict]:
         under = odds.get(o.get("opposingOddID") or oid.replace("-over", "-under"), {})
         p = players[pid]
         team = team_by_id.get(p.get("teamID"))
-        opp = short["away"] if team == short.get("home") else short.get("home")
+        is_home = team == short.get("home")
+        opp = short.get("away") if is_home else short.get("home")
         for book, b in (o.get("byBookmaker") or {}).items():
             u = (under.get("byBookmaker") or {}).get(book)
             if not u or u.get("overUnder") != b.get("overUnder") or b.get("overUnder") is None:
@@ -86,6 +89,8 @@ def parse_event(ev: dict, day: dt.date, fetched_at: str) -> list[dict]:
                 "player_name": p.get("name") or f"{p.get('firstName', '')} {p.get('lastName', '')}".strip(),
                 "player_team": team,
                 "opp": opp,
+                "team_nick": nick.get("home" if is_home else "away"),
+                "opp_nick": nick.get("away" if is_home else "home"),
                 "stat": o["statID"],
                 "book": book,
                 "line": float(b["overUnder"]),

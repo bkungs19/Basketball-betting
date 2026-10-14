@@ -102,6 +102,8 @@ def boxscore(game: dict) -> list[dict]:
             names = block.get("keys") or block.get("labels") or []
             cols = [_STAT_ALIASES.get(n) for n in names]
             for a in block.get("athletes", []):
+                if not a.get("athlete", {}).get("id"):
+                    continue
                 row = {
                     "season": season_label(game["season_year"]),
                     "season_type": SEASON_TYPES.get(game["season_type"], str(game["season_type"])),
@@ -170,8 +172,15 @@ def update_season(label: str, through: dt.date | None = None, workers: int = 8) 
     ]
     if not games:
         return existing
+    def safe_box(game):
+        try:
+            return boxscore(game)
+        except Exception as e:  # one bad game shouldn't sink the whole update
+            print(f"skipped game {game['game_id']} on {game['game_date']}: {e!r}")
+            return []
+
     with ThreadPoolExecutor(workers) as pool:
-        new_rows = [r for rows in pool.map(boxscore, games) for r in rows]
+        new_rows = [r for rows in pool.map(safe_box, games) for r in rows]
     new = pd.DataFrame(new_rows, columns=COLUMNS)
     out = pd.concat([existing, new], ignore_index=True) if len(existing) else new
     out = out.drop_duplicates(["game_id", "player_id"], keep="last")

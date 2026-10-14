@@ -3,7 +3,7 @@ on:
   workflow_dispatch:
   push:
     branches: [claude/data-pipeline]
-    paths: [.github/workflows/backfill.yml]
+    paths: [.github/workflows/backfill.yml, bb/stats.py]
 permissions:
   contents: write
 concurrency:
