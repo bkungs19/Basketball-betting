@@ -38,6 +38,8 @@ MARKET_LABELS = {
 # Weight on the model vs. the no-vig market price when blending probabilities.
 # Markets are sharp; leaning partly on them keeps the model from chasing noise.
 MODEL_WEIGHT = 0.5
+EARLY_SEASON_GAMES = 5
+EARLY_SEASON_MODEL_WEIGHT = 0.3
 
 PARLAY_MIN_LEGS = 3
 PARLAY_MAX_LEGS = 4

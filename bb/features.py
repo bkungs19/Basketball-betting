@@ -16,6 +16,7 @@ from .config import MARKETS
 BASE_STATS = ["pts", "reb", "ast", "fg3m", "min", "fga", "fg3a", "fta", "oreb", "dreb", "tov", "stl", "blk"]
 TARGETS = {market: "t_" + market.replace("+", "_") for market in MARKETS}
 RATE_STATS = ["pts", "reb", "ast", "fg3m", "fga", "fg3a"]
+SEASON_STATS = ["pts", "reb", "ast", "fg3m", "fga", "fg3a"]
 TEAM_STATS = ["pace", "off_rtg", "def_rtg", "allowed_pts", "allowed_reb", "allowed_ast", "allowed_fg3m"]
 
 
@@ -55,45 +56,48 @@ def team_games(box: pd.DataFrame) -> pd.DataFrame:
 
 def team_state(tg: pd.DataFrame) -> pd.DataFrame:
     """Each team's form after each game (exponentially weighted, recent games count more)."""
-    tg = tg.sort_values(["team", "game_date"])
-    out = tg[["team", "game_date"]].copy()
-    g = tg.groupby("team")
-    for c in TEAM_STATS:
-        out["ts_" + c] = g[c].transform(lambda s: s.ewm(halflife=10).mean())
-    return out
+    tg = tg.sort_values(["team", "game_date"]).reset_index(drop=True)
+    ewm = tg.groupby("team", sort=False)[TEAM_STATS].ewm(halflife=10).mean().reset_index(level=0, drop=True).sort_index()
+    return pd.concat([tg[["team", "game_date"]], ewm.add_prefix("ts_")], axis=1)
 
 
 def player_state(played: pd.DataFrame) -> pd.DataFrame:
     """Each player's form after each game they played."""
-    p = played.sort_values(["player_id", "game_date"]).copy()
-    g = p.groupby("player_id")
-    out = p[["player_id", "game_date", "season", "team"]].copy()
-    out = out.rename(columns={"season": "state_season", "team": "last_team"})
+    p = played.sort_values(["player_id", "game_date"]).reset_index(drop=True)
+    g = p.groupby("player_id", sort=False)
+    out = p[["player_id", "game_date", "season", "team"]].rename(columns={"season": "state_season", "team": "last_team"})
+
+    def by_player(frame: pd.DataFrame) -> pd.DataFrame:
+        return frame.reset_index(level=0, drop=True).sort_index()
+
     cols = BASE_STATS + list(TARGETS.values()) + ["usg", "min_share"]
-    for c in cols:
-        out[f"ewm5_{c}"] = g[c].transform(lambda s: s.ewm(halflife=5).mean())
-        out[f"ewm15_{c}"] = g[c].transform(lambda s: s.ewm(halflife=15).mean())
-    for c in ["min"] + list(TARGETS.values()):
-        out[f"avg10_{c}"] = g[c].transform(lambda s: s.rolling(10, min_periods=1).mean())
-        out[f"std10_{c}"] = g[c].transform(lambda s: s.rolling(10, min_periods=3).std())
-        out[f"max10_{c}"] = g[c].transform(lambda s: s.rolling(10, min_periods=1).max())
-    min20 = g["min"].transform(lambda s: s.rolling(20, min_periods=1).sum()).clip(lower=1)
-    for c in RATE_STATS:
-        out[f"rate20_{c}"] = g[c].transform(lambda s: s.rolling(20, min_periods=1).sum()) / min20
+    parts = [out]
+    for hl in (5, 15):
+        parts.append(by_player(g[cols].ewm(halflife=hl).mean()).add_prefix(f"ewm{hl}_"))
+    roll_cols = ["min"] + list(TARGETS.values())
+    parts.append(by_player(g[roll_cols].rolling(10, min_periods=1).mean()).add_prefix("avg10_"))
+    parts.append(by_player(g[roll_cols].rolling(10, min_periods=3).std()).add_prefix("std10_"))
+    parts.append(by_player(g[roll_cols].rolling(10, min_periods=1).max()).add_prefix("max10_"))
+    sums = by_player(g[RATE_STATS + ["min"]].rolling(20, min_periods=1).sum())
+    parts.append(sums[RATE_STATS].div(sums["min"].clip(lower=1), axis=0).add_prefix("rate20_"))
+    out = pd.concat(parts, axis=1)
+
     out["n_games"] = g.cumcount() + 1
-    gs = p.groupby(["player_id", "season"])
+    gs = p.groupby(["player_id", "season"], sort=False)
     out["szn_games"] = gs.cumcount() + 1
-    out["szn_min"] = gs["min"].transform(lambda s: s.expanding().mean())
-    out["last_min"] = p["min"].values
-    out["last_starter"] = p["starter"].values
-    out["starter10"] = g["starter"].transform(lambda s: s.rolling(10, min_periods=1).mean())
-    out["last_date"] = p["game_date"].values
+    out["szn_min"] = gs["min"].cumsum() / out["szn_games"]
+    for c in SEASON_STATS:
+        out[f"szn_{c}"] = gs[c].cumsum() / out["szn_games"]
+    out["last_min"] = p["min"]
+    out["last_starter"] = p["starter"]
+    out["starter10"] = by_player(g["starter"].rolling(10, min_periods=1).mean())
+    out["last_date"] = p["game_date"]
     return out
 
 
 def prepare_box(box: pd.DataFrame) -> pd.DataFrame:
     box = box.copy()
-    box["game_date"] = pd.to_datetime(box["game_date"])
+    box["game_date"] = pd.to_datetime(box["game_date"]).astype("datetime64[ns]")
     box["player_id"] = box["player_id"].astype(str)
     box = add_targets(box)
     tg = team_games(box)
@@ -115,7 +119,7 @@ def build(box: pd.DataFrame, rows: pd.DataFrame) -> pd.DataFrame:
     tstate = team_state(tg).sort_values("game_date")
 
     rows = rows.copy()
-    rows["game_date"] = pd.to_datetime(rows["game_date"])
+    rows["game_date"] = pd.to_datetime(rows["game_date"]).astype("datetime64[ns]")
     rows["player_id"] = rows["player_id"].astype(str)
     rows["_order"] = np.arange(len(rows))
     rows = rows.sort_values("game_date")
@@ -128,21 +132,53 @@ def build(box: pd.DataFrame, rows: pd.DataFrame) -> pd.DataFrame:
     f = pd.merge_asof(f.sort_values("game_date"), own_state.sort_values("game_date"),
                       on="game_date", by="team", allow_exact_matches=False)
 
-    f["rest_days"] = (f["game_date"] - pd.to_datetime(f["last_date"])).dt.days.clip(upper=10)
+    days_off = (f["game_date"] - pd.to_datetime(f["last_date"])).dt.days
+    f["rest_days"] = days_off.clip(upper=10)
+    f["days_off"] = days_off.clip(upper=200)
+    f["team_games_missed"] = _games_missed(tg, f)
     f["b2b"] = (f["rest_days"] == 1).astype(int)
     new_season = f["state_season"] != f["season"]
     f.loc[new_season, "szn_games"] = 0
-    f.loc[new_season, "szn_min"] = np.nan
+    f.loc[new_season, ["szn_min"] + [f"szn_{c}" for c in SEASON_STATS]] = np.nan
+    f = f.merge(_prev_season(played), on=["player_id", "season"], how="left")
     f["changed_team"] = (f["last_team"] != f["team"]).astype(int)
     f["season_year"] = f["season"].str[:4].astype(int)
     f["exp_pace"] = (f["team_pace"] + f["opp_pace"]) / 2
     return f.sort_values("_order").drop(columns=["_order"])
 
 
+def _prev_season(played: pd.DataFrame) -> pd.DataFrame:
+    """Each player's previous regular-season averages, keyed by the season they feed into."""
+    reg = played[played["season_type"] == "regular"]
+    prev = reg.groupby(["player_id", "season"])[["min"] + SEASON_STATS].mean().add_prefix("prev_").reset_index()
+    prev["prev_games"] = reg.groupby(["player_id", "season"]).size().values
+    start = prev["season"].str[:4].astype(int) + 1
+    prev["season"] = start.astype(str) + "-" + (start + 1).astype(str).str[2:]
+    return prev
+
+
+def _games_missed(tg: pd.DataFrame, f: pd.DataFrame) -> np.ndarray:
+    """Games the player's current team played between his last game and this one (injury absences)."""
+    sched = tg[["team", "game_date"]].drop_duplicates().sort_values(["team", "game_date"])
+    sched["n"] = sched.groupby("team").cumcount() + 1
+    sched = sched.sort_values("game_date")
+
+    def count_before(dates: pd.Series) -> np.ndarray:
+        q = pd.DataFrame({"team": f["team"].values, "game_date": pd.to_datetime(dates).astype("datetime64[ns]").values,
+                          "_i": np.arange(len(f))}).sort_values("game_date")
+        m = pd.merge_asof(q, sched, on="game_date", by="team", allow_exact_matches=False)
+        return m.sort_values("_i")["n"].fillna(0).values
+
+    missed = count_before(f["game_date"]) - count_before(f["last_date"].fillna(f["game_date"])) - 1
+    # last_date lookups are strict, so a game on last_date itself isn't counted; it was his own game
+    return np.clip(missed, 0, 82)
+
+
 def feature_columns(f: pd.DataFrame) -> list[str]:
-    prefixes = ("ewm5_", "ewm15_", "avg10_", "std10_", "max10_", "rate20_", "opp_", "team_pace", "team_off_rtg")
+    prefixes = ("ewm5_", "ewm15_", "avg10_", "std10_", "max10_", "rate20_", "opp_", "team_pace", "team_off_rtg",
+                "szn_", "prev_")
     cols = [c for c in f.columns if c.startswith(prefixes)]
-    cols += ["n_games", "szn_games", "szn_min", "last_min", "last_starter", "starter10", "rest_days", "b2b",
+    cols += ["days_off", "team_games_missed", "n_games", "last_min", "last_starter", "starter10", "rest_days", "b2b",
              "home", "changed_team", "season_year", "exp_pace"]
     return cols
 

@@ -1,9 +1,8 @@
 name: backfill
+# One-off: download past seasons' box scores. Run it from the Actions tab if
+# the data ever needs rebuilding.
 on:
   workflow_dispatch:
-  push:
-    branches: [claude/data-pipeline]
-    paths: [.github/workflows/backfill.yml, bb/stats.py]
 permissions:
   contents: write
 concurrency:
@@ -22,10 +21,6 @@ jobs:
       - run: pip install -r requirements.txt
       - name: Download past seasons' box scores
         run: python -m bb backfill
-      - name: Sample prop lines for opening night
-        env:
-          SGO_API_KEY: ${{ secrets.SGO_API_KEY }}
-        run: python -m bb lines --date 2026-10-20
       - name: Commit data
         run: |
           git config user.name "github-actions[bot]"

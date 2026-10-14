@@ -2,7 +2,7 @@
 import argparse
 import datetime as dt
 
-from . import lines, stats
+from . import daily, lines, stats
 from .config import ET, HISTORY_SEASONS
 
 
@@ -14,6 +14,9 @@ def main():
     sub.add_parser("stats", help="update the current season's box scores")
     ln = sub.add_parser("lines", help="fetch today's prop lines")
     ln.add_argument("--date", type=dt.date.fromisoformat, default=None)
+    d = sub.add_parser("daily", help="the full daily run")
+    d.add_argument("--date", type=dt.date.fromisoformat, default=None)
+    d.add_argument("--offline", action="store_true", help="use saved data only (no downloads)")
     args = ap.parse_args()
 
     if args.cmd == "backfill":
@@ -21,6 +24,8 @@ def main():
             stats.update_season(s)
     elif args.cmd == "stats":
         stats.update_season(stats.current_season())
+    elif args.cmd == "daily":
+        daily.run(args.date, offline=args.offline)
     elif args.cmd == "lines":
         lines.update_lines(args.date or dt.datetime.now(ET).date())
 
