@@ -1,0 +1,45 @@
+name: probe-sources
+on:
+  push:
+    branches: [claude/probe-sources]
+jobs:
+  probe:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install -q nba_api requests
+      - name: curl endpoints
+        run: |
+          UA='Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0 Safari/537.36'
+          for u in \
+            "https://cdn.nba.com/static/json/staticData/scheduleLeagueV2.json" \
+            "https://cdn.nba.com/static/json/liveData/scoreboard/todaysScoreboard_00.json" \
+            "https://www.basketball-reference.com/leagues/NBA_2026_per_game.html" \
+            "https://api.prizepicks.com/projections?league_id=7&per_page=10" \
+            "https://api.underdogfantasy.com/beta/v5/over_under_lines" \
+            "https://site.api.espn.com/apis/site/v2/sports/basketball/nba/scoreboard" \
+            "https://api.sportsgameodds.com/v2/events?leagueID=NBA&limit=1" \
+            "https://api.the-odds-api.com/v4/sports" ; do
+            echo "$(curl -sS -m 30 -o /dev/null -w '%{http_code} %{size_download} %{time_total}s' -A "$UA" "$u" 2>&1)  $u"
+          done
+      - name: nba_api
+        run: |
+          python - <<'PY'
+          import time
+          from nba_api.stats.endpoints import playergamelogs, leaguedashteamstats
+          for mt in ["Base", "Advanced"]:
+              t=time.time()
+              try:
+                  df = playergamelogs.PlayerGameLogs(season_nullable="2025-26", measure_type_player_game_logs_nullable=mt, timeout=60).get_data_frames()[0]
+                  print(mt, "OK", df.shape, round(time.time()-t,1), "s")
+                  print(list(df.columns))
+              except Exception as e:
+                  print(mt, "FAIL", type(e).__name__, e, round(time.time()-t,1), "s")
+          try:
+              df = leaguedashteamstats.LeagueDashTeamStats(season="2025-26", measure_type_detailed_defense="Advanced", timeout=60).get_data_frames()[0]
+              print("team adv OK", df.shape, list(df.columns)[:40])
+          except Exception as e:
+              print("team FAIL", e)
+          PY
