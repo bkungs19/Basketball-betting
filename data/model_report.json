@@ -1,0 +1,377 @@
+{
+ "holdout_season": "2025-26",
+ "train_rows": 80154,
+ "holdout_rows": 27990,
+ "markets": {
+  "points": {
+   "mae_model": 5.12,
+   "mae_recent_average": 5.242,
+   "brier_model": 0.2403,
+   "brier_base_rate": 0.2487,
+   "pick_accuracy": 0.575,
+   "strong_pick_accuracy": 0.6753,
+   "strong_pick_share": 0.2216,
+   "calibration": [
+    {
+     "predicted": 0.262,
+     "actual": 0.289,
+     "n": 273
+    },
+    {
+     "predicted": 0.365,
+     "actual": 0.35,
+     "n": 1216
+    },
+    {
+     "predicted": 0.455,
+     "actual": 0.447,
+     "n": 4342
+    },
+    {
+     "predicted": 0.554,
+     "actual": 0.534,
+     "n": 2289
+    },
+    {
+     "predicted": 0.65,
+     "actual": 0.713,
+     "n": 334
+    },
+    {
+     "predicted": 0.75,
+     "actual": 0.793,
+     "n": 58
+    }
+   ]
+  },
+  "rebounds": {
+   "mae_model": 1.998,
+   "mae_recent_average": 2.019,
+   "brier_model": 0.2304,
+   "brier_base_rate": 0.2481,
+   "pick_accuracy": 0.612,
+   "strong_pick_accuracy": 0.6877,
+   "strong_pick_share": 0.4477,
+   "calibration": [
+    {
+     "predicted": 0.271,
+     "actual": 0.272,
+     "n": 1160
+    },
+    {
+     "predicted": 0.342,
+     "actual": 0.336,
+     "n": 1160
+    },
+    {
+     "predicted": 0.438,
+     "actual": 0.422,
+     "n": 2367
+    },
+    {
+     "predicted": 0.535,
+     "actual": 0.523,
+     "n": 2338
+    },
+    {
+     "predicted": 0.633,
+     "actual": 0.623,
+     "n": 1014
+    },
+    {
+     "predicted": 0.716,
+     "actual": 0.754,
+     "n": 321
+    },
+    {
+     "predicted": 0.804,
+     "actual": 0.812,
+     "n": 85
+    }
+   ]
+  },
+  "assists": {
+   "mae_model": 1.551,
+   "mae_recent_average": 1.576,
+   "brier_model": 0.2213,
+   "brier_base_rate": 0.248,
+   "pick_accuracy": 0.6394,
+   "strong_pick_accuracy": 0.7058,
+   "strong_pick_share": 0.5904,
+   "calibration": [
+    {
+     "predicted": 0.166,
+     "actual": 0.162,
+     "n": 413
+    },
+    {
+     "predicted": 0.246,
+     "actual": 0.246,
+     "n": 989
+    },
+    {
+     "predicted": 0.361,
+     "actual": 0.349,
+     "n": 1832
+    },
+    {
+     "predicted": 0.45,
+     "actual": 0.447,
+     "n": 1903
+    },
+    {
+     "predicted": 0.547,
+     "actual": 0.532,
+     "n": 1586
+    },
+    {
+     "predicted": 0.631,
+     "actual": 0.65,
+     "n": 916
+    },
+    {
+     "predicted": 0.746,
+     "actual": 0.719,
+     "n": 466
+    },
+    {
+     "predicted": 0.814,
+     "actual": 0.799,
+     "n": 379
+    }
+   ]
+  },
+  "threePointersMade": {
+   "mae_model": 1.027,
+   "mae_recent_average": 1.022,
+   "brier_model": 0.197,
+   "brier_base_rate": 0.2396,
+   "pick_accuracy": 0.6848,
+   "strong_pick_accuracy": 0.7609,
+   "strong_pick_share": 0.6293,
+   "calibration": [
+    {
+     "predicted": 0.024,
+     "actual": 0.015,
+     "n": 777
+    },
+    {
+     "predicted": 0.156,
+     "actual": 0.178,
+     "n": 897
+    },
+    {
+     "predicted": 0.259,
+     "actual": 0.241,
+     "n": 975
+    },
+    {
+     "predicted": 0.346,
+     "actual": 0.37,
+     "n": 1521
+    },
+    {
+     "predicted": 0.447,
+     "actual": 0.426,
+     "n": 1452
+    },
+    {
+     "predicted": 0.55,
+     "actual": 0.54,
+     "n": 1706
+    },
+    {
+     "predicted": 0.665,
+     "actual": 0.672,
+     "n": 418
+    },
+    {
+     "predicted": 0.751,
+     "actual": 0.759,
+     "n": 652
+    },
+    {
+     "predicted": 0.847,
+     "actual": 0.859,
+     "n": 85
+    }
+   ]
+  },
+  "points+rebounds+assists": {
+   "mae_model": 6.474,
+   "mae_recent_average": 6.691,
+   "brier_model": 0.2382,
+   "brier_base_rate": 0.2491,
+   "pick_accuracy": 0.5847,
+   "strong_pick_accuracy": 0.6673,
+   "strong_pick_share": 0.3225,
+   "calibration": [
+    {
+     "predicted": 0.195,
+     "actual": 0.182,
+     "n": 99
+    },
+    {
+     "predicted": 0.246,
+     "actual": 0.222,
+     "n": 135
+    },
+    {
+     "predicted": 0.341,
+     "actual": 0.334,
+     "n": 1208
+    },
+    {
+     "predicted": 0.452,
+     "actual": 0.429,
+     "n": 3129
+    },
+    {
+     "predicted": 0.535,
+     "actual": 0.515,
+     "n": 2643
+    },
+    {
+     "predicted": 0.617,
+     "actual": 0.627,
+     "n": 1148
+    },
+    {
+     "predicted": 0.715,
+     "actual": 0.778,
+     "n": 72
+    },
+    {
+     "predicted": 0.813,
+     "actual": 0.77,
+     "n": 74
+    }
+   ]
+  },
+  "points+rebounds": {
+   "mae_model": 5.984,
+   "mae_recent_average": 6.145,
+   "brier_model": 0.2395,
+   "brier_base_rate": 0.2491,
+   "pick_accuracy": 0.5719,
+   "strong_pick_accuracy": 0.6665,
+   "strong_pick_share": 0.2901,
+   "calibration": [
+    {
+     "predicted": 0.253,
+     "actual": 0.22,
+     "n": 345
+    },
+    {
+     "predicted": 0.368,
+     "actual": 0.353,
+     "n": 1184
+    },
+    {
+     "predicted": 0.443,
+     "actual": 0.447,
+     "n": 3071
+    },
+    {
+     "predicted": 0.535,
+     "actual": 0.513,
+     "n": 2977
+    },
+    {
+     "predicted": 0.626,
+     "actual": 0.649,
+     "n": 878
+    }
+   ]
+  },
+  "points+assists": {
+   "mae_model": 5.585,
+   "mae_recent_average": 5.76,
+   "brier_model": 0.2375,
+   "brier_base_rate": 0.249,
+   "pick_accuracy": 0.5855,
+   "strong_pick_accuracy": 0.682,
+   "strong_pick_share": 0.2676,
+   "calibration": [
+    {
+     "predicted": 0.266,
+     "actual": 0.228,
+     "n": 430
+    },
+    {
+     "predicted": 0.366,
+     "actual": 0.352,
+     "n": 1220
+    },
+    {
+     "predicted": 0.438,
+     "actual": 0.419,
+     "n": 2487
+    },
+    {
+     "predicted": 0.543,
+     "actual": 0.531,
+     "n": 3752
+    },
+    {
+     "predicted": 0.646,
+     "actual": 0.67,
+     "n": 437
+    },
+    {
+     "predicted": 0.757,
+     "actual": 0.71,
+     "n": 183
+    }
+   ]
+  },
+  "rebounds+assists": {
+   "mae_model": 2.78,
+   "mae_recent_average": 2.834,
+   "brier_model": 0.2352,
+   "brier_base_rate": 0.2482,
+   "pick_accuracy": 0.5969,
+   "strong_pick_accuracy": 0.6673,
+   "strong_pick_share": 0.4266,
+   "calibration": [
+    {
+     "predicted": 0.17,
+     "actual": 0.157,
+     "n": 51
+    },
+    {
+     "predicted": 0.259,
+     "actual": 0.246,
+     "n": 508
+    },
+    {
+     "predicted": 0.364,
+     "actual": 0.361,
+     "n": 2008
+    },
+    {
+     "predicted": 0.433,
+     "actual": 0.42,
+     "n": 1964
+    },
+    {
+     "predicted": 0.542,
+     "actual": 0.52,
+     "n": 2921
+    },
+    {
+     "predicted": 0.652,
+     "actual": 0.656,
+     "n": 922
+    },
+    {
+     "predicted": 0.751,
+     "actual": 0.726,
+     "n": 117
+    }
+   ]
+  }
+ },
+ "test_rows": 14138,
+ "test_from": "2026-01-22"
+}
