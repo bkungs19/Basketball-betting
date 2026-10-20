@@ -158,7 +158,7 @@ function renderParlay() {
   const el = document.getElementById('parlay');
   const t = D.today;
   if (!t) {
-    el.innerHTML = `<h2>Today's parlay</h2><div class="card empty muted">No NBA games with prop lines today. Picks appear here on game days, about 11am and 5:30pm Eastern.</div>`;
+    el.innerHTML = `<h2>Today's parlay</h2><div class="card empty muted">No NBA games with prop lines today. Picks appear here on game days, by early afternoon Eastern.</div>`;
     return;
   }
   const p = t.parlay;

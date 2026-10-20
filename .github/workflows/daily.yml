@@ -1,11 +1,15 @@
 name: daily picks
-# Runs before games: about 11am and 5:30pm Eastern (GitHub may start it a few
-# minutes late). Updates stats, grades yesterday, pulls lines, retrains the
-# model, picks the parlay and publishes the dashboard.
+# Runs four times before games, from about 9am to 5:30pm Eastern. GitHub often
+# starts scheduled runs hours late, so the extra runs make sure picks land
+# before tip-off; odd minutes avoid the busy top of the hour. Each run updates
+# stats, grades yesterday, pulls lines, retrains the model, picks the parlay
+# and publishes the dashboard. Once games start, runs skip the odds fetch.
 on:
   schedule:
-    - cron: "0 15 * * *"
-    - cron: "30 21 * * *"
+    - cron: "7 13 * * *"
+    - cron: "37 16 * * *"
+    - cron: "7 19 * * *"
+    - cron: "37 21 * * *"
   workflow_dispatch:
 permissions:
   contents: write

@@ -52,14 +52,20 @@ def run(day: dt.date | None = None, offline: bool = False):
     grade.grade_all(box, day.isoformat())
 
     picks_path = grade.PICKS_DIR / f"{day.isoformat()}.json"
+    games = [] if offline else [g for g in stats.todays_games(day) if g["season_type"] in stats.SEASON_TYPES]
+    upcoming = [g for g in games if pd.Timestamp(g["start"]) > pd.Timestamp.now(tz="UTC")]
     if offline:
         todays = lines.load_lines(day)
-    elif not [g for g in stats.todays_games(day) if g["season_type"] in stats.SEASON_TYPES]:
+    elif not games:
         todays = lines.load_lines(day).iloc[0:0]  # no regular-season or playoff games: save the odds allowance
+    elif not upcoming or _locked(picks_path):
+        todays = None  # nothing left to pick: keep the earlier picks and save the odds allowance
     else:
         todays = lines.update_lines(day)
 
-    if len(todays) and not _locked(picks_path):
+    if todays is None:
+        print(f"{day}: games have started; keeping the earlier picks")
+    elif len(todays) and not _locked(picks_path):
         f = features.training_rows(box)
         model = PropModel().fit(f)
         model.save_report()
