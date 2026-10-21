@@ -18,7 +18,8 @@ def main():
     d = sub.add_parser("daily", help="the full daily run")
     d.add_argument("--date", type=dt.date.fromisoformat, default=None)
     d.add_argument("--offline", action="store_true", help="use saved data only (no downloads)")
-    sub.add_parser("wait", help="sleep until an hour before today's first game, if it's within 5 hours")
+    d.add_argument("--final", action="store_true", help="pregame picks: later runs keep them")
+    sub.add_parser("wait", help="sleep until an hour before today's first game, if it's within 5.5 hours")
     args = ap.parse_args()
 
     if args.cmd == "backfill":
@@ -27,7 +28,7 @@ def main():
     elif args.cmd == "stats":
         stats.update_season(stats.current_season())
     elif args.cmd == "daily":
-        daily.run(args.date, offline=args.offline)
+        daily.run(args.date, offline=args.offline, final=args.final)
     elif args.cmd == "wait":
         due = daily.pregame_wait()
         if os.environ.get("GITHUB_OUTPUT"):

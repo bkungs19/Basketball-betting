@@ -1,19 +1,21 @@
 name: daily picks
-# Scheduled for 7am, 9am, 12:30pm and 3pm Eastern. GitHub has been starting
-# scheduled runs about 2.5 to 3.5 hours late, so in practice they land around
-# 10am, noon, 3:30pm and 6pm; odd minutes avoid the busy top of the hour. Each
-# run updates stats, grades yesterday, pulls lines, retrains the model, picks
-# the parlay and publishes the dashboard. A run that lands within 5 hours of the
-# day's first game then waits (the pregame job) and makes the picks again an
-# hour before tip-off, so the final picks don't depend on GitHub's timing. Once
-# the parlay's first game starts, runs keep the earlier picks and skip the odds
-# fetch. Actions minutes are free for public repos, so the wait costs nothing.
+# Runs every two hours from 4am to 3pm Eastern, because GitHub often starts
+# scheduled runs hours late (odd minutes avoid the busy top of the hour). Each
+# run updates stats, grades yesterday, and from 10 hours before the first game
+# pulls lines, retrains the model, makes early picks and publishes the
+# dashboard. The first run that lands within 5.5 hours of the day's first game
+# then holds its machine (the pregame job) and makes the final picks an hour
+# before tip-off, so they never depend on GitHub's timing. Later runs keep the
+# final picks and skip the odds fetch. Actions minutes are free for public
+# repos, so the wait costs nothing.
 on:
   schedule:
-    - cron: "7 11 * * *"
-    - cron: "7 13 * * *"
-    - cron: "37 16 * * *"
-    - cron: "7 19 * * *"
+    - cron: "7 8 * * *"
+    - cron: "7 10 * * *"
+    - cron: "7 12 * * *"
+    - cron: "7 14 * * *"
+    - cron: "7 16 * * *"
+    - cron: "7 18 * * *"
   workflow_dispatch:
 permissions:
   contents: write
@@ -57,7 +59,7 @@ jobs:
   pregame:
     needs: picks
     runs-on: ubuntu-latest
-    timeout-minutes: 330
+    timeout-minutes: 350
     environment:
       name: github-pages
       url: ${{ steps.deploy.outputs.page_url }}
@@ -79,7 +81,7 @@ jobs:
           SGO_API_KEY: ${{ secrets.SGO_API_KEY }}
         run: |
           git pull --rebase
-          python -m bb daily
+          python -m bb daily --final
       - name: Save data
         if: steps.wait.outputs.refresh == 'true'
         run: |

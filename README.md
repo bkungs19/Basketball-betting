@@ -1,6 +1,6 @@
 # Basketball Betting
 
-Daily NBA player prop picks. Several times a day before games, GitHub runs the pipeline: it updates player stats, grades yesterday's picks, pulls today's prop lines, retrains the model, builds the highest expected value 3 to 4 leg parlay and publishes the dashboard. It also checks when the day's first game tips off and makes the picks again an hour before it, with the latest lines and injury news.
+Daily NBA player prop picks. Several times a day before games, GitHub runs the pipeline: it updates player stats, grades yesterday's picks, pulls today's prop lines, retrains the model, builds the highest expected value 3 to 4 leg parlay and publishes the dashboard. Runs start every two hours from early morning because GitHub often starts them late. The first run that lands within 5.5 hours of the day's first game waits and makes the final picks an hour before tip-off, with the latest lines and injury news; later runs leave the final picks alone.
 
 **Dashboard:** https://bkungs19.github.io/Basketball-betting/ (raw data for Game Plan at `/picks.json`)
 

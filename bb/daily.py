@@ -13,13 +13,18 @@ from .config import DATA, ET, HISTORY_SEASONS
 from .model import PropModel
 
 TOP_PROPS = 25
+LINES_LEAD = dt.timedelta(hours=10)  # props post the morning of; fetching earlier wastes the odds allowance
+PREGAME_LEAD = dt.timedelta(hours=1)
+LONGEST_WAIT = dt.timedelta(hours=5, minutes=30)  # GitHub ends a job after 6 hours
 
 
 def _locked(path) -> bool:
-    """A parlay is locked once any of its games has started."""
+    """Picks are locked once the pregame picks are made or any parlay game has started."""
     if not path.exists():
         return False
     old = json.loads(path.read_text())
+    if old.get("final"):
+        return True
     legs = (old.get("parlay") or {}).get("legs", [])
     now = pd.Timestamp.now(tz="UTC")
     return any(pd.Timestamp(l["start"]) <= now for l in legs)
@@ -39,7 +44,7 @@ def espn_tip_times(todays: pd.DataFrame, games: list[dict]) -> pd.DataFrame:
     return todays.assign(start=espn.where(espn.notna(), todays["start"]))
 
 
-def pregame_wait(lead=dt.timedelta(hours=1), longest=dt.timedelta(hours=5)) -> bool:
+def pregame_wait(lead=PREGAME_LEAD, longest=LONGEST_WAIT) -> bool:
     """Sleep until an hour before today's first game, when that's within reach.
 
     GitHub starts scheduled runs hours late, so instead of trusting the clock,
@@ -80,7 +85,7 @@ def clean(x):
     return x
 
 
-def run(day: dt.date | None = None, offline: bool = False):
+def run(day: dt.date | None = None, offline: bool = False, final: bool = False):
     day = day or dt.datetime.now(ET).date()
     season = stats.current_season(day)
     seasons = HISTORY_SEASONS + ([season] if season not in HISTORY_SEASONS else [])
@@ -92,18 +97,22 @@ def run(day: dt.date | None = None, offline: bool = False):
 
     picks_path = grade.PICKS_DIR / f"{day.isoformat()}.json"
     games = [] if offline else [g for g in stats.todays_games(day) if g["season_type"] in stats.SEASON_TYPES]
-    upcoming = [g for g in games if pd.Timestamp(g["start"]) > pd.Timestamp.now(tz="UTC")]
+    now = pd.Timestamp.now(tz="UTC")
+    tips = sorted(t for t in (pd.Timestamp(g["start"]) for g in games) if t > now)
+    skip = None
     if offline:
         todays = lines.load_lines(day)
     elif not games:
         todays = lines.load_lines(day).iloc[0:0]  # no regular-season or playoff games: save the odds allowance
-    elif not upcoming or _locked(picks_path):
-        todays = None  # nothing left to pick: keep the earlier picks and save the odds allowance
+    elif not tips or _locked(picks_path):
+        skip = "the picks are final or the games have started; keeping the earlier picks"
+    elif tips[0] - now > LINES_LEAD:
+        skip = "the first game is more than 10 hours away; prop lines aren't up yet"
     else:
         todays = espn_tip_times(lines.update_lines(day), games)
 
-    if todays is None:
-        print(f"{day}: games have started; keeping the earlier picks")
+    if skip:
+        print(f"{day}: {skip}")
     elif len(todays) and not _locked(picks_path):
         f = features.training_rows(box)
         model = PropModel().fit(f)
@@ -121,6 +130,7 @@ def run(day: dt.date | None = None, offline: bool = False):
             "other_parlays": parlays[1:4],
             "top_props": _records(best[[c for c in parlay.LEG_FIELDS if c in best.columns]]) if len(best) else [],
             "graded": False,
+            "final": final,
         }
         grade.PICKS_DIR.mkdir(parents=True, exist_ok=True)
         picks_path.write_text(json.dumps(clean(picks), indent=1, default=str, allow_nan=False))

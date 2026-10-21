@@ -143,7 +143,7 @@ const fmtDate = s => new Date(s + 'T12:00:00').toLocaleDateString([], {weekday: 
 const stamp = iso => new Date(iso).toLocaleString([], {month: 'short', day: 'numeric', hour: 'numeric', minute: '2-digit'});
 const made = D.today && D.today.generated_at;
 document.getElementById('updated').textContent =
-  fmtDate(D.date) + (made ? ' · picks made ' + stamp(made) : ' · checked ' + stamp(D.built_at));
+  fmtDate(D.date) + (made ? (D.today.final ? ' · final picks made ' : ' · early picks made ') + stamp(made) : ' · checked ' + stamp(D.built_at));
 
 function legRow(l, showBook) {
   const link = l.deeplink ? ` <a href="${esc(l.deeplink)}" target="_blank" rel="noopener">Bet</a>` : '';
