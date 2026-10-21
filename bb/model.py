@@ -54,6 +54,9 @@ def pseudo_lines(f: pd.DataFrame, col: str, rng: np.random.Generator) -> np.ndar
     return np.maximum(base + jitter, 0.5)
 
 
+HOLDOUT_MIN_ROWS = 15000  # a full season has about 25,000 player-game rows
+
+
 class PropModel:
     def __init__(self):
         self.features: list[str] = []
@@ -69,8 +72,11 @@ class PropModel:
 
     def fit(self, f: pd.DataFrame, holdout_season: str | None = None) -> "PropModel":
         self.features = feature_columns(f)
-        seasons = sorted(f["season"].unique())
-        holdout_season = holdout_season or seasons[-1]
+        # Hold out the latest full season; the season under way joins only the
+        # final refit until it's big enough (early on it has a handful of games).
+        sizes = f.groupby("season").size()
+        full = sorted(sizes[sizes >= HOLDOUT_MIN_ROWS].index)
+        holdout_season = holdout_season or (full[-1] if full else sizes.index.max())
         train, hold = f[f["season"] < holdout_season], f[f["season"] == holdout_season]
         rng = np.random.default_rng(0)
         report = {"holdout_season": holdout_season, "train_rows": int(len(train)), "holdout_rows": int(len(hold)), "markets": {}}
