@@ -1,0 +1,11 @@
+{
+ "holdout_season": "2025-26",
+ "train_games": 3944,
+ "test_games": 662,
+ "margin_sd": 14.05,
+ "mae_model": 11.97,
+ "mae_home_edge_only": 14.18,
+ "winner_accuracy": 0.6964,
+ "brier_model": 0.1959,
+ "brier_home_rate": 0.247
+}
