@@ -165,7 +165,7 @@ function renderParlay() {
   }
   const p = t.parlay;
   if (!p) {
-    el.innerHTML = `<h2>Today's parlay</h2><div class="card empty muted">No parlay today: fewer than 3 games had a leg the model rates as positive expected value. Single props below.</div>`;
+    el.innerHTML = `<h2>Today's parlay</h2><div class="card empty muted">No parlay today: no 2 or 3 leg combination had positive expected value and at least a 30% chance to hit. Single props below.</div>`;
     return;
   }
   el.innerHTML = `<h2>Today's parlay</h2>
