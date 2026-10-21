@@ -14,6 +14,7 @@ BOOKS = {
     "fanduel": "FanDuel", "draftkings": "DraftKings", "betmgm": "BetMGM", "caesars": "Caesars",
     "espnbet": "ESPN BET", "bovada": "Bovada", "unibet": "Unibet", "pointsbet": "PointsBet",
     "williamhill": "William Hill", "fanatics": "Fanatics", "betrivers": "BetRivers", "bet365": "bet365",
+    "any": "typical odds",
 }
 
 
@@ -152,7 +153,7 @@ function legRow(l, showBook) {
     <div><div class="pick">${esc(l.player_name)} ${esc(l.side)} ${l.line} ${esc(l.market)}${inj}</div>
       <div class="muted small">${esc(l.team)} vs ${esc(l.opp_abbr)} · ${time(l.start)} · projects ${(+l.proj).toFixed(1)}, recent avg ${(+l.recent_avg).toFixed(1)}${showBook ? ' · ' + esc(book(l.book)) : ''}</div></div>
     <div style="text-align:right"><div class="pick">${sgn(l.odds)}${link}</div>
-      <div class="muted small">hits ${pct(l.p_hit)}</div></div>
+      <div class="muted small">hits ${pct(l.p_hit)}${l.min_odds != null ? ' · take ' + sgn(l.min_odds) + ' or better' : ''}</div></div>
   </li>`;
 }
 
@@ -171,7 +172,7 @@ function renderParlay() {
   el.innerHTML = `<h2>Today's parlay</h2>
   <div class="card">
     <div class="parlay-head">
-      <div><div class="odds">${sgn(p.american)}</div><div class="muted small">${p.legs.length}-leg parlay at ${esc(book(p.book))}</div></div>
+      <div><div class="odds">${sgn(p.american)}</div><div class="muted small">${p.legs.length}-leg parlay at ${esc(book(p.book))}${p.min_american != null ? ' · take ' + sgn(p.min_american) + ' or better' : ''}</div></div>
       <div class="stats">
         <div class="stat"><span class="muted small">Hit chance</span><b>${pct(p.p_hit)}</b></div>
         <div class="stat"><span class="muted small">Expected value</span><b class="${p.ev >= 0 ? 'pos' : 'neg'}">${evTxt(p.ev)}</b></div>
@@ -179,6 +180,7 @@ function renderParlay() {
       </div>
     </div>
     <ul class="legs">${p.legs.map(l => legRow(l, false)).join('')}</ul>
+    ${p.book === 'any' ? `<p class="muted small" style="margin:8px 0 0">Odds shown are typical prices at the big sportsbooks. On Fliff or Rebet, find the same line and bet it if the odds are at least the "take" price.</p>` : ''}
   </div>`;
 }
 
@@ -203,7 +205,7 @@ function renderProps() {
   <div class="filters">${markets.map(m => `<button class="${m === marketFilter ? 'on' : ''}" data-m="${esc(m)}">${esc(m)}</button>`).join('')}</div>
   <div class="card" style="padding:0 16px"><ul class="legs" style="margin:0">${shown.map((r, i) => `<li style="${i === 0 ? 'border-top:0' : ''}">
     <div><div class="pick">${esc(r.player_name)} ${esc(r.side)} ${r.line} ${esc(r.market)}</div>
-      <div class="muted small">${esc(r.team)} vs ${esc(r.opp_abbr)} · projects ${(+r.proj).toFixed(1)} · hits ${pct(r.p_hit)}${res(r)}</div></div>
+      <div class="muted small">${esc(r.team)} vs ${esc(r.opp_abbr)} · projects ${(+r.proj).toFixed(1)} · hits ${pct(r.p_hit)}${r.min_odds != null ? ' · take ' + sgn(r.min_odds) + ' or better' : ''}${res(r)}</div></div>
     <div style="text-align:right"><div class="pick">${r.deeplink ? `<a href="${esc(r.deeplink)}" target="_blank" rel="noopener">${sgn(r.odds)}</a>` : sgn(r.odds)}</div>
       <div class="small"><span class="muted">${esc(book(r.book))}</span> <span class="${r.ev >= 0 ? 'pos' : 'neg'}">${evTxt(r.ev)}</span></div></div>
   </li>`).join('')}</ul></div>`;

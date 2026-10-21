@@ -1,4 +1,9 @@
-"""Pick the best 2 or 3 leg parlay from today's scored props."""
+"""Pick the best 2 or 3 leg parlay from today's scored props.
+
+Brandon bets on Fliff and Rebet, which the free odds feed doesn't carry, so
+picks are priced at the typical (median) odds across the books it does carry,
+and every leg and parlay carries the worst odds still worth taking.
+"""
 from __future__ import annotations
 
 import itertools
@@ -11,14 +16,33 @@ from .odds import decimal_to_american
 
 LEG_FIELDS = ["player_name", "player_id", "team", "opp_abbr", "event_id", "start", "stat", "market", "side", "line",
               "odds", "decimal", "p_hit", "p_model_hit", "p_market_hit", "ev", "proj", "recent_avg", "book",
-              "deeplink", "injury"]
-POOL = 40  # most likely positive-EV legs per book to combine
+              "deeplink", "injury", "min_odds", "n_books"]
+POOL = 40  # most likely positive-EV legs to combine
+MIN_BOOKS = 2  # lines offered by several books are the ones other apps are likely to have too
 
 
-def legs_for_book(props: pd.DataFrame, book: str) -> pd.DataFrame:
-    """Positive-EV legs at one book, most likely to hit first."""
-    c = props[(props["book"] == book) & props["eligible"] & (props["ev"] > 0)]
-    return c.sort_values("p_hit", ascending=False).head(POOL)
+def consensus(props: pd.DataFrame) -> pd.DataFrame:
+    """Each prop line once, priced at the median odds across books, with the break-even odds."""
+    e = props[props["eligible"]]
+    if e.empty:
+        return e.assign(min_odds=[], n_books=[])
+    keys = ["player_id", "stat", "side", "line"]
+    g = e.groupby(keys)
+    c = e.drop_duplicates(keys).set_index(keys)
+    c["decimal"] = g["decimal"].median()
+    c["n_books"] = g["book"].nunique()
+    c = c.reset_index()
+    c["odds"] = c["decimal"].map(decimal_to_american)
+    c["ev"] = c["p_hit"] * c["decimal"] - 1
+    c["min_odds"] = (1 / c["p_hit"]).map(decimal_to_american)
+    c["book"] = "any"
+    c["deeplink"] = ""
+    return c[c["n_books"] >= MIN_BOOKS]
+
+
+def candidate_legs(lines: pd.DataFrame) -> pd.DataFrame:
+    """Positive-EV legs, most likely to hit first."""
+    return lines[lines["ev"] > 0].sort_values("p_hit", ascending=False).head(POOL)
 
 
 def _combos(legs: pd.DataFrame):
@@ -42,28 +66,26 @@ def best_for_book(legs: pd.DataFrame):
 
 
 def build(props: pd.DataFrame) -> list[dict]:
-    """One parlay per book, best first.
+    """Today's parlay, priced at typical odds, as a one-item list (empty if none qualifies).
 
-    Each book's parlay is the 2 or 3 leg combination of positive-EV legs with
-    the highest expected value, prod(p_i * d_i) - 1, among those whose chance
-    to hit, prod(p_i), is at least 30%.
+    It's the 2 or 3 leg combination of positive-EV legs with the highest
+    expected value, prod(p_i * d_i) - 1, among those whose chance to hit,
+    prod(p_i), is at least 30%.
     """
-    parlays = []
     if props.empty:
-        return parlays
-    for book in props["book"].unique():
-        legs = legs_for_book(props, book)
-        best = best_for_book(legs)
-        if best is None:
-            continue
-        ev, p_hit, decimal, combo = best
-        chosen = pd.DataFrame(combo, columns=legs.columns)
-        parlays.append({
-            "book": book,
-            "legs": chosen[[f for f in LEG_FIELDS if f in chosen.columns]].to_dict("records"),
-            "decimal": round(decimal, 3),
-            "american": decimal_to_american(decimal),
-            "p_hit": round(p_hit, 4),
-            "ev": round(ev, 4),
-        })
-    return sorted(parlays, key=lambda p: p["ev"], reverse=True)
+        return []
+    legs = candidate_legs(consensus(props))
+    best = best_for_book(legs)
+    if best is None:
+        return []
+    ev, p_hit, decimal, combo = best
+    chosen = pd.DataFrame(combo, columns=legs.columns)
+    return [{
+        "book": "any",
+        "legs": chosen[[f for f in LEG_FIELDS if f in chosen.columns]].to_dict("records"),
+        "decimal": round(decimal, 3),
+        "american": decimal_to_american(decimal),
+        "min_american": decimal_to_american(1 / p_hit),
+        "p_hit": round(p_hit, 4),
+        "ev": round(ev, 4),
+    }]

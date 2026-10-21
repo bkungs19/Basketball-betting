@@ -119,8 +119,9 @@ def run(day: dt.date | None = None, offline: bool = False, final: bool = False):
         model.save_report()
         props = predict.score(day, season, box, model, todays)
         parlays = parlay.build(props)
-        best = (props[props["eligible"]].sort_values("ev", ascending=False)
-                .drop_duplicates(["player_id", "stat"]).head(TOP_PROPS)) if len(props) else props
+        typical = parlay.consensus(props) if len(props) else props
+        best = (typical[typical["ev"] > 0].sort_values("ev", ascending=False)
+                .drop_duplicates(["player_id", "stat"]).head(TOP_PROPS)) if len(typical) else typical
         picks = {
             "date": day.isoformat(),
             "generated_at": dt.datetime.now(dt.timezone.utc).isoformat(timespec="seconds"),
