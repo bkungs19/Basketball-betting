@@ -27,7 +27,9 @@
     "recent_avg": 18.68378860680245,
     "book": "bovada",
     "deeplink": "",
-    "injury": ""
+    "injury": "",
+    "actual": 23.0,
+    "result": "loss"
    },
    {
     "player_name": "Payton Pritchard",
@@ -50,7 +52,9 @@
     "recent_avg": 16.072635926662716,
     "book": "bovada",
     "deeplink": "",
-    "injury": ""
+    "injury": "",
+    "actual": 17.0,
+    "result": "loss"
    },
    {
     "player_name": "Landry Shamet",
@@ -73,13 +77,17 @@
     "recent_avg": 1.5729125331795004,
     "book": "bovada",
     "deeplink": "",
-    "injury": ""
+    "injury": "",
+    "actual": 1.0,
+    "result": "win"
    }
   ],
   "decimal": 8.825,
   "american": 783,
   "p_hit": 0.1475,
-  "ev": 0.3015
+  "ev": 0.3015,
+  "result": "loss",
+  "profit": -1.0
  },
  "other_parlays": [
   {
@@ -339,7 +347,9 @@
    "recent_avg": 18.6837886068,
    "book": "bovada",
    "deeplink": "",
-   "injury": ""
+   "injury": "",
+   "actual": 23.0,
+   "result": "loss"
   },
   {
    "player_name": "Payton Pritchard",
@@ -362,7 +372,9 @@
    "recent_avg": 16.0726359267,
    "book": "bovada",
    "deeplink": "",
-   "injury": ""
+   "injury": "",
+   "actual": 17.0,
+   "result": "loss"
   },
   {
    "player_name": "Dylan Harper",
@@ -385,7 +397,9 @@
    "recent_avg": 21.4898576248,
    "book": "bovada",
    "deeplink": "",
-   "injury": ""
+   "injury": "",
+   "actual": 25.0,
+   "result": "loss"
   },
   {
    "player_name": "Victor Wembanyama",
@@ -408,7 +422,9 @@
    "recent_avg": 1.8819865166,
    "book": "fanduel",
    "deeplink": "https://sportsbook.fanduel.com/addToBetslip?marketId=717.181372808&selectionId=51589519",
-   "injury": ""
+   "injury": "",
+   "actual": 0.0,
+   "result": "win"
   },
   {
    "player_name": "Payton Pritchard",
@@ -431,7 +447,9 @@
    "recent_avg": 21.2420829304,
    "book": "bovada",
    "deeplink": "",
-   "injury": ""
+   "injury": "",
+   "actual": 18.0,
+   "result": "win"
   },
   {
    "player_name": "Paul Reed",
@@ -454,7 +472,9 @@
    "recent_avg": 0.9521880795,
    "book": "betmgm",
    "deeplink": "https://sports.nj.betmgm.com/en/sports?options=6:48177-4108733-6622683",
-   "injury": ""
+   "injury": "",
+   "actual": 2.0,
+   "result": "loss"
   },
   {
    "player_name": "Jayson Tatum",
@@ -477,7 +497,9 @@
    "recent_avg": 3.1499212751,
    "book": "draftkings",
    "deeplink": "",
-   "injury": ""
+   "injury": "",
+   "actual": 0.0,
+   "result": "win"
   },
   {
    "player_name": "Cade Cunningham",
@@ -500,7 +522,9 @@
    "recent_avg": 35.7594066636,
    "book": "espnbet",
    "deeplink": "",
-   "injury": ""
+   "injury": "",
+   "actual": 34.0,
+   "result": "win"
   },
   {
    "player_name": "Landry Shamet",
@@ -523,7 +547,9 @@
    "recent_avg": 1.5729125332,
    "book": "caesars",
    "deeplink": "https://sportsbook.caesars.com/us/nj/bet/betslip?selectionIds=7e435939-8beb-36e6-859d-5ebc6e5d0d2f",
-   "injury": ""
+   "injury": "",
+   "actual": 1.0,
+   "result": "win"
   },
   {
    "player_name": "Neemias Queta",
@@ -546,7 +572,9 @@
    "recent_avg": 9.1444202354,
    "book": "betmgm",
    "deeplink": "https://sports.nj.betmgm.com/en/sports?options=6:48177-4108765-6622738",
-   "injury": ""
+   "injury": "",
+   "actual": 4.0,
+   "result": "win"
   },
   {
    "player_name": "Isaiah Hartenstein",
@@ -569,7 +597,9 @@
    "recent_avg": 8.1938487833,
    "book": "bovada",
    "deeplink": "",
-   "injury": ""
+   "injury": "",
+   "actual": 3.0,
+   "result": "win"
   },
   {
    "player_name": "Paul George",
@@ -592,7 +622,9 @@
    "recent_avg": 3.0817310379,
    "book": "fanduel",
    "deeplink": "https://sportsbook.fanduel.com/addToBetslip?marketId=717.181514861&selectionId=5066351",
-   "injury": ""
+   "injury": "",
+   "actual": 3.0,
+   "result": "win"
   },
   {
    "player_name": "Ausar Thompson",
@@ -615,7 +647,9 @@
    "recent_avg": 3.2579601175,
    "book": "espnbet",
    "deeplink": "",
-   "injury": ""
+   "injury": "",
+   "actual": 5.0,
+   "result": "loss"
   },
   {
    "player_name": "LeBron James",
@@ -638,7 +672,9 @@
    "recent_avg": 13.7945706895,
    "book": "espnbet",
    "deeplink": "",
-   "injury": ""
+   "injury": "",
+   "actual": 16.0,
+   "result": "loss"
   },
   {
    "player_name": "Ajay Mitchell",
@@ -661,7 +697,9 @@
    "recent_avg": 3.9499767517,
    "book": "fanduel",
    "deeplink": "https://sportsbook.fanduel.com/addToBetslip?marketId=717.192484088&selectionId=53679067",
-   "injury": ""
+   "injury": "",
+   "actual": 6.0,
+   "result": "loss"
   },
   {
    "player_name": "Chet Holmgren",
@@ -684,7 +722,9 @@
    "recent_avg": 0.7139320428,
    "book": "espnbet",
    "deeplink": "",
-   "injury": ""
+   "injury": "",
+   "actual": 0.0,
+   "result": "win"
   },
   {
    "player_name": "Dylan Harper",
@@ -707,7 +747,9 @@
    "recent_avg": 8.9081272103,
    "book": "bovada",
    "deeplink": "",
-   "injury": ""
+   "injury": "",
+   "actual": 12.0,
+   "result": "loss"
   },
   {
    "player_name": "Andre Drummond",
@@ -730,7 +772,9 @@
    "recent_avg": 4.1414846251,
    "book": "bovada",
    "deeplink": "",
-   "injury": ""
+   "injury": "",
+   "actual": 12.0,
+   "result": "loss"
   },
   {
    "player_name": "Devin Vassell",
@@ -753,7 +797,9 @@
    "recent_avg": 8.3003372955,
    "book": "fanduel",
    "deeplink": "https://sportsbook.fanduel.com/addToBetslip?marketId=717.192480537&selectionId=38295529",
-   "injury": ""
+   "injury": "",
+   "actual": 4.0,
+   "result": "loss"
   },
   {
    "player_name": "Payton Pritchard",
@@ -776,7 +822,9 @@
    "recent_avg": 2.6866451782,
    "book": "fanduel",
    "deeplink": "https://sportsbook.fanduel.com/addToBetslip?marketId=717.181514798&selectionId=26799201",
-   "injury": ""
+   "injury": "",
+   "actual": 2.0,
+   "result": "win"
   },
   {
    "player_name": "John Collins",
@@ -799,7 +847,9 @@
    "recent_avg": 0.9479549098,
    "book": "fanduel",
    "deeplink": "https://sportsbook.fanduel.com/addToBetslip?marketId=717.181514858&selectionId=14921443",
-   "injury": ""
+   "injury": "",
+   "actual": 1.0,
+   "result": "win"
   },
   {
    "player_name": "Cade Cunningham",
@@ -822,7 +872,9 @@
    "recent_avg": 30.9962312799,
    "book": "fanduel",
    "deeplink": "https://sportsbook.fanduel.com/addToBetslip?marketId=717.181516666&selectionId=41536747",
-   "injury": ""
+   "injury": "",
+   "actual": 30.0,
+   "result": "win"
   },
   {
    "player_name": "John Collins",
@@ -845,7 +897,9 @@
    "recent_avg": 0.9926208383,
    "book": "betmgm",
    "deeplink": "https://sports.nj.betmgm.com/en/sports?options=6:48177-4107125-6619608",
-   "injury": ""
+   "injury": "",
+   "actual": 0.0,
+   "result": "win"
   },
   {
    "player_name": "Payton Pritchard",
@@ -868,7 +922,9 @@
    "recent_avg": 19.6075589647,
    "book": "fanduel",
    "deeplink": "https://sportsbook.fanduel.com/addToBetslip?marketId=717.192324044&selectionId=38225629",
-   "injury": ""
+   "injury": "",
+   "actual": 21.0,
+   "result": "loss"
   },
   {
    "player_name": "Ajay Mitchell",
@@ -891,8 +947,10 @@
    "recent_avg": 0.8656812626,
    "book": "espnbet",
    "deeplink": "",
-   "injury": ""
+   "injury": "",
+   "actual": 0.0,
+   "result": "win"
   }
  ],
- "graded": false
+ "graded": true
 }
