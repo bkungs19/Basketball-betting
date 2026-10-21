@@ -16,7 +16,7 @@ from .odds import decimal_to_american
 
 LEG_FIELDS = ["player_name", "player_id", "team", "opp_abbr", "event_id", "start", "stat", "market", "side", "line",
               "odds", "decimal", "p_hit", "p_model_hit", "p_market_hit", "ev", "proj", "recent_avg", "book",
-              "deeplink", "injury", "min_odds", "n_books"]
+              "deeplink", "injury", "min_odds", "n_books", "kind", "label"]
 POOL = 40  # most likely positive-EV legs to combine
 MIN_BOOKS = 2  # lines offered by several books are the ones other apps are likely to have too
 

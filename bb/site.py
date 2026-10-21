@@ -25,6 +25,9 @@ def summarize(days: list[dict]) -> dict:
     profit = sum(p.get("profit", 0) for p in parlays)
     prop_wins = sum(p["result"] == "win" for p in props)
     prop_profit = sum((p["decimal"] - 1) if p["result"] == "win" else -1 for p in props)
+    gpicks = [p for d in days if d.get("graded") for p in d.get("game_picks", []) if p.get("result") in ("win", "loss")]
+    game_wins = sum(p["result"] == "win" for p in gpicks)
+    game_profit = sum((p["decimal"] - 1) if p["result"] == "win" else -1 for p in gpicks)
     recent = []
     for d in sorted(days, key=lambda d: d["date"], reverse=True)[:30]:
         p = d.get("parlay")
@@ -34,13 +37,14 @@ def summarize(days: list[dict]) -> dict:
             "american": (p or {}).get("american"),
             "profit": (p or {}).get("profit"),
             "legs": [
-                {k: l.get(k) for k in ("player_name", "market", "side", "line", "actual", "result")}
+                {k: l.get(k) for k in ("player_name", "market", "side", "line", "actual", "result", "label")}
                 for l in (p or {}).get("legs", [])
             ],
         })
     return {
         "parlays": {"wins": wins, "losses": len(parlays) - wins, "units": round(profit, 2)},
         "props": {"wins": prop_wins, "losses": len(props) - prop_wins, "units": round(prop_profit, 2)},
+        "games": {"wins": game_wins, "losses": len(gpicks) - game_wins, "units": round(game_profit, 2)},
         "recent": recent,
     }
 
@@ -71,7 +75,7 @@ TEMPLATE = r"""<!doctype html>
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>NBA Props</title>
+<title>NBA Picks</title>
 <style>
 :root {
   --bg: #f6f7f9; --card: #ffffff; --text: #14171c; --muted: #5d6673; --line: #e3e6eb;
@@ -120,11 +124,12 @@ footer { margin-top: 36px; font-size: 12px; color: var(--muted); }
 <body>
 <main>
   <header>
-    <h1>NBA Props</h1>
+    <h1>NBA Picks</h1>
     <span class="muted small" id="updated"></span>
   </header>
   <section id="parlay"></section>
   <section id="others"></section>
+  <section id="games"></section>
   <section id="props"></section>
   <section id="record"></section>
   <section id="model"></section>
@@ -146,12 +151,16 @@ const made = D.today && D.today.generated_at;
 document.getElementById('updated').textContent =
   fmtDate(D.date) + (made ? (D.today.final ? ' · final picks made ' : ' · early picks made ') + stamp(made) : ' · checked ' + stamp(D.built_at));
 
+const legName = l => l.kind === 'game' ? `${l.label} (${l.market.toLowerCase()})` : `${l.player_name} ${l.side} ${l.line} ${l.market}`;
+const projText = l => l.proj >= 0 ? `projects a ${(+l.proj).toFixed(1)}-point win` : `projects a ${(-l.proj).toFixed(1)}-point loss`;
+
 function legRow(l, showBook) {
   const link = l.deeplink ? ` <a href="${esc(l.deeplink)}" target="_blank" rel="noopener">Bet</a>` : '';
   const inj = l.injury ? ` <span class="warn small">${esc(l.injury)}</span>` : '';
+  const meta = l.kind === 'game' ? projText(l) : `projects ${(+l.proj).toFixed(1)}, recent avg ${(+l.recent_avg).toFixed(1)}`;
   return `<li>
-    <div><div class="pick">${esc(l.player_name)} ${esc(l.side)} ${l.line} ${esc(l.market)}${inj}</div>
-      <div class="muted small">${esc(l.team)} vs ${esc(l.opp_abbr)} · ${time(l.start)} · projects ${(+l.proj).toFixed(1)}, recent avg ${(+l.recent_avg).toFixed(1)}${showBook ? ' · ' + esc(book(l.book)) : ''}</div></div>
+    <div><div class="pick">${esc(legName(l))}${inj}</div>
+      <div class="muted small">${esc(l.team)} vs ${esc(l.opp_abbr)} · ${time(l.start)} · ${meta}${showBook ? ' · ' + esc(book(l.book)) : ''}</div></div>
     <div style="text-align:right"><div class="pick">${sgn(l.odds)}${link}</div>
       <div class="muted small">hits ${pct(l.p_hit)}${l.min_odds != null ? ' · take ' + sgn(l.min_odds) + ' or better' : ''}</div></div>
   </li>`;
@@ -193,6 +202,20 @@ function renderOthers() {
       <ul class="legs">${p.legs.map(l => legRow(l, false)).join('')}</ul></div>`).join('')}</details>`;
 }
 
+function renderGames() {
+  const rows = (D.today && D.today.game_picks) || [];
+  const el = document.getElementById('games');
+  if (!rows.length) { el.innerHTML = ''; return; }
+  const res = r => D.today.graded ? ` · <span class="${r.result === 'win' ? 'pos' : r.result === 'loss' ? 'neg' : 'muted'}">${esc(r.result)}</span>` : '';
+  el.innerHTML = `<h2>Moneyline and spread picks</h2>
+  <div class="card" style="padding:0 16px"><ul class="legs" style="margin:0">${rows.map((r, i) => `<li style="${i === 0 ? 'border-top:0' : ''}">
+    <div><div class="pick">${esc(legName(r))}</div>
+      <div class="muted small">${esc(r.team)} vs ${esc(r.opp_abbr)} · ${time(r.start)} · ${projText(r)} · ${r.kind === 'game' && r.stat === 'moneyline' ? 'wins' : 'covers'} ${pct(r.p_hit)} · take ${sgn(r.min_odds)} or better${res(r)}</div></div>
+    <div style="text-align:right"><div class="pick">${sgn(r.odds)}</div>
+      <div class="small"><span class="${r.ev >= 0 ? 'pos' : 'neg'}">${evTxt(r.ev)}</span></div></div>
+  </li>`).join('')}</ul></div>`;
+}
+
 let marketFilter = 'All';
 function renderProps() {
   const rows = (D.today && D.today.top_props) || [];
@@ -201,7 +224,7 @@ function renderProps() {
   const markets = ['All', ...new Set(rows.map(r => r.market))];
   const shown = rows.filter(r => marketFilter === 'All' || r.market === marketFilter);
   const res = r => D.today.graded ? ` · <span class="${r.result === 'win' ? 'pos' : r.result === 'loss' ? 'neg' : 'muted'}">${esc(r.result)}${r.actual != null ? ' (' + r.actual + ')' : ''}</span>` : '';
-  el.innerHTML = `<h2>Top single props</h2>
+  el.innerHTML = `<h2>Top player props</h2>
   <div class="filters">${markets.map(m => `<button class="${m === marketFilter ? 'on' : ''}" data-m="${esc(m)}">${esc(m)}</button>`).join('')}</div>
   <div class="card" style="padding:0 16px"><ul class="legs" style="margin:0">${shown.map((r, i) => `<li style="${i === 0 ? 'border-top:0' : ''}">
     <div><div class="pick">${esc(r.player_name)} ${esc(r.side)} ${r.line} ${esc(r.market)}</div>
@@ -221,12 +244,14 @@ function renderRecord() {
   <div class="record">
     <div class="card"><span class="muted small">Daily parlays</span><b style="display:block;font-size:20px">${pr.wins}-${pr.losses}</b>
       <span class="${pr.units >= 0 ? 'pos' : 'neg'} small">${sgn(pr.units)} units</span></div>
-    <div class="card"><span class="muted small">Top single props</span><b style="display:block;font-size:20px">${pp.wins}-${pp.losses}</b>
+    <div class="card"><span class="muted small">Top player props</span><b style="display:block;font-size:20px">${pp.wins}-${pp.losses}</b>
       <span class="${pp.units >= 0 ? 'pos' : 'neg'} small">${sgn(pp.units)} units at 1 unit each</span></div>
+    ${s.games ? `<div class="card"><span class="muted small">Moneyline and spread picks</span><b style="display:block;font-size:20px">${s.games.wins}-${s.games.losses}</b>
+      <span class="${s.games.units >= 0 ? 'pos' : 'neg'} small">${sgn(s.games.units)} units at 1 unit each</span></div>` : ''}
   </div>
   ${recent.length ? `<div class="card" style="margin-top:10px;padding:0 16px"><ul class="legs" style="margin:0">${recent.map((r, i) => `<li style="${i === 0 ? 'border-top:0' : ''}">
     <div><div class="pick">${fmtDate(r.date)}${r.american ? ' · ' + sgn(r.american) : ''}</div>
-      <div class="small">${r.legs.map(l => `<span class="${l.result === 'win' ? 'pos' : l.result === 'loss' ? 'neg' : 'muted'}">${esc(l.player_name)} ${esc(l.side)} ${l.line} ${esc(l.market)}${l.actual != null ? ' (' + l.actual + ')' : ''}</span>`).join('<br>')}</div></div>
+      <div class="small">${r.legs.map(l => `<span class="${l.result === 'win' ? 'pos' : l.result === 'loss' ? 'neg' : 'muted'}">${esc(l.label || legName(l))}${l.actual != null ? ' (' + l.actual + ')' : ''}</span>`).join('<br>')}</div></div>
     <div style="text-align:right" class="pick ${r.result === 'win' ? 'pos' : r.result === 'loss' ? 'neg' : 'muted'}">${esc(r.result)}${r.profit != null ? '<div class="small">' + sgn(r.profit) + 'u</div>' : ''}</div>
   </li>`).join('')}</ul></div>` : '<p class="muted small">Results show up the morning after each game day.</p>'}`;
 }
@@ -247,7 +272,7 @@ function renderModel() {
   </table></div></details>`;
 }
 
-renderParlay(); renderOthers(); renderProps(); renderRecord(); renderModel();
+renderParlay(); renderOthers(); renderGames(); renderProps(); renderRecord(); renderModel();
 </script>
 </body>
 </html>

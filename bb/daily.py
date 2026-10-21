@@ -8,11 +8,12 @@ import time
 
 import pandas as pd
 
-from . import features, grade, lines, parlay, predict, site, stats
+from . import features, games as game_lines, grade, lines, parlay, predict, site, stats
 from .config import DATA, ET, HISTORY_SEASONS
 from .model import PropModel
 
 TOP_PROPS = 25
+TOP_GAME_PICKS = 10
 LINES_LEAD = dt.timedelta(hours=10)  # props post the morning of; fetching earlier wastes the odds allowance
 PREGAME_LEAD = dt.timedelta(hours=1)
 LONGEST_WAIT = dt.timedelta(hours=5, minutes=30)  # GitHub ends a job after 6 hours
@@ -68,6 +69,19 @@ def pregame_wait(lead=PREGAME_LEAD, longest=LONGEST_WAIT) -> bool:
     return True
 
 
+def game_legs(day: dt.date, season: str, box: pd.DataFrame, games: list[dict]) -> pd.DataFrame:
+    """Today's moneyline and spread legs, or an empty frame if there are no game lines."""
+    glines = lines.load_game_lines(day)
+    if glines.empty:
+        return pd.DataFrame()
+    if games:
+        glines = espn_tip_times(glines, games)
+    hist, tg, form = game_lines.training_games(box)
+    model = game_lines.GameModel().fit(hist)
+    model.save_report()
+    return game_lines.score(day, season, box, model, tg, form, glines, predict.injuries())
+
+
 def _records(df: pd.DataFrame) -> list[dict]:
     return json.loads(df.to_json(orient="records"))
 
@@ -118,10 +132,14 @@ def run(day: dt.date | None = None, offline: bool = False, final: bool = False):
         model = PropModel().fit(f)
         model.save_report()
         props = predict.score(day, season, box, model, todays)
-        parlays = parlay.build(props)
+        gl = game_legs(day, season, box, games)
+        parlays = parlay.build(pd.concat([props, gl], ignore_index=True) if len(gl) else props)
         typical = parlay.consensus(props) if len(props) else props
         best = (typical[typical["ev"] > 0].sort_values("ev", ascending=False)
                 .drop_duplicates(["player_id", "stat"]).head(TOP_PROPS)) if len(typical) else typical
+        typical_games = parlay.consensus(gl) if len(gl) else gl
+        best_games = (typical_games[typical_games["ev"] > 0].sort_values("ev", ascending=False)
+                      .drop_duplicates(["event_id", "stat"]).head(TOP_GAME_PICKS)) if len(typical_games) else typical_games
         picks = {
             "date": day.isoformat(),
             "generated_at": dt.datetime.now(dt.timezone.utc).isoformat(timespec="seconds"),
@@ -130,6 +148,7 @@ def run(day: dt.date | None = None, offline: bool = False, final: bool = False):
             "parlay": parlays[0] if parlays else None,
             "other_parlays": parlays[1:4],
             "top_props": _records(best[[c for c in parlay.LEG_FIELDS if c in best.columns]]) if len(best) else [],
+            "game_picks": _records(best_games[[c for c in parlay.LEG_FIELDS if c in best_games.columns]]) if len(best_games) else [],
             "graded": False,
             "final": final,
         }

@@ -1,4 +1,4 @@
-"""Player prop lines from Sports Game Odds (free Amateur tier).
+"""Player prop and game (moneyline, spread) lines from Sports Game Odds (free Amateur tier).
 
 Each event returned counts as one "object" against the 2,500/month allowance,
 whatever the number of markets, so we ask only for today's games.
@@ -16,12 +16,19 @@ from .http import get_json
 
 API = "https://api.sportsgameodds.com/v2"
 LINES_DIR = DATA / "lines"
+GAME_LINES_DIR = DATA / "game_lines"
 
 LINE_COLUMNS = [
     "date", "event_id", "start", "home", "away", "sgo_player_id", "player_name", "player_team", "opp",
     "team_nick", "opp_nick",
     "stat", "book", "line", "over_odds", "under_odds", "available", "deeplink",
     "fetched_at",
+]
+
+
+GAME_LINE_COLUMNS = [
+    "date", "event_id", "start", "home", "away", "team_nick", "opp_nick",  # team = home, opp = away
+    "bet", "book", "home_line", "home_odds", "away_odds", "available", "deeplink", "fetched_at",
 ]
 
 
@@ -103,8 +110,62 @@ def parse_event(ev: dict, day: dt.date, fetched_at: str) -> list[dict]:
     return rows
 
 
+def parse_game_odds(ev: dict, day: dt.date, fetched_at: str) -> list[dict]:
+    """Full-game moneyline and spread prices, one row per book with both sides quoted."""
+    teams = ev.get("teams", {})
+    short = {side: t.get("names", {}).get("short") or t.get("teamID") for side, t in teams.items()}
+    nick = {side: t.get("names", {}).get("medium") or "" for side, t in teams.items()}
+    odds = ev.get("odds", {})
+    rows = []
+    for bet in ("ml", "sp"):
+        home = odds.get(f"points-home-game-{bet}-home", {})
+        away = odds.get(f"points-away-game-{bet}-away", {})
+        for book, h in (home.get("byBookmaker") or {}).items():
+            a = (away.get("byBookmaker") or {}).get(book)
+            if not a or h.get("odds") is None or a.get("odds") is None:
+                continue
+            line = 0.0
+            if bet == "sp":
+                if h.get("spread") is None or a.get("spread") is None or float(h["spread"]) != -float(a["spread"]):
+                    continue
+                line = float(h["spread"])
+            rows.append({
+                "date": day.isoformat(),
+                "event_id": ev["eventID"],
+                "start": ev.get("status", {}).get("startsAt"),
+                "home": short.get("home"),
+                "away": short.get("away"),
+                "team_nick": nick.get("home"),
+                "opp_nick": nick.get("away"),
+                "bet": "moneyline" if bet == "ml" else "spread",
+                "book": book,
+                "home_line": line,
+                "home_odds": int(float(h["odds"])),
+                "away_odds": int(float(a["odds"])),
+                "available": bool(h.get("available")) and bool(a.get("available")),
+                "deeplink": h.get("deeplink", ""),
+                "fetched_at": fetched_at,
+            })
+    return rows
+
+
 def lines_path(day: dt.date):
     return LINES_DIR / f"{day.isoformat()}.csv"
+
+
+def game_lines_path(day: dt.date):
+    return GAME_LINES_DIR / f"{day.isoformat()}.csv"
+
+
+def _save(new: pd.DataFrame, path) -> pd.DataFrame:
+    """Merge with an earlier snapshot, keeping games that dropped off the feed after starting."""
+    if path.exists():
+        old = pd.read_csv(path)
+        old = old[~old["event_id"].isin(new["event_id"].unique())]
+        new = pd.concat([old, new], ignore_index=True)
+    path.parent.mkdir(parents=True, exist_ok=True)
+    new.to_csv(path, index=False)
+    return new
 
 
 def update_lines(day: dt.date | None = None) -> pd.DataFrame:
@@ -117,18 +178,18 @@ def update_lines(day: dt.date | None = None) -> pd.DataFrame:
     fetched_at = dt.datetime.now(dt.timezone.utc).isoformat(timespec="seconds")
     events = fetch_events(day)
     rows = [r for ev in events for r in parse_event(ev, day, fetched_at)]
-    new = pd.DataFrame(rows, columns=LINE_COLUMNS)
-    path = lines_path(day)
-    if path.exists():
-        old = pd.read_csv(path)
-        old = old[~old["event_id"].isin(new["event_id"].unique())]
-        new = pd.concat([old, new], ignore_index=True)
-    LINES_DIR.mkdir(parents=True, exist_ok=True)
-    new.to_csv(path, index=False)
-    print(f"lines {day}: {len(events)} games, {len(new)} book lines")
+    new = _save(pd.DataFrame(rows, columns=LINE_COLUMNS), lines_path(day))
+    game_rows = [r for ev in events for r in parse_game_odds(ev, day, fetched_at)]
+    games = _save(pd.DataFrame(game_rows, columns=GAME_LINE_COLUMNS), game_lines_path(day))
+    print(f"lines {day}: {len(events)} games, {len(new)} prop lines, {len(games)} moneyline and spread lines")
     return new
 
 
 def load_lines(day: dt.date) -> pd.DataFrame:
     p = lines_path(day)
     return pd.read_csv(p) if p.exists() else pd.DataFrame(columns=LINE_COLUMNS)
+
+
+def load_game_lines(day: dt.date) -> pd.DataFrame:
+    p = game_lines_path(day)
+    return pd.read_csv(p) if p.exists() else pd.DataFrame(columns=GAME_LINE_COLUMNS)
