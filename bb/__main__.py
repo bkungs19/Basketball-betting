@@ -1,6 +1,7 @@
 """Command line entry point: python -m bb <command>."""
 import argparse
 import datetime as dt
+import os
 
 from . import daily, lines, stats
 from .config import ET, HISTORY_SEASONS
@@ -17,6 +18,7 @@ def main():
     d = sub.add_parser("daily", help="the full daily run")
     d.add_argument("--date", type=dt.date.fromisoformat, default=None)
     d.add_argument("--offline", action="store_true", help="use saved data only (no downloads)")
+    sub.add_parser("wait", help="sleep until an hour before today's first game, if it's within 5 hours")
     args = ap.parse_args()
 
     if args.cmd == "backfill":
@@ -26,6 +28,11 @@ def main():
         stats.update_season(stats.current_season())
     elif args.cmd == "daily":
         daily.run(args.date, offline=args.offline)
+    elif args.cmd == "wait":
+        due = daily.pregame_wait()
+        if os.environ.get("GITHUB_OUTPUT"):
+            with open(os.environ["GITHUB_OUTPUT"], "a") as f:
+                f.write(f"refresh={'true' if due else 'false'}\n")
     elif args.cmd == "lines":
         lines.update_lines(args.date or dt.datetime.now(ET).date())
 

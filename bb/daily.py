@@ -4,6 +4,7 @@ from __future__ import annotations
 import datetime as dt
 import json
 import math
+import time
 
 import pandas as pd
 
@@ -36,6 +37,30 @@ def espn_tip_times(todays: pd.DataFrame, games: list[dict]) -> pd.DataFrame:
     tips = {e: tip(n, o) for e, n, o in zip(events["event_id"], events["team_nick"], events["opp_nick"])}
     espn = todays["event_id"].map(tips)
     return todays.assign(start=espn.where(espn.notna(), todays["start"]))
+
+
+def pregame_wait(lead=dt.timedelta(hours=1), longest=dt.timedelta(hours=5)) -> bool:
+    """Sleep until an hour before today's first game, when that's within reach.
+
+    GitHub starts scheduled runs hours late, so instead of trusting the clock,
+    the run that lands within a few hours of the first game waits here and then
+    refreshes the picks with the latest lines and injury news. Returns whether
+    that refresh is due.
+    """
+    now = dt.datetime.now(dt.timezone.utc)
+    games = [g for g in stats.todays_games(now.astimezone(ET).date()) if g["season_type"] in stats.SEASON_TYPES]
+    tips = [t for t in (dt.datetime.fromisoformat(g["start"]) for g in games) if t > now]
+    if not tips:
+        print("no games left today")
+        return False
+    first = min(tips)
+    target = first - lead
+    if not now < target <= now + longest:
+        print(f"first game at {first.astimezone(ET):%-I:%M %p} ET; no pregame refresh from this run")
+        return False
+    print(f"first game at {first.astimezone(ET):%-I:%M %p} ET; refreshing at {target.astimezone(ET):%-I:%M %p} ET")
+    time.sleep((target - now).total_seconds())
+    return True
 
 
 def _records(df: pd.DataFrame) -> list[dict]:

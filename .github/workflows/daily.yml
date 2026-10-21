@@ -1,10 +1,13 @@
 name: daily picks
 # Scheduled for 7am, 9am, 12:30pm and 3pm Eastern. GitHub has been starting
 # scheduled runs about 2.5 to 3.5 hours late, so in practice they land around
-# 10am, noon, 3:30pm and 6pm, before tip-off; odd minutes avoid the busy top of
-# the hour. Each run updates stats, grades yesterday, pulls lines, retrains the
-# model, picks the parlay and publishes the dashboard. Once the parlay's first
-# game starts, runs keep the earlier picks and skip the odds fetch.
+# 10am, noon, 3:30pm and 6pm; odd minutes avoid the busy top of the hour. Each
+# run updates stats, grades yesterday, pulls lines, retrains the model, picks
+# the parlay and publishes the dashboard. A run that lands within 5 hours of the
+# day's first game then waits (the pregame job) and makes the picks again an
+# hour before tip-off, so the final picks don't depend on GitHub's timing. Once
+# the parlay's first game starts, runs keep the earlier picks and skip the odds
+# fetch. Actions minutes are free for public repos, so the wait costs nothing.
 on:
   schedule:
     - cron: "7 11 * * *"
@@ -51,3 +54,50 @@ jobs:
           path: site
       - id: deploy
         uses: actions/deploy-pages@v4
+  pregame:
+    needs: picks
+    runs-on: ubuntu-latest
+    timeout-minutes: 330
+    environment:
+      name: github-pages
+      url: ${{ steps.deploy.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+      - run: pip install -r requirements.txt
+      - name: Wait until an hour before the first game
+        id: wait
+        run: python -m bb wait
+      - name: Make the pregame picks
+        if: steps.wait.outputs.refresh == 'true'
+        env:
+          SGO_API_KEY: ${{ secrets.SGO_API_KEY }}
+        run: |
+          git pull --rebase
+          python -m bb daily
+      - name: Save data
+        if: steps.wait.outputs.refresh == 'true'
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data
+          git commit -m "Pregame picks $(TZ=America/New_York date +%F)" || echo "nothing to commit"
+          git pull --rebase
+          git push
+      - if: steps.wait.outputs.refresh == 'true'
+        uses: actions/configure-pages@v5
+      - if: steps.wait.outputs.refresh == 'true'
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: site
+          name: github-pages-pregame
+      - id: deploy
+        if: steps.wait.outputs.refresh == 'true'
+        uses: actions/deploy-pages@v4
+        with:
+          artifact_name: github-pages-pregame
