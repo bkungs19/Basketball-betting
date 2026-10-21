@@ -140,8 +140,10 @@ const esc = s => String(s ?? '').replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;
 const time = iso => new Date(iso).toLocaleTimeString([], {hour: 'numeric', minute: '2-digit'});
 const fmtDate = s => new Date(s + 'T12:00:00').toLocaleDateString([], {weekday: 'short', month: 'short', day: 'numeric'});
 
+const stamp = iso => new Date(iso).toLocaleString([], {month: 'short', day: 'numeric', hour: 'numeric', minute: '2-digit'});
+const made = D.today && D.today.generated_at;
 document.getElementById('updated').textContent =
-  fmtDate(D.date) + ' · updated ' + new Date(D.built_at).toLocaleString([], {month: 'short', day: 'numeric', hour: 'numeric', minute: '2-digit'});
+  fmtDate(D.date) + (made ? ' · picks made ' + stamp(made) : ' · checked ' + stamp(D.built_at));
 
 function legRow(l, showBook) {
   const link = l.deeplink ? ` <a href="${esc(l.deeplink)}" target="_blank" rel="noopener">Bet</a>` : '';
@@ -158,7 +160,7 @@ function renderParlay() {
   const el = document.getElementById('parlay');
   const t = D.today;
   if (!t) {
-    el.innerHTML = `<h2>Today's parlay</h2><div class="card empty muted">No NBA games with prop lines today. Picks appear here on game days, by early afternoon Eastern.</div>`;
+    el.innerHTML = `<h2>Today's parlay</h2><div class="card empty muted">No NBA games with prop lines today. Picks appear here on game days, usually by about noon Eastern.</div>`;
     return;
   }
   const p = t.parlay;

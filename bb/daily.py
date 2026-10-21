@@ -24,6 +24,20 @@ def _locked(path) -> bool:
     return any(pd.Timestamp(l["start"]) <= now for l in legs)
 
 
+def espn_tip_times(todays: pd.DataFrame, games: list[dict]) -> pd.DataFrame:
+    """Use ESPN's tip times; the odds feed's start time can be hours off."""
+    def tip(nick, opp):
+        for g in games:
+            names = (g["home_name"], g["away_name"])
+            if any(n.endswith(str(nick)) for n in names) and any(n.endswith(str(opp)) for n in names):
+                return g["start"]
+        return None
+    events = todays.drop_duplicates("event_id")
+    tips = {e: tip(n, o) for e, n, o in zip(events["event_id"], events["team_nick"], events["opp_nick"])}
+    espn = todays["event_id"].map(tips)
+    return todays.assign(start=espn.where(espn.notna(), todays["start"]))
+
+
 def _records(df: pd.DataFrame) -> list[dict]:
     return json.loads(df.to_json(orient="records"))
 
@@ -61,7 +75,7 @@ def run(day: dt.date | None = None, offline: bool = False):
     elif not upcoming or _locked(picks_path):
         todays = None  # nothing left to pick: keep the earlier picks and save the odds allowance
     else:
-        todays = lines.update_lines(day)
+        todays = espn_tip_times(lines.update_lines(day), games)
 
     if todays is None:
         print(f"{day}: games have started; keeping the earlier picks")
