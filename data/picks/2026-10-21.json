@@ -31,7 +31,9 @@
     "min_odds": -269,
     "n_books": 2,
     "kind": null,
-    "label": null
+    "label": null,
+    "actual": 1.0,
+    "result": "win"
    },
    {
     "player_name": "Ivica Zubac",
@@ -58,7 +60,9 @@
     "min_odds": -187,
     "n_books": 5,
     "kind": null,
-    "label": null
+    "label": null,
+    "actual": 0.0,
+    "result": "win"
    },
    {
     "player_name": "Ja Morant",
@@ -85,14 +89,18 @@
     "min_odds": -174,
     "n_books": 5,
     "kind": null,
-    "label": null
+    "label": null,
+    "actual": 5.0,
+    "result": "loss"
    }
   ],
   "decimal": 3.877,
   "american": 288,
   "min_american": 232,
   "p_hit": 0.3012,
-  "ev": 0.1677
+  "ev": 0.1677,
+  "result": "loss",
+  "profit": -1.0
  },
  "other_parlays": [],
  "top_props": [
@@ -119,7 +127,9 @@
    "deeplink": "",
    "injury": "",
    "min_odds": 157,
-   "n_books": 2
+   "n_books": 2,
+   "actual": 0.0,
+   "result": "win"
   },
   {
    "player_name": "Derik Queen",
@@ -144,7 +154,9 @@
    "deeplink": "",
    "injury": "",
    "min_odds": -123,
-   "n_books": 5
+   "n_books": 5,
+   "actual": 10.0,
+   "result": "win"
   },
   {
    "player_name": "De'Andre Hunter",
@@ -169,7 +181,9 @@
    "deeplink": "",
    "injury": "",
    "min_odds": -269,
-   "n_books": 2
+   "n_books": 2,
+   "actual": 1.0,
+   "result": "win"
   },
   {
    "player_name": "Cedric Coward",
@@ -194,7 +208,9 @@
    "deeplink": "",
    "injury": "",
    "min_odds": 102,
-   "n_books": 6
+   "n_books": 6,
+   "actual": 1.0,
+   "result": "win"
   },
   {
    "player_name": "Jaylen Wells",
@@ -219,7 +235,9 @@
    "deeplink": "",
    "injury": "",
    "min_odds": 106,
-   "n_books": 6
+   "n_books": 6,
+   "actual": 1.0,
+   "result": "win"
   },
   {
    "player_name": "Julius Randle",
@@ -244,7 +262,9 @@
    "deeplink": "",
    "injury": "",
    "min_odds": -117,
-   "n_books": 3
+   "n_books": 3,
+   "actual": 33.0,
+   "result": "loss"
   },
   {
    "player_name": "Devin Booker",
@@ -269,7 +289,9 @@
    "deeplink": "",
    "injury": "",
    "min_odds": -108,
-   "n_books": 5
+   "n_books": 5,
+   "actual": 2.0,
+   "result": "win"
   },
   {
    "player_name": "Quentin Grimes",
@@ -294,7 +316,9 @@
    "deeplink": "",
    "injury": "",
    "min_odds": -110,
-   "n_books": 2
+   "n_books": 2,
+   "actual": 14.0,
+   "result": "loss"
   },
   {
    "player_name": "Dyson Daniels",
@@ -319,7 +343,9 @@
    "deeplink": "",
    "injury": "",
    "min_odds": -129,
-   "n_books": 6
+   "n_books": 6,
+   "actual": 20.0,
+   "result": "loss"
   },
   {
    "player_name": "Isaiah Collier",
@@ -344,7 +370,9 @@
    "deeplink": "",
    "injury": "",
    "min_odds": -107,
-   "n_books": 5
+   "n_books": 5,
+   "actual": 6.0,
+   "result": "loss"
   },
   {
    "player_name": "Ja Morant",
@@ -369,7 +397,9 @@
    "deeplink": "",
    "injury": "",
    "min_odds": -174,
-   "n_books": 5
+   "n_books": 5,
+   "actual": 5.0,
+   "result": "loss"
   },
   {
    "player_name": "Quentin Grimes",
@@ -394,7 +424,9 @@
    "deeplink": "",
    "injury": "",
    "min_odds": -106,
-   "n_books": 5
+   "n_books": 5,
+   "actual": 4.0,
+   "result": "loss"
   },
   {
    "player_name": "De'Andre Hunter",
@@ -419,7 +451,9 @@
    "deeplink": "",
    "injury": "",
    "min_odds": -106,
-   "n_books": 6
+   "n_books": 6,
+   "actual": 2.0,
+   "result": "loss"
   },
   {
    "player_name": "Jrue Holiday",
@@ -444,7 +478,9 @@
    "deeplink": "",
    "injury": "",
    "min_odds": -105,
-   "n_books": 2
+   "n_books": 2,
+   "actual": 5.0,
+   "result": "loss"
   },
   {
    "player_name": "Miles Bridges",
@@ -469,7 +505,9 @@
    "deeplink": "",
    "injury": "",
    "min_odds": -115,
-   "n_books": 4
+   "n_books": 4,
+   "actual": 12.0,
+   "result": "win"
   },
   {
    "player_name": "Michael Porter Jr.",
@@ -494,7 +532,9 @@
    "deeplink": "",
    "injury": "",
    "min_odds": -138,
-   "n_books": 5
+   "n_books": 5,
+   "actual": 26.0,
+   "result": "loss"
   },
   {
    "player_name": "Jonathan Kuminga",
@@ -519,7 +559,9 @@
    "deeplink": "",
    "injury": "",
    "min_odds": 112,
-   "n_books": 2
+   "n_books": 2,
+   "actual": 3.0,
+   "result": "loss"
   },
   {
    "player_name": "Joan Beringer",
@@ -544,7 +586,9 @@
    "deeplink": "",
    "injury": "",
    "min_odds": -117,
-   "n_books": 6
+   "n_books": 6,
+   "actual": 6.0,
+   "result": "loss"
   },
   {
    "player_name": "Luka Don\u010di\u0107",
@@ -569,7 +613,9 @@
    "deeplink": "",
    "injury": "",
    "min_odds": -134,
-   "n_books": 6
+   "n_books": 6,
+   "actual": 8.0,
+   "result": "loss"
   },
   {
    "player_name": "Michael Porter Jr.",
@@ -594,7 +640,9 @@
    "deeplink": "",
    "injury": "",
    "min_odds": -117,
-   "n_books": 5
+   "n_books": 5,
+   "actual": 34.0,
+   "result": "loss"
   },
   {
    "player_name": "Anthony Edwards",
@@ -619,7 +667,9 @@
    "deeplink": "",
    "injury": "",
    "min_odds": -140,
-   "n_books": 2
+   "n_books": 2,
+   "actual": 45.0,
+   "result": "loss"
   },
   {
    "player_name": "Draymond Green",
@@ -644,7 +694,9 @@
    "deeplink": "",
    "injury": "",
    "min_odds": -117,
-   "n_books": 6
+   "n_books": 6,
+   "actual": 6.0,
+   "result": "win"
   },
   {
    "player_name": "Ayo Dosunmu",
@@ -669,7 +721,9 @@
    "deeplink": "",
    "injury": "",
    "min_odds": -107,
-   "n_books": 6
+   "n_books": 6,
+   "actual": 8.0,
+   "result": "win"
   },
   {
    "player_name": "Darius Garland",
@@ -694,7 +748,9 @@
    "deeplink": "",
    "injury": "",
    "min_odds": 119,
-   "n_books": 4
+   "n_books": 4,
+   "actual": 3.0,
+   "result": "loss"
   },
   {
    "player_name": "Austin Reaves",
@@ -719,7 +775,9 @@
    "deeplink": "",
    "injury": "",
    "min_odds": -105,
-   "n_books": 5
+   "n_books": 5,
+   "actual": 6.0,
+   "result": "loss"
   }
  ],
  "game_picks": [
@@ -748,7 +806,9 @@
    "min_odds": 178,
    "n_books": 9,
    "kind": "game",
-   "label": "Warriors to win"
+   "label": "Warriors to win",
+   "actual": -22.0,
+   "result": "loss"
   },
   {
    "player_name": "Pelicans",
@@ -775,7 +835,9 @@
    "min_odds": 117,
    "n_books": 9,
    "kind": "game",
-   "label": "Pelicans to win"
+   "label": "Pelicans to win",
+   "actual": -3.0,
+   "result": "loss"
   },
   {
    "player_name": "Warriors",
@@ -802,7 +864,9 @@
    "min_odds": -114,
    "n_books": 8,
    "kind": "game",
-   "label": "Warriors +6.5"
+   "label": "Warriors +6.5",
+   "actual": -22.0,
+   "result": "loss"
   },
   {
    "player_name": "Rockets",
@@ -829,9 +893,11 @@
    "min_odds": -118,
    "n_books": 5,
    "kind": "game",
-   "label": "Rockets -9.5"
+   "label": "Rockets -9.5",
+   "actual": 18.0,
+   "result": "win"
   }
  ],
- "graded": false,
+ "graded": true,
  "final": true
 }
