@@ -14,7 +14,7 @@ from .odds import american_to_decimal, blend, no_vig_pair
 INJURIES = "https://site.api.espn.com/apis/site/v2/sports/basketball/nba/injuries"
 
 # Legs where the model and the market disagree by more than this usually mean
-# news the model can't see (a late scratch, a minutes limit), so they stay out of parlays.
+# news the model can't see (a late scratch, a minutes limit), so they aren't picked.
 MAX_DISAGREEMENT = 0.20
 
 

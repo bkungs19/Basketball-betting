@@ -1,4 +1,4 @@
-"""Odds math shared by the model and the parlay builder."""
+"""Odds math shared by the model and the pick pricing."""
 import math
 
 

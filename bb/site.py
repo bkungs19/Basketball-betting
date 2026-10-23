@@ -18,63 +18,58 @@ BOOKS = {
 }
 
 
-def graded_bets(days: list[dict]) -> list[dict]:
-    """Every graded single pick once: top props, moneyline/spread picks and parlay legs."""
-    bets = {}
-    for d in days:
-        if not d.get("graded"):
-            continue
-        for leg in d.get("top_props", []) + d.get("game_picks", []) + (d.get("parlay") or {}).get("legs", []):
-            if leg.get("result") in ("win", "loss"):
-                bets.setdefault((d["date"], str(leg.get("player_id")), leg.get("stat"), leg.get("side"), leg.get("line")), leg)
-    return list(bets.values())
-
-
-def records_by(bets: list[dict], key) -> dict:
-    """Win-loss record and units (1 unit a pick) for each group of picks."""
-    groups: dict = {}
-    for b in bets:
-        groups.setdefault(key(b), []).append(b)
-    out = {}
-    for k, grp in groups.items():
-        wins = sum(b["result"] == "win" for b in grp)
-        units = sum((b["decimal"] - 1) if b["result"] == "win" else -1 for b in grp)
-        out[k] = {"name": grp[-1].get("player_name"), "wins": wins, "losses": len(grp) - wins, "units": round(units, 2)}
+def ranked_props(day: dict) -> list[dict]:
+    """A day's top props as the page lists them: over MIN_EV, one per player, best expected value first."""
+    seen, out = set(), []
+    for p in sorted(day.get("top_props", []), key=lambda p: -p["ev"]):
+        if p["ev"] > MIN_EV and p["player_id"] not in seen:
+            seen.add(p["player_id"])
+            out.append(p)
     return out
 
 
+def _graded(picks: list[dict]) -> list[dict]:
+    return [p for p in picks if p.get("result") in ("win", "loss")]
+
+
+def record(picks: list[dict]) -> dict:
+    """Win-loss record and units, 1 unit a pick at the odds shown that day."""
+    wins = sum(p["result"] == "win" for p in picks)
+    units = sum((p["decimal"] - 1) if p["result"] == "win" else -1 for p in picks)
+    return {"wins": wins, "losses": len(picks) - wins, "units": round(units, 2)}
+
+
+def records_by(picks: list[dict], key) -> dict:
+    groups: dict = {}
+    for p in picks:
+        groups.setdefault(key(p), []).append(p)
+    return {k: {"name": grp[-1].get("player_name"), **record(grp)} for k, grp in groups.items()}
+
+
 def summarize(days: list[dict]) -> dict:
-    parlays = [d["parlay"] for d in days if d.get("graded") and d.get("parlay") and d["parlay"].get("result") in ("win", "loss")]
-    props = [p for d in days if d.get("graded") for p in d.get("top_props", []) if p.get("result") in ("win", "loss")]
-    wins = sum(p["result"] == "win" for p in parlays)
-    profit = sum(p.get("profit", 0) for p in parlays)
-    prop_wins = sum(p["result"] == "win" for p in props)
-    prop_profit = sum((p["decimal"] - 1) if p["result"] == "win" else -1 for p in props)
-    gpicks = [p for d in days if d.get("graded") for p in d.get("game_picks", []) if p.get("result") in ("win", "loss")]
-    game_wins = sum(p["result"] == "win" for p in gpicks)
-    game_profit = sum((p["decimal"] - 1) if p["result"] == "win" else -1 for p in gpicks)
-    recent = []
-    for d in sorted(days, key=lambda d: d["date"], reverse=True)[:30]:
-        p = d.get("parlay")
-        recent.append({
-            "date": d["date"],
-            "result": (p or {}).get("result", "pending" if p else "none"),
-            "american": (p or {}).get("american"),
-            "profit": (p or {}).get("profit"),
-            "legs": [
-                {k: l.get(k) for k in ("player_name", "market", "side", "line", "actual", "result", "label")}
-                for l in (p or {}).get("legs", [])
-            ],
-        })
-    bets = graded_bets(days)
+    """Records for picks as the page shows them now, so they match how Brandon bets."""
+    graded = sorted((d for d in days if d.get("graded")), key=lambda d: d["date"], reverse=True)
+    ranked = {d["date"]: ranked_props(d) for d in graded}
+    games = {d["date"]: _graded([g for g in d.get("game_picks", []) if g["ev"] > MIN_EV]) for d in graded}
+    top = lambda n: [p for r in ranked.values() for p in _graded(r[:n])]  # noqa: E731
+    props = top(None)
+    all_games = [g for gs in games.values() for g in gs]
+    recent = [{
+        "date": d["date"],
+        "top5": record(_graded(ranked[d["date"]][:5])),
+        "top10": record(_graded(ranked[d["date"]][:10])),
+        "props": record(_graded(ranked[d["date"]])),
+        "games": record(games[d["date"]]),
+    } for d in graded[:30]]
     return {
-        "parlays": {"wins": wins, "losses": len(parlays) - wins, "units": round(profit, 2)},
-        "props": {"wins": prop_wins, "losses": len(props) - prop_wins, "units": round(prop_profit, 2)},
-        "games": {"wins": game_wins, "losses": len(gpicks) - game_wins, "units": round(game_profit, 2)},
+        "top5": record(top(5)),
+        "top10": record(top(10)),
+        "props": record(props),
+        "games": record(all_games),
         "recent": recent,
         # by prop type (Points, Moneyline, ...) and by player or team ("team:GS"), keyed like player_id
-        "by_market": records_by(bets, lambda b: b.get("market")),
-        "by_pick": records_by(bets, lambda b: str(b.get("player_id"))),
+        "by_market": records_by(props + all_games, lambda p: p.get("market")),
+        "by_pick": records_by(props + all_games, lambda p: str(p.get("player_id"))),
     }
 
 
@@ -125,10 +120,6 @@ h2 { font-size: 17px; margin: 28px 0 10px; }
 .muted { color: var(--muted); }
 .small { font-size: 13px; }
 .card { background: var(--card); border: 1px solid var(--line); border-radius: 12px; padding: 16px; }
-.parlay-head { display: flex; justify-content: space-between; align-items: flex-start; gap: 12px; flex-wrap: wrap; }
-.odds { font-size: 34px; font-weight: 700; letter-spacing: -0.5px; }
-.stats { display: flex; gap: 20px; flex-wrap: wrap; }
-.stat b { display: block; font-size: 18px; }
 .legs { list-style: none; padding: 0; margin: 14px 0 0; }
 .legs li { border-top: 1px solid var(--line); padding: 10px 0; display: grid;
   grid-template-columns: 1fr auto; gap: 2px 12px; }
@@ -157,10 +148,8 @@ footer { margin-top: 36px; font-size: 12px; color: var(--muted); }
     <h1>NBA Picks</h1>
     <span class="muted small" id="updated"></span>
   </header>
-  <section id="parlay"></section>
-  <section id="others"></section>
-  <section id="games"></section>
   <section id="props"></section>
+  <section id="games"></section>
   <section id="record"></section>
   <section id="model"></section>
   <footer>Picks are model estimates, not guarantees. Odds move; check the price at your book before betting. Bet only what you can afford to lose.</footer>
@@ -196,54 +185,6 @@ const takeText = l => l.min_odds != null ? ` · take ${sgn(l.min_odds)} or bette
 const legName = l => l.kind === 'game' ? `${l.label} (${l.market.toLowerCase()})` : `${l.player_name} ${l.side} ${l.line} ${l.market}`;
 const projText = l => l.proj >= 0 ? `projects a ${(+l.proj).toFixed(1)}-point win` : `projects a ${(-l.proj).toFixed(1)}-point loss`;
 
-function legRow(l, showBook) {
-  const link = l.deeplink ? ` <a href="${esc(l.deeplink)}" target="_blank" rel="noopener">Bet</a>` : '';
-  const inj = l.injury ? ` <span class="warn small">${esc(l.injury)}</span>` : '';
-  const meta = l.kind === 'game' ? projText(l) : `projects ${(+l.proj).toFixed(1)}, recent avg ${(+l.recent_avg).toFixed(1)}`;
-  return `<li>
-    <div><div class="pick">${esc(legName(l))}${inj}</div>
-      <div class="muted small">${esc(l.team)} vs ${esc(l.opp_abbr)} · ${time(l.start)} · ${meta} · ${pastRec(l)}${showBook ? ' · ' + esc(book(l.book)) : ''}</div></div>
-    <div style="text-align:right"><div class="pick">${sgn(l.odds)}${link}</div>
-      <div class="muted small">hits ${pct(l.p_hit)}${takeText(l)}</div></div>
-  </li>`;
-}
-
-function renderParlay() {
-  const el = document.getElementById('parlay');
-  const t = D.today;
-  if (!t) {
-    el.innerHTML = `<h2>Today's parlay</h2><div class="card empty muted">No NBA games with prop lines today. Picks appear here on game days, usually by about noon Eastern.</div>`;
-    return;
-  }
-  const p = t.parlay;
-  if (!p) {
-    el.innerHTML = `<h2>Today's parlay</h2><div class="card empty muted">No parlay today: no 2 or 3 leg combination of picks over ${evFloor} expected value had at least a 30% chance to hit.</div>`;
-    return;
-  }
-  el.innerHTML = `<h2>Today's parlay</h2>
-  <div class="card">
-    <div class="parlay-head">
-      <div><div class="odds">${sgn(p.american)}</div><div class="muted small">${p.legs.length}-leg parlay at ${esc(book(p.book))}${p.min_american != null ? ' · take ' + sgn(p.min_american) + ' or better' : ''}</div></div>
-      <div class="stats">
-        <div class="stat"><span class="muted small">Hit chance</span><b>${pct(p.p_hit)}</b></div>
-        <div class="stat"><span class="muted small">Expected value</span><b class="${p.ev >= 0 ? 'pos' : 'neg'}">${evTxt(p.ev)}</b></div>
-        ${p.result ? `<div class="stat"><span class="muted small">Result</span><b class="${p.result === 'win' ? 'pos' : 'neg'}">${esc(p.result)}</b></div>` : ''}
-      </div>
-    </div>
-    <ul class="legs">${p.legs.map(l => legRow(l, false)).join('')}</ul>
-    ${p.book === 'any' ? `<p class="muted small" style="margin:8px 0 0">Odds shown are typical prices at the big sportsbooks. On Fliff or Rebet, find the same bet and take it if the odds are at least the "take" price, the break-even odds. If their line is different, a better line for the pick (higher for an Under, lower for an Over) is fine; a worse one isn't.</p>` : ''}
-  </div>`;
-}
-
-function renderOthers() {
-  const o = (D.today && D.today.other_parlays) || [];
-  if (!o.length) return;
-  document.getElementById('others').innerHTML = `<details style="margin-top:12px"><summary>Best parlay at other books (${o.length})</summary>
-    ${o.map(p => `<div class="card" style="margin-top:10px"><div class="parlay-head"><div><b>${esc(book(p.book))}</b> <span class="muted">${sgn(p.american)}</span></div>
-      <div class="muted small">hits ${pct(p.p_hit)} · EV <span class="${p.ev >= 0 ? 'pos' : 'neg'}">${evTxt(p.ev)}</span></div></div>
-      <ul class="legs">${p.legs.map(l => legRow(l, false)).join('')}</ul></div>`).join('')}</details>`;
-}
-
 function renderGames() {
   const rows = ((D.today && D.today.game_picks) || []).filter(r => r.ev > minEv);
   const el = document.getElementById('games');
@@ -259,20 +200,31 @@ function renderGames() {
   </li>`).join('')}</ul></div>`;
 }
 
+// Today's props ranked the way they're meant to be bet: over the EV floor, one per player, best first
+function rankedProps() {
+  const seen = new Set();
+  return ((D.today && D.today.top_props) || []).filter(r => r.ev > minEv).sort((a, b) => b.ev - a.ev)
+    .filter(r => !seen.has(r.player_id) && seen.add(r.player_id)).map((r, i) => ({...r, rank: i + 1}));
+}
+
 let marketFilter = 'All';
 function renderProps() {
-  const rows = ((D.today && D.today.top_props) || []).filter(r => r.ev > minEv);
+  const rows = rankedProps();
   const el = document.getElementById('props');
-  if (!D.today) { el.innerHTML = ''; return; }
-  if (!rows.length) { el.innerHTML = `<h2>Top player props</h2><div class="card empty muted">No player props over ${evFloor} expected value today.</div>`; return; }
+  if (!D.today) {
+    el.innerHTML = `<h2>Today's top player props</h2><div class="card empty muted">No NBA games with prop lines today. Picks appear here on game days, usually by about noon Eastern.</div>`;
+    return;
+  }
+  if (!rows.length) { el.innerHTML = `<h2>Today's top player props</h2><div class="card empty muted">No player props over ${evFloor} expected value today.</div>`; return; }
   const markets = ['All', ...new Set(rows.map(r => r.market))];
   const shown = rows.filter(r => marketFilter === 'All' || r.market === marketFilter);
   const res = r => D.today.graded ? ` · <span class="${r.result === 'win' ? 'pos' : r.result === 'loss' ? 'neg' : 'muted'}">${esc(r.result)}${r.actual != null ? ' (' + r.actual + ')' : ''}</span>` : '';
-  el.innerHTML = `<h2>Top player props</h2>
+  el.innerHTML = `<h2>Today's top player props</h2>
+  <p class="muted small" style="margin:-4px 0 10px">Single bets, best first, one per player. Odds shown are typical prices at the big sportsbooks. On Fliff or Rebet, take a pick if the odds are at least its "take" price, the break-even odds. If their line is different, a better line for the pick (higher for an Under, lower for an Over) is fine; a worse one isn't.</p>
   <div class="filters">${markets.map(m => `<button class="${m === marketFilter ? 'on' : ''}" data-m="${esc(m)}">${esc(m)}</button>`).join('')}</div>
   <div class="card" style="padding:0 16px"><ul class="legs" style="margin:0">${shown.map((r, i) => `<li style="${i === 0 ? 'border-top:0' : ''}">
-    <div><div class="pick">${esc(r.player_name)} ${esc(r.side)} ${r.line} ${esc(r.market)}</div>
-      <div class="muted small">${esc(r.team)} vs ${esc(r.opp_abbr)} · projects ${(+r.proj).toFixed(1)}${r.recent_avg != null ? ', recent avg ' + (+r.recent_avg).toFixed(1) : ''} · hits ${pct(r.p_hit)}${takeText(r)} · ${pastRec(r)}${res(r)}</div></div>
+    <div><div class="pick"><span class="muted">${r.rank}.</span> ${esc(r.player_name)} ${esc(r.side)} ${r.line} ${esc(r.market)}${r.injury ? ` <span class="warn small">${esc(r.injury)}</span>` : ''}</div>
+      <div class="muted small">${esc(r.team)} vs ${esc(r.opp_abbr)} · ${time(r.start)} · projects ${(+r.proj).toFixed(1)}${r.recent_avg != null ? ', recent avg ' + (+r.recent_avg).toFixed(1) : ''} · hits ${pct(r.p_hit)}${takeText(r)} · ${pastRec(r)}${res(r)}</div></div>
     <div style="text-align:right"><div class="pick">${r.deeplink ? `<a href="${esc(r.deeplink)}" target="_blank" rel="noopener">${sgn(r.odds)}</a>` : sgn(r.odds)}</div>
       <div class="small"><span class="muted">${esc(book(r.book))}</span> <span class="${r.ev >= 0 ? 'pos' : 'neg'}">${evTxt(r.ev)}</span></div></div>
   </li>`).join('')}</ul></div>`;
@@ -282,33 +234,35 @@ function renderProps() {
 function renderRecord() {
   const s = D.summary;
   const el = document.getElementById('record');
-  const pr = s.parlays, pp = s.props;
-  const recent = s.recent.filter(r => r.result !== 'none');
   const n = r => r.wins + r.losses;
+  const wl = r => `${r.wins}-${r.losses}`;
+  const units = r => `<span class="${r.units >= 0 ? 'pos' : 'neg'}">${sgn(r.units)}u</span>`;
+  const card = (title, r) => `<div class="card"><span class="muted small">${title}</span><b style="display:block;font-size:20px">${wl(r)}</b>
+      <span class="${r.units >= 0 ? 'pos' : 'neg'} small">${sgn(r.units)} units at 1 unit each</span></div>`;
   const recTable = (title, rows) => rows.length ? `<div class="card scroll" style="padding:4px 12px;margin-top:10px"><table>
     <thead><tr><th>${title}</th><th class="num">Record</th><th class="num">Win %</th><th class="num">Units</th></tr></thead>
-    <tbody>${rows.map(([name, r]) => `<tr><td>${esc(name)}</td><td class="num">${r.wins}-${r.losses}</td>
+    <tbody>${rows.map(([name, r]) => `<tr><td>${esc(name)}</td><td class="num">${wl(r)}</td>
       <td class="num">${pct(r.wins / n(r))}</td><td class="num ${r.units >= 0 ? 'pos' : 'neg'}">${sgn(r.units)}</td></tr>`).join('')}</tbody>
   </table></div>` : '';
   const cats = Object.entries(s.by_market || {}).sort((a, b) => n(b[1]) - n(a[1]));
   const picks = Object.values(s.by_pick || {}).map(r => [r.name, r]).sort((a, b) => n(b[1]) - n(a[1]) || b[1].units - a[1].units);
+  const days = s.recent.filter(d => n(d.props) || n(d.games));
   el.innerHTML = `<h2>Track record</h2>
   <div class="record">
-    <div class="card"><span class="muted small">Daily parlays</span><b style="display:block;font-size:20px">${pr.wins}-${pr.losses}</b>
-      <span class="${pr.units >= 0 ? 'pos' : 'neg'} small">${sgn(pr.units)} units</span></div>
-    <div class="card"><span class="muted small">Top player props</span><b style="display:block;font-size:20px">${pp.wins}-${pp.losses}</b>
-      <span class="${pp.units >= 0 ? 'pos' : 'neg'} small">${sgn(pp.units)} units at 1 unit each</span></div>
-    ${s.games ? `<div class="card"><span class="muted small">Moneyline and spread picks</span><b style="display:block;font-size:20px">${s.games.wins}-${s.games.losses}</b>
-      <span class="${s.games.units >= 0 ? 'pos' : 'neg'} small">${sgn(s.games.units)} units at 1 unit each</span></div>` : ''}
+    ${card('Top 5 props each day', s.top5)}
+    ${card('Top 10 props each day', s.top10)}
+    ${card('All top props', s.props)}
+    ${card('Moneyline and spread picks', s.games)}
   </div>
   ${recTable('By category', cats)}
   ${picks.length ? `<details style="margin-top:12px"><summary>By player and team (${picks.length})</summary>${recTable('Player or team', picks)}</details>` : ''}
-  ${cats.length ? '<p class="muted small" style="margin:8px 0 0">Every graded pick counts once (top props, moneyline and spread picks, and parlay legs), 1 unit each at the odds shown that day.</p>' : ''}
-  ${recent.length ? `<div class="card" style="margin-top:10px;padding:0 16px"><ul class="legs" style="margin:0">${recent.map((r, i) => `<li style="${i === 0 ? 'border-top:0' : ''}">
-    <div><div class="pick">${fmtDate(r.date)}${r.american ? ' · ' + sgn(r.american) : ''}</div>
-      <div class="small">${r.legs.map(l => `<span class="${l.result === 'win' ? 'pos' : l.result === 'loss' ? 'neg' : 'muted'}">${esc(l.label || legName(l))}${l.actual != null ? ' (' + l.actual + ')' : ''}</span>`).join('<br>')}</div></div>
-    <div style="text-align:right" class="pick ${r.result === 'win' ? 'pos' : r.result === 'loss' ? 'neg' : 'muted'}">${esc(r.result)}${r.profit != null ? '<div class="small">' + sgn(r.profit) + 'u</div>' : ''}</div>
-  </li>`).join('')}</ul></div>` : '<p class="muted small">Results show up the morning after each game day.</p>'}`;
+  ${days.length ? `<div class="card scroll" style="padding:4px 12px;margin-top:10px"><table>
+    <thead><tr><th>Day</th><th class="num">Top 5</th><th class="num">Top 10</th><th class="num">All props</th><th class="num">ML / spread</th></tr></thead>
+    <tbody>${days.map(d => `<tr><td>${fmtDate(d.date)}</td>
+      <td class="num">${wl(d.top5)} ${units(d.top5)}</td><td class="num">${wl(d.top10)} ${units(d.top10)}</td>
+      <td class="num">${wl(d.props)} ${units(d.props)}</td><td class="num">${n(d.games) ? wl(d.games) + ' ' + units(d.games) : ''}</td></tr>`).join('')}</tbody>
+  </table></div>` : ''}
+  <p class="muted small" style="margin:8px 0 0">${days.length ? `Records count picks the way the page lists them now (over ${evFloor} expected value, one prop per player), 1 unit each at the odds shown that day.` : 'Results show up the morning after each game day.'}</p>`;
 }
 
 function renderModel() {
@@ -327,7 +281,7 @@ function renderModel() {
   </table></div></details>`;
 }
 
-renderParlay(); renderOthers(); renderGames(); renderProps(); renderRecord(); renderModel();
+renderProps(); renderGames(); renderRecord(); renderModel();
 </script>
 </body>
 </html>

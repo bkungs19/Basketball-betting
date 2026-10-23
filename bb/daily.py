@@ -8,11 +8,11 @@ import time
 
 import pandas as pd
 
-from . import features, games as game_lines, grade, lines, parlay, predict, site, stats
+from . import features, games as game_lines, grade, lines, predict, pricing, site, stats
 from .config import DATA, ET, HISTORY_SEASONS, MIN_EV
 from .model import PropModel
 
-TOP_PROPS = 25
+TOP_PROPS = 25  # one per player, best expected value first; Brandon bets the top 5 or 10 as singles
 TOP_GAME_PICKS = 10
 LINES_LEAD = dt.timedelta(hours=10)  # props post the morning of; fetching earlier wastes the odds allowance
 PREGAME_LEAD = dt.timedelta(hours=1)
@@ -20,13 +20,13 @@ LONGEST_WAIT = dt.timedelta(hours=5, minutes=30)  # GitHub ends a job after 6 ho
 
 
 def _locked(path) -> bool:
-    """Picks are locked once the pregame picks are made or any parlay game has started."""
+    """Picks are locked once the pregame picks are made or any picked game has started."""
     if not path.exists():
         return False
     old = json.loads(path.read_text())
     if old.get("final"):
         return True
-    legs = (old.get("parlay") or {}).get("legs", [])
+    legs = old.get("top_props", []) + old.get("game_picks", [])
     now = pd.Timestamp.now(tz="UTC")
     return any(pd.Timestamp(l["start"]) <= now for l in legs)
 
@@ -133,11 +133,11 @@ def run(day: dt.date | None = None, offline: bool = False, final: bool = False):
         model.save_report()
         props = predict.score(day, season, box, model, todays)
         gl = game_legs(day, season, box, games)
-        parlays = parlay.build(pd.concat([props, gl], ignore_index=True) if len(gl) else props)
-        typical = parlay.consensus(props) if len(props) else props
+        typical = pricing.consensus(props) if len(props) else props
+        # one prop per player: a player's points, PRA and P+R props mostly win or lose together
         best = (typical[typical["ev"] > MIN_EV].sort_values("ev", ascending=False)
-                .drop_duplicates(["player_id", "stat"]).head(TOP_PROPS)) if len(typical) else typical
-        typical_games = parlay.consensus(gl) if len(gl) else gl
+                .drop_duplicates("player_id").head(TOP_PROPS)) if len(typical) else typical
+        typical_games = pricing.consensus(gl) if len(gl) else gl
         best_games = (typical_games[typical_games["ev"] > MIN_EV].sort_values("ev", ascending=False)
                       .drop_duplicates(["event_id", "stat"]).head(TOP_GAME_PICKS)) if len(typical_games) else typical_games
         picks = {
@@ -145,20 +145,18 @@ def run(day: dt.date | None = None, offline: bool = False, final: bool = False):
             "generated_at": dt.datetime.now(dt.timezone.utc).isoformat(timespec="seconds"),
             "games": int(todays["event_id"].nunique()),
             "props_scored": int(len(props)),
-            "parlay": parlays[0] if parlays else None,
-            "other_parlays": parlays[1:4],
-            "top_props": _records(best[[c for c in parlay.LEG_FIELDS if c in best.columns]]) if len(best) else [],
-            "game_picks": _records(best_games[[c for c in parlay.LEG_FIELDS if c in best_games.columns]]) if len(best_games) else [],
+            "top_props": _records(best[[c for c in pricing.LEG_FIELDS if c in best.columns]]) if len(best) else [],
+            "game_picks": _records(best_games[[c for c in pricing.LEG_FIELDS if c in best_games.columns]]) if len(best_games) else [],
             "graded": False,
             "final": final,
         }
         grade.PICKS_DIR.mkdir(parents=True, exist_ok=True)
         picks_path.write_text(json.dumps(clean(picks), indent=1, default=str, allow_nan=False))
         print(f"{day}: {picks['games']} games, {len(props)} props scored, "
-              f"parlay EV {picks['parlay']['ev'] if picks['parlay'] else 'n/a'}")
+              f"{len(picks['top_props'])} props and {len(picks['game_picks'])} game picks over {MIN_EV:.0%} EV")
     elif not len(todays):
         print(f"{day}: no NBA games with lines today")
     else:
-        print(f"{day}: parlay locked (a game has started); keeping the earlier picks")
+        print(f"{day}: picks locked (a game has started); keeping the earlier picks")
 
     site.build(day)

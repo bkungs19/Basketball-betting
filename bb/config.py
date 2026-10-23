@@ -41,7 +41,4 @@ MODEL_WEIGHT = 0.5
 EARLY_SEASON_GAMES = 5
 EARLY_SEASON_MODEL_WEIGHT = 0.3
 
-PARLAY_MIN_LEGS = 2
-PARLAY_MAX_LEGS = 3
-PARLAY_MIN_HIT = 0.30  # Brandon wants parlays that hit about 30% of the time
-MIN_EV = 0.04  # only picks with expected value above 4% are shown or used in parlays (his request)
+MIN_EV = 0.04  # only picks with expected value above 4% are shown (his request)

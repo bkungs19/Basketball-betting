@@ -2,7 +2,6 @@
 from __future__ import annotations
 
 import json
-import math
 
 import pandas as pd
 
@@ -55,22 +54,6 @@ def grade_leg(leg: dict, box_day: pd.DataFrame) -> dict:
     return leg
 
 
-def grade_parlay(parlay: dict, box_day: pd.DataFrame) -> dict:
-    parlay = dict(parlay)
-    parlay["legs"] = [grade_leg(l, box_day) for l in parlay["legs"]]
-    results = [l["result"] for l in parlay["legs"]]
-    if "loss" in results:
-        parlay["result"], parlay["profit"] = "loss", -1.0
-    else:
-        live = [l for l in parlay["legs"] if l["result"] == "win"]
-        if not live:
-            parlay["result"], parlay["profit"] = "void", 0.0
-        else:
-            parlay["result"] = "win"
-            parlay["profit"] = round(math.prod(l["decimal"] for l in live) - 1, 3)
-    return parlay
-
-
 def grade_day(path, box: pd.DataFrame) -> bool:
     picks = json.loads(path.read_text())
     if picks.get("graded"):
@@ -79,16 +62,15 @@ def grade_day(path, box: pd.DataFrame) -> bool:
     if box_day.empty:
         return False
     game_teams = set(box_day["team"])
-    legs = (picks.get("parlay") or {}).get("legs", []) + picks.get("top_props", []) + picks.get("game_picks", [])
+    legs = picks.get("top_props", []) + picks.get("game_picks", [])
     if any(l.get("team") not in game_teams for l in legs):
         return False  # some games aren't final yet
-    if picks.get("parlay"):
-        picks["parlay"] = grade_parlay(picks["parlay"], box_day)
     picks["top_props"] = [grade_leg(l, box_day) for l in picks.get("top_props", [])]
     picks["game_picks"] = [grade_leg(l, box_day) for l in picks.get("game_picks", [])]
     picks["graded"] = True
     path.write_text(json.dumps(picks, indent=1, default=str))
-    print(f"graded {picks['date']}: parlay {picks.get('parlay', {}).get('result', 'none')}")
+    results = [l["result"] for l in picks["top_props"] + picks["game_picks"]]
+    print(f"graded {picks['date']}: {results.count('win')}-{results.count('loss')}")
     return True
 
 
