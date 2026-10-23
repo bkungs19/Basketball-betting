@@ -32,7 +32,11 @@ jobs:
       name: github-pages
       url: ${{ steps.deploy.outputs.page_url }}
     steps:
+      # A queued run starts from the latest data, not the commit it was queued at,
+      # so its save doesn't collide with what the run before it saved.
       - uses: actions/checkout@v4
+        with:
+          ref: main
       - uses: actions/setup-python@v5
         with:
           python-version: "3.12"
