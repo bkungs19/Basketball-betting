@@ -384,3 +384,58 @@ season,season_type,game_id,game_date,team,team_name,opp,opp_name,home,player_id,
 2026-27,regular,401909842,2026-10-21,SAC,Sacramento Kings,LAC,LA Clippers,0,5107897,Jonathan Mogbo,0,0,8.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,1.0,1.0,0.0,0.0,0.0,0.0,0.0,0.0,-8.0
 2026-27,regular,401909842,2026-10-21,SAC,Sacramento Kings,LAC,LA Clippers,0,4917149,Alex Karaban,0,0,5.0,1.0,1.0,1.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,1.0,2.0,-4.0
 2026-27,regular,401909842,2026-10-21,SAC,Sacramento Kings,LAC,LA Clippers,0,4395650,Leaky Black,0,1,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+2026-27,regular,401909093,2026-10-22,CLE,Cleveland Cavaliers,PHI,Philadelphia 76ers,0,3908809,Donovan Mitchell,1,0,35.0,32.0,10.0,0.0,10.0,3.0,2.0,1.0,5.0,3.0,11.0,19.0,2.0,4.0,8.0,11.0,-6.0
+2026-27,regular,401909093,2026-10-22,CLE,Cleveland Cavaliers,PHI,Philadelphia 76ers,0,4432158,Evan Mobley,1,0,34.0,18.0,8.0,1.0,7.0,2.0,0.0,0.0,1.0,4.0,7.0,13.0,1.0,4.0,3.0,3.0,-15.0
+2026-27,regular,401909093,2026-10-22,CLE,Cleveland Cavaliers,PHI,Philadelphia 76ers,0,3992,James Harden,1,0,33.0,16.0,3.0,0.0,3.0,5.0,1.0,0.0,6.0,2.0,5.0,12.0,3.0,6.0,3.0,4.0,-17.0
+2026-27,regular,401909093,2026-10-22,CLE,Cleveland Cavaliers,PHI,Philadelphia 76ers,0,4576087,Peyton Watson,1,0,30.0,8.0,1.0,0.0,1.0,2.0,2.0,1.0,5.0,2.0,2.0,7.0,0.0,3.0,4.0,4.0,-19.0
+2026-27,regular,401909093,2026-10-22,CLE,Cleveland Cavaliers,PHI,Philadelphia 76ers,0,4066328,Jarrett Allen,1,0,28.0,14.0,7.0,3.0,4.0,0.0,0.0,2.0,1.0,1.0,6.0,10.0,0.0,0.0,2.0,4.0,-2.0
+2026-27,regular,401909093,2026-10-22,CLE,Cleveland Cavaliers,PHI,Philadelphia 76ers,0,4066757,Sam Merrill,0,0,24.0,5.0,5.0,1.0,4.0,2.0,1.0,0.0,0.0,3.0,2.0,5.0,1.0,3.0,0.0,0.0,5.0
+2026-27,regular,401909093,2026-10-22,CLE,Cleveland Cavaliers,PHI,Philadelphia 76ers,0,4683747,Jaylon Tyson,0,0,24.0,3.0,6.0,2.0,4.0,2.0,1.0,2.0,2.0,4.0,1.0,6.0,0.0,4.0,1.0,2.0,5.0
+2026-27,regular,401909093,2026-10-22,CLE,Cleveland Cavaliers,PHI,Philadelphia 76ers,0,2995706,Mario Hezonja,0,0,19.0,10.0,3.0,2.0,1.0,2.0,2.0,1.0,0.0,2.0,5.0,13.0,0.0,5.0,0.0,0.0,1.0
+2026-27,regular,401909093,2026-10-22,CLE,Cleveland Cavaliers,PHI,Philadelphia 76ers,0,4701233,Craig Porter Jr.,0,0,8.0,0.0,3.0,1.0,2.0,0.0,1.0,0.0,1.0,0.0,0.0,1.0,0.0,0.0,0.0,0.0,2.0
+2026-27,regular,401909093,2026-10-22,CLE,Cleveland Cavaliers,PHI,Philadelphia 76ers,0,5023693,Tyrese Proctor,0,0,5.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,2.0,0.0,1.0,0.0,0.0,0.0,0.0,6.0
+2026-27,regular,401909093,2026-10-22,CLE,Cleveland Cavaliers,PHI,Philadelphia 76ers,0,4431734,Tristan Enaruna,0,1,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+2026-27,regular,401909093,2026-10-22,CLE,Cleveland Cavaliers,PHI,Philadelphia 76ers,0,5177362,Riley Minix,0,1,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+2026-27,regular,401909093,2026-10-22,CLE,Cleveland Cavaliers,PHI,Philadelphia 76ers,0,3934723,Thomas Bryant,0,1,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+2026-27,regular,401909093,2026-10-22,CLE,Cleveland Cavaliers,PHI,Philadelphia 76ers,0,5041951,Meleek Thomas,0,1,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+2026-27,regular,401909093,2026-10-22,PHI,Philadelphia 76ers,CLE,Cleveland Cavaliers,1,4431678,Tyrese Maxey,1,0,42.0,32.0,3.0,1.0,2.0,6.0,2.0,0.0,2.0,4.0,12.0,23.0,2.0,7.0,6.0,8.0,19.0
+2026-27,regular,401909093,2026-10-22,PHI,Philadelphia 76ers,CLE,Cleveland Cavaliers,1,3917376,Jaylen Brown,1,0,38.0,21.0,8.0,1.0,7.0,4.0,1.0,0.0,4.0,4.0,10.0,20.0,1.0,3.0,0.0,0.0,17.0
+2026-27,regular,401909093,2026-10-22,PHI,Philadelphia 76ers,CLE,Cleveland Cavaliers,1,3059318,Joel Embiid,1,0,34.0,24.0,7.0,0.0,7.0,1.0,0.0,0.0,1.0,3.0,8.0,16.0,1.0,4.0,7.0,9.0,18.0
+2026-27,regular,401909093,2026-10-22,PHI,Philadelphia 76ers,CLE,Cleveland Cavaliers,1,1966,LeBron James,1,0,33.0,17.0,10.0,1.0,9.0,5.0,3.0,1.0,5.0,3.0,5.0,14.0,1.0,4.0,6.0,7.0,7.0
+2026-27,regular,401909093,2026-10-22,PHI,Philadelphia 76ers,CLE,Cleveland Cavaliers,1,5124612,VJ Edgecombe,1,0,33.0,11.0,7.0,3.0,4.0,6.0,3.0,0.0,1.0,2.0,4.0,11.0,1.0,4.0,2.0,3.0,19.0
+2026-27,regular,401909093,2026-10-22,PHI,Philadelphia 76ers,CLE,Cleveland Cavaliers,1,2581018,Kentavious Caldwell-Pope,0,0,25.0,3.0,3.0,0.0,3.0,2.0,1.0,0.0,1.0,2.0,1.0,1.0,1.0,1.0,0.0,0.0,-4.0
+2026-27,regular,401909093,2026-10-22,PHI,Philadelphia 76ers,CLE,Cleveland Cavaliers,1,4351851,Anfernee Simons,0,0,17.0,2.0,3.0,1.0,2.0,0.0,0.0,0.0,1.0,1.0,0.0,4.0,0.0,4.0,2.0,3.0,-24.0
+2026-27,regular,401909093,2026-10-22,PHI,Philadelphia 76ers,CLE,Cleveland Cavaliers,1,5105637,Adem Bona,0,0,14.0,2.0,2.0,1.0,1.0,0.0,0.0,1.0,1.0,3.0,1.0,2.0,0.0,1.0,0.0,0.0,-10.0
+2026-27,regular,401909093,2026-10-22,PHI,Philadelphia 76ers,CLE,Cleveland Cavaliers,1,4432446,Jabari Walker,0,0,4.0,2.0,1.0,1.0,0.0,0.0,0.0,0.0,0.0,1.0,1.0,1.0,0.0,0.0,0.0,0.0,-2.0
+2026-27,regular,401909093,2026-10-22,PHI,Philadelphia 76ers,CLE,Cleveland Cavaliers,1,3912848,Dean Wade,0,1,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+2026-27,regular,401909093,2026-10-22,PHI,Philadelphia 76ers,CLE,Cleveland Cavaliers,1,4711297,Justin Edwards,0,1,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+2026-27,regular,401909093,2026-10-22,PHI,Philadelphia 76ers,CLE,Cleveland Cavaliers,1,4433144,Caleb Love,0,1,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+2026-27,regular,401909093,2026-10-22,PHI,Philadelphia 76ers,CLE,Cleveland Cavaliers,1,4873090,Labaron Philon Jr.,0,1,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+2026-27,regular,401909093,2026-10-22,PHI,Philadelphia 76ers,CLE,Cleveland Cavaliers,1,5099752,Rayan Rupert,0,1,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+2026-27,regular,401909094,2026-10-22,DEN,Denver Nuggets,OKC,Oklahoma City Thunder,0,3936299,Jamal Murray,1,0,37.0,6.0,10.0,2.0,8.0,3.0,1.0,0.0,6.0,2.0,2.0,11.0,0.0,1.0,2.0,4.0,-15.0
+2026-27,regular,401909094,2026-10-22,DEN,Denver Nuggets,OKC,Oklahoma City Thunder,0,3112335,Nikola Jokic,1,0,35.0,13.0,7.0,1.0,6.0,5.0,1.0,1.0,2.0,3.0,5.0,19.0,1.0,7.0,2.0,4.0,-20.0
+2026-27,regular,401909094,2026-10-22,DEN,Denver Nuggets,OKC,Oklahoma City Thunder,0,4431767,Christian Braun,1,0,33.0,7.0,6.0,3.0,3.0,1.0,1.0,0.0,2.0,3.0,3.0,10.0,1.0,6.0,0.0,0.0,-20.0
+2026-27,regular,401909094,2026-10-22,DEN,Denver Nuggets,OKC,Oklahoma City Thunder,0,3064290,Aaron Gordon,1,0,29.0,20.0,6.0,3.0,3.0,1.0,2.0,1.0,2.0,3.0,6.0,9.0,3.0,4.0,5.0,6.0,-11.0
+2026-27,regular,401909094,2026-10-22,DEN,Denver Nuggets,OKC,Oklahoma City Thunder,0,3138196,Cameron Johnson,1,0,11.0,5.0,2.0,0.0,2.0,1.0,0.0,0.0,0.0,2.0,2.0,3.0,1.0,1.0,0.0,0.0,0.0
+2026-27,regular,401909094,2026-10-22,DEN,Denver Nuggets,OKC,Oklahoma City Thunder,0,3978,DeMar DeRozan,0,0,28.0,13.0,2.0,1.0,1.0,0.0,0.0,0.0,5.0,3.0,5.0,9.0,0.0,1.0,3.0,6.0,-10.0
+2026-27,regular,401909094,2026-10-22,DEN,Denver Nuggets,OKC,Oklahoma City Thunder,0,4065813,Alpha Diallo,0,0,22.0,4.0,2.0,1.0,1.0,3.0,1.0,0.0,2.0,2.0,2.0,4.0,0.0,2.0,0.0,0.0,1.0
+2026-27,regular,401909094,2026-10-22,DEN,Denver Nuggets,OKC,Oklahoma City Thunder,0,4698719,Trevon Brazile,0,0,18.0,4.0,12.0,3.0,9.0,0.0,0.0,0.0,1.0,2.0,1.0,6.0,0.0,4.0,2.0,2.0,-1.0
+2026-27,regular,401909094,2026-10-22,DEN,Denver Nuggets,OKC,Oklahoma City Thunder,0,4277848,Marvin Bagley III,0,0,11.0,2.0,3.0,2.0,1.0,1.0,0.0,0.0,2.0,2.0,1.0,3.0,0.0,0.0,0.0,0.0,3.0
+2026-27,regular,401909094,2026-10-22,DEN,Denver Nuggets,OKC,Oklahoma City Thunder,0,3135046,Tyus Jones,0,0,10.0,2.0,0.0,0.0,0.0,0.0,1.0,0.0,0.0,1.0,1.0,3.0,0.0,1.0,0.0,0.0,-2.0
+2026-27,regular,401909094,2026-10-22,DEN,Denver Nuggets,OKC,Oklahoma City Thunder,0,4433607,DaRon Holmes II,0,0,2.0,3.0,1.0,1.0,0.0,1.0,0.0,0.0,0.0,0.0,1.0,2.0,1.0,2.0,0.0,0.0,5.0
+2026-27,regular,401909094,2026-10-22,DEN,Denver Nuggets,OKC,Oklahoma City Thunder,0,4565698,Bryce Hopkins,0,0,2.0,0.0,1.0,1.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,5.0
+2026-27,regular,401909094,2026-10-22,DEN,Denver Nuggets,OKC,Oklahoma City Thunder,0,4433629,Ryan Nembhard,0,0,2.0,5.0,1.0,1.0,0.0,1.0,0.0,0.0,0.0,0.0,2.0,3.0,1.0,1.0,0.0,0.0,5.0
+2026-27,regular,401909094,2026-10-22,DEN,Denver Nuggets,OKC,Oklahoma City Thunder,0,4431690,Zeke Nnaji,0,1,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+2026-27,regular,401909094,2026-10-22,OKC,Oklahoma City Thunder,DEN,Denver Nuggets,1,4278073,Shai Gilgeous-Alexander,1,0,35.0,17.0,2.0,0.0,2.0,3.0,0.0,1.0,0.0,0.0,6.0,19.0,3.0,11.0,2.0,2.0,21.0
+2026-27,regular,401909094,2026-10-22,OKC,Oklahoma City Thunder,DEN,Denver Nuggets,1,4593803,Jalen Williams,1,0,33.0,21.0,5.0,0.0,5.0,3.0,0.0,0.0,1.0,3.0,7.0,15.0,2.0,6.0,5.0,6.0,0.0
+2026-27,regular,401909094,2026-10-22,OKC,Oklahoma City Thunder,DEN,Denver Nuggets,1,4433255,Chet Holmgren,1,0,28.0,12.0,17.0,9.0,8.0,2.0,1.0,4.0,3.0,4.0,5.0,9.0,0.0,1.0,2.0,2.0,12.0
+2026-27,regular,401909094,2026-10-22,OKC,Oklahoma City Thunder,DEN,Denver Nuggets,1,4683692,Cason Wallace,1,0,24.0,9.0,1.0,0.0,1.0,1.0,4.0,0.0,0.0,4.0,3.0,8.0,3.0,6.0,0.0,0.0,8.0
+2026-27,regular,401909094,2026-10-22,OKC,Oklahoma City Thunder,DEN,Denver Nuggets,1,4222252,Isaiah Hartenstein,1,0,23.0,6.0,6.0,3.0,3.0,2.0,0.0,1.0,2.0,2.0,3.0,10.0,0.0,0.0,0.0,0.0,8.0
+2026-27,regular,401909094,2026-10-22,OKC,Oklahoma City Thunder,DEN,Denver Nuggets,1,4900671,Ajay Mitchell,0,0,23.0,12.0,0.0,0.0,0.0,0.0,5.0,1.0,3.0,2.0,5.0,11.0,0.0,4.0,2.0,2.0,10.0
+2026-27,regular,401909094,2026-10-22,OKC,Oklahoma City Thunder,DEN,Denver Nuggets,1,2991350,Alex Caruso,0,0,20.0,7.0,4.0,1.0,3.0,5.0,1.0,1.0,0.0,2.0,3.0,7.0,1.0,5.0,0.0,0.0,17.0
+2026-27,regular,401909094,2026-10-22,OKC,Oklahoma City Thunder,DEN,Denver Nuggets,1,4683778,Jared McCain,0,0,18.0,4.0,0.0,0.0,0.0,1.0,0.0,0.0,2.0,1.0,1.0,6.0,0.0,3.0,2.0,2.0,-2.0
+2026-27,regular,401909094,2026-10-22,OKC,Oklahoma City Thunder,DEN,Denver Nuggets,1,4432823,Jaylin Williams,0,0,15.0,3.0,7.0,0.0,7.0,3.0,0.0,0.0,0.0,2.0,1.0,4.0,1.0,4.0,0.0,0.0,13.0
+2026-27,regular,401909094,2026-10-22,OKC,Oklahoma City Thunder,DEN,Denver Nuggets,1,5174983,Aday Mara,0,0,13.0,2.0,3.0,3.0,0.0,0.0,1.0,1.0,1.0,1.0,1.0,3.0,0.0,0.0,0.0,0.0,-8.0
+2026-27,regular,401909094,2026-10-22,OKC,Oklahoma City Thunder,DEN,Denver Nuggets,1,3133626,Kenrich Williams,0,0,6.0,3.0,1.0,0.0,1.0,1.0,0.0,0.0,0.0,1.0,1.0,2.0,1.0,2.0,0.0,0.0,-9.0
+2026-27,regular,401909094,2026-10-22,OKC,Oklahoma City Thunder,DEN,Denver Nuggets,1,4684208,Brooks Barnhizer,0,0,2.0,0.0,0.0,0.0,0.0,1.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,-5.0
+2026-27,regular,401909094,2026-10-22,OKC,Oklahoma City Thunder,DEN,Denver Nuggets,1,5241364,Bennett Stirtz,0,0,2.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,1.0,0.0,1.0,0.0,0.0,-5.0
