@@ -18,6 +18,31 @@ BOOKS = {
 }
 
 
+def graded_bets(days: list[dict]) -> list[dict]:
+    """Every graded single pick once: top props, moneyline/spread picks and parlay legs."""
+    bets = {}
+    for d in days:
+        if not d.get("graded"):
+            continue
+        for leg in d.get("top_props", []) + d.get("game_picks", []) + (d.get("parlay") or {}).get("legs", []):
+            if leg.get("result") in ("win", "loss"):
+                bets.setdefault((d["date"], str(leg.get("player_id")), leg.get("stat"), leg.get("side"), leg.get("line")), leg)
+    return list(bets.values())
+
+
+def records_by(bets: list[dict], key) -> dict:
+    """Win-loss record and units (1 unit a pick) for each group of picks."""
+    groups: dict = {}
+    for b in bets:
+        groups.setdefault(key(b), []).append(b)
+    out = {}
+    for k, grp in groups.items():
+        wins = sum(b["result"] == "win" for b in grp)
+        units = sum((b["decimal"] - 1) if b["result"] == "win" else -1 for b in grp)
+        out[k] = {"name": grp[-1].get("player_name"), "wins": wins, "losses": len(grp) - wins, "units": round(units, 2)}
+    return out
+
+
 def summarize(days: list[dict]) -> dict:
     parlays = [d["parlay"] for d in days if d.get("graded") and d.get("parlay") and d["parlay"].get("result") in ("win", "loss")]
     props = [p for d in days if d.get("graded") for p in d.get("top_props", []) if p.get("result") in ("win", "loss")]
@@ -41,11 +66,15 @@ def summarize(days: list[dict]) -> dict:
                 for l in (p or {}).get("legs", [])
             ],
         })
+    bets = graded_bets(days)
     return {
         "parlays": {"wins": wins, "losses": len(parlays) - wins, "units": round(profit, 2)},
         "props": {"wins": prop_wins, "losses": len(props) - prop_wins, "units": round(prop_profit, 2)},
         "games": {"wins": game_wins, "losses": len(gpicks) - game_wins, "units": round(game_profit, 2)},
         "recent": recent,
+        # by prop type (Points, Moneyline, ...) and by player or team ("team:GS"), keyed like player_id
+        "by_market": records_by(bets, lambda b: b.get("market")),
+        "by_pick": records_by(bets, lambda b: str(b.get("player_id"))),
     }
 
 
@@ -154,6 +183,10 @@ const evFloor = (minEv * 100).toFixed(0) + '%';
 document.getElementById('updated').textContent =
   fmtDate(D.date) + (made ? (D.today.final ? ' · final picks made ' : ' · early picks made ') + stamp(made) : ' · checked ' + stamp(D.built_at));
 
+const pastRec = l => {
+  const r = (D.summary.by_pick || {})[String(l.player_id)];
+  return r ? `past picks ${r.wins}-${r.losses}` : 'no past picks';
+};
 const legName = l => l.kind === 'game' ? `${l.label} (${l.market.toLowerCase()})` : `${l.player_name} ${l.side} ${l.line} ${l.market}`;
 const projText = l => l.proj >= 0 ? `projects a ${(+l.proj).toFixed(1)}-point win` : `projects a ${(-l.proj).toFixed(1)}-point loss`;
 
@@ -163,7 +196,7 @@ function legRow(l, showBook) {
   const meta = l.kind === 'game' ? projText(l) : `projects ${(+l.proj).toFixed(1)}, recent avg ${(+l.recent_avg).toFixed(1)}`;
   return `<li>
     <div><div class="pick">${esc(legName(l))}${inj}</div>
-      <div class="muted small">${esc(l.team)} vs ${esc(l.opp_abbr)} · ${time(l.start)} · ${meta}${showBook ? ' · ' + esc(book(l.book)) : ''}</div></div>
+      <div class="muted small">${esc(l.team)} vs ${esc(l.opp_abbr)} · ${time(l.start)} · ${meta} · ${pastRec(l)}${showBook ? ' · ' + esc(book(l.book)) : ''}</div></div>
     <div style="text-align:right"><div class="pick">${sgn(l.odds)}${link}</div>
       <div class="muted small">hits ${pct(l.p_hit)}${l.min_odds != null ? ' · take ' + sgn(l.min_odds) + ' or better' : ''}</div></div>
   </li>`;
@@ -214,7 +247,7 @@ function renderGames() {
   el.innerHTML = `<h2>Moneyline and spread picks</h2>
   <div class="card" style="padding:0 16px"><ul class="legs" style="margin:0">${rows.map((r, i) => `<li style="${i === 0 ? 'border-top:0' : ''}">
     <div><div class="pick">${esc(legName(r))}</div>
-      <div class="muted small">${esc(r.team)} vs ${esc(r.opp_abbr)} · ${time(r.start)} · ${projText(r)} · ${r.kind === 'game' && r.stat === 'moneyline' ? 'wins' : 'covers'} ${pct(r.p_hit)} · take ${sgn(r.min_odds)} or better${res(r)}</div></div>
+      <div class="muted small">${esc(r.team)} vs ${esc(r.opp_abbr)} · ${time(r.start)} · ${projText(r)} · ${r.kind === 'game' && r.stat === 'moneyline' ? 'wins' : 'covers'} ${pct(r.p_hit)} · take ${sgn(r.min_odds)} or better · ${pastRec(r)}${res(r)}</div></div>
     <div style="text-align:right"><div class="pick">${sgn(r.odds)}</div>
       <div class="small"><span class="${r.ev >= 0 ? 'pos' : 'neg'}">${evTxt(r.ev)}</span></div></div>
   </li>`).join('')}</ul></div>`;
@@ -233,7 +266,7 @@ function renderProps() {
   <div class="filters">${markets.map(m => `<button class="${m === marketFilter ? 'on' : ''}" data-m="${esc(m)}">${esc(m)}</button>`).join('')}</div>
   <div class="card" style="padding:0 16px"><ul class="legs" style="margin:0">${shown.map((r, i) => `<li style="${i === 0 ? 'border-top:0' : ''}">
     <div><div class="pick">${esc(r.player_name)} ${esc(r.side)} ${r.line} ${esc(r.market)}</div>
-      <div class="muted small">${esc(r.team)} vs ${esc(r.opp_abbr)} · projects ${(+r.proj).toFixed(1)} · hits ${pct(r.p_hit)}${r.min_odds != null ? ' · take ' + sgn(r.min_odds) + ' or better' : ''}${res(r)}</div></div>
+      <div class="muted small">${esc(r.team)} vs ${esc(r.opp_abbr)} · projects ${(+r.proj).toFixed(1)} · hits ${pct(r.p_hit)}${r.min_odds != null ? ' · take ' + sgn(r.min_odds) + ' or better' : ''} · ${pastRec(r)}${res(r)}</div></div>
     <div style="text-align:right"><div class="pick">${r.deeplink ? `<a href="${esc(r.deeplink)}" target="_blank" rel="noopener">${sgn(r.odds)}</a>` : sgn(r.odds)}</div>
       <div class="small"><span class="muted">${esc(book(r.book))}</span> <span class="${r.ev >= 0 ? 'pos' : 'neg'}">${evTxt(r.ev)}</span></div></div>
   </li>`).join('')}</ul></div>`;
@@ -245,6 +278,14 @@ function renderRecord() {
   const el = document.getElementById('record');
   const pr = s.parlays, pp = s.props;
   const recent = s.recent.filter(r => r.result !== 'none');
+  const n = r => r.wins + r.losses;
+  const recTable = (title, rows) => rows.length ? `<div class="card scroll" style="padding:4px 12px;margin-top:10px"><table>
+    <thead><tr><th>${title}</th><th class="num">Record</th><th class="num">Win %</th><th class="num">Units</th></tr></thead>
+    <tbody>${rows.map(([name, r]) => `<tr><td>${esc(name)}</td><td class="num">${r.wins}-${r.losses}</td>
+      <td class="num">${pct(r.wins / n(r))}</td><td class="num ${r.units >= 0 ? 'pos' : 'neg'}">${sgn(r.units)}</td></tr>`).join('')}</tbody>
+  </table></div>` : '';
+  const cats = Object.entries(s.by_market || {}).sort((a, b) => n(b[1]) - n(a[1]));
+  const picks = Object.values(s.by_pick || {}).map(r => [r.name, r]).sort((a, b) => n(b[1]) - n(a[1]) || b[1].units - a[1].units);
   el.innerHTML = `<h2>Track record</h2>
   <div class="record">
     <div class="card"><span class="muted small">Daily parlays</span><b style="display:block;font-size:20px">${pr.wins}-${pr.losses}</b>
@@ -254,6 +295,9 @@ function renderRecord() {
     ${s.games ? `<div class="card"><span class="muted small">Moneyline and spread picks</span><b style="display:block;font-size:20px">${s.games.wins}-${s.games.losses}</b>
       <span class="${s.games.units >= 0 ? 'pos' : 'neg'} small">${sgn(s.games.units)} units at 1 unit each</span></div>` : ''}
   </div>
+  ${recTable('By category', cats)}
+  ${picks.length ? `<details style="margin-top:12px"><summary>By player and team (${picks.length})</summary>${recTable('Player or team', picks)}</details>` : ''}
+  ${cats.length ? '<p class="muted small" style="margin:8px 0 0">Every graded pick counts once (top props, moneyline and spread picks, and parlay legs), 1 unit each at the odds shown that day.</p>' : ''}
   ${recent.length ? `<div class="card" style="margin-top:10px;padding:0 16px"><ul class="legs" style="margin:0">${recent.map((r, i) => `<li style="${i === 0 ? 'border-top:0' : ''}">
     <div><div class="pick">${fmtDate(r.date)}${r.american ? ' · ' + sgn(r.american) : ''}</div>
       <div class="small">${r.legs.map(l => `<span class="${l.result === 'win' ? 'pos' : l.result === 'loss' ? 'neg' : 'muted'}">${esc(l.label || legName(l))}${l.actual != null ? ' (' + l.actual + ')' : ''}</span>`).join('<br>')}</div></div>
