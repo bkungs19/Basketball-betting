@@ -187,6 +187,12 @@ const pastRec = l => {
   const r = (D.summary.by_pick || {})[String(l.player_id)];
   return r ? `past picks ${r.wins}-${r.losses}` : 'no past picks';
 };
+// Fliff and Rebet often post a slightly different line. A line that's better for the
+// pick (higher for an Under, lower for an Over, more points on a spread) only raises
+// the chance it hits, so it's fine at the same take price.
+const lineOk = l => l.kind === 'game' ? (l.stat === 'spread' ? `, ${sgn(l.line)} or better` : '')
+  : `, line ${l.line} or ${l.side === 'Under' ? 'higher' : 'lower'}`;
+const takeText = l => l.min_odds != null ? ` · take ${sgn(l.min_odds)} or better${lineOk(l)}` : '';
 const legName = l => l.kind === 'game' ? `${l.label} (${l.market.toLowerCase()})` : `${l.player_name} ${l.side} ${l.line} ${l.market}`;
 const projText = l => l.proj >= 0 ? `projects a ${(+l.proj).toFixed(1)}-point win` : `projects a ${(-l.proj).toFixed(1)}-point loss`;
 
@@ -198,7 +204,7 @@ function legRow(l, showBook) {
     <div><div class="pick">${esc(legName(l))}${inj}</div>
       <div class="muted small">${esc(l.team)} vs ${esc(l.opp_abbr)} · ${time(l.start)} · ${meta} · ${pastRec(l)}${showBook ? ' · ' + esc(book(l.book)) : ''}</div></div>
     <div style="text-align:right"><div class="pick">${sgn(l.odds)}${link}</div>
-      <div class="muted small">hits ${pct(l.p_hit)}${l.min_odds != null ? ' · take ' + sgn(l.min_odds) + ' or better' : ''}</div></div>
+      <div class="muted small">hits ${pct(l.p_hit)}${takeText(l)}</div></div>
   </li>`;
 }
 
@@ -225,7 +231,7 @@ function renderParlay() {
       </div>
     </div>
     <ul class="legs">${p.legs.map(l => legRow(l, false)).join('')}</ul>
-    ${p.book === 'any' ? `<p class="muted small" style="margin:8px 0 0">Odds shown are typical prices at the big sportsbooks. On Fliff or Rebet, find the same line and bet it if the odds are at least the "take" price, which keeps it above ${evFloor} expected value.</p>` : ''}
+    ${p.book === 'any' ? `<p class="muted small" style="margin:8px 0 0">Odds shown are typical prices at the big sportsbooks. On Fliff or Rebet, find the same bet and take it if the odds are at least the "take" price, the break-even odds. If their line is different, a better line for the pick (higher for an Under, lower for an Over) is fine; a worse one isn't.</p>` : ''}
   </div>`;
 }
 
@@ -247,7 +253,7 @@ function renderGames() {
   el.innerHTML = `<h2>Moneyline and spread picks</h2>
   <div class="card" style="padding:0 16px"><ul class="legs" style="margin:0">${rows.map((r, i) => `<li style="${i === 0 ? 'border-top:0' : ''}">
     <div><div class="pick">${esc(legName(r))}</div>
-      <div class="muted small">${esc(r.team)} vs ${esc(r.opp_abbr)} · ${time(r.start)} · ${projText(r)} · ${r.kind === 'game' && r.stat === 'moneyline' ? 'wins' : 'covers'} ${pct(r.p_hit)} · take ${sgn(r.min_odds)} or better · ${pastRec(r)}${res(r)}</div></div>
+      <div class="muted small">${esc(r.team)} vs ${esc(r.opp_abbr)} · ${time(r.start)} · ${projText(r)} · ${r.kind === 'game' && r.stat === 'moneyline' ? 'wins' : 'covers'} ${pct(r.p_hit)}${takeText(r)} · ${pastRec(r)}${res(r)}</div></div>
     <div style="text-align:right"><div class="pick">${sgn(r.odds)}</div>
       <div class="small"><span class="${r.ev >= 0 ? 'pos' : 'neg'}">${evTxt(r.ev)}</span></div></div>
   </li>`).join('')}</ul></div>`;
@@ -266,7 +272,7 @@ function renderProps() {
   <div class="filters">${markets.map(m => `<button class="${m === marketFilter ? 'on' : ''}" data-m="${esc(m)}">${esc(m)}</button>`).join('')}</div>
   <div class="card" style="padding:0 16px"><ul class="legs" style="margin:0">${shown.map((r, i) => `<li style="${i === 0 ? 'border-top:0' : ''}">
     <div><div class="pick">${esc(r.player_name)} ${esc(r.side)} ${r.line} ${esc(r.market)}</div>
-      <div class="muted small">${esc(r.team)} vs ${esc(r.opp_abbr)} · projects ${(+r.proj).toFixed(1)} · hits ${pct(r.p_hit)}${r.min_odds != null ? ' · take ' + sgn(r.min_odds) + ' or better' : ''} · ${pastRec(r)}${res(r)}</div></div>
+      <div class="muted small">${esc(r.team)} vs ${esc(r.opp_abbr)} · projects ${(+r.proj).toFixed(1)} · hits ${pct(r.p_hit)}${takeText(r)} · ${pastRec(r)}${res(r)}</div></div>
     <div style="text-align:right"><div class="pick">${r.deeplink ? `<a href="${esc(r.deeplink)}" target="_blank" rel="noopener">${sgn(r.odds)}</a>` : sgn(r.odds)}</div>
       <div class="small"><span class="muted">${esc(book(r.book))}</span> <span class="${r.ev >= 0 ? 'pos' : 'neg'}">${evTxt(r.ev)}</span></div></div>
   </li>`).join('')}</ul></div>`;

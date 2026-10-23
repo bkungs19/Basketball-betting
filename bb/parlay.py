@@ -2,8 +2,7 @@
 
 Brandon bets on Fliff and Rebet, which the free odds feed doesn't carry, so
 picks are priced at the typical (median) odds across the books it does carry,
-and every leg and parlay carries the worst odds still worth taking: the
-price where expected value is still MIN_EV.
+and every leg and parlay carries the worst odds still worth taking (break-even).
 """
 from __future__ import annotations
 
@@ -35,7 +34,7 @@ def consensus(props: pd.DataFrame) -> pd.DataFrame:
     c = c.reset_index()
     c["odds"] = c["decimal"].map(decimal_to_american)
     c["ev"] = c["p_hit"] * c["decimal"] - 1
-    c["min_odds"] = ((1 + MIN_EV) / c["p_hit"]).map(decimal_to_american)
+    c["min_odds"] = (1 / c["p_hit"]).map(decimal_to_american)
     c["book"] = "any"
     c["deeplink"] = ""
     return c[c["n_books"] >= MIN_BOOKS]
@@ -86,7 +85,7 @@ def build(props: pd.DataFrame) -> list[dict]:
         "legs": chosen[[f for f in LEG_FIELDS if f in chosen.columns]].to_dict("records"),
         "decimal": round(decimal, 3),
         "american": decimal_to_american(decimal),
-        "min_american": decimal_to_american((1 + MIN_EV) / p_hit),
+        "min_american": decimal_to_american(1 / p_hit),
         "p_hit": round(p_hit, 4),
         "ev": round(ev, 4),
     }]
