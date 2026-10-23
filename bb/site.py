@@ -272,7 +272,7 @@ function renderProps() {
   <div class="filters">${markets.map(m => `<button class="${m === marketFilter ? 'on' : ''}" data-m="${esc(m)}">${esc(m)}</button>`).join('')}</div>
   <div class="card" style="padding:0 16px"><ul class="legs" style="margin:0">${shown.map((r, i) => `<li style="${i === 0 ? 'border-top:0' : ''}">
     <div><div class="pick">${esc(r.player_name)} ${esc(r.side)} ${r.line} ${esc(r.market)}</div>
-      <div class="muted small">${esc(r.team)} vs ${esc(r.opp_abbr)} · projects ${(+r.proj).toFixed(1)} · hits ${pct(r.p_hit)}${takeText(r)} · ${pastRec(r)}${res(r)}</div></div>
+      <div class="muted small">${esc(r.team)} vs ${esc(r.opp_abbr)} · projects ${(+r.proj).toFixed(1)}${r.recent_avg != null ? ', recent avg ' + (+r.recent_avg).toFixed(1) : ''} · hits ${pct(r.p_hit)}${takeText(r)} · ${pastRec(r)}${res(r)}</div></div>
     <div style="text-align:right"><div class="pick">${r.deeplink ? `<a href="${esc(r.deeplink)}" target="_blank" rel="noopener">${sgn(r.odds)}</a>` : sgn(r.odds)}</div>
       <div class="small"><span class="muted">${esc(book(r.book))}</span> <span class="${r.ev >= 0 ? 'pos' : 'neg'}">${evTxt(r.ev)}</span></div></div>
   </li>`).join('')}</ul></div>`;
