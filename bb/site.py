@@ -7,7 +7,7 @@ from __future__ import annotations
 import datetime as dt
 import json
 
-from .config import DATA, SITE
+from .config import DATA, MIN_EV, SITE
 from .grade import history
 
 BOOKS = {
@@ -62,6 +62,7 @@ def build(day: dt.date):
         "summary": summarize(days),
         "model": report,
         "books": BOOKS,
+        "min_ev": MIN_EV,
     }
     (SITE / "picks.json").write_text(json.dumps(payload, default=str))
     html = TEMPLATE.replace("__DATA__", json.dumps(payload, default=str).replace("</", "<\\/"))
@@ -148,6 +149,8 @@ const fmtDate = s => new Date(s + 'T12:00:00').toLocaleDateString([], {weekday: 
 
 const stamp = iso => new Date(iso).toLocaleString([], {month: 'short', day: 'numeric', hour: 'numeric', minute: '2-digit'});
 const made = D.today && D.today.generated_at;
+const minEv = D.min_ev ?? 0;  // picks at or below this expected value aren't shown
+const evFloor = (minEv * 100).toFixed(0) + '%';
 document.getElementById('updated').textContent =
   fmtDate(D.date) + (made ? (D.today.final ? ' · final picks made ' : ' · early picks made ') + stamp(made) : ' · checked ' + stamp(D.built_at));
 
@@ -175,7 +178,7 @@ function renderParlay() {
   }
   const p = t.parlay;
   if (!p) {
-    el.innerHTML = `<h2>Today's parlay</h2><div class="card empty muted">No parlay today: no 2 or 3 leg combination had positive expected value and at least a 30% chance to hit. Single props below.</div>`;
+    el.innerHTML = `<h2>Today's parlay</h2><div class="card empty muted">No parlay today: no 2 or 3 leg combination of picks over ${evFloor} expected value had at least a 30% chance to hit.</div>`;
     return;
   }
   el.innerHTML = `<h2>Today's parlay</h2>
@@ -189,7 +192,7 @@ function renderParlay() {
       </div>
     </div>
     <ul class="legs">${p.legs.map(l => legRow(l, false)).join('')}</ul>
-    ${p.book === 'any' ? `<p class="muted small" style="margin:8px 0 0">Odds shown are typical prices at the big sportsbooks. On Fliff or Rebet, find the same line and bet it if the odds are at least the "take" price.</p>` : ''}
+    ${p.book === 'any' ? `<p class="muted small" style="margin:8px 0 0">Odds shown are typical prices at the big sportsbooks. On Fliff or Rebet, find the same line and bet it if the odds are at least the "take" price, which keeps it above ${evFloor} expected value.</p>` : ''}
   </div>`;
 }
 
@@ -203,9 +206,10 @@ function renderOthers() {
 }
 
 function renderGames() {
-  const rows = (D.today && D.today.game_picks) || [];
+  const rows = ((D.today && D.today.game_picks) || []).filter(r => r.ev > minEv);
   const el = document.getElementById('games');
-  if (!rows.length) { el.innerHTML = ''; return; }
+  if (!D.today) { el.innerHTML = ''; return; }
+  if (!rows.length) { el.innerHTML = `<h2>Moneyline and spread picks</h2><div class="card empty muted">No moneyline or spread picks over ${evFloor} expected value today.</div>`; return; }
   const res = r => D.today.graded ? ` · <span class="${r.result === 'win' ? 'pos' : r.result === 'loss' ? 'neg' : 'muted'}">${esc(r.result)}</span>` : '';
   el.innerHTML = `<h2>Moneyline and spread picks</h2>
   <div class="card" style="padding:0 16px"><ul class="legs" style="margin:0">${rows.map((r, i) => `<li style="${i === 0 ? 'border-top:0' : ''}">
@@ -218,9 +222,10 @@ function renderGames() {
 
 let marketFilter = 'All';
 function renderProps() {
-  const rows = (D.today && D.today.top_props) || [];
+  const rows = ((D.today && D.today.top_props) || []).filter(r => r.ev > minEv);
   const el = document.getElementById('props');
-  if (!rows.length) { el.innerHTML = ''; return; }
+  if (!D.today) { el.innerHTML = ''; return; }
+  if (!rows.length) { el.innerHTML = `<h2>Top player props</h2><div class="card empty muted">No player props over ${evFloor} expected value today.</div>`; return; }
   const markets = ['All', ...new Set(rows.map(r => r.market))];
   const shown = rows.filter(r => marketFilter === 'All' || r.market === marketFilter);
   const res = r => D.today.graded ? ` · <span class="${r.result === 'win' ? 'pos' : r.result === 'loss' ? 'neg' : 'muted'}">${esc(r.result)}${r.actual != null ? ' (' + r.actual + ')' : ''}</span>` : '';

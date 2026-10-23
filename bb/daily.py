@@ -9,7 +9,7 @@ import time
 import pandas as pd
 
 from . import features, games as game_lines, grade, lines, parlay, predict, site, stats
-from .config import DATA, ET, HISTORY_SEASONS
+from .config import DATA, ET, HISTORY_SEASONS, MIN_EV
 from .model import PropModel
 
 TOP_PROPS = 25
@@ -135,10 +135,10 @@ def run(day: dt.date | None = None, offline: bool = False, final: bool = False):
         gl = game_legs(day, season, box, games)
         parlays = parlay.build(pd.concat([props, gl], ignore_index=True) if len(gl) else props)
         typical = parlay.consensus(props) if len(props) else props
-        best = (typical[typical["ev"] > 0].sort_values("ev", ascending=False)
+        best = (typical[typical["ev"] > MIN_EV].sort_values("ev", ascending=False)
                 .drop_duplicates(["player_id", "stat"]).head(TOP_PROPS)) if len(typical) else typical
         typical_games = parlay.consensus(gl) if len(gl) else gl
-        best_games = (typical_games[typical_games["ev"] > 0].sort_values("ev", ascending=False)
+        best_games = (typical_games[typical_games["ev"] > MIN_EV].sort_values("ev", ascending=False)
                       .drop_duplicates(["event_id", "stat"]).head(TOP_GAME_PICKS)) if len(typical_games) else typical_games
         picks = {
             "date": day.isoformat(),

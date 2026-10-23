@@ -2,7 +2,8 @@
 
 Brandon bets on Fliff and Rebet, which the free odds feed doesn't carry, so
 picks are priced at the typical (median) odds across the books it does carry,
-and every leg and parlay carries the worst odds still worth taking.
+and every leg and parlay carries the worst odds still worth taking: the
+price where expected value is still MIN_EV.
 """
 from __future__ import annotations
 
@@ -11,18 +12,18 @@ import math
 
 import pandas as pd
 
-from .config import PARLAY_MAX_LEGS, PARLAY_MIN_HIT, PARLAY_MIN_LEGS
+from .config import MIN_EV, PARLAY_MAX_LEGS, PARLAY_MIN_HIT, PARLAY_MIN_LEGS
 from .odds import decimal_to_american
 
 LEG_FIELDS = ["player_name", "player_id", "team", "opp_abbr", "event_id", "start", "stat", "market", "side", "line",
               "odds", "decimal", "p_hit", "p_model_hit", "p_market_hit", "ev", "proj", "recent_avg", "book",
               "deeplink", "injury", "min_odds", "n_books", "kind", "label"]
-POOL = 40  # most likely positive-EV legs to combine
+POOL = 40  # most likely legs above MIN_EV to combine
 MIN_BOOKS = 2  # lines offered by several books are the ones other apps are likely to have too
 
 
 def consensus(props: pd.DataFrame) -> pd.DataFrame:
-    """Each prop line once, priced at the median odds across books, with the break-even odds."""
+    """Each prop line once, priced at the median odds across books, with the worst odds still worth taking."""
     e = props[props["eligible"]]
     if e.empty:
         return e.assign(min_odds=[], n_books=[])
@@ -34,15 +35,15 @@ def consensus(props: pd.DataFrame) -> pd.DataFrame:
     c = c.reset_index()
     c["odds"] = c["decimal"].map(decimal_to_american)
     c["ev"] = c["p_hit"] * c["decimal"] - 1
-    c["min_odds"] = (1 / c["p_hit"]).map(decimal_to_american)
+    c["min_odds"] = ((1 + MIN_EV) / c["p_hit"]).map(decimal_to_american)
     c["book"] = "any"
     c["deeplink"] = ""
     return c[c["n_books"] >= MIN_BOOKS]
 
 
 def candidate_legs(lines: pd.DataFrame) -> pd.DataFrame:
-    """Positive-EV legs, most likely to hit first."""
-    return lines[lines["ev"] > 0].sort_values("p_hit", ascending=False).head(POOL)
+    """Legs with expected value above MIN_EV, most likely to hit first."""
+    return lines[lines["ev"] > MIN_EV].sort_values("p_hit", ascending=False).head(POOL)
 
 
 def _combos(legs: pd.DataFrame):
@@ -68,7 +69,7 @@ def best_for_book(legs: pd.DataFrame):
 def build(props: pd.DataFrame) -> list[dict]:
     """Today's parlay, priced at typical odds, as a one-item list (empty if none qualifies).
 
-    It's the 2 or 3 leg combination of positive-EV legs with the highest
+    It's the 2 or 3 leg combination of legs above MIN_EV with the highest
     expected value, prod(p_i * d_i) - 1, among those whose chance to hit,
     prod(p_i), is at least 30%.
     """
@@ -85,7 +86,7 @@ def build(props: pd.DataFrame) -> list[dict]:
         "legs": chosen[[f for f in LEG_FIELDS if f in chosen.columns]].to_dict("records"),
         "decimal": round(decimal, 3),
         "american": decimal_to_american(decimal),
-        "min_american": decimal_to_american(1 / p_hit),
+        "min_american": decimal_to_american((1 + MIN_EV) / p_hit),
         "p_hit": round(p_hit, 4),
         "ev": round(ev, 4),
     }]
