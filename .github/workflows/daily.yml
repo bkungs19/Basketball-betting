@@ -19,6 +19,7 @@ on:
   workflow_dispatch:
 permissions:
   contents: write
+  issues: write  # the final picks email is a GitHub issue
   pages: write
   id-token: write
 concurrency:
@@ -107,3 +108,9 @@ jobs:
         uses: actions/deploy-pages@v4
         with:
           artifact_name: github-pages-pregame
+      - name: Email the final picks
+        if: steps.wait.outputs.refresh == 'true'
+        env:
+          GH_TOKEN: ${{ github.token }}
+          NOTIFY_USER: ${{ github.repository_owner }}
+        run: python -m bb notify

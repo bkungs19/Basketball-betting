@@ -3,7 +3,7 @@ import argparse
 import datetime as dt
 import os
 
-from . import daily, lines, stats
+from . import daily, lines, notify, stats
 from .config import ET, HISTORY_SEASONS
 
 
@@ -20,6 +20,9 @@ def main():
     d.add_argument("--offline", action="store_true", help="use saved data only (no downloads)")
     d.add_argument("--final", action="store_true", help="pregame picks: later runs keep them")
     sub.add_parser("wait", help="sleep until an hour before today's first game, if it's within 5.5 hours")
+    n = sub.add_parser("notify", help="email the final picks (a GitHub issue assigned to the repo owner)")
+    n.add_argument("--date", type=dt.date.fromisoformat, default=None)
+    n.add_argument("--dry-run", action="store_true", help="print the email instead of sending it")
     args = ap.parse_args()
 
     if args.cmd == "backfill":
@@ -34,6 +37,8 @@ def main():
         if os.environ.get("GITHUB_OUTPUT"):
             with open(os.environ["GITHUB_OUTPUT"], "a") as f:
                 f.write(f"refresh={'true' if due else 'false'}\n")
+    elif args.cmd == "notify":
+        notify.send(args.date, dry_run=args.dry_run)
     elif args.cmd == "lines":
         lines.update_lines(args.date or dt.datetime.now(ET).date())
 
