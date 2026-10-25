@@ -27,7 +27,9 @@
    "deeplink": "",
    "injury": "",
    "min_odds": 156,
-   "n_books": 2
+   "n_books": 2,
+   "actual": 0.0,
+   "result": "loss"
   },
   {
    "player_name": "Day'Ron Sharpe",
@@ -52,7 +54,9 @@
    "deeplink": "",
    "injury": "",
    "min_odds": -113,
-   "n_books": 3
+   "n_books": 3,
+   "actual": 9.0,
+   "result": "win"
   },
   {
    "player_name": "Giannis Antetokounmpo",
@@ -77,7 +81,9 @@
    "deeplink": "",
    "injury": "",
    "min_odds": -127,
-   "n_books": 4
+   "n_books": 4,
+   "actual": 23.0,
+   "result": "win"
   },
   {
    "player_name": "P.J. Washington Jr.",
@@ -102,7 +108,9 @@
    "deeplink": "",
    "injury": "",
    "min_odds": -103,
-   "n_books": 4
+   "n_books": 4,
+   "actual": 2.0,
+   "result": "loss"
   },
   {
    "player_name": "Egor Demin",
@@ -127,7 +135,9 @@
    "deeplink": "",
    "injury": "",
    "min_odds": -136,
-   "n_books": 5
+   "n_books": 5,
+   "actual": 28.0,
+   "result": "loss"
   },
   {
    "player_name": "Evan Mobley",
@@ -152,7 +162,9 @@
    "deeplink": "",
    "injury": "",
    "min_odds": 182,
-   "n_books": 3
+   "n_books": 3,
+   "actual": 2.0,
+   "result": "win"
   },
   {
    "player_name": "James Harden",
@@ -177,7 +189,9 @@
    "deeplink": "",
    "injury": "",
    "min_odds": -104,
-   "n_books": 5
+   "n_books": 5,
+   "actual": 7.0,
+   "result": "loss"
   },
   {
    "player_name": "Stephon Castle",
@@ -202,7 +216,9 @@
    "deeplink": "",
    "injury": "",
    "min_odds": 108,
-   "n_books": 3
+   "n_books": 3,
+   "actual": 8.0,
+   "result": "loss"
   }
  ],
  "game_picks": [
@@ -231,9 +247,11 @@
    "min_odds": 347,
    "n_books": 9,
    "kind": "game",
-   "label": "Pelicans to win"
+   "label": "Pelicans to win",
+   "actual": -6.0,
+   "result": "loss"
   }
  ],
- "graded": false,
+ "graded": true,
  "final": true
 }
