@@ -1,69 +1,69 @@
 date,event_id,start,home,away,team_nick,opp_nick,bet,book,home_line,home_odds,away_odds,available,deeplink,fetched_at
-2026-10-27,rUjWV08soeK4AjGkuLBG,2026-10-27T23:30:00.000Z,BOS,BKN,Celtics,Nets,moneyline,fanduel,0.0,-590,430,True,https://sportsbook.fanduel.com/addToBetslip?marketId=717.193914991&selectionId=60427,2026-10-27T15:50:19+00:00
-2026-10-27,rUjWV08soeK4AjGkuLBG,2026-10-27T23:30:00.000Z,BOS,BKN,Celtics,Nets,moneyline,unibet,0.0,-526,420,True,,2026-10-27T15:50:19+00:00
-2026-10-27,rUjWV08soeK4AjGkuLBG,2026-10-27T23:30:00.000Z,BOS,BKN,Celtics,Nets,moneyline,williamhill,0.0,-550,380,True,,2026-10-27T15:50:19+00:00
-2026-10-27,rUjWV08soeK4AjGkuLBG,2026-10-27T23:30:00.000Z,BOS,BKN,Celtics,Nets,moneyline,caesars,0.0,-600,430,True,https://sportsbook.caesars.com/us/nj/bet/betslip?selectionIds=848df060-29f0-3764-80c4-59690468e127,2026-10-27T15:50:19+00:00
-2026-10-27,rUjWV08soeK4AjGkuLBG,2026-10-27T23:30:00.000Z,BOS,BKN,Celtics,Nets,moneyline,draftkings,0.0,-575,425,True,https://sportsbook.draftkings.com/event/34901557?outcomes=0ML86931378_1,2026-10-27T15:50:19+00:00
-2026-10-27,rUjWV08soeK4AjGkuLBG,2026-10-27T23:30:00.000Z,BOS,BKN,Celtics,Nets,moneyline,betmgm,0.0,-600,425,True,https://sports.nj.betmgm.com/en/sports/events/20030815?options=20030815-1569400306-2326523647,2026-10-27T15:50:19+00:00
-2026-10-27,rUjWV08soeK4AjGkuLBG,2026-10-27T23:30:00.000Z,BOS,BKN,Celtics,Nets,moneyline,espnbet,0.0,-650,425,True,https://espnbet.app.link/?market_selection_id[0]=2b95a66b-68f9-4ff6-af28-82625d9750c9&odds_numerator[0]=2&odds_denominator[0]=1,2026-10-27T15:50:19+00:00
-2026-10-27,rUjWV08soeK4AjGkuLBG,2026-10-27T23:30:00.000Z,BOS,BKN,Celtics,Nets,moneyline,pointsbet,0.0,-588,425,True,,2026-10-27T15:50:19+00:00
-2026-10-27,rUjWV08soeK4AjGkuLBG,2026-10-27T23:30:00.000Z,BOS,BKN,Celtics,Nets,moneyline,bovada,0.0,-550,390,True,,2026-10-27T15:50:19+00:00
-2026-10-27,rUjWV08soeK4AjGkuLBG,2026-10-27T23:30:00.000Z,BOS,BKN,Celtics,Nets,spread,fanduel,-11.5,-115,-105,True,https://sportsbook.fanduel.com/addToBetslip?marketId=717.193914990&selectionId=60427,2026-10-27T15:50:19+00:00
-2026-10-27,rUjWV08soeK4AjGkuLBG,2026-10-27T23:30:00.000Z,BOS,BKN,Celtics,Nets,spread,caesars,-11.5,-110,-110,False,https://sportsbook.caesars.com/us/nj/bet/betslip?selectionIds=b52921ac-d0ae-3d72-b276-485703ef7f57,2026-10-27T15:50:19+00:00
-2026-10-27,rUjWV08soeK4AjGkuLBG,2026-10-27T23:30:00.000Z,BOS,BKN,Celtics,Nets,spread,draftkings,-11.5,-110,-110,True,https://sportsbook.draftkings.com/event/34901557?outcomes=0HC86931378N1150_1,2026-10-27T15:50:19+00:00
-2026-10-27,rUjWV08soeK4AjGkuLBG,2026-10-27T23:30:00.000Z,BOS,BKN,Celtics,Nets,spread,unibet,-11.5,-109,-111,True,,2026-10-27T15:50:19+00:00
-2026-10-27,rUjWV08soeK4AjGkuLBG,2026-10-27T23:30:00.000Z,BOS,BKN,Celtics,Nets,spread,betmgm,-11.5,-110,-110,True,https://sports.nj.betmgm.com/en/sports/events/20030815?options=20030815-1571948309-2333416824,2026-10-27T15:50:19+00:00
-2026-10-27,rUjWV08soeK4AjGkuLBG,2026-10-27T23:30:00.000Z,BOS,BKN,Celtics,Nets,spread,espnbet,-11.5,-105,-115,True,https://espnbet.app.link/?market_selection_id[0]=c910904a-39b2-4705-8838-2e90baca69d9&odds_numerator[0]=2&odds_denominator[0]=1,2026-10-27T15:50:19+00:00
-2026-10-27,rUjWV08soeK4AjGkuLBG,2026-10-27T23:30:00.000Z,BOS,BKN,Celtics,Nets,spread,pointsbet,-11.5,-115,-105,True,,2026-10-27T15:50:19+00:00
-2026-10-27,rUjWV08soeK4AjGkuLBG,2026-10-27T23:30:00.000Z,BOS,BKN,Celtics,Nets,spread,bovada,-11.5,-110,-110,True,,2026-10-27T15:50:19+00:00
-2026-10-27,LSAP9CHT1dRVpWfZmju8,2026-10-28T00:00:00.000Z,SAS,SAC,Spurs,Kings,moneyline,fanduel,0.0,-1800,980,True,https://sportsbook.fanduel.com/addToBetslip?marketId=717.193914972&selectionId=237471,2026-10-27T15:50:19+00:00
-2026-10-27,LSAP9CHT1dRVpWfZmju8,2026-10-28T00:00:00.000Z,SAS,SAC,Spurs,Kings,moneyline,unibet,0.0,-1667,900,True,,2026-10-27T15:50:19+00:00
-2026-10-27,LSAP9CHT1dRVpWfZmju8,2026-10-28T00:00:00.000Z,SAS,SAC,Spurs,Kings,moneyline,williamhill,0.0,-1800,850,True,,2026-10-27T15:50:19+00:00
-2026-10-27,LSAP9CHT1dRVpWfZmju8,2026-10-28T00:00:00.000Z,SAS,SAC,Spurs,Kings,moneyline,caesars,0.0,-1700,950,True,https://sportsbook.caesars.com/us/nj/bet/betslip?selectionIds=184f8f97-ef74-3495-bc87-c9f333fd4da8,2026-10-27T15:50:19+00:00
-2026-10-27,LSAP9CHT1dRVpWfZmju8,2026-10-28T00:00:00.000Z,SAS,SAC,Spurs,Kings,moneyline,draftkings,0.0,-1650,950,True,https://sportsbook.draftkings.com/event/34901564?outcomes=0ML86931385_1,2026-10-27T15:50:19+00:00
-2026-10-27,LSAP9CHT1dRVpWfZmju8,2026-10-28T00:00:00.000Z,SAS,SAC,Spurs,Kings,moneyline,betmgm,0.0,-2000,950,True,https://sports.nj.betmgm.com/en/sports/events/20030817?options=20030817-1569400312-2326523651,2026-10-27T15:50:19+00:00
-2026-10-27,LSAP9CHT1dRVpWfZmju8,2026-10-28T00:00:00.000Z,SAS,SAC,Spurs,Kings,moneyline,pointsbet,0.0,-1667,900,True,,2026-10-27T15:50:19+00:00
-2026-10-27,LSAP9CHT1dRVpWfZmju8,2026-10-28T00:00:00.000Z,SAS,SAC,Spurs,Kings,moneyline,espnbet,0.0,-1800,900,True,https://espnbet.app.link/?market_selection_id[0]=14398bed-3ad8-4bea-b54d-216a4eb69c53&odds_numerator[0]=2&odds_denominator[0]=1,2026-10-27T15:50:19+00:00
-2026-10-27,LSAP9CHT1dRVpWfZmju8,2026-10-28T00:00:00.000Z,SAS,SAC,Spurs,Kings,moneyline,bovada,0.0,-1500,775,True,,2026-10-27T15:50:19+00:00
-2026-10-27,LSAP9CHT1dRVpWfZmju8,2026-10-28T00:00:00.000Z,SAS,SAC,Spurs,Kings,spread,fanduel,-18.5,-105,-115,True,https://sportsbook.fanduel.com/addToBetslip?marketId=717.193914973&selectionId=237471,2026-10-27T15:50:19+00:00
-2026-10-27,LSAP9CHT1dRVpWfZmju8,2026-10-28T00:00:00.000Z,SAS,SAC,Spurs,Kings,spread,caesars,-18.5,-110,-110,True,https://sportsbook.caesars.com/us/nj/bet/betslip?selectionIds=5972e347-8c99-3eb0-b24c-048d5a180bfe,2026-10-27T15:50:19+00:00
-2026-10-27,LSAP9CHT1dRVpWfZmju8,2026-10-28T00:00:00.000Z,SAS,SAC,Spurs,Kings,spread,draftkings,-18.5,-108,-112,True,https://sportsbook.draftkings.com/event/34901564?outcomes=0HC86931385N1850_1,2026-10-27T15:50:19+00:00
-2026-10-27,LSAP9CHT1dRVpWfZmju8,2026-10-28T00:00:00.000Z,SAS,SAC,Spurs,Kings,spread,unibet,-18.5,-112,-108,True,,2026-10-27T15:50:19+00:00
-2026-10-27,LSAP9CHT1dRVpWfZmju8,2026-10-28T00:00:00.000Z,SAS,SAC,Spurs,Kings,spread,betmgm,-18.5,-110,-110,True,https://sports.nj.betmgm.com/en/sports/events/20030817?options=20030817-1571948496-2333417292,2026-10-27T15:50:19+00:00
-2026-10-27,LSAP9CHT1dRVpWfZmju8,2026-10-28T00:00:00.000Z,SAS,SAC,Spurs,Kings,spread,pointsbet,-18.5,-105,-115,True,,2026-10-27T15:50:19+00:00
-2026-10-27,LSAP9CHT1dRVpWfZmju8,2026-10-28T00:00:00.000Z,SAS,SAC,Spurs,Kings,spread,espnbet,-18.5,-110,-110,True,https://espnbet.app.link/?market_selection_id[0]=7db25874-1b7f-4e4a-9277-063967708402&odds_numerator[0]=2&odds_denominator[0]=1,2026-10-27T15:50:19+00:00
-2026-10-27,LSAP9CHT1dRVpWfZmju8,2026-10-28T00:00:00.000Z,SAS,SAC,Spurs,Kings,spread,bovada,-18.5,-110,-110,True,,2026-10-27T15:50:19+00:00
-2026-10-27,nluHRog9os3byvlgmEWZ,2026-10-28T00:00:00.000Z,NYK,DET,Knicks,Pistons,moneyline,fanduel,0.0,-164,138,True,https://sportsbook.fanduel.com/addToBetslip?marketId=717.193914975&selectionId=237482,2026-10-27T15:50:19+00:00
-2026-10-27,nluHRog9os3byvlgmEWZ,2026-10-28T00:00:00.000Z,NYK,DET,Knicks,Pistons,moneyline,unibet,0.0,-167,145,True,,2026-10-27T15:50:19+00:00
-2026-10-27,nluHRog9os3byvlgmEWZ,2026-10-28T00:00:00.000Z,NYK,DET,Knicks,Pistons,moneyline,williamhill,0.0,-175,138,True,,2026-10-27T15:50:19+00:00
-2026-10-27,nluHRog9os3byvlgmEWZ,2026-10-28T00:00:00.000Z,NYK,DET,Knicks,Pistons,moneyline,caesars,0.0,-165,140,True,https://sportsbook.caesars.com/us/nj/bet/betslip?selectionIds=22765b8d-dae8-3562-8c26-3f1c32e841dd,2026-10-27T15:50:19+00:00
-2026-10-27,nluHRog9os3byvlgmEWZ,2026-10-28T00:00:00.000Z,NYK,DET,Knicks,Pistons,moneyline,betmgm,0.0,-170,140,True,https://sports.nj.betmgm.com/en/sports/events/20030816?options=20030816-1569400309-2326523649,2026-10-27T15:50:19+00:00
-2026-10-27,nluHRog9os3byvlgmEWZ,2026-10-28T00:00:00.000Z,NYK,DET,Knicks,Pistons,moneyline,draftkings,0.0,-155,130,True,https://sportsbook.draftkings.com/event/34901563?outcomes=0ML86931384_1,2026-10-27T15:50:19+00:00
-2026-10-27,nluHRog9os3byvlgmEWZ,2026-10-28T00:00:00.000Z,NYK,DET,Knicks,Pistons,moneyline,pointsbet,0.0,-175,145,True,,2026-10-27T15:50:19+00:00
-2026-10-27,nluHRog9os3byvlgmEWZ,2026-10-28T00:00:00.000Z,NYK,DET,Knicks,Pistons,moneyline,espnbet,0.0,-165,140,True,https://espnbet.app.link/?market_selection_id[0]=6caa7fcb-d9c8-40c4-bcab-aeb4c750895f&odds_numerator[0]=2&odds_denominator[0]=1,2026-10-27T15:50:19+00:00
-2026-10-27,nluHRog9os3byvlgmEWZ,2026-10-28T00:00:00.000Z,NYK,DET,Knicks,Pistons,moneyline,bovada,0.0,-170,145,True,,2026-10-27T15:50:19+00:00
-2026-10-27,nluHRog9os3byvlgmEWZ,2026-10-28T00:00:00.000Z,NYK,DET,Knicks,Pistons,spread,fanduel,-4.5,-105,-115,True,https://sportsbook.fanduel.com/addToBetslip?marketId=717.193914974&selectionId=237482,2026-10-27T15:50:19+00:00
-2026-10-27,nluHRog9os3byvlgmEWZ,2026-10-28T00:00:00.000Z,NYK,DET,Knicks,Pistons,spread,caesars,-4.0,-110,-110,True,https://sportsbook.caesars.com/us/nj/bet/betslip?selectionIds=48312e25-67e6-3ddb-8e41-c19d2e9b82e9,2026-10-27T15:50:19+00:00
-2026-10-27,nluHRog9os3byvlgmEWZ,2026-10-28T00:00:00.000Z,NYK,DET,Knicks,Pistons,spread,unibet,-4.5,-108,-112,True,,2026-10-27T15:50:19+00:00
-2026-10-27,nluHRog9os3byvlgmEWZ,2026-10-28T00:00:00.000Z,NYK,DET,Knicks,Pistons,spread,betmgm,-4.5,-105,-115,True,https://sports.nj.betmgm.com/en/sports/events/20030816?options=20030816-1571945744-2333409533,2026-10-27T15:50:19+00:00
-2026-10-27,nluHRog9os3byvlgmEWZ,2026-10-28T00:00:00.000Z,NYK,DET,Knicks,Pistons,spread,draftkings,-3.5,-112,-108,True,https://sportsbook.draftkings.com/event/34901563?outcomes=0HC86931384N350_1,2026-10-27T15:50:19+00:00
-2026-10-27,nluHRog9os3byvlgmEWZ,2026-10-28T00:00:00.000Z,NYK,DET,Knicks,Pistons,spread,pointsbet,-4.5,-105,-115,True,,2026-10-27T15:50:19+00:00
-2026-10-27,nluHRog9os3byvlgmEWZ,2026-10-28T00:00:00.000Z,NYK,DET,Knicks,Pistons,spread,espnbet,-4.5,-110,-110,True,https://espnbet.app.link/?market_selection_id[0]=0a1aeaab-7da8-4254-9567-7138276ab8c1&odds_numerator[0]=2&odds_denominator[0]=1,2026-10-27T15:50:19+00:00
-2026-10-27,nluHRog9os3byvlgmEWZ,2026-10-28T00:00:00.000Z,NYK,DET,Knicks,Pistons,spread,bovada,-4.0,-110,-110,True,,2026-10-27T15:50:19+00:00
-2026-10-27,jHX9XeeKJsLkc910NrDz,2026-10-28T03:00:00.000Z,LAL,POR,Lakers,Trail Blazers,moneyline,fanduel,0.0,-130,110,True,https://sportsbook.fanduel.com/addToBetslip?marketId=717.193914976&selectionId=5368712,2026-10-27T15:50:19+00:00
-2026-10-27,jHX9XeeKJsLkc910NrDz,2026-10-28T03:00:00.000Z,LAL,POR,Lakers,Trail Blazers,moneyline,unibet,0.0,-128,108,True,,2026-10-27T15:50:19+00:00
-2026-10-27,jHX9XeeKJsLkc910NrDz,2026-10-28T03:00:00.000Z,LAL,POR,Lakers,Trail Blazers,moneyline,williamhill,0.0,-125,100,True,,2026-10-27T15:50:19+00:00
-2026-10-27,jHX9XeeKJsLkc910NrDz,2026-10-28T03:00:00.000Z,LAL,POR,Lakers,Trail Blazers,moneyline,caesars,0.0,-130,110,True,https://sportsbook.caesars.com/us/nj/bet/betslip?selectionIds=1d7f4f20-60bf-3b86-a308-a314555371cf,2026-10-27T15:50:19+00:00
-2026-10-27,jHX9XeeKJsLkc910NrDz,2026-10-28T03:00:00.000Z,LAL,POR,Lakers,Trail Blazers,moneyline,betmgm,0.0,-135,110,True,https://sports.nj.betmgm.com/en/sports/events/20030818?options=20030818-1569400316-2326523655,2026-10-27T15:50:19+00:00
-2026-10-27,jHX9XeeKJsLkc910NrDz,2026-10-28T03:00:00.000Z,LAL,POR,Lakers,Trail Blazers,moneyline,draftkings,0.0,-135,114,True,https://sportsbook.draftkings.com/event/34901566?outcomes=0ML86931397_1,2026-10-27T15:50:19+00:00
-2026-10-27,jHX9XeeKJsLkc910NrDz,2026-10-28T03:00:00.000Z,LAL,POR,Lakers,Trail Blazers,moneyline,pointsbet,0.0,-130,110,True,,2026-10-27T15:50:19+00:00
-2026-10-27,jHX9XeeKJsLkc910NrDz,2026-10-28T03:00:00.000Z,LAL,POR,Lakers,Trail Blazers,moneyline,espnbet,0.0,-130,110,True,https://espnbet.app.link/?market_selection_id[0]=b2927d0b-e150-4d70-bb89-1bb79fb4c226&odds_numerator[0]=2&odds_denominator[0]=1,2026-10-27T15:50:19+00:00
-2026-10-27,jHX9XeeKJsLkc910NrDz,2026-10-28T03:00:00.000Z,LAL,POR,Lakers,Trail Blazers,moneyline,bovada,0.0,-125,105,True,,2026-10-27T15:50:19+00:00
-2026-10-27,jHX9XeeKJsLkc910NrDz,2026-10-28T03:00:00.000Z,LAL,POR,Lakers,Trail Blazers,spread,fanduel,-2.5,-106,-114,True,https://sportsbook.fanduel.com/addToBetslip?marketId=717.193914977&selectionId=5368712,2026-10-27T15:50:19+00:00
-2026-10-27,jHX9XeeKJsLkc910NrDz,2026-10-28T03:00:00.000Z,LAL,POR,Lakers,Trail Blazers,spread,caesars,-2.5,-110,-110,False,https://sportsbook.caesars.com/us/nj/bet/betslip?selectionIds=30fd4751-5616-3984-ac86-7847260902c8,2026-10-27T15:50:19+00:00
-2026-10-27,jHX9XeeKJsLkc910NrDz,2026-10-28T03:00:00.000Z,LAL,POR,Lakers,Trail Blazers,spread,betmgm,-2.5,-105,-115,True,https://sports.nj.betmgm.com/en/sports/events/20030818?options=20030818-1571948622-2333417592,2026-10-27T15:50:19+00:00
-2026-10-27,jHX9XeeKJsLkc910NrDz,2026-10-28T03:00:00.000Z,LAL,POR,Lakers,Trail Blazers,spread,unibet,-1.5,-108,-112,True,,2026-10-27T15:50:19+00:00
-2026-10-27,jHX9XeeKJsLkc910NrDz,2026-10-28T03:00:00.000Z,LAL,POR,Lakers,Trail Blazers,spread,draftkings,-2.5,-108,-112,True,https://sportsbook.draftkings.com/event/34901566?outcomes=0HC86931397N250_1,2026-10-27T15:50:19+00:00
-2026-10-27,jHX9XeeKJsLkc910NrDz,2026-10-28T03:00:00.000Z,LAL,POR,Lakers,Trail Blazers,spread,pointsbet,-2.5,-111,-111,True,,2026-10-27T15:50:19+00:00
-2026-10-27,jHX9XeeKJsLkc910NrDz,2026-10-28T03:00:00.000Z,LAL,POR,Lakers,Trail Blazers,spread,espnbet,-2.5,-105,-115,True,https://espnbet.app.link/?market_selection_id[0]=5057a75c-3ed1-4304-98f3-86677d5e8f30&odds_numerator[0]=2&odds_denominator[0]=1,2026-10-27T15:50:19+00:00
-2026-10-27,jHX9XeeKJsLkc910NrDz,2026-10-28T03:00:00.000Z,LAL,POR,Lakers,Trail Blazers,spread,bovada,-2.0,-110,-110,True,,2026-10-27T15:50:19+00:00
+2026-10-27,rUjWV08soeK4AjGkuLBG,2026-10-27T23:30:00.000Z,BOS,BKN,Celtics,Nets,moneyline,fanduel,0.0,-650,480,True,https://sportsbook.fanduel.com/addToBetslip?marketId=717.193914991&selectionId=60427,2026-10-27T17:54:20+00:00
+2026-10-27,rUjWV08soeK4AjGkuLBG,2026-10-27T23:30:00.000Z,BOS,BKN,Celtics,Nets,moneyline,unibet,0.0,-714,480,True,,2026-10-27T17:54:20+00:00
+2026-10-27,rUjWV08soeK4AjGkuLBG,2026-10-27T23:30:00.000Z,BOS,BKN,Celtics,Nets,moneyline,williamhill,0.0,-550,380,True,,2026-10-27T17:54:20+00:00
+2026-10-27,rUjWV08soeK4AjGkuLBG,2026-10-27T23:30:00.000Z,BOS,BKN,Celtics,Nets,moneyline,caesars,0.0,-650,460,True,https://sportsbook.caesars.com/us/nj/bet/betslip?selectionIds=848df060-29f0-3764-80c4-59690468e127,2026-10-27T17:54:20+00:00
+2026-10-27,rUjWV08soeK4AjGkuLBG,2026-10-27T23:30:00.000Z,BOS,BKN,Celtics,Nets,moneyline,draftkings,0.0,-625,455,True,https://sportsbook.draftkings.com/event/34901557?outcomes=0ML86931378_1,2026-10-27T17:54:20+00:00
+2026-10-27,rUjWV08soeK4AjGkuLBG,2026-10-27T23:30:00.000Z,BOS,BKN,Celtics,Nets,moneyline,betmgm,0.0,-625,450,True,https://sports.nj.betmgm.com/en/sports/events/20030815?options=20030815-1569400306-2326523647,2026-10-27T17:54:20+00:00
+2026-10-27,rUjWV08soeK4AjGkuLBG,2026-10-27T23:30:00.000Z,BOS,BKN,Celtics,Nets,moneyline,espnbet,0.0,-750,475,True,https://espnbet.app.link/?market_selection_id[0]=2b95a66b-68f9-4ff6-af28-82625d9750c9&odds_numerator[0]=2&odds_denominator[0]=1,2026-10-27T17:54:20+00:00
+2026-10-27,rUjWV08soeK4AjGkuLBG,2026-10-27T23:30:00.000Z,BOS,BKN,Celtics,Nets,moneyline,pointsbet,0.0,-625,450,True,,2026-10-27T17:54:20+00:00
+2026-10-27,rUjWV08soeK4AjGkuLBG,2026-10-27T23:30:00.000Z,BOS,BKN,Celtics,Nets,moneyline,bovada,0.0,-650,450,True,,2026-10-27T17:54:20+00:00
+2026-10-27,rUjWV08soeK4AjGkuLBG,2026-10-27T23:30:00.000Z,BOS,BKN,Celtics,Nets,spread,fanduel,-12.5,-114,-106,True,https://sportsbook.fanduel.com/addToBetslip?marketId=717.193914990&selectionId=60427,2026-10-27T17:54:20+00:00
+2026-10-27,rUjWV08soeK4AjGkuLBG,2026-10-27T23:30:00.000Z,BOS,BKN,Celtics,Nets,spread,caesars,-12.5,-110,-110,True,https://sportsbook.caesars.com/us/nj/bet/betslip?selectionIds=b52921ac-d0ae-3d72-b276-485703ef7f57,2026-10-27T17:54:20+00:00
+2026-10-27,rUjWV08soeK4AjGkuLBG,2026-10-27T23:30:00.000Z,BOS,BKN,Celtics,Nets,spread,draftkings,-12.5,-108,-112,True,https://sportsbook.draftkings.com/event/34901557?outcomes=0HC86931378N1250_1,2026-10-27T17:54:20+00:00
+2026-10-27,rUjWV08soeK4AjGkuLBG,2026-10-27T23:30:00.000Z,BOS,BKN,Celtics,Nets,spread,unibet,-12.5,-106,-114,True,,2026-10-27T17:54:20+00:00
+2026-10-27,rUjWV08soeK4AjGkuLBG,2026-10-27T23:30:00.000Z,BOS,BKN,Celtics,Nets,spread,betmgm,-12.5,-110,-110,True,https://sports.nj.betmgm.com/en/sports/events/20030815?options=20030815-1571948266-2333416728,2026-10-27T17:54:20+00:00
+2026-10-27,rUjWV08soeK4AjGkuLBG,2026-10-27T23:30:00.000Z,BOS,BKN,Celtics,Nets,spread,espnbet,-12.5,-115,-105,True,https://espnbet.app.link/?market_selection_id[0]=168aa86c-b705-494f-9846-5621de1d6368&odds_numerator[0]=2&odds_denominator[0]=1,2026-10-27T17:54:20+00:00
+2026-10-27,rUjWV08soeK4AjGkuLBG,2026-10-27T23:30:00.000Z,BOS,BKN,Celtics,Nets,spread,pointsbet,-12.5,-111,-111,True,,2026-10-27T17:54:20+00:00
+2026-10-27,rUjWV08soeK4AjGkuLBG,2026-10-27T23:30:00.000Z,BOS,BKN,Celtics,Nets,spread,bovada,-12.5,-115,-105,True,,2026-10-27T17:54:20+00:00
+2026-10-27,LSAP9CHT1dRVpWfZmju8,2026-10-28T00:00:00.000Z,SAS,SAC,Spurs,Kings,moneyline,fanduel,0.0,-2000,1040,True,https://sportsbook.fanduel.com/addToBetslip?marketId=717.193914972&selectionId=237471,2026-10-27T17:54:20+00:00
+2026-10-27,LSAP9CHT1dRVpWfZmju8,2026-10-28T00:00:00.000Z,SAS,SAC,Spurs,Kings,moneyline,unibet,0.0,-2000,950,True,,2026-10-27T17:54:20+00:00
+2026-10-27,LSAP9CHT1dRVpWfZmju8,2026-10-28T00:00:00.000Z,SAS,SAC,Spurs,Kings,moneyline,williamhill,0.0,-1800,850,True,,2026-10-27T17:54:20+00:00
+2026-10-27,LSAP9CHT1dRVpWfZmju8,2026-10-28T00:00:00.000Z,SAS,SAC,Spurs,Kings,moneyline,caesars,0.0,-2000,1050,True,https://sportsbook.caesars.com/us/nj/bet/betslip?selectionIds=184f8f97-ef74-3495-bc87-c9f333fd4da8,2026-10-27T17:54:20+00:00
+2026-10-27,LSAP9CHT1dRVpWfZmju8,2026-10-28T00:00:00.000Z,SAS,SAC,Spurs,Kings,moneyline,draftkings,0.0,-1650,950,True,https://sportsbook.draftkings.com/event/34901564?outcomes=0ML86931385_1,2026-10-27T17:54:20+00:00
+2026-10-27,LSAP9CHT1dRVpWfZmju8,2026-10-28T00:00:00.000Z,SAS,SAC,Spurs,Kings,moneyline,betmgm,0.0,-2000,1000,True,https://sports.nj.betmgm.com/en/sports/events/20030817?options=20030817-1569400312-2326523651,2026-10-27T17:54:20+00:00
+2026-10-27,LSAP9CHT1dRVpWfZmju8,2026-10-28T00:00:00.000Z,SAS,SAC,Spurs,Kings,moneyline,pointsbet,0.0,-1667,1050,True,,2026-10-27T17:54:20+00:00
+2026-10-27,LSAP9CHT1dRVpWfZmju8,2026-10-28T00:00:00.000Z,SAS,SAC,Spurs,Kings,moneyline,espnbet,0.0,-1800,900,True,https://espnbet.app.link/?market_selection_id[0]=14398bed-3ad8-4bea-b54d-216a4eb69c53&odds_numerator[0]=2&odds_denominator[0]=1,2026-10-27T17:54:20+00:00
+2026-10-27,LSAP9CHT1dRVpWfZmju8,2026-10-28T00:00:00.000Z,SAS,SAC,Spurs,Kings,moneyline,bovada,0.0,-1600,800,True,,2026-10-27T17:54:20+00:00
+2026-10-27,LSAP9CHT1dRVpWfZmju8,2026-10-28T00:00:00.000Z,SAS,SAC,Spurs,Kings,spread,fanduel,-18.5,-110,-110,True,https://sportsbook.fanduel.com/addToBetslip?marketId=717.193914973&selectionId=237471,2026-10-27T17:54:20+00:00
+2026-10-27,LSAP9CHT1dRVpWfZmju8,2026-10-28T00:00:00.000Z,SAS,SAC,Spurs,Kings,spread,caesars,-18.5,-110,-110,True,https://sportsbook.caesars.com/us/nj/bet/betslip?selectionIds=5972e347-8c99-3eb0-b24c-048d5a180bfe,2026-10-27T17:54:20+00:00
+2026-10-27,LSAP9CHT1dRVpWfZmju8,2026-10-28T00:00:00.000Z,SAS,SAC,Spurs,Kings,spread,draftkings,-18.5,-108,-112,True,https://sportsbook.draftkings.com/event/34901564?outcomes=0HC86931385N1850_1,2026-10-27T17:54:20+00:00
+2026-10-27,LSAP9CHT1dRVpWfZmju8,2026-10-28T00:00:00.000Z,SAS,SAC,Spurs,Kings,spread,unibet,-18.5,-112,-108,True,,2026-10-27T17:54:20+00:00
+2026-10-27,LSAP9CHT1dRVpWfZmju8,2026-10-28T00:00:00.000Z,SAS,SAC,Spurs,Kings,spread,betmgm,-18.5,-110,-110,True,https://sports.nj.betmgm.com/en/sports/events/20030817?options=20030817-1571948496-2333417292,2026-10-27T17:54:20+00:00
+2026-10-27,LSAP9CHT1dRVpWfZmju8,2026-10-28T00:00:00.000Z,SAS,SAC,Spurs,Kings,spread,pointsbet,-18.5,-105,-115,True,,2026-10-27T17:54:20+00:00
+2026-10-27,LSAP9CHT1dRVpWfZmju8,2026-10-28T00:00:00.000Z,SAS,SAC,Spurs,Kings,spread,espnbet,-18.5,-110,-110,True,https://espnbet.app.link/?market_selection_id[0]=7db25874-1b7f-4e4a-9277-063967708402&odds_numerator[0]=2&odds_denominator[0]=1,2026-10-27T17:54:20+00:00
+2026-10-27,LSAP9CHT1dRVpWfZmju8,2026-10-28T00:00:00.000Z,SAS,SAC,Spurs,Kings,spread,bovada,-18.5,-110,-110,True,,2026-10-27T17:54:20+00:00
+2026-10-27,nluHRog9os3byvlgmEWZ,2026-10-28T00:00:00.000Z,NYK,DET,Knicks,Pistons,moneyline,fanduel,0.0,-168,142,True,https://sportsbook.fanduel.com/addToBetslip?marketId=717.193914975&selectionId=237482,2026-10-27T17:54:20+00:00
+2026-10-27,nluHRog9os3byvlgmEWZ,2026-10-28T00:00:00.000Z,NYK,DET,Knicks,Pistons,moneyline,unibet,0.0,-179,145,True,,2026-10-27T17:54:20+00:00
+2026-10-27,nluHRog9os3byvlgmEWZ,2026-10-28T00:00:00.000Z,NYK,DET,Knicks,Pistons,moneyline,williamhill,0.0,-175,138,True,,2026-10-27T17:54:20+00:00
+2026-10-27,nluHRog9os3byvlgmEWZ,2026-10-28T00:00:00.000Z,NYK,DET,Knicks,Pistons,moneyline,caesars,0.0,-170,143,True,https://sportsbook.caesars.com/us/nj/bet/betslip?selectionIds=22765b8d-dae8-3562-8c26-3f1c32e841dd,2026-10-27T17:54:20+00:00
+2026-10-27,nluHRog9os3byvlgmEWZ,2026-10-28T00:00:00.000Z,NYK,DET,Knicks,Pistons,moneyline,betmgm,0.0,-170,140,True,https://sports.nj.betmgm.com/en/sports/events/20030816?options=20030816-1569400309-2326523649,2026-10-27T17:54:20+00:00
+2026-10-27,nluHRog9os3byvlgmEWZ,2026-10-28T00:00:00.000Z,NYK,DET,Knicks,Pistons,moneyline,draftkings,0.0,-170,142,True,https://sportsbook.draftkings.com/event/34901563?outcomes=0ML86931384_1,2026-10-27T17:54:20+00:00
+2026-10-27,nluHRog9os3byvlgmEWZ,2026-10-28T00:00:00.000Z,NYK,DET,Knicks,Pistons,moneyline,pointsbet,0.0,-175,145,True,,2026-10-27T17:54:20+00:00
+2026-10-27,nluHRog9os3byvlgmEWZ,2026-10-28T00:00:00.000Z,NYK,DET,Knicks,Pistons,moneyline,espnbet,0.0,-155,135,True,https://espnbet.app.link/?market_selection_id[0]=6caa7fcb-d9c8-40c4-bcab-aeb4c750895f&odds_numerator[0]=2&odds_denominator[0]=1,2026-10-27T17:54:20+00:00
+2026-10-27,nluHRog9os3byvlgmEWZ,2026-10-28T00:00:00.000Z,NYK,DET,Knicks,Pistons,moneyline,bovada,0.0,-165,140,True,,2026-10-27T17:54:20+00:00
+2026-10-27,nluHRog9os3byvlgmEWZ,2026-10-28T00:00:00.000Z,NYK,DET,Knicks,Pistons,spread,fanduel,-4.5,-110,-110,True,https://sportsbook.fanduel.com/addToBetslip?marketId=717.193914974&selectionId=237482,2026-10-27T17:54:20+00:00
+2026-10-27,nluHRog9os3byvlgmEWZ,2026-10-28T00:00:00.000Z,NYK,DET,Knicks,Pistons,spread,caesars,-4.5,-105,-115,True,https://sportsbook.caesars.com/us/nj/bet/betslip?selectionIds=48312e25-67e6-3ddb-8e41-c19d2e9b82e9,2026-10-27T17:54:20+00:00
+2026-10-27,nluHRog9os3byvlgmEWZ,2026-10-28T00:00:00.000Z,NYK,DET,Knicks,Pistons,spread,unibet,-4.5,-106,-114,True,,2026-10-27T17:54:20+00:00
+2026-10-27,nluHRog9os3byvlgmEWZ,2026-10-28T00:00:00.000Z,NYK,DET,Knicks,Pistons,spread,betmgm,-4.5,-105,-115,True,https://sports.nj.betmgm.com/en/sports/events/20030816?options=20030816-1571945744-2333409533,2026-10-27T17:54:20+00:00
+2026-10-27,nluHRog9os3byvlgmEWZ,2026-10-28T00:00:00.000Z,NYK,DET,Knicks,Pistons,spread,draftkings,-4.5,-105,-115,True,https://sportsbook.draftkings.com/event/34901563?outcomes=0HC86931384N450_1,2026-10-27T17:54:20+00:00
+2026-10-27,nluHRog9os3byvlgmEWZ,2026-10-28T00:00:00.000Z,NYK,DET,Knicks,Pistons,spread,pointsbet,-4.5,-105,-115,True,,2026-10-27T17:54:20+00:00
+2026-10-27,nluHRog9os3byvlgmEWZ,2026-10-28T00:00:00.000Z,NYK,DET,Knicks,Pistons,spread,espnbet,-3.5,-115,-105,True,https://espnbet.app.link/?market_selection_id[0]=225d2fb4-2907-4fe2-a7ce-e3fe725a6abd&odds_numerator[0]=2&odds_denominator[0]=1,2026-10-27T17:54:20+00:00
+2026-10-27,nluHRog9os3byvlgmEWZ,2026-10-28T00:00:00.000Z,NYK,DET,Knicks,Pistons,spread,bovada,-4.0,-110,-110,True,,2026-10-27T17:54:20+00:00
+2026-10-27,jHX9XeeKJsLkc910NrDz,2026-10-28T03:00:00.000Z,LAL,POR,Lakers,Trail Blazers,moneyline,fanduel,0.0,-126,108,True,https://sportsbook.fanduel.com/addToBetslip?marketId=717.193914976&selectionId=5368712,2026-10-27T17:54:20+00:00
+2026-10-27,jHX9XeeKJsLkc910NrDz,2026-10-28T03:00:00.000Z,LAL,POR,Lakers,Trail Blazers,moneyline,unibet,0.0,-132,110,True,,2026-10-27T17:54:20+00:00
+2026-10-27,jHX9XeeKJsLkc910NrDz,2026-10-28T03:00:00.000Z,LAL,POR,Lakers,Trail Blazers,moneyline,williamhill,0.0,-125,100,True,,2026-10-27T17:54:20+00:00
+2026-10-27,jHX9XeeKJsLkc910NrDz,2026-10-28T03:00:00.000Z,LAL,POR,Lakers,Trail Blazers,moneyline,caesars,0.0,-125,105,True,https://sportsbook.caesars.com/us/nj/bet/betslip?selectionIds=1d7f4f20-60bf-3b86-a308-a314555371cf,2026-10-27T17:54:20+00:00
+2026-10-27,jHX9XeeKJsLkc910NrDz,2026-10-28T03:00:00.000Z,LAL,POR,Lakers,Trail Blazers,moneyline,betmgm,0.0,-125,105,True,https://sports.nj.betmgm.com/en/sports/events/20030818?options=20030818-1569400316-2326523655,2026-10-27T17:54:20+00:00
+2026-10-27,jHX9XeeKJsLkc910NrDz,2026-10-28T03:00:00.000Z,LAL,POR,Lakers,Trail Blazers,moneyline,draftkings,0.0,-125,105,True,https://sportsbook.draftkings.com/event/34901566?outcomes=0ML86931397_1,2026-10-27T17:54:20+00:00
+2026-10-27,jHX9XeeKJsLkc910NrDz,2026-10-28T03:00:00.000Z,LAL,POR,Lakers,Trail Blazers,moneyline,pointsbet,0.0,-130,110,True,,2026-10-27T17:54:20+00:00
+2026-10-27,jHX9XeeKJsLkc910NrDz,2026-10-28T03:00:00.000Z,LAL,POR,Lakers,Trail Blazers,moneyline,espnbet,0.0,-125,105,True,https://espnbet.app.link/?market_selection_id[0]=b2927d0b-e150-4d70-bb89-1bb79fb4c226&odds_numerator[0]=2&odds_denominator[0]=1,2026-10-27T17:54:20+00:00
+2026-10-27,jHX9XeeKJsLkc910NrDz,2026-10-28T03:00:00.000Z,LAL,POR,Lakers,Trail Blazers,moneyline,bovada,0.0,-125,105,True,,2026-10-27T17:54:20+00:00
+2026-10-27,jHX9XeeKJsLkc910NrDz,2026-10-28T03:00:00.000Z,LAL,POR,Lakers,Trail Blazers,spread,fanduel,-2.5,-104,-118,True,https://sportsbook.fanduel.com/addToBetslip?marketId=717.193914977&selectionId=5368712,2026-10-27T17:54:20+00:00
+2026-10-27,jHX9XeeKJsLkc910NrDz,2026-10-28T03:00:00.000Z,LAL,POR,Lakers,Trail Blazers,spread,caesars,-2.5,-110,-110,False,https://sportsbook.caesars.com/us/nj/bet/betslip?selectionIds=30fd4751-5616-3984-ac86-7847260902c8,2026-10-27T17:54:20+00:00
+2026-10-27,jHX9XeeKJsLkc910NrDz,2026-10-28T03:00:00.000Z,LAL,POR,Lakers,Trail Blazers,spread,betmgm,-2.5,-105,-115,True,https://sports.nj.betmgm.com/en/sports/events/20030818?options=20030818-1571948622-2333417592,2026-10-27T17:54:20+00:00
+2026-10-27,jHX9XeeKJsLkc910NrDz,2026-10-28T03:00:00.000Z,LAL,POR,Lakers,Trail Blazers,spread,unibet,-2.5,-104,-116,True,,2026-10-27T17:54:20+00:00
+2026-10-27,jHX9XeeKJsLkc910NrDz,2026-10-28T03:00:00.000Z,LAL,POR,Lakers,Trail Blazers,spread,draftkings,-1.5,-115,-105,True,https://sportsbook.draftkings.com/event/34901566?outcomes=0HC86931397N150_1,2026-10-27T17:54:20+00:00
+2026-10-27,jHX9XeeKJsLkc910NrDz,2026-10-28T03:00:00.000Z,LAL,POR,Lakers,Trail Blazers,spread,pointsbet,-2.5,-111,-111,True,,2026-10-27T17:54:20+00:00
+2026-10-27,jHX9XeeKJsLkc910NrDz,2026-10-28T03:00:00.000Z,LAL,POR,Lakers,Trail Blazers,spread,espnbet,-1.5,-115,-105,True,https://espnbet.app.link/?market_selection_id[0]=f4ebef24-d09b-4e62-aeac-946cbe10a957&odds_numerator[0]=2&odds_denominator[0]=1,2026-10-27T17:54:20+00:00
+2026-10-27,jHX9XeeKJsLkc910NrDz,2026-10-28T03:00:00.000Z,LAL,POR,Lakers,Trail Blazers,spread,bovada,-2.0,-110,-110,True,,2026-10-27T17:54:20+00:00
