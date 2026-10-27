@@ -27,7 +27,9 @@
    "deeplink": "",
    "injury": "",
    "min_odds": 105,
-   "n_books": 2
+   "n_books": 2,
+   "actual": 4.0,
+   "result": "loss"
   },
   {
    "player_name": "Jared McCain",
@@ -52,7 +54,9 @@
    "deeplink": "",
    "injury": "",
    "min_odds": 109,
-   "n_books": 5
+   "n_books": 5,
+   "actual": 4.0,
+   "result": "loss"
   },
   {
    "player_name": "Rudy Gobert",
@@ -77,7 +81,9 @@
    "deeplink": "",
    "injury": "",
    "min_odds": -122,
-   "n_books": 3
+   "n_books": 3,
+   "actual": 27.0,
+   "result": "loss"
   },
   {
    "player_name": "Terrence Shannon Jr.",
@@ -102,7 +108,9 @@
    "deeplink": "",
    "injury": "",
    "min_odds": 154,
-   "n_books": 4
+   "n_books": 4,
+   "actual": 3.0,
+   "result": "win"
   },
   {
    "player_name": "Sam Merrill",
@@ -127,7 +135,9 @@
    "deeplink": "",
    "injury": "",
    "min_odds": 118,
-   "n_books": 5
+   "n_books": 5,
+   "actual": 1.0,
+   "result": "win"
   },
   {
    "player_name": "Ace Bailey",
@@ -152,7 +162,9 @@
    "deeplink": "",
    "injury": "",
    "min_odds": -138,
-   "n_books": 3
+   "n_books": 3,
+   "actual": 30.0,
+   "result": "win"
   },
   {
    "player_name": "Tre Jones",
@@ -177,7 +189,9 @@
    "deeplink": "",
    "injury": "",
    "min_odds": -146,
-   "n_books": 6
+   "n_books": 6,
+   "actual": 0.0,
+   "result": "win"
   },
   {
    "player_name": "Keyonte George",
@@ -202,7 +216,9 @@
    "deeplink": "",
    "injury": "",
    "min_odds": 113,
-   "n_books": 2
+   "n_books": 2,
+   "actual": 6.0,
+   "result": "win"
   },
   {
    "player_name": "Matas Buzelis",
@@ -227,7 +243,9 @@
    "deeplink": "",
    "injury": "",
    "min_odds": 100,
-   "n_books": 6
+   "n_books": 6,
+   "actual": 1.0,
+   "result": "loss"
   },
   {
    "player_name": "Jay Huff",
@@ -252,7 +270,9 @@
    "deeplink": "",
    "injury": "",
    "min_odds": -137,
-   "n_books": 3
+   "n_books": 3,
+   "actual": 12.0,
+   "result": "win"
   },
   {
    "player_name": "Isaiah Hartenstein",
@@ -277,7 +297,9 @@
    "deeplink": "",
    "injury": "",
    "min_odds": -118,
-   "n_books": 6
+   "n_books": 6,
+   "actual": 31.0,
+   "result": "loss"
   },
   {
    "player_name": "Jaren Jackson Jr.",
@@ -302,7 +324,9 @@
    "deeplink": "",
    "injury": "",
    "min_odds": -119,
-   "n_books": 6
+   "n_books": 6,
+   "actual": 6.0,
+   "result": "loss"
   },
   {
    "player_name": "Khaman Maluach",
@@ -327,7 +351,9 @@
    "deeplink": "",
    "injury": "",
    "min_odds": -123,
-   "n_books": 6
+   "n_books": 6,
+   "actual": 12.0,
+   "result": "loss"
   },
   {
    "player_name": "Cam Spencer",
@@ -352,10 +378,12 @@
    "deeplink": "",
    "injury": "",
    "min_odds": 135,
-   "n_books": 4
+   "n_books": 4,
+   "actual": 2.0,
+   "result": "win"
   }
  ],
  "game_picks": [],
- "graded": false,
+ "graded": true,
  "final": true
 }
