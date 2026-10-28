@@ -27,7 +27,9 @@
    "deeplink": "",
    "injury": "",
    "min_odds": -103,
-   "n_books": 6
+   "n_books": 6,
+   "actual": 12.0,
+   "result": "win"
   },
   {
    "player_name": "Ja Morant",
@@ -52,7 +54,9 @@
    "deeplink": "",
    "injury": "",
    "min_odds": 106,
-   "n_books": 2
+   "n_books": 2,
+   "actual": 4.0,
+   "result": "loss"
   },
   {
    "player_name": "Miles McBride",
@@ -77,7 +81,9 @@
    "deeplink": "",
    "injury": "",
    "min_odds": 102,
-   "n_books": 2
+   "n_books": 2,
+   "actual": 1.0,
+   "result": "win"
   },
   {
    "player_name": "Karl-Anthony Towns",
@@ -102,7 +108,9 @@
    "deeplink": "",
    "injury": "",
    "min_odds": -130,
-   "n_books": 5
+   "n_books": 5,
+   "actual": 47.0,
+   "result": "loss"
   },
   {
    "player_name": "John Collins",
@@ -127,7 +135,9 @@
    "deeplink": "",
    "injury": "",
    "min_odds": -117,
-   "n_books": 5
+   "n_books": 5,
+   "actual": 12.0,
+   "result": "win"
   },
   {
    "player_name": "Paul Reed",
@@ -152,7 +162,9 @@
    "deeplink": "",
    "injury": "",
    "min_odds": -142,
-   "n_books": 5
+   "n_books": 5,
+   "actual": 22.0,
+   "result": "loss"
   },
   {
    "player_name": "Derrick White",
@@ -177,7 +189,9 @@
    "deeplink": "",
    "injury": "Day-To-Day",
    "min_odds": -138,
-   "n_books": 5
+   "n_books": 5,
+   "actual": 23.0,
+   "result": "loss"
   }
  ],
  "game_picks": [
@@ -206,9 +220,11 @@
    "min_odds": 757,
    "n_books": 9,
    "kind": "game",
-   "label": "Kings to win"
+   "label": "Kings to win",
+   "actual": -27.0,
+   "result": "loss"
   }
  ],
- "graded": false,
+ "graded": true,
  "final": true
 }
