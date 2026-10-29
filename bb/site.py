@@ -9,6 +9,7 @@ import json
 
 from .config import DATA, MIN_EV, SITE
 from .grade import history
+from .tune import load as load_tuning
 
 BOOKS = {
     "fanduel": "FanDuel", "draftkings": "DraftKings", "betmgm": "BetMGM", "caesars": "Caesars",
@@ -81,6 +82,7 @@ def build(day: dt.date):
         "today": today,
         "summary": summarize(days),
         "model": report,
+        "tuning": load_tuning(),
         "books": BOOKS,
         "min_ev": MIN_EV,
     }
@@ -254,6 +256,22 @@ function renderModel() {
     <tbody>${rows.map(([k, r]) => `<tr><td>${esc(k.replace(/\+/g, ' + ').replace('threePointersMade', '3-pointers'))}</td>
       <td class="num">${r.mae_model}</td><td class="num">${r.mae_recent_average}</td>
       <td class="num">${pct(r.pick_accuracy)}</td><td class="num">${r.strong_pick_accuracy == null ? '' : pct(r.strong_pick_accuracy)}</td></tr>`).join('')}</tbody>
+  </table></div></details>${renderTuning()}`;
+}
+
+// What the model has learned from every graded line it scored this season (tune.py)
+function renderTuning() {
+  const t = D.tuning;
+  if (!t || !t.lines) return '';
+  const lean = r => Math.abs(r.shift) < 0.03 ? 'none' : r.shift > 0 ? 'ran low, nudged up' : 'ran high, nudged down';
+  return `<details style="margin-top:12px"><summary>Learning from past lines (${t.lines.toLocaleString()} graded through ${fmtDate(t.through)})</summary>
+  <p class="small muted">Every line the model scores is graded once the game is final, not just the picks. For each prop type that tunes how much
+  the picks trust the model versus the books' odds, and corrects a model that runs high or low. It moves gradually: a prop type needs a few
+  thousand graded lines before its own results count as much as the starting settings, and recent nights count more.</p>
+  <div class="card scroll" style="padding:4px 12px"><table>
+    <thead><tr><th>Prop type</th><th class="num">Graded lines</th><th class="num">Trust in model</th><th>Model correction</th></tr></thead>
+    <tbody>${Object.values(t.markets).map(r => `<tr><td>${esc(r.label)}</td><td class="num">${r.lines.toLocaleString()}</td>
+      <td class="num">${pct(r.weight)}</td><td>${lean(r)}</td></tr>`).join('')}</tbody>
   </table></div></details>`;
 }
 

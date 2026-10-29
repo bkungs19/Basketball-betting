@@ -52,7 +52,8 @@ def player_map(box: pd.DataFrame) -> dict[str, str]:
     return {features.norm_name(n): pid for n, pid in zip(latest["player_name"], latest["player_id"])}
 
 
-def score(day: dt.date, season: str, box: pd.DataFrame, model, lines: pd.DataFrame) -> pd.DataFrame:
+def score(day: dt.date, season: str, box: pd.DataFrame, model, lines: pd.DataFrame, tuning: dict | None = None) -> pd.DataFrame:
+    """Every available line with its blended chance and expected value; `tuning` comes from tune.fit."""
     lines = lines[lines["available"].astype(bool)].copy()
     lines["deeplink"] = lines["deeplink"].fillna("")
     if lines.empty:
@@ -97,9 +98,15 @@ def score(day: dt.date, season: str, box: pd.DataFrame, model, lines: pd.DataFra
         out.append(g)
     props = pd.concat(out, ignore_index=True)
 
-    props["p_model_over"] = props["p_over"]
+    # Per prop type, tune.py learns how far the model runs high or low and how much to trust it
+    tuned = (tuning or {}).get("markets", {})
+    shift = props["stat"].map(lambda s: tuned.get(s, {}).get("shift", 0.0)).values
+    weight = props["stat"].map(lambda s: tuned.get(s, {}).get("weight", MODEL_WEIGHT)).values
+    props["p_model_raw"] = props["p_over"]
+    z = np.log(np.clip(props["p_model_raw"], 1e-4, 1 - 1e-4) / np.clip(1 - props["p_model_raw"], 1e-4, 1))
+    props["p_model_over"] = 1 / (1 + np.exp(-(z + shift)))
     # Early in the season the model leans on last season's form, so trust the market more
-    weight = np.where(props["season_games"] < EARLY_SEASON_GAMES, EARLY_SEASON_MODEL_WEIGHT, MODEL_WEIGHT)
+    weight = np.where(props["season_games"] < EARLY_SEASON_GAMES, np.minimum(weight, EARLY_SEASON_MODEL_WEIGHT), weight)
     props["p_over"] = [blend(pm, pk, w) for pm, pk, w in zip(props["p_model_over"], props["market_p_over"], weight)]
     dec_over = props["over_odds"].map(american_to_decimal)
     dec_under = props["under_odds"].map(american_to_decimal)

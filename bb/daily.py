@@ -8,7 +8,7 @@ import time
 
 import pandas as pd
 
-from . import features, grade, lines, predict, pricing, site, stats
+from . import features, grade, lines, predict, pricing, site, stats, tune
 from .config import DATA, ET, HISTORY_SEASONS, MIN_EV
 from .model import PropModel
 
@@ -117,7 +117,8 @@ def run(day: dt.date | None = None, offline: bool = False, final: bool = False):
         f = features.training_rows(box)
         model = PropModel().fit(f)
         model.save_report()
-        props = predict.score(day, season, box, model, todays)
+        props = predict.score(day, season, box, model, todays, tune.fit(box, day))
+        tune.save_scored(day, props)
         typical = pricing.consensus(props) if len(props) else props
         # one prop per player: a player's points, PRA and P+R props mostly win or lose together
         best = (typical[typical["ev"] > MIN_EV].sort_values("ev", ascending=False)
