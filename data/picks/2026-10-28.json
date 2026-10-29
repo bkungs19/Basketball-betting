@@ -630,35 +630,6 @@
    "n_books": 2
   }
  ],
- "game_picks": [
-  {
-   "player_name": "Bucks",
-   "player_id": "team:MIL",
-   "team": "MIL",
-   "opp_abbr": "HOU",
-   "event_id": "jG7R4zImb4TtrIhNvcY5",
-   "start": "2026-10-28T20:00:00-04:00",
-   "stat": "moneyline",
-   "market": "Moneyline",
-   "side": "",
-   "line": 0.0,
-   "odds": 270,
-   "decimal": 3.7,
-   "p_hit": 0.2872492247,
-   "p_model_hit": 0.3529995206,
-   "p_market_hit": 0.2614209056,
-   "ev": 0.0628221315,
-   "proj": -5.3017329377,
-   "recent_avg": null,
-   "book": "any",
-   "deeplink": "",
-   "injury": "",
-   "min_odds": 248,
-   "n_books": 9,
-   "kind": "game",
-   "label": "Bucks to win"
-  }
- ],
  "graded": false,
  "final": true
 }

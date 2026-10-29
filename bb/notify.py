@@ -35,8 +35,7 @@ def message(picks: dict) -> tuple[str, str]:
     day = dt.date.fromisoformat(picks["date"])
     title = f"Final picks for {day:%a, %b %-d}"
     props = ranked_props(picks)[:TOP]
-    games = [g for g in picks.get("game_picks", []) if g["ev"] > MIN_EV]
-    starts = [p["start"] for p in props + games if p.get("start")]
+    starts = [p["start"] for p in props if p.get("start")]
     lines = [f"Final picks are out. [Open the page]({PAGE})", ""]
     if starts:
         lines += [f"First pick starts at {_time(min(starts))}.", ""]
@@ -44,14 +43,10 @@ def message(picks: dict) -> tuple[str, str]:
         lines += [f"**Top {len(props)} player props** (best first)", ""]
         better = {"Under": "higher", "Over": "lower"}
         lines += [f"{i}. {p['player_name']} {p['side']} {p['line']} {p['market']}: typical {_odds(p['odds'])}, "
-                  f"take {_odds(p['min_odds'])} or better (line {p['line']} or {better.get(p['side'], 'better')})"
+                  f"take {_odds(p['min_odds'])} or better (line {p['line']} or {better[p['side']]})"
                   for i, p in enumerate(props, 1)]
         lines.append("")
-    if games:
-        lines += ["**Moneyline and spread**", ""]
-        lines += [f"- {g['label']}: typical {_odds(g['odds'])}, take {_odds(g['min_odds'])} or better" for g in games]
-        lines.append("")
-    if not props and not games:
+    else:
         lines += [f"No picks over {MIN_EV:.0%} expected value today.", ""]
     return title, "\n".join(lines)
 

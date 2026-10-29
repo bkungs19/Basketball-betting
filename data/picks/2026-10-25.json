@@ -410,37 +410,6 @@
    "result": "loss"
   }
  ],
- "game_picks": [
-  {
-   "player_name": "Clippers",
-   "player_id": "team:LAC",
-   "team": "LAC",
-   "opp_abbr": "OKC",
-   "event_id": "q3Lqe7grENUm4nXjrFRp",
-   "start": "2026-10-25T19:00:00-04:00",
-   "stat": "moneyline",
-   "market": "Moneyline",
-   "side": "",
-   "line": 0.0,
-   "odds": 800,
-   "decimal": 9.0,
-   "p_hit": 0.1317692879,
-   "p_model_hit": 0.2055325651,
-   "p_market_hit": 0.1077456317,
-   "ev": 0.185923591,
-   "proj": -11.5528388415,
-   "recent_avg": null,
-   "book": "any",
-   "deeplink": "",
-   "injury": "",
-   "min_odds": 659,
-   "n_books": 9,
-   "kind": "game",
-   "label": "Clippers to win",
-   "actual": -7.0,
-   "result": "loss"
-  }
- ],
  "graded": true,
  "final": true
 }

@@ -653,37 +653,6 @@
    "result": "loss"
   }
  ],
- "game_picks": [
-  {
-   "player_name": "Kings",
-   "player_id": "team:SAC",
-   "team": "SAC",
-   "opp_abbr": "POR",
-   "event_id": "0pXdNImEofTORlk8slfV",
-   "start": "2026-10-23T22:00:00-04:00",
-   "stat": "moneyline",
-   "market": "Moneyline",
-   "side": "",
-   "line": 0.0,
-   "odds": 350,
-   "decimal": 4.5,
-   "p_hit": 0.2394278423,
-   "p_model_hit": 0.3120600081,
-   "p_market_hit": 0.2120886012,
-   "ev": 0.0774252902,
-   "proj": -6.8868312655,
-   "recent_avg": null,
-   "book": "any",
-   "deeplink": "",
-   "injury": "",
-   "min_odds": 318,
-   "n_books": 9,
-   "kind": "game",
-   "label": "Kings to win",
-   "actual": -8.0,
-   "result": "loss"
-  }
- ],
  "graded": true,
  "final": true
 }

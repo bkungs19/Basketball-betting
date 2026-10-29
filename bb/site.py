@@ -50,26 +50,22 @@ def summarize(days: list[dict]) -> dict:
     """Records for picks as the page shows them now, so they match how Brandon bets."""
     graded = sorted((d for d in days if d.get("graded")), key=lambda d: d["date"], reverse=True)
     ranked = {d["date"]: ranked_props(d) for d in graded}
-    games = {d["date"]: _graded([g for g in d.get("game_picks", []) if g["ev"] > MIN_EV]) for d in graded}
     top = lambda n: [p for r in ranked.values() for p in _graded(r[:n])]  # noqa: E731
     props = top(None)
-    all_games = [g for gs in games.values() for g in gs]
     recent = [{
         "date": d["date"],
         "top5": record(_graded(ranked[d["date"]][:5])),
         "top10": record(_graded(ranked[d["date"]][:10])),
         "props": record(_graded(ranked[d["date"]])),
-        "games": record(games[d["date"]]),
     } for d in graded[:30]]
     return {
         "top5": record(top(5)),
         "top10": record(top(10)),
         "props": record(props),
-        "games": record(all_games),
         "recent": recent,
-        # by prop type (Points, Moneyline, ...) and by player or team ("team:GS"), keyed like player_id
-        "by_market": records_by(props + all_games, lambda p: p.get("market")),
-        "by_pick": records_by(props + all_games, lambda p: str(p.get("player_id"))),
+        # by prop type (Points, Rebounds, ...) and by player, keyed by player_id
+        "by_market": records_by(props, lambda p: p.get("market")),
+        "by_pick": records_by(props, lambda p: str(p.get("player_id"))),
     }
 
 
@@ -149,7 +145,6 @@ footer { margin-top: 36px; font-size: 12px; color: var(--muted); }
     <span class="muted small" id="updated"></span>
   </header>
   <section id="props"></section>
-  <section id="games"></section>
   <section id="record"></section>
   <section id="model"></section>
   <footer>Picks are model estimates, not guarantees. Odds move; check the price at your book before betting. Bet only what you can afford to lose.</footer>
@@ -177,28 +172,10 @@ const pastRec = l => {
   return r ? `past picks ${r.wins}-${r.losses}` : 'no past picks';
 };
 // Fliff and Rebet often post a slightly different line. A line that's better for the
-// pick (higher for an Under, lower for an Over, more points on a spread) only raises
-// the chance it hits, so it's fine at the same take price.
-const lineOk = l => l.kind === 'game' ? (l.stat === 'spread' ? `, ${sgn(l.line)} or better` : '')
-  : `, line ${l.line} or ${l.side === 'Under' ? 'higher' : 'lower'}`;
+// pick (higher for an Under, lower for an Over) only raises the chance it hits, so
+// it's fine at the same take price.
+const lineOk = l => `, line ${l.line} or ${l.side === 'Under' ? 'higher' : 'lower'}`;
 const takeText = l => l.min_odds != null ? ` · take ${sgn(l.min_odds)} or better${lineOk(l)}` : '';
-const legName = l => l.kind === 'game' ? `${l.label} (${l.market.toLowerCase()})` : `${l.player_name} ${l.side} ${l.line} ${l.market}`;
-const projText = l => l.proj >= 0 ? `projects a ${(+l.proj).toFixed(1)}-point win` : `projects a ${(-l.proj).toFixed(1)}-point loss`;
-
-function renderGames() {
-  const rows = ((D.today && D.today.game_picks) || []).filter(r => r.ev > minEv);
-  const el = document.getElementById('games');
-  if (!D.today) { el.innerHTML = ''; return; }
-  if (!rows.length) { el.innerHTML = `<h2>Moneyline and spread picks</h2><div class="card empty muted">No moneyline or spread picks over ${evFloor} expected value today.</div>`; return; }
-  const res = r => D.today.graded ? ` · <span class="${r.result === 'win' ? 'pos' : r.result === 'loss' ? 'neg' : 'muted'}">${esc(r.result)}</span>` : '';
-  el.innerHTML = `<h2>Moneyline and spread picks</h2>
-  <div class="card" style="padding:0 16px"><ul class="legs" style="margin:0">${rows.map((r, i) => `<li style="${i === 0 ? 'border-top:0' : ''}">
-    <div><div class="pick">${esc(legName(r))}</div>
-      <div class="muted small">${esc(r.team)} vs ${esc(r.opp_abbr)} · ${time(r.start)} · ${projText(r)} · ${r.kind === 'game' && r.stat === 'moneyline' ? 'wins' : 'covers'} ${pct(r.p_hit)}${takeText(r)} · ${pastRec(r)}${res(r)}</div></div>
-    <div style="text-align:right"><div class="pick">${sgn(r.odds)}</div>
-      <div class="small"><span class="${r.ev >= 0 ? 'pos' : 'neg'}">${evTxt(r.ev)}</span></div></div>
-  </li>`).join('')}</ul></div>`;
-}
 
 // Today's props ranked the way they're meant to be bet: over the EV floor, one per player, best first
 function rankedProps() {
@@ -246,21 +223,20 @@ function renderRecord() {
   </table></div>` : '';
   const cats = Object.entries(s.by_market || {}).sort((a, b) => n(b[1]) - n(a[1]));
   const picks = Object.values(s.by_pick || {}).map(r => [r.name, r]).sort((a, b) => n(b[1]) - n(a[1]) || b[1].units - a[1].units);
-  const days = s.recent.filter(d => n(d.props) || n(d.games));
+  const days = s.recent.filter(d => n(d.props));
   el.innerHTML = `<h2>Track record</h2>
   <div class="record">
     ${card('Top 5 props each day', s.top5)}
     ${card('Top 10 props each day', s.top10)}
     ${card('All top props', s.props)}
-    ${card('Moneyline and spread picks', s.games)}
   </div>
   ${recTable('By category', cats)}
-  ${picks.length ? `<details style="margin-top:12px"><summary>By player and team (${picks.length})</summary>${recTable('Player or team', picks)}</details>` : ''}
+  ${picks.length ? `<details style="margin-top:12px"><summary>By player (${picks.length})</summary>${recTable('Player', picks)}</details>` : ''}
   ${days.length ? `<div class="card scroll" style="padding:4px 12px;margin-top:10px"><table>
-    <thead><tr><th>Day</th><th class="num">Top 5</th><th class="num">Top 10</th><th class="num">All props</th><th class="num">ML / spread</th></tr></thead>
+    <thead><tr><th>Day</th><th class="num">Top 5</th><th class="num">Top 10</th><th class="num">All props</th></tr></thead>
     <tbody>${days.map(d => `<tr><td>${fmtDate(d.date)}</td>
       <td class="num">${wl(d.top5)} ${units(d.top5)}</td><td class="num">${wl(d.top10)} ${units(d.top10)}</td>
-      <td class="num">${wl(d.props)} ${units(d.props)}</td><td class="num">${n(d.games) ? wl(d.games) + ' ' + units(d.games) : ''}</td></tr>`).join('')}</tbody>
+      <td class="num">${wl(d.props)} ${units(d.props)}</td></tr>`).join('')}</tbody>
   </table></div>` : ''}
   <p class="muted small" style="margin:8px 0 0">${days.length ? `Records count picks the way the page lists them now (over ${evFloor} expected value, one prop per player), 1 unit each at the odds shown that day.` : 'Results show up the morning after each game day.'}</p>`;
 }
@@ -281,7 +257,7 @@ function renderModel() {
   </table></div></details>`;
 }
 
-renderProps(); renderGames(); renderRecord(); renderModel();
+renderProps(); renderRecord(); renderModel();
 </script>
 </body>
 </html>

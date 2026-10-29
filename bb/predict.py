@@ -63,7 +63,7 @@ def score(day: dt.date, season: str, box: pd.DataFrame, model, lines: pd.DataFra
     lines["team"] = lines["team_nick"].map(lambda n: _abbr_for_nick(n, names))
     lines["opp_abbr"] = lines["opp_nick"].map(lambda n: _abbr_for_nick(n, names))
     lines["player_id"] = lines["player_name"].map(lambda n: pmap.get(features.norm_name(n)))
-    unmatched = lines[lines["player_id"].isna()]["player_name"].unique()
+    unmatched = lines[lines["player_id"].isna()]["player_name"].dropna().unique()  # saved lines can have blank names
     if len(unmatched):
         print(f"no stats history for {len(unmatched)} players: {', '.join(sorted(unmatched)[:15])}")
     lines = lines.dropna(subset=["player_id", "team", "opp_abbr"])

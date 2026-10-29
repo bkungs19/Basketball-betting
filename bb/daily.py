@@ -8,12 +8,11 @@ import time
 
 import pandas as pd
 
-from . import features, games as game_lines, grade, lines, predict, pricing, site, stats
+from . import features, grade, lines, predict, pricing, site, stats
 from .config import DATA, ET, HISTORY_SEASONS, MIN_EV
 from .model import PropModel
 
 TOP_PROPS = 25  # one per player, best expected value first; Brandon bets the top 5 or 10 as singles
-TOP_GAME_PICKS = 10
 LINES_LEAD = dt.timedelta(hours=10)  # props post the morning of; fetching earlier wastes the odds allowance
 PREGAME_LEAD = dt.timedelta(hours=1)
 LONGEST_WAIT = dt.timedelta(hours=5, minutes=30)  # GitHub ends a job after 6 hours
@@ -26,7 +25,7 @@ def _locked(path) -> bool:
     old = json.loads(path.read_text())
     if old.get("final"):
         return True
-    legs = old.get("top_props", []) + old.get("game_picks", [])
+    legs = old.get("top_props", [])
     now = pd.Timestamp.now(tz="UTC")
     return any(pd.Timestamp(l["start"]) <= now for l in legs)
 
@@ -67,19 +66,6 @@ def pregame_wait(lead=PREGAME_LEAD, longest=LONGEST_WAIT) -> bool:
     print(f"first game at {first.astimezone(ET):%-I:%M %p} ET; refreshing at {target.astimezone(ET):%-I:%M %p} ET")
     time.sleep((target - now).total_seconds())
     return True
-
-
-def game_legs(day: dt.date, season: str, box: pd.DataFrame, games: list[dict]) -> pd.DataFrame:
-    """Today's moneyline and spread legs, or an empty frame if there are no game lines."""
-    glines = lines.load_game_lines(day)
-    if glines.empty:
-        return pd.DataFrame()
-    if games:
-        glines = espn_tip_times(glines, games)
-    hist, tg, form = game_lines.training_games(box)
-    model = game_lines.GameModel().fit(hist)
-    model.save_report()
-    return game_lines.score(day, season, box, model, tg, form, glines, predict.injuries())
 
 
 def _records(df: pd.DataFrame) -> list[dict]:
@@ -132,28 +118,23 @@ def run(day: dt.date | None = None, offline: bool = False, final: bool = False):
         model = PropModel().fit(f)
         model.save_report()
         props = predict.score(day, season, box, model, todays)
-        gl = game_legs(day, season, box, games)
         typical = pricing.consensus(props) if len(props) else props
         # one prop per player: a player's points, PRA and P+R props mostly win or lose together
         best = (typical[typical["ev"] > MIN_EV].sort_values("ev", ascending=False)
                 .drop_duplicates("player_id").head(TOP_PROPS)) if len(typical) else typical
-        typical_games = pricing.consensus(gl) if len(gl) else gl
-        best_games = (typical_games[typical_games["ev"] > MIN_EV].sort_values("ev", ascending=False)
-                      .drop_duplicates(["event_id", "stat"]).head(TOP_GAME_PICKS)) if len(typical_games) else typical_games
         picks = {
             "date": day.isoformat(),
             "generated_at": dt.datetime.now(dt.timezone.utc).isoformat(timespec="seconds"),
             "games": int(todays["event_id"].nunique()),
             "props_scored": int(len(props)),
             "top_props": _records(best[[c for c in pricing.LEG_FIELDS if c in best.columns]]) if len(best) else [],
-            "game_picks": _records(best_games[[c for c in pricing.LEG_FIELDS if c in best_games.columns]]) if len(best_games) else [],
             "graded": False,
             "final": final,
         }
         grade.PICKS_DIR.mkdir(parents=True, exist_ok=True)
         picks_path.write_text(json.dumps(clean(picks), indent=1, default=str, allow_nan=False))
         print(f"{day}: {picks['games']} games, {len(props)} props scored, "
-              f"{len(picks['top_props'])} props and {len(picks['game_picks'])} game picks over {MIN_EV:.0%} EV")
+              f"{len(picks['top_props'])} props over {MIN_EV:.0%} EV")
     elif not len(todays):
         print(f"{day}: no NBA games with lines today")
     else:

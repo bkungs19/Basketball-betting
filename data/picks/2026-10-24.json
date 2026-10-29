@@ -221,37 +221,6 @@
    "result": "loss"
   }
  ],
- "game_picks": [
-  {
-   "player_name": "Pelicans",
-   "player_id": "team:NO",
-   "team": "NO",
-   "opp_abbr": "DEN",
-   "event_id": "cqYkbyTXyjMXAWSMVR3T",
-   "start": "2026-10-24T21:00:00-04:00",
-   "stat": "moneyline",
-   "market": "Moneyline",
-   "side": "",
-   "line": 0.0,
-   "odds": 375,
-   "decimal": 4.75,
-   "p_hit": 0.2238143491,
-   "p_model_hit": 0.2773060443,
-   "p_market_hit": 0.203263267,
-   "ev": 0.0631181584,
-   "proj": -8.3041065421,
-   "recent_avg": null,
-   "book": "any",
-   "deeplink": "",
-   "injury": "",
-   "min_odds": 347,
-   "n_books": 9,
-   "kind": "game",
-   "label": "Pelicans to win",
-   "actual": -6.0,
-   "result": "loss"
-  }
- ],
  "graded": true,
  "final": true
 }
