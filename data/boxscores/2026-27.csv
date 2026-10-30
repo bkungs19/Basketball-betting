@@ -1870,3 +1870,82 @@ season,season_type,game_id,game_date,team,team_name,opp,opp_name,home,player_id,
 2026-27,regular,401909892,2026-10-28,LAL,Los Angeles Lakers,LAC,LA Clippers,0,5114350,AK Okereke,0,1,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
 2026-27,regular,401909892,2026-10-28,LAL,Los Angeles Lakers,LAC,LA Clippers,0,4683774,Bronny James,0,1,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
 2026-27,regular,401909892,2026-10-28,LAL,Los Angeles Lakers,LAC,LA Clippers,0,4702972,Chris Manon,0,1,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+2026-27,regular,401909893,2026-10-29,ATL,Atlanta Hawks,CLE,Cleveland Cavaliers,1,4701230,Jalen Johnson,1,0,34.0,17.0,8.0,1.0,7.0,7.0,0.0,0.0,4.0,3.0,7.0,16.0,2.0,5.0,1.0,1.0,-3.0
+2026-27,regular,401909893,2026-10-29,ATL,Atlanta Hawks,CLE,Cleveland Cavaliers,1,4431680,Onyeka Okongwu,1,0,33.0,29.0,12.0,5.0,7.0,2.0,1.0,1.0,1.0,4.0,11.0,17.0,4.0,6.0,3.0,4.0,0.0
+2026-27,regular,401909893,2026-10-29,ATL,Atlanta Hawks,CLE,Cleveland Cavaliers,1,4869342,Dyson Daniels,1,0,32.0,4.0,6.0,2.0,4.0,5.0,1.0,0.0,0.0,2.0,2.0,8.0,0.0,1.0,0.0,0.0,-3.0
+2026-27,regular,401909893,2026-10-29,ATL,Atlanta Hawks,CLE,Cleveland Cavaliers,1,2490149,CJ McCollum,1,0,31.0,5.0,3.0,0.0,3.0,8.0,2.0,0.0,4.0,2.0,1.0,8.0,0.0,4.0,3.0,4.0,2.0
+2026-27,regular,401909893,2026-10-29,ATL,Atlanta Hawks,CLE,Cleveland Cavaliers,1,4278039,Nickeil Alexander-Walker,1,0,31.0,25.0,3.0,2.0,1.0,1.0,0.0,1.0,0.0,3.0,8.0,17.0,4.0,12.0,5.0,5.0,1.0
+2026-27,regular,401909893,2026-10-29,ATL,Atlanta Hawks,CLE,Cleveland Cavaliers,1,4397183,Aaron Wiggins,0,0,24.0,20.0,7.0,1.0,6.0,3.0,0.0,1.0,1.0,0.0,8.0,14.0,4.0,7.0,0.0,0.0,17.0
+2026-27,regular,401909893,2026-10-29,ATL,Atlanta Hawks,CLE,Cleveland Cavaliers,1,4397020,Luguentz Dort,0,0,22.0,6.0,3.0,0.0,3.0,2.0,0.0,0.0,1.0,2.0,2.0,5.0,1.0,3.0,1.0,2.0,-3.0
+2026-27,regular,401909893,2026-10-29,ATL,Atlanta Hawks,CLE,Cleveland Cavaliers,1,5149077,Kingston Flemings,0,0,16.0,2.0,1.0,0.0,1.0,5.0,0.0,0.0,0.0,3.0,1.0,4.0,0.0,1.0,0.0,0.0,1.0
+2026-27,regular,401909893,2026-10-29,ATL,Atlanta Hawks,CLE,Cleveland Cavaliers,1,3146557,Jock Landale,0,0,15.0,6.0,10.0,4.0,6.0,1.0,0.0,0.0,0.0,3.0,2.0,6.0,2.0,4.0,0.0,2.0,3.0
+2026-27,regular,401909893,2026-10-29,ATL,Atlanta Hawks,CLE,Cleveland Cavaliers,1,2578185,Dorian Finney-Smith,0,1,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+2026-27,regular,401909893,2026-10-29,ATL,Atlanta Hawks,CLE,Cleveland Cavaliers,1,4280151,Corey Kispert,0,1,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+2026-27,regular,401909893,2026-10-29,ATL,Atlanta Hawks,CLE,Cleveland Cavaliers,1,4873201,Asa Newell,0,1,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+2026-27,regular,401909893,2026-10-29,ATL,Atlanta Hawks,CLE,Cleveland Cavaliers,1,5106262,Zuby Ejiofor,0,1,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+2026-27,regular,401909893,2026-10-29,CLE,Cleveland Cavaliers,ATL,Atlanta Hawks,0,3992,James Harden,1,0,36.0,24.0,5.0,0.0,5.0,4.0,0.0,0.0,3.0,4.0,7.0,14.0,3.0,8.0,7.0,9.0,0.0
+2026-27,regular,401909893,2026-10-29,CLE,Cleveland Cavaliers,ATL,Atlanta Hawks,0,4432158,Evan Mobley,1,0,33.0,11.0,4.0,1.0,3.0,7.0,0.0,1.0,1.0,0.0,4.0,9.0,0.0,3.0,3.0,4.0,-1.0
+2026-27,regular,401909893,2026-10-29,CLE,Cleveland Cavaliers,ATL,Atlanta Hawks,0,3908809,Donovan Mitchell,1,0,33.0,22.0,3.0,1.0,2.0,3.0,1.0,0.0,0.0,2.0,7.0,19.0,1.0,9.0,7.0,8.0,1.0
+2026-27,regular,401909893,2026-10-29,CLE,Cleveland Cavaliers,ATL,Atlanta Hawks,0,4066328,Jarrett Allen,1,0,30.0,14.0,8.0,3.0,5.0,1.0,0.0,2.0,1.0,1.0,5.0,8.0,1.0,1.0,3.0,4.0,5.0
+2026-27,regular,401909893,2026-10-29,CLE,Cleveland Cavaliers,ATL,Atlanta Hawks,0,4576087,Peyton Watson,1,0,22.0,4.0,4.0,1.0,3.0,3.0,0.0,2.0,2.0,5.0,1.0,8.0,0.0,3.0,2.0,4.0,-10.0
+2026-27,regular,401909893,2026-10-29,CLE,Cleveland Cavaliers,ATL,Atlanta Hawks,0,4066757,Sam Merrill,0,0,27.0,16.0,2.0,1.0,1.0,3.0,1.0,0.0,2.0,4.0,6.0,11.0,4.0,8.0,0.0,0.0,8.0
+2026-27,regular,401909893,2026-10-29,CLE,Cleveland Cavaliers,ATL,Atlanta Hawks,0,5023693,Tyrese Proctor,0,0,20.0,7.0,6.0,1.0,5.0,2.0,0.0,0.0,0.0,1.0,3.0,5.0,1.0,2.0,0.0,0.0,5.0
+2026-27,regular,401909893,2026-10-29,CLE,Cleveland Cavaliers,ATL,Atlanta Hawks,0,4683747,Jaylon Tyson,0,0,18.0,3.0,6.0,0.0,6.0,1.0,0.0,0.0,0.0,1.0,1.0,7.0,1.0,5.0,0.0,0.0,0.0
+2026-27,regular,401909893,2026-10-29,CLE,Cleveland Cavaliers,ATL,Atlanta Hawks,0,2995706,Mario Hezonja,0,0,17.0,10.0,6.0,1.0,5.0,2.0,1.0,0.0,0.0,1.0,4.0,6.0,2.0,3.0,0.0,0.0,-13.0
+2026-27,regular,401909893,2026-10-29,CLE,Cleveland Cavaliers,ATL,Atlanta Hawks,0,4701233,Craig Porter Jr.,0,0,4.0,0.0,1.0,0.0,1.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,-10.0
+2026-27,regular,401909893,2026-10-29,CLE,Cleveland Cavaliers,ATL,Atlanta Hawks,0,5177362,Riley Minix,0,1,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+2026-27,regular,401909893,2026-10-29,CLE,Cleveland Cavaliers,ATL,Atlanta Hawks,0,3934723,Thomas Bryant,0,1,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+2026-27,regular,401909893,2026-10-29,CLE,Cleveland Cavaliers,ATL,Atlanta Hawks,0,5106261,Ernest Udeh Jr.,0,1,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+2026-27,regular,401909894,2026-10-29,NO,New Orleans Pelicans,SAC,Sacramento Kings,1,4277813,Herbert Jones,1,0,32.0,16.0,4.0,0.0,4.0,1.0,2.0,0.0,3.0,4.0,7.0,12.0,0.0,3.0,2.0,3.0,27.0
+2026-27,regular,401909894,2026-10-29,NO,New Orleans Pelicans,SAC,Sacramento Kings,1,4397688,Trey Murphy III,1,0,32.0,19.0,5.0,1.0,4.0,3.0,1.0,0.0,0.0,2.0,6.0,12.0,2.0,7.0,5.0,8.0,4.0
+2026-27,regular,401909894,2026-10-29,NO,New Orleans Pelicans,SAC,Sacramento Kings,1,4395628,Zion Williamson,1,0,31.0,22.0,6.0,0.0,6.0,2.0,5.0,1.0,3.0,0.0,10.0,12.0,0.0,0.0,2.0,4.0,5.0
+2026-27,regular,401909894,2026-10-29,NO,New Orleans Pelicans,SAC,Sacramento Kings,1,5144091,Jeremiah Fears,1,0,29.0,22.0,8.0,1.0,7.0,13.0,2.0,4.0,3.0,2.0,9.0,16.0,3.0,5.0,1.0,3.0,3.0
+2026-27,regular,401909894,2026-10-29,NO,New Orleans Pelicans,SAC,Sacramento Kings,1,4997538,Karlo Matkovic,1,0,28.0,12.0,4.0,0.0,4.0,1.0,3.0,1.0,2.0,2.0,4.0,7.0,1.0,4.0,3.0,4.0,5.0
+2026-27,regular,401909894,2026-10-29,NO,New Orleans Pelicans,SAC,Sacramento Kings,1,4397136,Saddiq Bey,0,0,24.0,10.0,4.0,2.0,2.0,3.0,0.0,0.0,1.0,0.0,3.0,6.0,1.0,2.0,3.0,3.0,-8.0
+2026-27,regular,401909894,2026-10-29,NO,New Orleans Pelicans,SAC,Sacramento Kings,1,4869780,Derik Queen,0,0,22.0,9.0,2.0,0.0,2.0,3.0,1.0,0.0,4.0,0.0,4.0,7.0,1.0,2.0,0.0,0.0,8.0
+2026-27,regular,401909894,2026-10-29,NO,New Orleans Pelicans,SAC,Sacramento Kings,1,4683634,Bennedict Mathurin,0,0,19.0,10.0,3.0,1.0,2.0,2.0,0.0,0.0,2.0,0.0,3.0,6.0,2.0,4.0,2.0,2.0,9.0
+2026-27,regular,401909894,2026-10-29,NO,New Orleans Pelicans,SAC,Sacramento Kings,1,4431675,Trendon Watford,0,0,17.0,8.0,1.0,0.0,1.0,2.0,3.0,0.0,1.0,3.0,2.0,3.0,0.0,1.0,4.0,5.0,7.0
+2026-27,regular,401909894,2026-10-29,NO,New Orleans Pelicans,SAC,Sacramento Kings,1,4576086,Bryce McGowens,0,0,6.0,4.0,1.0,0.0,1.0,2.0,1.0,0.0,1.0,0.0,2.0,3.0,0.0,1.0,0.0,0.0,0.0
+2026-27,regular,401909894,2026-10-29,NO,New Orleans Pelicans,SAC,Sacramento Kings,1,4683742,Julian Reese,0,1,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+2026-27,regular,401909894,2026-10-29,NO,New Orleans Pelicans,SAC,Sacramento Kings,1,3442,DeAndre Jordan,0,1,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+2026-27,regular,401909894,2026-10-29,NO,New Orleans Pelicans,SAC,Sacramento Kings,1,5170947,AJ Johnson,0,1,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+2026-27,regular,401909894,2026-10-29,SAC,Sacramento Kings,NO,New Orleans Pelicans,0,4431679,Precious Achiuwa,1,0,41.0,24.0,9.0,2.0,7.0,2.0,4.0,0.0,1.0,5.0,12.0,17.0,0.0,2.0,0.0,1.0,1.0
+2026-27,regular,401909894,2026-10-29,SAC,Sacramento Kings,NO,New Orleans Pelicans,0,5142620,Darius Acuff Jr.,1,0,41.0,34.0,6.0,1.0,5.0,14.0,1.0,0.0,6.0,4.0,13.0,26.0,3.0,11.0,5.0,5.0,3.0
+2026-27,regular,401909894,2026-10-29,SAC,Sacramento Kings,NO,New Orleans Pelicans,0,3155942,Domantas Sabonis,1,0,40.0,9.0,15.0,2.0,13.0,7.0,2.0,1.0,7.0,4.0,4.0,7.0,0.0,0.0,1.0,2.0,-12.0
+2026-27,regular,401909894,2026-10-29,SAC,Sacramento Kings,NO,New Orleans Pelicans,0,3064440,Zach LaVine,1,0,39.0,21.0,3.0,2.0,1.0,5.0,3.0,0.0,3.0,2.0,7.0,17.0,3.0,10.0,4.0,6.0,-25.0
+2026-27,regular,401909894,2026-10-29,SAC,Sacramento Kings,NO,New Orleans Pelicans,0,4065732,De'Andre Hunter,1,0,37.0,24.0,5.0,0.0,5.0,1.0,0.0,0.0,3.0,1.0,7.0,13.0,4.0,8.0,6.0,6.0,-9.0
+2026-27,regular,401909894,2026-10-29,SAC,Sacramento Kings,NO,New Orleans Pelicans,0,5106058,Emanuel Sharp,0,0,18.0,0.0,0.0,0.0,0.0,0.0,1.0,0.0,0.0,2.0,0.0,2.0,0.0,2.0,0.0,0.0,13.0
+2026-27,regular,401909894,2026-10-29,SAC,Sacramento Kings,NO,New Orleans Pelicans,0,4917149,Alex Karaban,0,0,12.0,6.0,0.0,0.0,0.0,0.0,1.0,0.0,3.0,3.0,2.0,3.0,2.0,3.0,0.0,0.0,-10.0
+2026-27,regular,401909894,2026-10-29,SAC,Sacramento Kings,NO,New Orleans Pelicans,0,4066262,Malik Monk,0,0,8.0,2.0,1.0,0.0,1.0,1.0,0.0,0.0,2.0,0.0,1.0,3.0,0.0,1.0,0.0,0.0,-13.0
+2026-27,regular,401909894,2026-10-29,SAC,Sacramento Kings,NO,New Orleans Pelicans,0,4702384,Nique Clifford,0,0,4.0,0.0,0.0,0.0,0.0,1.0,0.0,0.0,0.0,1.0,0.0,0.0,0.0,0.0,0.0,0.0,-8.0
+2026-27,regular,401909894,2026-10-29,SAC,Sacramento Kings,NO,New Orleans Pelicans,0,4395650,Leaky Black,0,1,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+2026-27,regular,401909894,2026-10-29,SAC,Sacramento Kings,NO,New Orleans Pelicans,0,5107897,Jonathan Mogbo,0,1,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+2026-27,regular,401909894,2026-10-29,SAC,Sacramento Kings,NO,New Orleans Pelicans,0,4279318,Daeqwon Plowden,0,1,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+2026-27,regular,401909895,2026-10-29,MEM,Memphis Grizzlies,POR,Portland Trail Blazers,0,5041935,Cameron Boozer,1,0,28.0,18.0,12.0,2.0,10.0,12.0,0.0,0.0,2.0,1.0,6.0,10.0,4.0,5.0,2.0,2.0,20.0
+2026-27,regular,401909895,2026-10-29,MEM,Memphis Grizzlies,POR,Portland Trail Blazers,0,4903027,Cedric Coward,1,0,27.0,17.0,7.0,1.0,6.0,4.0,3.0,0.0,2.0,5.0,7.0,14.0,3.0,5.0,0.0,0.0,16.0
+2026-27,regular,401909895,2026-10-29,MEM,Memphis Grizzlies,POR,Portland Trail Blazers,0,5112087,Jaylen Wells,1,0,25.0,10.0,1.0,0.0,1.0,0.0,0.0,0.0,0.0,3.0,4.0,9.0,2.0,7.0,0.0,0.0,20.0
+2026-27,regular,401909895,2026-10-29,MEM,Memphis Grizzlies,POR,Portland Trail Blazers,0,4065733,Ty Jerome,1,0,24.0,10.0,2.0,0.0,2.0,3.0,2.0,0.0,3.0,1.0,3.0,12.0,1.0,5.0,3.0,3.0,0.0
+2026-27,regular,401909895,2026-10-29,MEM,Memphis Grizzlies,POR,Portland Trail Blazers,0,4600663,Zach Edey,1,0,19.0,13.0,7.0,2.0,5.0,0.0,0.0,0.0,0.0,4.0,6.0,8.0,1.0,1.0,0.0,0.0,-4.0
+2026-27,regular,401909895,2026-10-29,MEM,Memphis Grizzlies,POR,Portland Trail Blazers,0,2991070,Jerami Grant,0,0,27.0,2.0,1.0,1.0,0.0,3.0,0.0,0.0,1.0,0.0,1.0,8.0,0.0,3.0,0.0,0.0,5.0
+2026-27,regular,401909895,2026-10-29,MEM,Memphis Grizzlies,POR,Portland Trail Blazers,0,4433083,Cam Spencer,0,0,23.0,8.0,6.0,2.0,4.0,8.0,2.0,0.0,1.0,4.0,3.0,6.0,1.0,2.0,1.0,1.0,21.0
+2026-27,regular,401909895,2026-10-29,MEM,Memphis Grizzlies,POR,Portland Trail Blazers,0,5105550,GG Jackson,0,0,21.0,12.0,7.0,2.0,5.0,2.0,0.0,0.0,0.0,0.0,4.0,12.0,2.0,4.0,2.0,2.0,6.0
+2026-27,regular,401909895,2026-10-29,MEM,Memphis Grizzlies,POR,Portland Trail Blazers,0,4432810,Isaiah Stewart,0,0,16.0,18.0,3.0,1.0,2.0,0.0,0.0,1.0,1.0,3.0,7.0,10.0,2.0,4.0,2.0,2.0,18.0
+2026-27,regular,401909895,2026-10-29,MEM,Memphis Grizzlies,POR,Portland Trail Blazers,0,4431785,Scotty Pippen Jr.,0,0,14.0,2.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,1.0,1.0,0.0,0.0,0.0,0.0,0.0
+2026-27,regular,401909895,2026-10-29,MEM,Memphis Grizzlies,POR,Portland Trail Blazers,0,4593016,Quinten Post,0,0,7.0,10.0,4.0,2.0,2.0,0.0,0.0,0.0,0.0,2.0,3.0,5.0,2.0,3.0,2.0,2.0,7.0
+2026-27,regular,401909895,2026-10-29,MEM,Memphis Grizzlies,POR,Portland Trail Blazers,0,4594326,Kris Murray,0,0,3.0,0.0,1.0,1.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,1.0,0.0,1.0,0.0,0.0,-1.0
+2026-27,regular,401909895,2026-10-29,MEM,Memphis Grizzlies,POR,Portland Trail Blazers,0,4595400,Olivier-Maxence Prosper,0,0,3.0,4.0,1.0,0.0,1.0,0.0,0.0,0.0,0.0,0.0,2.0,4.0,0.0,0.0,0.0,0.0,-1.0
+2026-27,regular,401909895,2026-10-29,MEM,Memphis Grizzlies,POR,Portland Trail Blazers,0,4684806,Taylor Hendricks,0,0,3.0,0.0,1.0,0.0,1.0,0.0,0.0,0.0,0.0,0.0,0.0,1.0,0.0,1.0,0.0,0.0,-1.0
+2026-27,regular,401909895,2026-10-29,MEM,Memphis Grizzlies,POR,Portland Trail Blazers,0,5231919,Karim Lopez,0,0,3.0,0.0,1.0,1.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,1.0,0.0,1.0,0.0,0.0,-1.0
+2026-27,regular,401909895,2026-10-29,POR,Portland Trail Blazers,MEM,Memphis Grizzlies,1,4683021,Deni Avdija,1,0,32.0,24.0,9.0,1.0,8.0,7.0,0.0,1.0,0.0,1.0,8.0,16.0,0.0,4.0,8.0,12.0,-9.0
+2026-27,regular,401909895,2026-10-29,POR,Portland Trail Blazers,MEM,Memphis Grizzlies,1,6606,Damian Lillard,1,0,30.0,9.0,2.0,0.0,2.0,2.0,0.0,0.0,1.0,0.0,3.0,13.0,1.0,9.0,2.0,4.0,-11.0
+2026-27,regular,401909895,2026-10-29,POR,Portland Trail Blazers,MEM,Memphis Grizzlies,1,5105565,Donovan Clingan,1,0,29.0,11.0,8.0,4.0,4.0,1.0,1.0,5.0,2.0,2.0,5.0,9.0,1.0,3.0,0.0,1.0,4.0
+2026-27,regular,401909895,2026-10-29,POR,Portland Trail Blazers,MEM,Memphis Grizzlies,1,4431736,Toumani Camara,1,0,26.0,13.0,2.0,0.0,2.0,1.0,2.0,2.0,2.0,1.0,5.0,10.0,3.0,8.0,0.0,0.0,-20.0
+2026-27,regular,401909895,2026-10-29,POR,Portland Trail Blazers,MEM,Memphis Grizzlies,1,4279888,Ja Morant,1,0,23.0,14.0,2.0,1.0,1.0,3.0,0.0,0.0,1.0,1.0,6.0,14.0,2.0,5.0,0.0,0.0,-7.0
+2026-27,regular,401909895,2026-10-29,POR,Portland Trail Blazers,MEM,Memphis Grizzlies,1,3995,Jrue Holiday,0,0,24.0,6.0,6.0,1.0,5.0,4.0,1.0,0.0,2.0,0.0,2.0,7.0,2.0,5.0,0.0,0.0,-16.0
+2026-27,regular,401909895,2026-10-29,POR,Portland Trail Blazers,MEM,Memphis Grizzlies,1,4683678,Scoot Henderson,0,0,19.0,9.0,4.0,1.0,3.0,0.0,0.0,0.0,2.0,2.0,3.0,8.0,1.0,5.0,2.0,2.0,-6.0
+2026-27,regular,401909895,2026-10-29,POR,Portland Trail Blazers,MEM,Memphis Grizzlies,1,5081727,Sidy Cissoko,0,0,19.0,4.0,6.0,4.0,2.0,2.0,1.0,0.0,1.0,3.0,2.0,5.0,0.0,3.0,0.0,2.0,-12.0
+2026-27,regular,401909895,2026-10-29,POR,Portland Trail Blazers,MEM,Memphis Grizzlies,1,4592435,Branden Carlson,0,0,12.0,2.0,2.0,1.0,1.0,1.0,0.0,2.0,3.0,2.0,1.0,2.0,0.0,1.0,0.0,0.0,-13.0
+2026-27,regular,401909895,2026-10-29,POR,Portland Trail Blazers,MEM,Memphis Grizzlies,1,4066399,Micah Potter,0,0,9.0,1.0,2.0,0.0,2.0,0.0,0.0,0.0,2.0,1.0,0.0,2.0,0.0,1.0,1.0,1.0,-5.0
+2026-27,regular,401909895,2026-10-29,POR,Portland Trail Blazers,MEM,Memphis Grizzlies,1,4578893,Vit Krejci,0,0,8.0,2.0,0.0,0.0,0.0,1.0,0.0,0.0,0.0,0.0,0.0,2.0,0.0,2.0,2.0,2.0,-8.0
+2026-27,regular,401909895,2026-10-29,POR,Portland Trail Blazers,MEM,Memphis Grizzlies,1,4593043,John Tonje,0,0,5.0,5.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,1.0,1.0,2.0,1.0,2.0,2.0,2.0,-1.0
+2026-27,regular,401909895,2026-10-29,POR,Portland Trail Blazers,MEM,Memphis Grizzlies,1,5217746,Yang Hansen,0,0,5.0,3.0,2.0,0.0,2.0,1.0,0.0,1.0,0.0,0.0,1.0,1.0,1.0,1.0,0.0,0.0,-1.0
