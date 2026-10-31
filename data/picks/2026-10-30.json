@@ -27,7 +27,9 @@
    "deeplink": "",
    "injury": "",
    "min_odds": -111,
-   "n_books": 5
+   "n_books": 5,
+   "actual": 2.0,
+   "result": "loss"
   },
   {
    "player_name": "Giannis Antetokounmpo",
@@ -52,7 +54,9 @@
    "deeplink": "",
    "injury": "",
    "min_odds": -140,
-   "n_books": 4
+   "n_books": 4,
+   "actual": 49.0,
+   "result": "loss"
   },
   {
    "player_name": "Ayo Dosunmu",
@@ -77,7 +81,9 @@
    "deeplink": "",
    "injury": "",
    "min_odds": -149,
-   "n_books": 3
+   "n_books": 3,
+   "actual": 15.0,
+   "result": "win"
   },
   {
    "player_name": "Paul Reed",
@@ -102,7 +108,9 @@
    "deeplink": "",
    "injury": "",
    "min_odds": -127,
-   "n_books": 4
+   "n_books": 4,
+   "actual": 17.0,
+   "result": "win"
   },
   {
    "player_name": "Terrence Shannon Jr.",
@@ -127,7 +135,9 @@
    "deeplink": "",
    "injury": "",
    "min_odds": -133,
-   "n_books": 5
+   "n_books": 5,
+   "actual": 14.0,
+   "result": "win"
   },
   {
    "player_name": "Naz Reid",
@@ -152,7 +162,9 @@
    "deeplink": "",
    "injury": "",
    "min_odds": -126,
-   "n_books": 5
+   "n_books": 5,
+   "actual": 24.0,
+   "result": "win"
   },
   {
    "player_name": "LaMelo Ball",
@@ -177,7 +189,9 @@
    "deeplink": "",
    "injury": "",
    "min_odds": -144,
-   "n_books": 4
+   "n_books": 4,
+   "actual": 28.0,
+   "result": "loss"
   },
   {
    "player_name": "Brandon Miller",
@@ -202,7 +216,9 @@
    "deeplink": "",
    "injury": "",
    "min_odds": -129,
-   "n_books": 4
+   "n_books": 4,
+   "actual": 21.0,
+   "result": "win"
   },
   {
    "player_name": "Mikal Bridges",
@@ -227,7 +243,9 @@
    "deeplink": "",
    "injury": "",
    "min_odds": -127,
-   "n_books": 6
+   "n_books": 6,
+   "actual": 19.0,
+   "result": "loss"
   },
   {
    "player_name": "Dennis Schr\u00f6der",
@@ -252,7 +270,9 @@
    "deeplink": "",
    "injury": "Day-To-Day",
    "min_odds": -144,
-   "n_books": 4
+   "n_books": 4,
+   "actual": 10.0,
+   "result": "win"
   },
   {
    "player_name": "Kevin Durant",
@@ -277,7 +297,9 @@
    "deeplink": "",
    "injury": "",
    "min_odds": -172,
-   "n_books": 6
+   "n_books": 6,
+   "actual": 1.0,
+   "result": "loss"
   },
   {
    "player_name": "Jonathan Kuminga",
@@ -302,7 +324,9 @@
    "deeplink": "",
    "injury": "",
    "min_odds": -135,
-   "n_books": 6
+   "n_books": 6,
+   "actual": 1.0,
+   "result": "win"
   },
   {
    "player_name": "Tristan da Silva",
@@ -327,7 +351,9 @@
    "deeplink": "",
    "injury": "",
    "min_odds": 121,
-   "n_books": 2
+   "n_books": 2,
+   "actual": 0.0,
+   "result": "win"
   },
   {
    "player_name": "Tari Eason",
@@ -352,7 +378,9 @@
    "deeplink": "",
    "injury": "",
    "min_odds": -145,
-   "n_books": 5
+   "n_books": 5,
+   "actual": 13.0,
+   "result": "win"
   },
   {
    "player_name": "John Collins",
@@ -377,7 +405,9 @@
    "deeplink": "",
    "injury": "",
    "min_odds": -141,
-   "n_books": 5
+   "n_books": 5,
+   "actual": 4.0,
+   "result": "win"
   },
   {
    "player_name": "Yaxel Lendeborg",
@@ -402,7 +432,9 @@
    "deeplink": "",
    "injury": "",
    "min_odds": -120,
-   "n_books": 3
+   "n_books": 3,
+   "actual": 7.0,
+   "result": "loss"
   },
   {
    "player_name": "Davion Mitchell",
@@ -427,7 +459,9 @@
    "deeplink": "",
    "injury": "",
    "min_odds": -130,
-   "n_books": 4
+   "n_books": 4,
+   "actual": 15.0,
+   "result": "win"
   },
   {
    "player_name": "Rudy Gobert",
@@ -452,7 +486,9 @@
    "deeplink": "",
    "injury": "",
    "min_odds": -120,
-   "n_books": 5
+   "n_books": 5,
+   "actual": 9.0,
+   "result": "win"
   },
   {
    "player_name": "Jabari Smith Jr.",
@@ -477,7 +513,9 @@
    "deeplink": "",
    "injury": "",
    "min_odds": -119,
-   "n_books": 4
+   "n_books": 4,
+   "actual": 25.0,
+   "result": "win"
   },
   {
    "player_name": "Landry Shamet",
@@ -502,7 +540,9 @@
    "deeplink": "",
    "injury": "",
    "min_odds": -103,
-   "n_books": 2
+   "n_books": 2,
+   "actual": 0.0,
+   "result": "loss"
   },
   {
    "player_name": "Daniss Jenkins",
@@ -527,7 +567,9 @@
    "deeplink": "",
    "injury": "",
    "min_odds": -112,
-   "n_books": 5
+   "n_books": 5,
+   "actual": 9.0,
+   "result": "loss"
   },
   {
    "player_name": "Matisse Thybulle",
@@ -552,7 +594,9 @@
    "deeplink": "",
    "injury": "",
    "min_odds": 115,
-   "n_books": 6
+   "n_books": 6,
+   "actual": 1.0,
+   "result": "loss"
   },
   {
    "player_name": "Isaiah Jackson",
@@ -577,7 +621,9 @@
    "deeplink": "",
    "injury": "",
    "min_odds": -117,
-   "n_books": 6
+   "n_books": 6,
+   "actual": 7.0,
+   "result": "loss"
   },
   {
    "player_name": "Jalen Green",
@@ -602,7 +648,9 @@
    "deeplink": "",
    "injury": "",
    "min_odds": -123,
-   "n_books": 6
+   "n_books": 6,
+   "actual": 4.0,
+   "result": "loss"
   },
   {
    "player_name": "Ryan Kalkbrenner",
@@ -627,9 +675,11 @@
    "deeplink": "",
    "injury": "",
    "min_odds": -104,
-   "n_books": 3
+   "n_books": 3,
+   "actual": 4.0,
+   "result": "loss"
   }
  ],
- "graded": false,
+ "graded": true,
  "final": true
 }
