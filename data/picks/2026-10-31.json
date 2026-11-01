@@ -27,7 +27,9 @@
    "deeplink": "",
    "injury": "",
    "min_odds": -110,
-   "n_books": 4
+   "n_books": 4,
+   "actual": 7.0,
+   "result": "loss"
   },
   {
    "player_name": "Kingston Flemings",
@@ -52,7 +54,9 @@
    "deeplink": "",
    "injury": "",
    "min_odds": 108,
-   "n_books": 4
+   "n_books": 4,
+   "actual": 6.0,
+   "result": "win"
   },
   {
    "player_name": "Tyrese Maxey",
@@ -77,7 +81,9 @@
    "deeplink": "",
    "injury": "",
    "min_odds": -143,
-   "n_books": 6
+   "n_books": 6,
+   "actual": 8.0,
+   "result": "win"
   },
   {
    "player_name": "Isaiah Hartenstein",
@@ -102,7 +108,9 @@
    "deeplink": "",
    "injury": "",
    "min_odds": -129,
-   "n_books": 4
+   "n_books": 4,
+   "actual": 7.0,
+   "result": "win"
   },
   {
    "player_name": "Naz Reid",
@@ -127,7 +135,9 @@
    "deeplink": "",
    "injury": "",
    "min_odds": -119,
-   "n_books": 2
+   "n_books": 2,
+   "actual": 16.0,
+   "result": "win"
   },
   {
    "player_name": "VJ Edgecombe",
@@ -152,7 +162,9 @@
    "deeplink": "",
    "injury": "",
    "min_odds": -115,
-   "n_books": 6
+   "n_books": 6,
+   "actual": 3.0,
+   "result": "win"
   },
   {
    "player_name": "Ajay Mitchell",
@@ -177,7 +189,9 @@
    "deeplink": "",
    "injury": "",
    "min_odds": -121,
-   "n_books": 2
+   "n_books": 2,
+   "actual": 11.0,
+   "result": "win"
   },
   {
    "player_name": "Precious Achiuwa",
@@ -202,7 +216,9 @@
    "deeplink": "",
    "injury": "",
    "min_odds": -131,
-   "n_books": 3
+   "n_books": 3,
+   "actual": 7.0,
+   "result": "loss"
   },
   {
    "player_name": "Jared McCain",
@@ -227,7 +243,9 @@
    "deeplink": "",
    "injury": "",
    "min_odds": -151,
-   "n_books": 6
+   "n_books": 6,
+   "actual": 6.0,
+   "result": "loss"
   },
   {
    "player_name": "Keyonte George",
@@ -252,7 +270,9 @@
    "deeplink": "",
    "injury": "",
    "min_odds": -152,
-   "n_books": 6
+   "n_books": 6,
+   "actual": 7.0,
+   "result": "win"
   },
   {
    "player_name": "Aday Mara",
@@ -277,7 +297,9 @@
    "deeplink": "",
    "injury": "",
    "min_odds": -133,
-   "n_books": 5
+   "n_books": 5,
+   "actual": 16.0,
+   "result": "loss"
   },
   {
    "player_name": "Kenrich Williams",
@@ -302,7 +324,9 @@
    "deeplink": "",
    "injury": "",
    "min_odds": -287,
-   "n_books": 5
+   "n_books": 5,
+   "actual": 3.0,
+   "result": "loss"
   },
   {
    "player_name": "Brandon Miller",
@@ -327,7 +351,9 @@
    "deeplink": "",
    "injury": "",
    "min_odds": -136,
-   "n_books": 6
+   "n_books": 6,
+   "actual": 24.0,
+   "result": "win"
   },
   {
    "player_name": "Cameron Boozer",
@@ -352,7 +378,9 @@
    "deeplink": "",
    "injury": "",
    "min_odds": -115,
-   "n_books": 6
+   "n_books": 6,
+   "actual": 3.0,
+   "result": "loss"
   },
   {
    "player_name": "Sion James",
@@ -377,7 +405,9 @@
    "deeplink": "",
    "injury": "",
    "min_odds": 122,
-   "n_books": 6
+   "n_books": 6,
+   "actual": 0.0,
+   "result": "loss"
   },
   {
    "player_name": "Tari Eason",
@@ -402,7 +432,9 @@
    "deeplink": "",
    "injury": "",
    "min_odds": -102,
-   "n_books": 2
+   "n_books": 2,
+   "actual": 3.0,
+   "result": "loss"
   },
   {
    "player_name": "Jonathan Kuminga",
@@ -427,7 +459,9 @@
    "deeplink": "",
    "injury": "",
    "min_odds": -132,
-   "n_books": 5
+   "n_books": 5,
+   "actual": 28.0,
+   "result": "loss"
   },
   {
    "player_name": "Jarrett Allen",
@@ -452,7 +486,9 @@
    "deeplink": "",
    "injury": "",
    "min_odds": -145,
-   "n_books": 5
+   "n_books": 5,
+   "actual": 11.0,
+   "result": "loss"
   },
   {
    "player_name": "Kevin Durant",
@@ -477,7 +513,9 @@
    "deeplink": "",
    "injury": "",
    "min_odds": -124,
-   "n_books": 6
+   "n_books": 6,
+   "actual": 7.0,
+   "result": "loss"
   },
   {
    "player_name": "Zion Williamson",
@@ -502,7 +540,9 @@
    "deeplink": "",
    "injury": "",
    "min_odds": -125,
-   "n_books": 4
+   "n_books": 4,
+   "actual": 19.0,
+   "result": "win"
   },
   {
    "player_name": "Shai Gilgeous-Alexander",
@@ -527,7 +567,9 @@
    "deeplink": "",
    "injury": "",
    "min_odds": -127,
-   "n_books": 6
+   "n_books": 6,
+   "actual": 30.0,
+   "result": "win"
   },
   {
    "player_name": "Dean Wade",
@@ -552,7 +594,9 @@
    "deeplink": "",
    "injury": "",
    "min_odds": -147,
-   "n_books": 3
+   "n_books": 3,
+   "actual": 9.0,
+   "result": "win"
   },
   {
    "player_name": "Ty Jerome",
@@ -577,7 +621,9 @@
    "deeplink": "",
    "injury": "Day-To-Day",
    "min_odds": -124,
-   "n_books": 4
+   "n_books": 4,
+   "actual": null,
+   "result": "void"
   },
   {
    "player_name": "James Harden",
@@ -602,7 +648,9 @@
    "deeplink": "",
    "injury": "",
    "min_odds": -105,
-   "n_books": 4
+   "n_books": 4,
+   "actual": 13.0,
+   "result": "loss"
   },
   {
    "player_name": "Ayo Dosunmu",
@@ -627,9 +675,11 @@
    "deeplink": "",
    "injury": "",
    "min_odds": -123,
-   "n_books": 5
+   "n_books": 5,
+   "actual": 39.0,
+   "result": "loss"
   }
  ],
- "graded": false,
+ "graded": true,
  "final": true
 }
