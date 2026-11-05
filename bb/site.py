@@ -169,6 +169,9 @@ const evFloor = (minEv * 100).toFixed(0) + '%';
 document.getElementById('updated').textContent =
   fmtDate(D.date) + (made ? (D.today.final ? ' · final picks made ' : ' · early picks made ') + stamp(made) : ' · checked ' + stamp(D.built_at));
 
+// Teammates ruled out tonight, and what this player has picked up in past games without them
+const outText = l => l.teammates_out ? `<div class="small">${esc(l.teammates_out)} out tonight${Math.abs(l.out_min_gain || 0) >= 0.5 || Math.abs(l.out_usg_gain || 0) >= 0.005
+  ? ` · expected ${sgn((+l.out_min_gain).toFixed(1))} min, ${sgn((l.out_usg_gain * 100).toFixed(1))}% usage without them` : ''}</div>` : '';
 const pastRec = l => {
   const r = (D.summary.by_pick || {})[String(l.player_id)];
   return r ? `past picks ${r.wins}-${r.losses}` : 'no past picks';
@@ -203,7 +206,7 @@ function renderProps() {
   <div class="filters">${markets.map(m => `<button class="${m === marketFilter ? 'on' : ''}" data-m="${esc(m)}">${esc(m)}</button>`).join('')}</div>
   <div class="card" style="padding:0 16px"><ul class="legs" style="margin:0">${shown.map((r, i) => `<li style="${i === 0 ? 'border-top:0' : ''}">
     <div><div class="pick"><span class="muted">${r.rank}.</span> ${esc(r.player_name)} ${esc(r.side)} ${r.line} ${esc(r.market)}${r.injury ? ` <span class="warn small">${esc(r.injury)}</span>` : ''}</div>
-      <div class="muted small">${esc(r.team)} vs ${esc(r.opp_abbr)} · ${time(r.start)} · projects ${(+r.proj).toFixed(1)}${r.recent_avg != null ? ', recent avg ' + (+r.recent_avg).toFixed(1) : ''} · hits ${pct(r.p_hit)}${takeText(r)} · ${pastRec(r)}${res(r)}</div></div>
+      <div class="muted small">${esc(r.team)} vs ${esc(r.opp_abbr)} · ${time(r.start)} · projects ${(+r.proj).toFixed(1)}${r.recent_avg != null ? ', recent avg ' + (+r.recent_avg).toFixed(1) : ''} · hits ${pct(r.p_hit)}${takeText(r)} · ${pastRec(r)}${res(r)}</div>${outText(r)}</div>
     <div style="text-align:right"><div class="pick">${r.deeplink ? `<a href="${esc(r.deeplink)}" target="_blank" rel="noopener">${sgn(r.odds)}</a>` : sgn(r.odds)}</div>
       <div class="small"><span class="muted">${esc(book(r.book))}</span> <span class="${r.ev >= 0 ? 'pos' : 'neg'}">${evTxt(r.ev)}</span></div></div>
   </li>`).join('')}</ul></div>`;

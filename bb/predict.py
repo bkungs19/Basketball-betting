@@ -74,7 +74,10 @@ def score(day: dt.date, season: str, box: pd.DataFrame, model, lines: pd.DataFra
     rows = players.rename(columns={"opp_abbr": "opp"})[["player_id", "player_name", "team", "opp", "home"]]
     rows["game_date"] = pd.Timestamp(day)
     rows["season"] = season
-    feats = features.build(box, rows).set_index("player_id")
+    # teammates ruled out tonight change who gets the minutes and shots
+    inj = injuries()
+    out_today = [pmap[n] for n, status in inj.items() if status.lower() in ("out", "doubtful") and n in pmap]
+    feats = features.build(box, rows, out_today=out_today).set_index("player_id")
     feats = feats[feats["n_games"].fillna(0) >= 5]
 
     lines = lines[lines["player_id"].isin(feats.index)].copy()
@@ -95,6 +98,9 @@ def score(day: dt.date, season: str, box: pd.DataFrame, model, lines: pd.DataFra
         g["games_played"] = f["n_games"].values
         g["season_games"] = f["szn_games"].values
         g["recent_avg"] = f[f"ewm5_{features.TARGETS[market]}"].values
+        g["teammates_out"] = f["out_names"].values
+        g["out_min_gain"] = f["out_pair_min"].values
+        g["out_usg_gain"] = f["out_pair_usg"].values
         out.append(g)
     props = pd.concat(out, ignore_index=True)
 
@@ -122,7 +128,6 @@ def score(day: dt.date, season: str, box: pd.DataFrame, model, lines: pd.DataFra
     props["ev"] = np.where(over, ev_over, ev_under)
     props["market"] = props["stat"].map(MARKET_LABELS)
 
-    inj = injuries()
     props["injury"] = props["player_name"].map(lambda n: inj.get(features.norm_name(n), ""))
     props["disagree"] = (props["p_model_hit"] - props["p_market_hit"]).abs() > MAX_DISAGREEMENT
     props["eligible"] = (

@@ -44,6 +44,7 @@ def message(picks: dict) -> tuple[str, str]:
         better = {"Under": "higher", "Over": "lower"}
         lines += [f"{i}. {p['player_name']} {p['side']} {p['line']} {p['market']}: typical {_odds(p['odds'])}, "
                   f"take {_odds(p['min_odds'])} or better (line {p['line']} or {better[p['side']]})"
+                  + (f"; {p['teammates_out']} out" if p.get("teammates_out") else "")
                   for i, p in enumerate(props, 1)]
         lines.append("")
     else:

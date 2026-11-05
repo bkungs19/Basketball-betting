@@ -18,6 +18,17 @@ TARGETS = {market: "t_" + market.replace("+", "_") for market in MARKETS}
 RATE_STATS = ["pts", "reb", "ast", "fg3m", "fga", "fg3a"]
 SEASON_STATS = ["pts", "reb", "ast", "fg3m", "fga", "fg3a"]
 TEAM_STATS = ["pace", "off_rtg", "def_rtg", "allowed_pts", "allowed_reb", "allowed_ast", "allowed_fg3m"]
+# Teammates out: what the team's missing regulars usually produce, so the model learns who picks it up.
+# A regular averages 15+ minutes lately and played for the team in the last 20 days, which keeps
+# long-term absences out once their minutes already show up in everyone else's recent numbers.
+OUT_STATS = ["min", "fga", "pts", "reb", "ast", "fg3m", "usg"]
+OUT_COLS = ["out_n"] + [f"out_{c}" for c in OUT_STATS] + ["out_max_usg"]
+REGULAR_MIN = 15
+REGULAR_GAP = pd.Timedelta(days=20)
+# Player by player: how this player's minutes and usage changed in past games when tonight's missing
+# teammates sat, pulled toward zero until a pair has a few games of history.
+PAIR_COLS = ["out_pair_min", "out_pair_usg", "out_pair_games"]
+PAIR_PRIOR_GAMES = 5
 
 
 def add_targets(df: pd.DataFrame) -> pd.DataFrame:
@@ -108,10 +119,11 @@ def prepare_box(box: pd.DataFrame) -> pd.DataFrame:
     return box
 
 
-def build(box: pd.DataFrame, rows: pd.DataFrame) -> pd.DataFrame:
+def build(box: pd.DataFrame, rows: pd.DataFrame, out_today: list[str] | None = None) -> pd.DataFrame:
     """Attach pre-game features to `rows` (player_id, team, opp, home, game_date, season).
 
-    `box` must already be passed through prepare_box.
+    `box` must already be passed through prepare_box. `out_today` lists the player_ids ruled out
+    of games not yet in `box` (tonight's injury report); past games use who actually sat.
     """
     played = box[(box["dnp"] == 0) & (box["min"] > 0)]
     pstate = player_state(played).sort_values("game_date")
@@ -144,7 +156,78 @@ def build(box: pd.DataFrame, rows: pd.DataFrame) -> pd.DataFrame:
     f["changed_team"] = (f["last_team"] != f["team"]).astype(int)
     f["season_year"] = f["season"].str[:4].astype(int)
     f["exp_pace"] = (f["team_pace"] + f["opp_pace"]) / 2
+    absent = _absent_regulars(pstate, tg, rows["game_date"].max(), out_today or [])
+    f = f.merge(_teammates_out(absent), on=["team", "game_date"], how="left")
+    f = f.merge(_pair_gains(played, pstate, absent, rows), left_on="_order", right_index=True, how="left")
+    f[OUT_COLS + PAIR_COLS] = f[OUT_COLS + PAIR_COLS].fillna(0)
+    names = box.drop_duplicates("player_id", keep="last").set_index("player_id")["player_name"]
+    tonight = absent[absent["game_date"] == rows["game_date"].max()].assign(name=lambda a: a["player_id"].map(names))
+    f["out_names"] = (f["team"].map(tonight.groupby("team")["name"].agg(", ".join)).fillna("")
+                      .where(f["game_date"] == rows["game_date"].max(), ""))
     return f.sort_values("_order").drop(columns=["_order"])
+
+
+def _absent_regulars(pstate: pd.DataFrame, tg: pd.DataFrame, today: pd.Timestamp, out_today: list[str]) -> pd.DataFrame:
+    """One row per regular who sat a team game (team, game_date, player_id and his recent averages)."""
+    s = pstate.sort_values(["player_id", "game_date"]).reset_index(drop=True)
+    s["next_date"] = s.groupby("player_id")["game_date"].shift(-1)
+    s = s[s["ewm15_min"] >= REGULAR_MIN]
+    sched = tg[["team", "game_date"]].drop_duplicates().sort_values(["team", "game_date"])
+    absent = []
+    for team, grp in s.groupby("last_team"):
+        dates = sched.loc[sched["team"] == team, "game_date"].values
+        # team games after his last one, before his next one, and within REGULAR_GAP
+        until = np.minimum(grp["next_date"].fillna(pd.Timestamp.max).values - np.timedelta64(1, "ns"),
+                           (grp["game_date"] + REGULAR_GAP).values)
+        lo = np.searchsorted(dates, grp["game_date"].values, side="right")
+        hi = np.searchsorted(dates, until, side="right")
+        n = np.clip(hi - lo, 0, None)
+        if n.sum():
+            idx = np.repeat(np.arange(len(grp)), n)
+            pos = np.concatenate([np.arange(a, b) for a, b in zip(lo, hi) if b > a])
+            absent.append(grp.iloc[idx].assign(team=team, game_date=dates[pos]))
+    # tonight: regulars on the injury report
+    latest = s.drop_duplicates("player_id", keep="last")
+    tonight = latest[latest["player_id"].isin(out_today) & (latest["game_date"] >= today - REGULAR_GAP)]
+    absent.append(tonight.assign(team=tonight["last_team"], game_date=today))
+    return pd.concat(absent, ignore_index=True)
+
+
+def _teammates_out(absent: pd.DataFrame) -> pd.DataFrame:
+    """Per team game, how many regulars sat and what they usually produce."""
+    out = absent.groupby(["team", "game_date"]).agg(
+        out_n=("player_id", "size"),
+        **{f"out_{c}": (f"ewm15_{c}", "sum") for c in OUT_STATS},
+        out_max_usg=("ewm15_usg", "max"),
+    ).reset_index()
+    return out
+
+
+def _pair_gains(played: pd.DataFrame, pstate: pd.DataFrame, absent: pd.DataFrame, rows: pd.DataFrame) -> pd.DataFrame:
+    """For each row, what the player gained over his usual minutes and usage in earlier games
+    when the teammates missing from this one sat (indexed by rows' _order)."""
+    hist = played[["player_id", "team", "game_date", "min", "usg"]].sort_values("game_date")
+    base = pstate[["player_id", "game_date", "ewm15_min", "ewm15_usg"]].sort_values("game_date")
+    hist = pd.merge_asof(hist, base, on="game_date", by="player_id", allow_exact_matches=False).dropna(subset=["ewm15_min"])
+    hist["d_min"] = hist["min"] - hist["ewm15_min"]
+    hist["d_usg"] = hist["usg"] - hist["ewm15_usg"]
+    sat = absent[["team", "game_date", "player_id"]].rename(columns={"player_id": "sat"})
+    pairs = hist.merge(sat, on=["team", "game_date"]).sort_values("game_date")
+    g = pairs.groupby(["player_id", "sat"], sort=False)
+    pairs["n"] = g.cumcount() + 1
+    pairs["s_min"] = g["d_min"].cumsum()
+    pairs["s_usg"] = g["d_usg"].cumsum()
+    q = rows[["player_id", "team", "game_date", "_order"]].merge(sat, on=["team", "game_date"])
+    q = q[q["player_id"] != q["sat"]].sort_values("game_date")
+    if q.empty:
+        return pd.DataFrame(columns=PAIR_COLS)
+    q = pd.merge_asof(q, pairs[["player_id", "sat", "game_date", "n", "s_min", "s_usg"]],
+                      on="game_date", by=["player_id", "sat"], allow_exact_matches=False)
+    q[["n", "s_min", "s_usg"]] = q[["n", "s_min", "s_usg"]].fillna(0)
+    q["out_pair_min"] = q["s_min"] / (q["n"] + PAIR_PRIOR_GAMES)
+    q["out_pair_usg"] = q["s_usg"] / (q["n"] + PAIR_PRIOR_GAMES)
+    return q.groupby("_order").agg(out_pair_min=("out_pair_min", "sum"), out_pair_usg=("out_pair_usg", "sum"),
+                                   out_pair_games=("n", "sum"))
 
 
 def _prev_season(played: pd.DataFrame) -> pd.DataFrame:
@@ -179,7 +262,7 @@ def feature_columns(f: pd.DataFrame) -> list[str]:
                 "szn_", "prev_")
     cols = [c for c in f.columns if c.startswith(prefixes)]
     cols += ["days_off", "team_games_missed", "n_games", "last_min", "last_starter", "starter10", "rest_days", "b2b",
-             "home", "changed_team", "season_year", "exp_pace"]
+             "home", "changed_team", "season_year", "exp_pace"] + OUT_COLS + PAIR_COLS
     return cols
 
 
