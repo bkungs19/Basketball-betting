@@ -107,7 +107,11 @@ def player_state(played: pd.DataFrame) -> pd.DataFrame:
 
 
 def prepare_box(box: pd.DataFrame) -> pd.DataFrame:
-    box = box.copy()
+    # ESPN has no player stats for some older games (about 13% of 2017-18): every line reads zero.
+    # Drop those games so they don't count as absences or as zero-point team games.
+    team_min = box[box["dnp"] == 0].groupby(["game_id", "team"])["min"].sum()
+    empty = team_min[team_min < 200].index.get_level_values("game_id").unique()
+    box = box[~box["game_id"].isin(empty)].copy()
     box["game_date"] = pd.to_datetime(box["game_date"]).astype("datetime64[ns]")
     box["player_id"] = box["player_id"].astype(str)
     box = add_targets(box)

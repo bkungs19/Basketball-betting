@@ -10,7 +10,7 @@ SITE = ROOT / "site"
 ET = ZoneInfo("America/New_York")
 
 # Seasons used to train the model. The current season is appended at run time.
-HISTORY_SEASONS = ["2022-23", "2023-24", "2024-25", "2025-26"]
+HISTORY_SEASONS = ["2017-18", "2018-19", "2019-20", "2020-21", "2021-22", "2022-23", "2023-24", "2024-25", "2025-26"]
 
 # Prop markets we model: Sports Game Odds statID -> box score columns summed.
 MARKETS = {
