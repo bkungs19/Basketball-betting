@@ -136,8 +136,10 @@ def boxscore(game: dict) -> list[dict]:
 
 
 def season_dates(label: str, through: dt.date) -> list[dt.date]:
+    """October through mid-October a year later: the 2019-20 bubble playoffs ran into October 2020 and
+    2020-21 ended in July. Games are matched to the season by ESPN's own season year."""
     end_year = season_end_year(label)
-    start, end = dt.date(end_year - 1, 10, 1), min(dt.date(end_year, 6, 30), through)
+    start, end = dt.date(end_year - 1, 10, 1), min(dt.date(end_year, 10, 15), through)
     return [start + dt.timedelta(days=i) for i in range((end - start).days + 1)]
 
 
@@ -169,6 +171,7 @@ def update_season(label: str, through: dt.date | None = None, workers: int = 8) 
     games = [
         g for day in boards for g in day
         if g["completed"] and g["game_id"] not in have and g["season_type"] in SEASON_TYPES
+        and g["season_year"] == season_end_year(label)
     ]
     if not games:
         return existing
