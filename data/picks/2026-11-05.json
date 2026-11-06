@@ -30,7 +30,9 @@
    "n_books": 3,
    "teammates_out": "Jalen Suggs, Paolo Banchero",
    "out_min_gain": 12.5345902554,
-   "out_usg_gain": 0.0425320784
+   "out_usg_gain": 0.0425320784,
+   "actual": 2.0,
+   "result": "loss"
   },
   {
    "player_name": "Draymond Green",
@@ -58,7 +60,9 @@
    "n_books": 4,
    "teammates_out": "Gui Santos",
    "out_min_gain": -2.4541714871,
-   "out_usg_gain": -0.0165260333
+   "out_usg_gain": -0.0165260333,
+   "actual": 18.0,
+   "result": "loss"
   },
   {
    "player_name": "Franz Wagner",
@@ -86,7 +90,9 @@
    "n_books": 4,
    "teammates_out": "Jalen Suggs, Paolo Banchero",
    "out_min_gain": 1.2983156891,
-   "out_usg_gain": 0.0328009355
+   "out_usg_gain": 0.0328009355,
+   "actual": 23.0,
+   "result": "loss"
   },
   {
    "player_name": "Wendell Carter Jr.",
@@ -114,7 +120,9 @@
    "n_books": 3,
    "teammates_out": "Jalen Suggs, Paolo Banchero",
    "out_min_gain": 0.3662588812,
-   "out_usg_gain": 0.002748881
+   "out_usg_gain": 0.002748881,
+   "actual": 13.0,
+   "result": "loss"
   },
   {
    "player_name": "Bam Adebayo",
@@ -142,7 +150,9 @@
    "n_books": 3,
    "teammates_out": "",
    "out_min_gain": 0.0,
-   "out_usg_gain": 0.0
+   "out_usg_gain": 0.0,
+   "actual": 10.0,
+   "result": "loss"
   },
   {
    "player_name": "Collin Gillespie",
@@ -170,7 +180,9 @@
    "n_books": 5,
    "teammates_out": "Jordan Goodwin",
    "out_min_gain": 1.8547704241,
-   "out_usg_gain": 0.0068798288
+   "out_usg_gain": 0.0068798288,
+   "actual": 10.0,
+   "result": "win"
   },
   {
    "player_name": "Andrew Wiggins",
@@ -198,7 +210,9 @@
    "n_books": 6,
    "teammates_out": "",
    "out_min_gain": 0.0,
-   "out_usg_gain": 0.0
+   "out_usg_gain": 0.0,
+   "actual": 6.0,
+   "result": "loss"
   },
   {
    "player_name": "Giannis Antetokounmpo",
@@ -226,9 +240,11 @@
    "n_books": 5,
    "teammates_out": "",
    "out_min_gain": 0.0,
-   "out_usg_gain": 0.0
+   "out_usg_gain": 0.0,
+   "actual": 18.0,
+   "result": "loss"
   }
  ],
- "graded": false,
+ "graded": true,
  "final": true
 }
