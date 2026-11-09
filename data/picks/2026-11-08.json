@@ -30,7 +30,9 @@
    "n_books": 4,
    "teammates_out": "Luka Doncic",
    "out_min_gain": -1.5381139896,
-   "out_usg_gain": 0.0353599355
+   "out_usg_gain": 0.0353599355,
+   "actual": 9.0,
+   "result": "win"
   },
   {
    "player_name": "Precious Achiuwa",
@@ -58,7 +60,9 @@
    "n_books": 4,
    "teammates_out": "Keegan Murray",
    "out_min_gain": 4.2084903517,
-   "out_usg_gain": 0.0107387039
+   "out_usg_gain": 0.0107387039,
+   "actual": 21.0,
+   "result": "win"
   },
   {
    "player_name": "Darius Acuff",
@@ -86,7 +90,9 @@
    "n_books": 3,
    "teammates_out": "Keegan Murray",
    "out_min_gain": 0.3861852812,
-   "out_usg_gain": -0.0066953624
+   "out_usg_gain": -0.0066953624,
+   "actual": 5.0,
+   "result": "win"
   },
   {
    "player_name": "Pelle Larsson",
@@ -114,7 +120,9 @@
    "n_books": 4,
    "teammates_out": "",
    "out_min_gain": 0.0,
-   "out_usg_gain": 0.0
+   "out_usg_gain": 0.0,
+   "actual": 3.0,
+   "result": "loss"
   },
   {
    "player_name": "Jaden McDaniels",
@@ -142,7 +150,9 @@
    "n_books": 3,
    "teammates_out": "Anthony Edwards",
    "out_min_gain": 2.2965157862,
-   "out_usg_gain": 0.0320404744
+   "out_usg_gain": 0.0320404744,
+   "actual": 3.0,
+   "result": "loss"
   },
   {
    "player_name": "Caleb Martin",
@@ -170,7 +180,9 @@
    "n_books": 4,
    "teammates_out": "",
    "out_min_gain": 0.0,
-   "out_usg_gain": 0.0
+   "out_usg_gain": 0.0,
+   "actual": 2.0,
+   "result": "win"
   },
   {
    "player_name": "Caleb Wilson",
@@ -198,7 +210,9 @@
    "n_books": 4,
    "teammates_out": "Norman Powell, Zach Collins",
    "out_min_gain": 0.7461459394,
-   "out_usg_gain": -0.0136442713
+   "out_usg_gain": -0.0136442713,
+   "actual": 23.0,
+   "result": "win"
   },
   {
    "player_name": "Paul Reed",
@@ -226,7 +240,9 @@
    "n_books": 5,
    "teammates_out": "Isaiah Joe, Jalen Duren",
    "out_min_gain": 17.1300115168,
-   "out_usg_gain": 0.0665564032
+   "out_usg_gain": 0.0665564032,
+   "actual": 10.0,
+   "result": "loss"
   },
   {
    "player_name": "Isaac Okoro",
@@ -254,7 +270,9 @@
    "n_books": 5,
    "teammates_out": "Norman Powell, Zach Collins",
    "out_min_gain": 2.8549272256,
-   "out_usg_gain": 0.0061715666
+   "out_usg_gain": 0.0061715666,
+   "actual": 12.0,
+   "result": "loss"
   },
   {
    "player_name": "Quentin Grimes",
@@ -282,7 +300,9 @@
    "n_books": 2,
    "teammates_out": "Luka Doncic",
    "out_min_gain": 4.822916359,
-   "out_usg_gain": 0.0333380383
+   "out_usg_gain": 0.0333380383,
+   "actual": 5.0,
+   "result": "win"
   },
   {
    "player_name": "Jeremiah Fears",
@@ -310,7 +330,9 @@
    "n_books": 6,
    "teammates_out": "Yves Missi",
    "out_min_gain": 3.6996972878,
-   "out_usg_gain": 0.0248859484
+   "out_usg_gain": 0.0248859484,
+   "actual": 11.0,
+   "result": "win"
   },
   {
    "player_name": "Kyle Kuzma",
@@ -338,7 +360,9 @@
    "n_books": 5,
    "teammates_out": "",
    "out_min_gain": 0.0,
-   "out_usg_gain": 0.0
+   "out_usg_gain": 0.0,
+   "actual": 6.0,
+   "result": "win"
   },
   {
    "player_name": "John Collins",
@@ -366,7 +390,9 @@
    "n_books": 4,
    "teammates_out": "Isaiah Joe, Jalen Duren",
    "out_min_gain": -2.3710791679,
-   "out_usg_gain": -0.0324365763
+   "out_usg_gain": -0.0324365763,
+   "actual": 1.0,
+   "result": "loss"
   },
   {
    "player_name": "Giannis Antetokounmpo",
@@ -394,7 +420,9 @@
    "n_books": 3,
    "teammates_out": "",
    "out_min_gain": 0.0,
-   "out_usg_gain": 0.0
+   "out_usg_gain": 0.0,
+   "actual": 32.0,
+   "result": "win"
   },
   {
    "player_name": "Naji Marshall",
@@ -422,7 +450,9 @@
    "n_books": 5,
    "teammates_out": "",
    "out_min_gain": 0.0,
-   "out_usg_gain": 0.0
+   "out_usg_gain": 0.0,
+   "actual": 2.0,
+   "result": "loss"
   },
   {
    "player_name": "Terrence Shannon Jr.",
@@ -450,7 +480,9 @@
    "n_books": 3,
    "teammates_out": "Anthony Edwards",
    "out_min_gain": 4.6264057587,
-   "out_usg_gain": 0.0213757953
+   "out_usg_gain": 0.0213757953,
+   "actual": 3.0,
+   "result": "loss"
   },
   {
    "player_name": "Darius Garland",
@@ -478,7 +510,9 @@
    "n_books": 5,
    "teammates_out": "Isaiah Jackson",
    "out_min_gain": 0.3662802634,
-   "out_usg_gain": 0.0017642294
+   "out_usg_gain": 0.0017642294,
+   "actual": 24.0,
+   "result": "win"
   },
   {
    "player_name": "Matisse Thybulle",
@@ -506,7 +540,9 @@
    "n_books": 4,
    "teammates_out": "Luka Doncic",
    "out_min_gain": 1.5799657088,
-   "out_usg_gain": 0.0043534782
+   "out_usg_gain": 0.0043534782,
+   "actual": 2.0,
+   "result": "win"
   },
   {
    "player_name": "Nolan Traore",
@@ -534,7 +570,9 @@
    "n_books": 5,
    "teammates_out": "Mikel Brown Jr., Egor Demin",
    "out_min_gain": 3.1419200001,
-   "out_usg_gain": 0.0176018685
+   "out_usg_gain": 0.0176018685,
+   "actual": 2.0,
+   "result": "win"
   },
   {
    "player_name": "Darryn Peterson",
@@ -562,7 +600,9 @@
    "n_books": 2,
    "teammates_out": "Jaren Jackson Jr.",
    "out_min_gain": 0.6778266032,
-   "out_usg_gain": 0.0055094045
+   "out_usg_gain": 0.0055094045,
+   "actual": 32.0,
+   "result": "loss"
   },
   {
    "player_name": "Kris Dunn",
@@ -590,7 +630,9 @@
    "n_books": 6,
    "teammates_out": "Isaiah Jackson",
    "out_min_gain": -0.530517806,
-   "out_usg_gain": -0.0046817261
+   "out_usg_gain": -0.0046817261,
+   "actual": 19.0,
+   "result": "loss"
   },
   {
    "player_name": "Jalen Smith",
@@ -618,7 +660,9 @@
    "n_books": 6,
    "teammates_out": "Norman Powell, Zach Collins",
    "out_min_gain": 4.6963634148,
-   "out_usg_gain": 0.0190633161
+   "out_usg_gain": 0.0190633161,
+   "actual": 2.0,
+   "result": "loss"
   },
   {
    "player_name": "Jayson Tatum",
@@ -646,7 +690,9 @@
    "n_books": 2,
    "teammates_out": "",
    "out_min_gain": 0.0,
-   "out_usg_gain": 0.0
+   "out_usg_gain": 0.0,
+   "actual": 4.0,
+   "result": "loss"
   },
   {
    "player_name": "Dean Wade",
@@ -674,7 +720,9 @@
    "n_books": 4,
    "teammates_out": "Adem Bona",
    "out_min_gain": 0.0,
-   "out_usg_gain": 0.0
+   "out_usg_gain": 0.0,
+   "actual": 0.0,
+   "result": "win"
   },
   {
    "player_name": "Jaxson Hayes",
@@ -702,9 +750,11 @@
    "n_books": 5,
    "teammates_out": "Jaren Jackson Jr.",
    "out_min_gain": 2.9220505036,
-   "out_usg_gain": 0.0056878911
+   "out_usg_gain": 0.0056878911,
+   "actual": 6.0,
+   "result": "win"
   }
  ],
- "graded": false,
+ "graded": true,
  "final": true
 }
