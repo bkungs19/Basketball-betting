@@ -30,7 +30,9 @@
    "n_books": 3,
    "teammates_out": "Dennis Schroder, Brandon Miller, Kon Knueppel",
    "out_min_gain": 2.3014738822,
-   "out_usg_gain": 0.0216486936
+   "out_usg_gain": 0.0216486936,
+   "actual": 2.0,
+   "result": "loss"
   },
   {
    "player_name": "Ausar Thompson",
@@ -58,7 +60,9 @@
    "n_books": 3,
    "teammates_out": "Isaiah Joe, Jalen Duren",
    "out_min_gain": -0.5460602466,
-   "out_usg_gain": 0.0062076816
+   "out_usg_gain": 0.0062076816,
+   "actual": 11.0,
+   "result": "win"
   },
   {
    "player_name": "Jamison Battle",
@@ -86,7 +90,9 @@
    "n_books": 3,
    "teammates_out": "Scottie Barnes, Kawhi Leonard",
    "out_min_gain": 8.1296469181,
-   "out_usg_gain": 0.0315544453
+   "out_usg_gain": 0.0315544453,
+   "actual": 13.0,
+   "result": "win"
   },
   {
    "player_name": "John Collins",
@@ -114,7 +120,9 @@
    "n_books": 3,
    "teammates_out": "Isaiah Joe, Jalen Duren",
    "out_min_gain": -0.7420520308,
-   "out_usg_gain": -0.0276669674
+   "out_usg_gain": -0.0276669674,
+   "actual": 2.0,
+   "result": "loss"
   },
   {
    "player_name": "Trae Young",
@@ -142,7 +150,9 @@
    "n_books": 5,
    "teammates_out": "Reece Beekman, Justin Champagnie",
    "out_min_gain": 0.7608965649,
-   "out_usg_gain": -0.0370127783
+   "out_usg_gain": -0.0370127783,
+   "actual": 14.0,
+   "result": "loss"
   },
   {
    "player_name": "Trey Lyles",
@@ -170,7 +180,9 @@
    "n_books": 5,
    "teammates_out": "Anthony Edwards",
    "out_min_gain": 0.6885547198,
-   "out_usg_gain": 0.003105512
+   "out_usg_gain": 0.003105512,
+   "actual": 2.0,
+   "result": "loss"
   },
   {
    "player_name": "Terrence Shannon Jr.",
@@ -198,7 +210,9 @@
    "n_books": 4,
    "teammates_out": "Anthony Edwards",
    "out_min_gain": 4.4949833134,
-   "out_usg_gain": 0.0207034629
+   "out_usg_gain": 0.0207034629,
+   "actual": 2.0,
+   "result": "loss"
   },
   {
    "player_name": "Tyrese Maxey",
@@ -226,7 +240,9 @@
    "n_books": 6,
    "teammates_out": "LeBron James, Adem Bona",
    "out_min_gain": 0.6642583275,
-   "out_usg_gain": 0.0005703222
+   "out_usg_gain": 0.0005703222,
+   "actual": 1.0,
+   "result": "win"
   },
   {
    "player_name": "Jaden McDaniels",
@@ -254,9 +270,11 @@
    "n_books": 6,
    "teammates_out": "Anthony Edwards",
    "out_min_gain": 2.2533695659,
-   "out_usg_gain": 0.031205546
+   "out_usg_gain": 0.031205546,
+   "actual": 3.0,
+   "result": "loss"
   }
  ],
- "graded": false,
+ "graded": true,
  "final": true
 }
