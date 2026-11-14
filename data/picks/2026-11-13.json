@@ -30,7 +30,9 @@
    "n_books": 3,
    "teammates_out": "",
    "out_min_gain": 0.0,
-   "out_usg_gain": 0.0
+   "out_usg_gain": 0.0,
+   "actual": 12.0,
+   "result": "win"
   },
   {
    "player_name": "Andrew Wiggins",
@@ -58,7 +60,9 @@
    "n_books": 6,
    "teammates_out": "",
    "out_min_gain": 0.0,
-   "out_usg_gain": 0.0
+   "out_usg_gain": 0.0,
+   "actual": 3.0,
+   "result": "win"
   },
   {
    "player_name": "Tristan da Silva",
@@ -86,7 +90,9 @@
    "n_books": 6,
    "teammates_out": "",
    "out_min_gain": 0.0,
-   "out_usg_gain": 0.0
+   "out_usg_gain": 0.0,
+   "actual": 6.0,
+   "result": "loss"
   },
   {
    "player_name": "De'Anthony Melton",
@@ -114,7 +120,9 @@
    "n_books": 6,
    "teammates_out": "Stephen Curry, Brandon Williams",
    "out_min_gain": 1.1709078908,
-   "out_usg_gain": 0.0080218984
+   "out_usg_gain": 0.0080218984,
+   "actual": 12.0,
+   "result": "win"
   },
   {
    "player_name": "Karl-Anthony Towns",
@@ -142,7 +150,9 @@
    "n_books": 4,
    "teammates_out": "",
    "out_min_gain": 0.0,
-   "out_usg_gain": 0.0
+   "out_usg_gain": 0.0,
+   "actual": 38.0,
+   "result": "loss"
   },
   {
    "player_name": "Ivica Zubac",
@@ -170,7 +180,9 @@
    "n_books": 5,
    "teammates_out": "Tyrese Haliburton",
    "out_min_gain": -1.5820061817,
-   "out_usg_gain": -0.0025128293
+   "out_usg_gain": -0.0025128293,
+   "actual": 25.0,
+   "result": "loss"
   },
   {
    "player_name": "James Harden",
@@ -198,7 +210,9 @@
    "n_books": 5,
    "teammates_out": "Sam Merrill, Evan Mobley",
    "out_min_gain": -3.6965385154,
-   "out_usg_gain": -0.0385118395
+   "out_usg_gain": -0.0385118395,
+   "actual": 14.0,
+   "result": "loss"
   },
   {
    "player_name": "Nickeil Alexander-Walker",
@@ -226,7 +240,9 @@
    "n_books": 6,
    "teammates_out": "",
    "out_min_gain": 0.0,
-   "out_usg_gain": 0.0
+   "out_usg_gain": 0.0,
+   "actual": 22.0,
+   "result": "win"
   },
   {
    "player_name": "Julian Champagnie",
@@ -254,7 +270,9 @@
    "n_books": 6,
    "teammates_out": "",
    "out_min_gain": 0.0,
-   "out_usg_gain": 0.0
+   "out_usg_gain": 0.0,
+   "actual": 8.0,
+   "result": "loss"
   },
   {
    "player_name": "Matas Buzelis",
@@ -282,7 +300,9 @@
    "n_books": 4,
    "teammates_out": "Caleb Wilson",
    "out_min_gain": 0.0,
-   "out_usg_gain": 0.0
+   "out_usg_gain": 0.0,
+   "actual": 19.0,
+   "result": "win"
   },
   {
    "player_name": "Brayden Burries",
@@ -310,7 +330,9 @@
    "n_books": 5,
    "teammates_out": "",
    "out_min_gain": 0.0,
-   "out_usg_gain": 0.0
+   "out_usg_gain": 0.0,
+   "actual": 6.0,
+   "result": "win"
   },
   {
    "player_name": "Franz Wagner",
@@ -338,7 +360,9 @@
    "n_books": 5,
    "teammates_out": "",
    "out_min_gain": 0.0,
-   "out_usg_gain": 0.0
+   "out_usg_gain": 0.0,
+   "actual": 44.0,
+   "result": "loss"
   },
   {
    "player_name": "Domantas Sabonis",
@@ -366,7 +390,9 @@
    "n_books": 6,
    "teammates_out": "Precious Achiuwa",
    "out_min_gain": -1.2031224129,
-   "out_usg_gain": 0.0035660331
+   "out_usg_gain": 0.0035660331,
+   "actual": 12.0,
+   "result": "win"
   },
   {
    "player_name": "Isaiah Stewart",
@@ -394,7 +420,9 @@
    "n_books": 6,
    "teammates_out": "Scotty Pippen Jr., Quinten Post, Zach Edey",
    "out_min_gain": 3.5721344024,
-   "out_usg_gain": 0.0146592246
+   "out_usg_gain": 0.0146592246,
+   "actual": 12.0,
+   "result": "loss"
   },
   {
    "player_name": "Jamal Cain",
@@ -422,7 +450,9 @@
    "n_books": 2,
    "teammates_out": "",
    "out_min_gain": 0.0,
-   "out_usg_gain": 0.0
+   "out_usg_gain": 0.0,
+   "actual": 4.0,
+   "result": "loss"
   },
   {
    "player_name": "Jaylon Tyson",
@@ -450,7 +480,9 @@
    "n_books": 3,
    "teammates_out": "Sam Merrill, Evan Mobley",
    "out_min_gain": 10.9959215746,
-   "out_usg_gain": 0.0566534407
+   "out_usg_gain": 0.0566534407,
+   "actual": 19.0,
+   "result": "loss"
   },
   {
    "player_name": "Stephon Castle",
@@ -478,7 +510,9 @@
    "n_books": 6,
    "teammates_out": "",
    "out_min_gain": 0.0,
-   "out_usg_gain": 0.0
+   "out_usg_gain": 0.0,
+   "actual": 43.0,
+   "result": "loss"
   },
   {
    "player_name": "Norman Powell",
@@ -506,7 +540,9 @@
    "n_books": 6,
    "teammates_out": "Caleb Wilson",
    "out_min_gain": 0.0,
-   "out_usg_gain": 0.0
+   "out_usg_gain": 0.0,
+   "actual": 33.0,
+   "result": "loss"
   },
   {
    "player_name": "Brice Sensabaugh",
@@ -534,7 +570,9 @@
    "n_books": 4,
    "teammates_out": "Lauri Markkanen, Jaren Jackson Jr.",
    "out_min_gain": 0.5858427022,
-   "out_usg_gain": 0.0134318758
+   "out_usg_gain": 0.0134318758,
+   "actual": 7.0,
+   "result": "loss"
   },
   {
    "player_name": "Keldon Johnson",
@@ -562,7 +600,9 @@
    "n_books": 6,
    "teammates_out": "",
    "out_min_gain": 0.0,
-   "out_usg_gain": 0.0
+   "out_usg_gain": 0.0,
+   "actual": 22.0,
+   "result": "loss"
   },
   {
    "player_name": "Rui Hachimura",
@@ -590,7 +630,9 @@
    "n_books": 6,
    "teammates_out": "",
    "out_min_gain": 0.0,
-   "out_usg_gain": 0.0
+   "out_usg_gain": 0.0,
+   "actual": 11.0,
+   "result": "loss"
   },
   {
    "player_name": "Jalen Smith",
@@ -618,7 +660,9 @@
    "n_books": 4,
    "teammates_out": "Caleb Wilson",
    "out_min_gain": 0.0,
-   "out_usg_gain": 0.0
+   "out_usg_gain": 0.0,
+   "actual": 15.0,
+   "result": "loss"
   },
   {
    "player_name": "Reed Sheppard",
@@ -646,7 +690,9 @@
    "n_books": 5,
    "teammates_out": "",
    "out_min_gain": 0.0,
-   "out_usg_gain": 0.0
+   "out_usg_gain": 0.0,
+   "actual": 3.0,
+   "result": "win"
   },
   {
    "player_name": "Aday Mara",
@@ -674,7 +720,9 @@
    "n_books": 6,
    "teammates_out": "Jaylin Williams, Chet Holmgren, Jalen Williams, Cason Wallace",
    "out_min_gain": 14.7838998364,
-   "out_usg_gain": 0.0501096713
+   "out_usg_gain": 0.0501096713,
+   "actual": 3.0,
+   "result": "win"
   },
   {
    "player_name": "Giannis Antetokounmpo",
@@ -702,9 +750,11 @@
    "n_books": 5,
    "teammates_out": "",
    "out_min_gain": 0.0,
-   "out_usg_gain": 0.0
+   "out_usg_gain": 0.0,
+   "actual": 48.0,
+   "result": "loss"
   }
  ],
- "graded": false,
+ "graded": true,
  "final": true
 }

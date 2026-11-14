@@ -4,160 +4,155 @@
  "holdout_rows": 28003,
  "markets": {
   "points": {
-   "mae_model": 5.05,
+   "mae_model": 5.055,
    "mae_recent_average": 5.242,
-   "brier_model": 0.2351,
+   "brier_model": 0.2354,
    "brier_base_rate": 0.249,
-   "pick_accuracy": 0.6015,
-   "strong_pick_accuracy": 0.674,
-   "strong_pick_share": 0.3846,
+   "pick_accuracy": 0.5983,
+   "strong_pick_accuracy": 0.6749,
+   "strong_pick_share": 0.3839,
    "calibration": [
     {
-     "predicted": 0.161,
-     "actual": 0.125,
-     "n": 56
+     "predicted": 0.179,
+     "actual": 0.111,
+     "n": 63
     },
     {
-     "predicted": 0.265,
-     "actual": 0.199,
-     "n": 326
+     "predicted": 0.263,
+     "actual": 0.218,
+     "n": 331
     },
     {
-     "predicted": 0.367,
-     "actual": 0.335,
-     "n": 1354
+     "predicted": 0.375,
+     "actual": 0.347,
+     "n": 1497
     },
     {
-     "predicted": 0.458,
-     "actual": 0.442,
-     "n": 3861
+     "predicted": 0.461,
+     "actual": 0.445,
+     "n": 3741
     },
     {
-     "predicted": 0.541,
-     "actual": 0.551,
-     "n": 1381
+     "predicted": 0.542,
+     "actual": 0.54,
+     "n": 1507
     },
     {
-     "predicted": 0.643,
-     "actual": 0.628,
-     "n": 1291
+     "predicted": 0.647,
+     "actual": 0.649,
+     "n": 1130
     },
     {
-     "predicted": 0.729,
-     "actual": 0.647,
-     "n": 85
+     "predicted": 0.779,
+     "actual": 0.694,
+     "n": 186
     },
     {
-     "predicted": 0.817,
-     "actual": 0.801,
-     "n": 161
+     "predicted": 0.836,
+     "actual": 0.814,
+     "n": 59
     }
    ]
   },
   "rebounds": {
-   "mae_model": 1.99,
+   "mae_model": 1.989,
    "mae_recent_average": 2.019,
-   "brier_model": 0.2273,
+   "brier_model": 0.2268,
    "brier_base_rate": 0.2482,
-   "pick_accuracy": 0.6179,
-   "strong_pick_accuracy": 0.6908,
-   "strong_pick_share": 0.5562,
+   "pick_accuracy": 0.6229,
+   "strong_pick_accuracy": 0.7054,
+   "strong_pick_share": 0.4567,
    "calibration": [
     {
-     "predicted": 0.155,
-     "actual": 0.165,
-     "n": 121
+     "predicted": 0.162,
+     "actual": 0.144,
+     "n": 139
     },
     {
-     "predicted": 0.269,
-     "actual": 0.249,
-     "n": 1068
+     "predicted": 0.259,
+     "actual": 0.239,
+     "n": 836
     },
     {
-     "predicted": 0.37,
-     "actual": 0.359,
-     "n": 1872
+     "predicted": 0.366,
+     "actual": 0.35,
+     "n": 1926
     },
     {
      "predicted": 0.448,
-     "actual": 0.44,
-     "n": 1792
+     "actual": 0.436,
+     "n": 2225
     },
     {
-     "predicted": 0.559,
-     "actual": 0.496,
-     "n": 1988
+     "predicted": 0.576,
+     "actual": 0.544,
+     "n": 2403
     },
     {
-     "predicted": 0.615,
-     "actual": 0.654,
-     "n": 937
+     "predicted": 0.678,
+     "actual": 0.702,
+     "n": 513
     },
     {
-     "predicted": 0.731,
-     "actual": 0.74,
-     "n": 597
+     "predicted": 0.752,
+     "actual": 0.776,
+     "n": 392
     },
     {
-     "predicted": 0.806,
-     "actual": 0.782,
-     "n": 119
+     "predicted": 0.832,
+     "actual": 0.815,
+     "n": 54
     }
    ]
   },
   "assists": {
    "mae_model": 1.536,
    "mae_recent_average": 1.576,
-   "brier_model": 0.2177,
+   "brier_model": 0.2178,
    "brier_base_rate": 0.2477,
-   "pick_accuracy": 0.6469,
-   "strong_pick_accuracy": 0.7213,
-   "strong_pick_share": 0.5817,
+   "pick_accuracy": 0.6439,
+   "strong_pick_accuracy": 0.7116,
+   "strong_pick_share": 0.6199,
    "calibration": [
     {
-     "predicted": 0.165,
-     "actual": 0.15,
-     "n": 521
+     "predicted": 0.175,
+     "actual": 0.156,
+     "n": 769
     },
     {
-     "predicted": 0.25,
-     "actual": 0.241,
-     "n": 1164
+     "predicted": 0.269,
+     "actual": 0.267,
+     "n": 1200
     },
     {
-     "predicted": 0.35,
-     "actual": 0.338,
-     "n": 1232
+     "predicted": 0.369,
+     "actual": 0.368,
+     "n": 1300
     },
     {
-     "predicted": 0.456,
-     "actual": 0.435,
-     "n": 2007
+     "predicted": 0.461,
+     "actual": 0.445,
+     "n": 1586
     },
     {
-     "predicted": 0.551,
-     "actual": 0.516,
-     "n": 1556
+     "predicted": 0.547,
+     "actual": 0.513,
+     "n": 1652
     },
     {
-     "predicted": 0.667,
+     "predicted": 0.665,
      "actual": 0.656,
-     "n": 1391
+     "n": 1374
     },
     {
-     "predicted": 0.791,
-     "actual": 0.766,
-     "n": 308
+     "predicted": 0.783,
+     "actual": 0.754,
+     "n": 354
     },
     {
-     "predicted": 0.841,
-     "actual": 0.794,
-     "n": 223
-    },
-    {
-     "predicted": 0.945,
-     "actual": 0.902,
-     "n": 82
+     "predicted": 0.858,
+     "actual": 0.825,
+     "n": 212
     }
    ]
   },
@@ -166,243 +161,243 @@
    "mae_recent_average": 1.022,
    "brier_model": 0.196,
    "brier_base_rate": 0.2397,
-   "pick_accuracy": 0.6911,
-   "strong_pick_accuracy": 0.7439,
-   "strong_pick_share": 0.7403,
+   "pick_accuracy": 0.6896,
+   "strong_pick_accuracy": 0.7537,
+   "strong_pick_share": 0.6935,
    "calibration": [
     {
-     "predicted": 0.018,
-     "actual": 0.016,
-     "n": 733
+     "predicted": 0.019,
+     "actual": 0.019,
+     "n": 750
     },
     {
-     "predicted": 0.151,
-     "actual": 0.141,
-     "n": 594
+     "predicted": 0.162,
+     "actual": 0.145,
+     "n": 678
     },
     {
-     "predicted": 0.255,
-     "actual": 0.238,
-     "n": 1103
+     "predicted": 0.248,
+     "actual": 0.23,
+     "n": 725
     },
     {
-     "predicted": 0.36,
-     "actual": 0.343,
-     "n": 2133
+     "predicted": 0.352,
+     "actual": 0.335,
+     "n": 2376
     },
     {
-     "predicted": 0.462,
-     "actual": 0.459,
-     "n": 1282
+     "predicted": 0.452,
+     "actual": 0.454,
+     "n": 1118
     },
     {
-     "predicted": 0.528,
-     "actual": 0.537,
-     "n": 930
+     "predicted": 0.539,
+     "actual": 0.544,
+     "n": 1493
     },
     {
-     "predicted": 0.64,
-     "actual": 0.643,
-     "n": 991
+     "predicted": 0.636,
+     "actual": 0.647,
+     "n": 493
     },
     {
      "predicted": 0.743,
-     "actual": 0.74,
-     "n": 419
+     "actual": 0.745,
+     "n": 589
     },
     {
-     "predicted": 0.819,
-     "actual": 0.811,
-     "n": 328
+     "predicted": 0.822,
+     "actual": 0.813,
+     "n": 294
     }
    ]
   },
   "points+rebounds+assists": {
-   "mae_model": 6.354,
+   "mae_model": 6.351,
    "mae_recent_average": 6.691,
-   "brier_model": 0.2335,
+   "brier_model": 0.2333,
    "brier_base_rate": 0.2489,
-   "pick_accuracy": 0.6078,
-   "strong_pick_accuracy": 0.6903,
-   "strong_pick_share": 0.2964,
+   "pick_accuracy": 0.5983,
+   "strong_pick_accuracy": 0.6721,
+   "strong_pick_share": 0.3359,
    "calibration": [
     {
-     "predicted": 0.18,
-     "actual": 0.154,
-     "n": 169
+     "predicted": 0.17,
+     "actual": 0.139,
+     "n": 165
     },
     {
-     "predicted": 0.28,
-     "actual": 0.258,
-     "n": 446
+     "predicted": 0.283,
+     "actual": 0.263,
+     "n": 616
     },
     {
-     "predicted": 0.341,
-     "actual": 0.324,
-     "n": 522
+     "predicted": 0.337,
+     "actual": 0.337,
+     "n": 249
     },
     {
-     "predicted": 0.451,
-     "actual": 0.413,
-     "n": 3886
+     "predicted": 0.436,
+     "actual": 0.398,
+     "n": 3054
     },
     {
-     "predicted": 0.553,
-     "actual": 0.547,
-     "n": 2107
+     "predicted": 0.527,
+     "actual": 0.512,
+     "n": 2603
     },
     {
-     "predicted": 0.662,
-     "actual": 0.625,
-     "n": 1096
+     "predicted": 0.624,
+     "actual": 0.581,
+     "n": 1246
     },
     {
-     "predicted": 0.774,
-     "actual": 0.763,
-     "n": 232
-    },
-    {
-     "predicted": 0.958,
-     "actual": 0.889,
-     "n": 54
+     "predicted": 0.744,
+     "actual": 0.733,
+     "n": 536
     }
    ]
   },
   "points+rebounds": {
-   "mae_model": 5.889,
+   "mae_model": 5.892,
    "mae_recent_average": 6.146,
-   "brier_model": 0.2346,
+   "brier_model": 0.2347,
    "brier_base_rate": 0.2489,
-   "pick_accuracy": 0.6011,
-   "strong_pick_accuracy": 0.7008,
-   "strong_pick_share": 0.2295,
+   "pick_accuracy": 0.5998,
+   "strong_pick_accuracy": 0.6938,
+   "strong_pick_share": 0.2435,
    "calibration": [
     {
-     "predicted": 0.256,
-     "actual": 0.214,
-     "n": 449
+     "predicted": 0.229,
+     "actual": 0.224,
+     "n": 254
     },
     {
-     "predicted": 0.337,
-     "actual": 0.353,
-     "n": 467
+     "predicted": 0.331,
+     "actual": 0.3,
+     "n": 751
     },
     {
-     "predicted": 0.44,
-     "actual": 0.399,
-     "n": 3580
+     "predicted": 0.447,
+     "actual": 0.415,
+     "n": 3961
     },
     {
-     "predicted": 0.547,
-     "actual": 0.535,
-     "n": 2983
+     "predicted": 0.554,
+     "actual": 0.545,
+     "n": 2483
     },
     {
-     "predicted": 0.686,
-     "actual": 0.653,
-     "n": 876
+     "predicted": 0.666,
+     "actual": 0.605,
+     "n": 681
     },
     {
-     "predicted": 0.787,
-     "actual": 0.857,
-     "n": 126
+     "predicted": 0.718,
+     "actual": 0.756,
+     "n": 315
+    },
+    {
+     "predicted": 0.849,
+     "actual": 0.88,
+     "n": 50
     }
    ]
   },
   "points+assists": {
-   "mae_model": 5.487,
+   "mae_model": 5.493,
    "mae_recent_average": 5.761,
-   "brier_model": 0.2319,
+   "brier_model": 0.2318,
    "brier_base_rate": 0.2491,
-   "pick_accuracy": 0.6085,
-   "strong_pick_accuracy": 0.7049,
-   "strong_pick_share": 0.3401,
+   "pick_accuracy": 0.6072,
+   "strong_pick_accuracy": 0.7071,
+   "strong_pick_share": 0.3166,
    "calibration": [
     {
-     "predicted": 0.163,
-     "actual": 0.101,
-     "n": 69
+     "predicted": 0.148,
+     "actual": 0.09,
+     "n": 78
     },
     {
-     "predicted": 0.259,
-     "actual": 0.234,
-     "n": 479
+     "predicted": 0.27,
+     "actual": 0.231,
+     "n": 480
     },
     {
-     "predicted": 0.366,
-     "actual": 0.306,
-     "n": 934
+     "predicted": 0.355,
+     "actual": 0.301,
+     "n": 811
     },
     {
-     "predicted": 0.438,
-     "actual": 0.412,
-     "n": 2733
+     "predicted": 0.448,
+     "actual": 0.42,
+     "n": 3229
     },
     {
-     "predicted": 0.538,
-     "actual": 0.526,
-     "n": 2888
+     "predicted": 0.543,
+     "actual": 0.537,
+     "n": 2592
     },
     {
-     "predicted": 0.654,
-     "actual": 0.644,
-     "n": 846
+     "predicted": 0.651,
+     "actual": 0.633,
+     "n": 749
     },
     {
-     "predicted": 0.718,
-     "actual": 0.699,
-     "n": 369
+     "predicted": 0.744,
+     "actual": 0.697,
+     "n": 396
     },
     {
-     "predicted": 0.848,
-     "actual": 0.807,
-     "n": 187
+     "predicted": 0.868,
+     "actual": 0.824,
+     "n": 176
     }
    ]
   },
   "rebounds+assists": {
-   "mae_model": 2.755,
+   "mae_model": 2.759,
    "mae_recent_average": 2.834,
-   "brier_model": 0.2317,
+   "brier_model": 0.232,
    "brier_base_rate": 0.248,
-   "pick_accuracy": 0.6093,
-   "strong_pick_accuracy": 0.6889,
-   "strong_pick_share": 0.4068,
+   "pick_accuracy": 0.6057,
+   "strong_pick_accuracy": 0.696,
+   "strong_pick_share": 0.3741,
    "calibration": [
     {
-     "predicted": 0.164,
-     "actual": 0.144,
-     "n": 132
+     "predicted": 0.17,
+     "actual": 0.171,
+     "n": 146
     },
     {
      "predicted": 0.248,
-     "actual": 0.255,
-     "n": 565
+     "actual": 0.253,
+     "n": 633
     },
     {
-     "predicted": 0.337,
-     "actual": 0.329,
-     "n": 1352
+     "predicted": 0.341,
+     "actual": 0.331,
+     "n": 1037
     },
     {
-     "predicted": 0.444,
-     "actual": 0.409,
-     "n": 2614
+     "predicted": 0.44,
+     "actual": 0.415,
+     "n": 2977
     },
     {
-     "predicted": 0.55,
-     "actual": 0.515,
-     "n": 2439
+     "predicted": 0.557,
+     "actual": 0.51,
+     "n": 2354
     },
     {
-     "predicted": 0.638,
-     "actual": 0.625,
-     "n": 530
+     "predicted": 0.67,
+     "actual": 0.646,
+     "n": 838
     },
     {
-     "predicted": 0.724,
-     "actual": 0.687,
-     "n": 851
+     "predicted": 0.737,
+     "actual": 0.711,
+     "n": 474
     }
    ]
   }
