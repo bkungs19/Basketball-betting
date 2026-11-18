@@ -5479,3 +5479,129 @@ season,season_type,game_id,game_date,team,team_name,opp,opp_name,home,player_id,
 2026-27,regular,401910001,2026-11-16,PHX,Phoenix Suns,DEN,Denver Nuggets,0,4066268,Duop Reath,0,1,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
 2026-27,regular,401910001,2026-11-16,PHX,Phoenix Suns,DEN,Denver Nuggets,0,4280245,Jamaree Bouyea,0,1,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
 2026-27,regular,401910001,2026-11-16,PHX,Phoenix Suns,DEN,Denver Nuggets,0,4592714,Pat Spencer,0,1,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+2026-27,regular,401910002,2026-11-17,NY,New York Knicks,TOR,Toronto Raptors,0,3934719,OG Anunoby,1,0,36.0,16.0,4.0,1.0,3.0,0.0,1.0,2.0,1.0,4.0,5.0,11.0,1.0,4.0,5.0,6.0,7.0
+2026-27,regular,401910002,2026-11-17,NY,New York Knicks,TOR,Toronto Raptors,0,3136195,Karl-Anthony Towns,1,0,36.0,16.0,16.0,6.0,10.0,8.0,1.0,0.0,2.0,5.0,7.0,9.0,1.0,2.0,1.0,1.0,23.0
+2026-27,regular,401910002,2026-11-17,NY,New York Knicks,TOR,Toronto Raptors,0,3934672,Jalen Brunson,1,0,34.0,31.0,5.0,1.0,4.0,5.0,0.0,1.0,2.0,2.0,10.0,22.0,4.0,11.0,7.0,7.0,4.0
+2026-27,regular,401910002,2026-11-17,NY,New York Knicks,TOR,Toronto Raptors,0,3062679,Josh Hart,1,0,31.0,5.0,4.0,0.0,4.0,2.0,1.0,1.0,1.0,4.0,2.0,5.0,1.0,4.0,0.0,0.0,7.0
+2026-27,regular,401910002,2026-11-17,NY,New York Knicks,TOR,Toronto Raptors,0,3147657,Mikal Bridges,1,0,30.0,17.0,5.0,0.0,5.0,1.0,0.0,0.0,2.0,0.0,7.0,11.0,2.0,5.0,1.0,2.0,-14.0
+2026-27,regular,401910002,2026-11-17,NY,New York Knicks,TOR,Toronto Raptors,0,3914044,Landry Shamet,0,0,24.0,12.0,1.0,0.0,1.0,1.0,0.0,0.0,0.0,0.0,4.0,7.0,2.0,4.0,2.0,2.0,26.0
+2026-27,regular,401910002,2026-11-17,NY,New York Knicks,TOR,Toronto Raptors,0,4433225,Tyler Kolek,0,0,13.0,4.0,1.0,1.0,0.0,3.0,0.0,0.0,1.0,1.0,2.0,5.0,0.0,3.0,0.0,0.0,7.0
+2026-27,regular,401910002,2026-11-17,NY,New York Knicks,TOR,Toronto Raptors,0,6585,Andre Drummond,0,0,11.0,2.0,8.0,3.0,5.0,0.0,0.0,0.0,1.0,1.0,1.0,2.0,0.0,0.0,0.0,0.0,-14.0
+2026-27,regular,401910002,2026-11-17,NY,New York Knicks,TOR,Toronto Raptors,0,4431823,Miles McBride,0,0,9.0,3.0,0.0,0.0,0.0,1.0,0.0,0.0,1.0,0.0,1.0,1.0,1.0,1.0,0.0,0.0,-9.0
+2026-27,regular,401910002,2026-11-17,NY,New York Knicks,TOR,Toronto Raptors,0,2528426,Jordan Clarkson,0,0,8.0,3.0,0.0,0.0,0.0,0.0,0.0,0.0,1.0,1.0,1.0,3.0,0.0,1.0,1.0,1.0,4.0
+2026-27,regular,401910002,2026-11-17,NY,New York Knicks,TOR,Toronto Raptors,0,4277869,Jose Alvarado,0,0,7.0,2.0,0.0,0.0,0.0,4.0,0.0,0.0,0.0,2.0,1.0,2.0,0.0,0.0,0.0,0.0,4.0
+2026-27,regular,401910002,2026-11-17,NY,New York Knicks,TOR,Toronto Raptors,0,5211983,Pacome Dadiet,0,1,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+2026-27,regular,401910002,2026-11-17,NY,New York Knicks,TOR,Toronto Raptors,0,5289900,Mohamed Diawara,0,1,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+2026-27,regular,401910002,2026-11-17,NY,New York Knicks,TOR,Toronto Raptors,0,4432808,James Wiseman,0,1,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+2026-27,regular,401910002,2026-11-17,TOR,Toronto Raptors,NY,New York Knicks,1,4395625,RJ Barrett,1,0,39.0,22.0,5.0,0.0,5.0,5.0,0.0,1.0,0.0,1.0,9.0,17.0,2.0,8.0,2.0,6.0,-13.0
+2026-27,regular,401910002,2026-11-17,TOR,Toronto Raptors,NY,New York Knicks,1,4433134,Scottie Barnes,1,0,34.0,20.0,4.0,1.0,3.0,2.0,0.0,2.0,0.0,5.0,7.0,14.0,1.0,2.0,5.0,6.0,-8.0
+2026-27,regular,401910002,2026-11-17,TOR,Toronto Raptors,NY,New York Knicks,1,4395724,Immanuel Quickley,1,0,34.0,14.0,1.0,1.0,0.0,7.0,0.0,0.0,1.0,3.0,6.0,11.0,2.0,5.0,0.0,0.0,-19.0
+2026-27,regular,401910002,2026-11-17,TOR,Toronto Raptors,NY,New York Knicks,1,5093267,Collin Murray-Boyles,1,0,33.0,8.0,1.0,1.0,0.0,3.0,1.0,3.0,1.0,3.0,4.0,6.0,0.0,0.0,0.0,0.0,-18.0
+2026-27,regular,401910002,2026-11-17,TOR,Toronto Raptors,NY,New York Knicks,1,4684272,Ja'Kobe Walter,1,0,33.0,25.0,1.0,0.0,1.0,2.0,2.0,0.0,1.0,3.0,9.0,15.0,7.0,12.0,0.0,0.0,-2.0
+2026-27,regular,401910002,2026-11-17,TOR,Toronto Raptors,NY,New York Knicks,1,4432241,Jamal Shead,0,0,20.0,7.0,0.0,0.0,0.0,6.0,0.0,0.0,1.0,0.0,2.0,7.0,1.0,3.0,2.0,4.0,4.0
+2026-27,regular,401910002,2026-11-17,TOR,Toronto Raptors,NY,New York Knicks,1,3134908,Jakob Poeltl,0,0,18.0,3.0,6.0,1.0,5.0,1.0,1.0,0.0,0.0,1.0,1.0,3.0,0.0,0.0,1.0,2.0,6.0
+2026-27,regular,401910002,2026-11-17,TOR,Toronto Raptors,NY,New York Knicks,1,5149115,Allen Graves,0,0,13.0,3.0,2.0,1.0,1.0,1.0,1.0,0.0,1.0,3.0,1.0,3.0,1.0,3.0,0.0,0.0,7.0
+2026-27,regular,401910002,2026-11-17,TOR,Toronto Raptors,NY,New York Knicks,1,4702656,Alijah Martin,0,0,8.0,0.0,2.0,0.0,2.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,2.0
+2026-27,regular,401910002,2026-11-17,TOR,Toronto Raptors,NY,New York Knicks,1,4431893,Jamison Battle,0,0,7.0,0.0,1.0,0.0,1.0,0.0,0.0,0.0,0.0,1.0,0.0,2.0,0.0,2.0,0.0,0.0,-4.0
+2026-27,regular,401910002,2026-11-17,TOR,Toronto Raptors,NY,New York Knicks,1,2993874,Kyle Anderson,0,1,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+2026-27,regular,401910002,2026-11-17,TOR,Toronto Raptors,NY,New York Knicks,1,4431684,Trayce Jackson-Davis,0,1,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+2026-27,regular,401910002,2026-11-17,TOR,Toronto Raptors,NY,New York Knicks,1,4432737,Jaden Bradley,0,1,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+2026-27,regular,401910003,2026-11-17,MIN,Minnesota Timberwolves,POR,Portland Trail Blazers,1,4397002,Ayo Dosunmu,1,0,39.0,30.0,4.0,0.0,4.0,5.0,1.0,0.0,4.0,5.0,11.0,19.0,7.0,11.0,1.0,2.0,11.0
+2026-27,regular,401910003,2026-11-17,MIN,Minnesota Timberwolves,POR,Portland Trail Blazers,1,4431671,Jaden McDaniels,1,0,37.0,22.0,5.0,2.0,3.0,4.0,3.0,1.0,2.0,3.0,10.0,16.0,2.0,5.0,0.0,0.0,-4.0
+2026-27,regular,401910003,2026-11-17,MIN,Minnesota Timberwolves,POR,Portland Trail Blazers,1,4432816,LaMelo Ball,1,0,31.0,18.0,9.0,0.0,9.0,2.0,1.0,0.0,5.0,3.0,7.0,17.0,3.0,8.0,1.0,1.0,-13.0
+2026-27,regular,401910003,2026-11-17,MIN,Minnesota Timberwolves,POR,Portland Trail Blazers,1,3032976,Rudy Gobert,1,0,22.0,0.0,4.0,0.0,4.0,2.0,0.0,0.0,3.0,4.0,0.0,3.0,0.0,0.0,0.0,2.0,-7.0
+2026-27,regular,401910003,2026-11-17,MIN,Minnesota Timberwolves,POR,Portland Trail Blazers,1,4895758,Cody Williams,1,0,13.0,0.0,1.0,0.0,1.0,0.0,1.0,0.0,0.0,2.0,0.0,3.0,0.0,2.0,0.0,0.0,-1.0
+2026-27,regular,401910003,2026-11-17,MIN,Minnesota Timberwolves,POR,Portland Trail Blazers,1,3136196,Trey Lyles,0,0,31.0,8.0,7.0,0.0,7.0,4.0,0.0,1.0,1.0,1.0,2.0,5.0,2.0,5.0,2.0,4.0,4.0
+2026-27,regular,401910003,2026-11-17,MIN,Minnesota Timberwolves,POR,Portland Trail Blazers,1,5279133,Joan Beringer,0,0,26.0,3.0,13.0,6.0,7.0,0.0,1.0,4.0,1.0,3.0,1.0,3.0,0.0,0.0,1.0,6.0,6.0
+2026-27,regular,401910003,2026-11-17,MIN,Minnesota Timberwolves,POR,Portland Trail Blazers,1,4432847,Terrence Shannon Jr.,0,0,24.0,12.0,1.0,0.0,1.0,4.0,0.0,0.0,1.0,3.0,3.0,7.0,1.0,3.0,5.0,6.0,-5.0
+2026-27,regular,401910003,2026-11-17,MIN,Minnesota Timberwolves,POR,Portland Trail Blazers,1,4592492,Bones Hyland,0,0,17.0,13.0,2.0,0.0,2.0,1.0,2.0,0.0,3.0,0.0,4.0,9.0,3.0,6.0,2.0,3.0,14.0
+2026-27,regular,401910003,2026-11-17,MIN,Minnesota Timberwolves,POR,Portland Trail Blazers,1,4433247,Jonathan Kuminga,0,1,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+2026-27,regular,401910003,2026-11-17,MIN,Minnesota Timberwolves,POR,Portland Trail Blazers,1,5061585,Isaiah Evans,0,1,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+2026-27,regular,401910003,2026-11-17,MIN,Minnesota Timberwolves,POR,Portland Trail Blazers,1,5157587,Rocco Zikarsky,0,1,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+2026-27,regular,401910003,2026-11-17,POR,Portland Trail Blazers,MIN,Minnesota Timberwolves,0,4431736,Toumani Camara,1,0,33.0,10.0,8.0,2.0,6.0,1.0,1.0,0.0,2.0,4.0,4.0,16.0,2.0,8.0,0.0,0.0,11.0
+2026-27,regular,401910003,2026-11-17,POR,Portland Trail Blazers,MIN,Minnesota Timberwolves,0,5105565,Donovan Clingan,1,0,32.0,12.0,12.0,3.0,9.0,5.0,1.0,1.0,3.0,3.0,6.0,14.0,0.0,5.0,0.0,3.0,17.0
+2026-27,regular,401910003,2026-11-17,POR,Portland Trail Blazers,MIN,Minnesota Timberwolves,0,5081727,Sidy Cissoko,1,0,32.0,6.0,5.0,2.0,3.0,1.0,1.0,1.0,1.0,5.0,2.0,4.0,2.0,3.0,0.0,0.0,-3.0
+2026-27,regular,401910003,2026-11-17,POR,Portland Trail Blazers,MIN,Minnesota Timberwolves,0,6606,Damian Lillard,1,0,31.0,25.0,3.0,0.0,3.0,5.0,1.0,0.0,4.0,1.0,8.0,19.0,5.0,11.0,4.0,5.0,11.0
+2026-27,regular,401910003,2026-11-17,POR,Portland Trail Blazers,MIN,Minnesota Timberwolves,0,4703889,Jayson Kent,1,0,27.0,8.0,3.0,1.0,2.0,0.0,2.0,0.0,1.0,2.0,3.0,6.0,2.0,3.0,0.0,0.0,2.0
+2026-27,regular,401910003,2026-11-17,POR,Portland Trail Blazers,MIN,Minnesota Timberwolves,0,3995,Jrue Holiday,0,0,31.0,23.0,5.0,2.0,3.0,6.0,2.0,1.0,2.0,0.0,7.0,19.0,5.0,9.0,4.0,6.0,-8.0
+2026-27,regular,401910003,2026-11-17,POR,Portland Trail Blazers,MIN,Minnesota Timberwolves,0,4683678,Scoot Henderson,0,0,21.0,9.0,1.0,1.0,0.0,1.0,1.0,1.0,1.0,5.0,4.0,13.0,0.0,4.0,1.0,2.0,-1.0
+2026-27,regular,401910003,2026-11-17,POR,Portland Trail Blazers,MIN,Minnesota Timberwolves,0,4066211,Robert Williams III,0,0,16.0,6.0,8.0,2.0,6.0,4.0,0.0,0.0,2.0,0.0,2.0,2.0,0.0,0.0,2.0,2.0,-18.0
+2026-27,regular,401910003,2026-11-17,POR,Portland Trail Blazers,MIN,Minnesota Timberwolves,0,4592435,Branden Carlson,0,0,14.0,6.0,1.0,1.0,0.0,0.0,0.0,0.0,0.0,4.0,2.0,3.0,0.0,1.0,2.0,2.0,-10.0
+2026-27,regular,401910003,2026-11-17,POR,Portland Trail Blazers,MIN,Minnesota Timberwolves,0,4066399,Micah Potter,0,0,1.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,-6.0
+2026-27,regular,401910003,2026-11-17,POR,Portland Trail Blazers,MIN,Minnesota Timberwolves,0,4593043,John Tonje,0,1,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+2026-27,regular,401910003,2026-11-17,POR,Portland Trail Blazers,MIN,Minnesota Timberwolves,0,4683021,Deni Avdija,0,1,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+2026-27,regular,401910003,2026-11-17,POR,Portland Trail Blazers,MIN,Minnesota Timberwolves,0,5217746,Yang Hansen,0,1,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+2026-27,regular,401910004,2026-11-17,DET,Detroit Pistons,SA,San Antonio Spurs,0,4432166,Cade Cunningham,1,0,38.0,27.0,5.0,1.0,4.0,6.0,0.0,1.0,2.0,2.0,12.0,25.0,1.0,4.0,2.0,3.0,16.0
+2026-27,regular,401910004,2026-11-17,DET,Detroit Pistons,SA,San Antonio Spurs,0,5107199,Daniss Jenkins,1,0,38.0,25.0,5.0,2.0,3.0,5.0,1.0,0.0,1.0,1.0,11.0,21.0,3.0,7.0,0.0,0.0,9.0
+2026-27,regular,401910004,2026-11-17,DET,Detroit Pistons,SA,San Antonio Spurs,0,4066372,Kevin Huerter,1,0,36.0,9.0,7.0,2.0,5.0,1.0,0.0,0.0,4.0,2.0,4.0,9.0,0.0,3.0,1.0,1.0,1.0
+2026-27,regular,401910004,2026-11-17,DET,Detroit Pistons,SA,San Antonio Spurs,0,4684742,Ausar Thompson,1,0,29.0,14.0,9.0,5.0,4.0,12.0,5.0,0.0,2.0,2.0,7.0,13.0,0.0,1.0,0.0,0.0,7.0
+2026-27,regular,401910004,2026-11-17,DET,Detroit Pistons,SA,San Antonio Spurs,0,3908845,John Collins,1,0,23.0,11.0,1.0,1.0,0.0,0.0,1.0,1.0,0.0,3.0,3.0,5.0,1.0,1.0,4.0,4.0,-8.0
+2026-27,regular,401910004,2026-11-17,DET,Detroit Pistons,SA,San Antonio Spurs,0,4278562,Paul Reed,0,0,25.0,10.0,6.0,0.0,6.0,5.0,3.0,1.0,0.0,3.0,5.0,8.0,0.0,1.0,0.0,1.0,20.0
+2026-27,regular,401910004,2026-11-17,DET,Detroit Pistons,SA,San Antonio Spurs,0,4700852,Chaz Lanier,0,0,25.0,3.0,3.0,0.0,3.0,1.0,0.0,0.0,0.0,4.0,1.0,4.0,1.0,4.0,0.0,0.0,15.0
+2026-27,regular,401910004,2026-11-17,DET,Detroit Pistons,SA,San Antonio Spurs,0,2596112,Javonte Green,0,0,23.0,6.0,6.0,1.0,5.0,0.0,0.0,0.0,0.0,1.0,2.0,6.0,0.0,4.0,2.0,3.0,-1.0
+2026-27,regular,401910004,2026-11-17,DET,Detroit Pistons,SA,San Antonio Spurs,0,4397449,Elijah Harkless,0,0,4.0,0.0,1.0,1.0,0.0,1.0,0.0,0.0,0.0,1.0,0.0,0.0,0.0,0.0,0.0,0.0,1.0
+2026-27,regular,401910004,2026-11-17,DET,Detroit Pistons,SA,San Antonio Spurs,0,4397882,Tolu Smith,0,1,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+2026-27,regular,401910004,2026-11-17,DET,Detroit Pistons,SA,San Antonio Spurs,0,5107818,Isaac Jones,0,1,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+2026-27,regular,401910004,2026-11-17,SA,San Antonio Spurs,DET,Detroit Pistons,1,4395630,Devin Vassell,1,0,36.0,12.0,5.0,1.0,4.0,4.0,1.0,0.0,0.0,2.0,4.0,10.0,2.0,6.0,2.0,3.0,-8.0
+2026-27,regular,401910004,2026-11-17,SA,San Antonio Spurs,DET,Detroit Pistons,1,5037871,Dylan Harper,1,0,35.0,20.0,4.0,2.0,2.0,2.0,0.0,0.0,2.0,0.0,8.0,14.0,0.0,4.0,4.0,5.0,7.0
+2026-27,regular,401910004,2026-11-17,SA,San Antonio Spurs,DET,Detroit Pistons,1,5104157,Victor Wembanyama,1,0,34.0,25.0,18.0,5.0,13.0,4.0,1.0,1.0,3.0,1.0,11.0,23.0,1.0,8.0,2.0,2.0,6.0
+2026-27,regular,401910004,2026-11-17,SA,San Antonio Spurs,DET,Detroit Pistons,1,4066259,De'Aaron Fox,1,0,34.0,6.0,2.0,0.0,2.0,2.0,2.0,0.0,3.0,3.0,3.0,10.0,0.0,5.0,0.0,0.0,-11.0
+2026-27,regular,401910004,2026-11-17,SA,San Antonio Spurs,DET,Detroit Pistons,1,4845367,Stephon Castle,1,0,31.0,10.0,2.0,1.0,1.0,7.0,0.0,0.0,3.0,2.0,3.0,11.0,2.0,5.0,2.0,4.0,-4.0
+2026-27,regular,401910004,2026-11-17,SA,San Antonio Spurs,DET,Detroit Pistons,1,4592479,Julian Champagnie,0,0,30.0,14.0,6.0,2.0,4.0,0.0,0.0,1.0,0.0,4.0,5.0,10.0,4.0,9.0,0.0,0.0,-11.0
+2026-27,regular,401910004,2026-11-17,SA,San Antonio Spurs,DET,Detroit Pistons,1,4395723,Keldon Johnson,0,0,15.0,4.0,2.0,1.0,1.0,1.0,0.0,0.0,2.0,1.0,2.0,5.0,0.0,1.0,0.0,0.0,-17.0
+2026-27,regular,401910004,2026-11-17,SA,San Antonio Spurs,DET,Detroit Pistons,1,3064560,Luke Kornet,0,0,14.0,2.0,1.0,1.0,0.0,1.0,0.0,2.0,0.0,1.0,1.0,2.0,0.0,0.0,0.0,0.0,-18.0
+2026-27,regular,401910004,2026-11-17,SA,San Antonio Spurs,DET,Detroit Pistons,1,6578,Harrison Barnes,0,0,10.0,0.0,3.0,2.0,1.0,4.0,0.0,0.0,0.0,0.0,0.0,3.0,0.0,1.0,0.0,0.0,3.0
+2026-27,regular,401910004,2026-11-17,SA,San Antonio Spurs,DET,Detroit Pistons,1,5061568,Carter Bryant,0,0,2.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,1.0,0.0,1.0,0.0,0.0,-7.0
+2026-27,regular,401910004,2026-11-17,SA,San Antonio Spurs,DET,Detroit Pistons,1,5105809,Tarris Reed Jr.,0,1,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+2026-27,regular,401910004,2026-11-17,SA,San Antonio Spurs,DET,Detroit Pistons,1,3134916,Jordan McLaughlin,0,1,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+2026-27,regular,401910005,2026-11-17,CHA,Charlotte Hornets,LAL,Los Angeles Lakers,0,4396971,Naz Reid,1,0,42.0,23.0,11.0,1.0,10.0,4.0,2.0,2.0,0.0,3.0,8.0,18.0,4.0,10.0,3.0,4.0,2.0
+2026-27,regular,401910005,2026-11-17,CHA,Charlotte Hornets,LAL,Los Angeles Lakers,0,4433249,Moussa Diabate,1,0,38.0,5.0,16.0,4.0,12.0,2.0,0.0,1.0,2.0,4.0,2.0,2.0,0.0,0.0,1.0,2.0,-4.0
+2026-27,regular,401910005,2026-11-17,CHA,Charlotte Hornets,LAL,Los Angeles Lakers,0,4433287,Brandon Miller,1,0,32.0,28.0,2.0,0.0,2.0,4.0,0.0,1.0,5.0,4.0,10.0,19.0,5.0,12.0,3.0,3.0,10.0
+2026-27,regular,401910005,2026-11-17,CHA,Charlotte Hornets,LAL,Los Angeles Lakers,0,4066218,Grant Williams,1,0,30.0,12.0,4.0,1.0,3.0,0.0,1.0,0.0,0.0,1.0,5.0,14.0,2.0,9.0,0.0,0.0,-14.0
+2026-27,regular,401910005,2026-11-17,CHA,Charlotte Hornets,LAL,Los Angeles Lakers,0,4395651,Coby White,1,0,26.0,19.0,3.0,0.0,3.0,4.0,3.0,0.0,4.0,2.0,6.0,12.0,2.0,6.0,5.0,7.0,6.0
+2026-27,regular,401910005,2026-11-17,CHA,Charlotte Hornets,LAL,Los Angeles Lakers,0,2583632,Royce O'Neale,0,0,34.0,13.0,4.0,2.0,2.0,1.0,0.0,0.0,2.0,3.0,4.0,9.0,4.0,9.0,1.0,1.0,-18.0
+2026-27,regular,401910005,2026-11-17,CHA,Charlotte Hornets,LAL,Los Angeles Lakers,0,4602025,Sion James,0,0,30.0,3.0,6.0,2.0,4.0,4.0,0.0,0.0,3.0,5.0,1.0,3.0,0.0,2.0,1.0,1.0,-9.0
+2026-27,regular,401910005,2026-11-17,CHA,Charlotte Hornets,LAL,Los Angeles Lakers,0,4576060,Ryan Kalkbrenner,0,0,14.0,6.0,3.0,1.0,2.0,1.0,1.0,0.0,1.0,2.0,2.0,2.0,0.0,0.0,2.0,2.0,4.0
+2026-27,regular,401910005,2026-11-17,CHA,Charlotte Hornets,LAL,Los Angeles Lakers,0,5060701,Christian Anderson,0,0,14.0,5.0,1.0,1.0,0.0,4.0,1.0,0.0,1.0,1.0,2.0,7.0,1.0,5.0,0.0,0.0,10.0
+2026-27,regular,401910005,2026-11-17,CHA,Charlotte Hornets,LAL,Los Angeles Lakers,0,5211176,Tidjane Salaun,0,0,5.0,0.0,1.0,0.0,1.0,0.0,0.0,0.0,0.0,1.0,0.0,0.0,0.0,0.0,0.0,0.0,-6.0
+2026-27,regular,401910005,2026-11-17,CHA,Charlotte Hornets,LAL,Los Angeles Lakers,0,5239590,Liam McNeeley,0,0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,1.0,0.0,1.0,0.0,1.0,0.0,0.0,-1.0
+2026-27,regular,401910005,2026-11-17,CHA,Charlotte Hornets,LAL,Los Angeles Lakers,0,3032979,Dennis Schroder,0,1,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+2026-27,regular,401910005,2026-11-17,LAL,Los Angeles Lakers,CHA,Charlotte Hornets,1,3945274,Luka Doncic,1,0,42.0,36.0,6.0,0.0,6.0,7.0,1.0,1.0,5.0,5.0,13.0,34.0,5.0,16.0,5.0,7.0,2.0
+2026-27,regular,401910005,2026-11-17,LAL,Los Angeles Lakers,CHA,Charlotte Hornets,1,4397014,Quentin Grimes,1,0,42.0,47.0,6.0,2.0,4.0,3.0,1.0,0.0,3.0,1.0,16.0,24.0,10.0,14.0,5.0,6.0,5.0
+2026-27,regular,401910005,2026-11-17,LAL,Los Angeles Lakers,CHA,Charlotte Hornets,1,3907498,Matisse Thybulle,1,0,31.0,7.0,6.0,0.0,6.0,0.0,3.0,1.0,1.0,3.0,2.0,6.0,2.0,6.0,1.0,2.0,8.0
+2026-27,regular,401910005,2026-11-17,LAL,Los Angeles Lakers,CHA,Charlotte Hornets,1,4592691,Jake LaRavia,1,0,23.0,4.0,5.0,2.0,3.0,2.0,0.0,1.0,1.0,1.0,2.0,5.0,0.0,1.0,0.0,0.0,11.0
+2026-27,regular,401910005,2026-11-17,LAL,Los Angeles Lakers,CHA,Charlotte Hornets,1,3155535,Kevon Looney,1,0,17.0,4.0,8.0,5.0,3.0,0.0,0.0,0.0,0.0,0.0,2.0,3.0,0.0,0.0,0.0,0.0,-7.0
+2026-27,regular,401910005,2026-11-17,LAL,Los Angeles Lakers,CHA,Charlotte Hornets,1,4277811,Collin Sexton,0,0,25.0,10.0,4.0,1.0,3.0,3.0,0.0,0.0,2.0,2.0,3.0,12.0,1.0,7.0,3.0,4.0,2.0
+2026-27,regular,401910005,2026-11-17,LAL,Los Angeles Lakers,CHA,Charlotte Hornets,1,4433137,Ziaire Williams,0,0,24.0,0.0,1.0,0.0,1.0,1.0,1.0,0.0,0.0,6.0,0.0,1.0,0.0,1.0,0.0,0.0,6.0
+2026-27,regular,401910005,2026-11-17,LAL,Los Angeles Lakers,CHA,Charlotte Hornets,1,4278580,Sandro Mamukelashvili,0,0,23.0,3.0,3.0,1.0,2.0,2.0,1.0,0.0,1.0,0.0,1.0,8.0,0.0,4.0,1.0,2.0,-1.0
+2026-27,regular,401910005,2026-11-17,LAL,Los Angeles Lakers,CHA,Charlotte Hornets,1,5105817,Carson Cooper,0,0,18.0,3.0,4.0,2.0,2.0,2.0,0.0,0.0,0.0,1.0,0.0,1.0,0.0,0.0,3.0,6.0,6.0
+2026-27,regular,401910005,2026-11-17,LAL,Los Angeles Lakers,CHA,Charlotte Hornets,1,4278077,Jarred Vanderbilt,0,0,14.0,4.0,7.0,6.0,1.0,0.0,0.0,0.0,0.0,1.0,2.0,3.0,0.0,0.0,0.0,2.0,-5.0
+2026-27,regular,401910005,2026-11-17,LAL,Los Angeles Lakers,CHA,Charlotte Hornets,1,5060631,Adou Thiero,0,0,6.0,0.0,0.0,0.0,0.0,1.0,1.0,0.0,0.0,0.0,0.0,2.0,0.0,1.0,0.0,0.0,-7.0
+2026-27,regular,401910005,2026-11-17,LAL,Los Angeles Lakers,CHA,Charlotte Hornets,1,4683774,Bronny James,0,1,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+2026-27,regular,401910005,2026-11-17,LAL,Los Angeles Lakers,CHA,Charlotte Hornets,1,4868423,Jaden Hardy,0,1,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+2026-27,regular,401910005,2026-11-17,LAL,Los Angeles Lakers,CHA,Charlotte Hornets,1,5113969,Cameron Carr,0,1,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+2026-27,regular,401910006,2026-11-17,LAC,LA Clippers,UTAH,Utah Jazz,1,4396907,Darius Garland,1,0,30.0,20.0,3.0,0.0,3.0,7.0,1.0,1.0,1.0,3.0,5.0,15.0,2.0,5.0,8.0,8.0,-11.0
+2026-27,regular,401910006,2026-11-17,LAC,LA Clippers,UTAH,Utah Jazz,1,3936099,Derrick Jones Jr.,1,0,28.0,5.0,1.0,0.0,1.0,1.0,0.0,1.0,0.0,1.0,1.0,3.0,0.0,1.0,3.0,6.0,-8.0
+2026-27,regular,401910006,2026-11-17,LAC,LA Clippers,UTAH,Utah Jazz,1,4066648,Rui Hachimura,1,0,27.0,20.0,5.0,0.0,5.0,1.0,1.0,1.0,1.0,2.0,7.0,10.0,4.0,4.0,2.0,4.0,-6.0
+2026-27,regular,401910006,2026-11-17,LAC,LA Clippers,UTAH,Utah Jazz,1,2991139,Kris Dunn,1,0,26.0,2.0,5.0,3.0,2.0,5.0,3.0,1.0,2.0,2.0,1.0,5.0,0.0,2.0,0.0,0.0,-7.0
+2026-27,regular,401910006,2026-11-17,LAC,LA Clippers,UTAH,Utah Jazz,1,3448,Brook Lopez,1,0,23.0,23.0,6.0,3.0,3.0,2.0,1.0,1.0,1.0,2.0,8.0,16.0,4.0,9.0,3.0,3.0,-1.0
+2026-27,regular,401910006,2026-11-17,LAC,LA Clippers,UTAH,Utah Jazz,1,4065778,Max Strus,0,0,21.0,3.0,2.0,0.0,2.0,1.0,3.0,0.0,0.0,2.0,1.0,6.0,1.0,5.0,0.0,0.0,-21.0
+2026-27,regular,401910006,2026-11-17,LAC,LA Clippers,UTAH,Utah Jazz,1,4432170,Isaiah Jackson,0,0,19.0,8.0,5.0,2.0,3.0,0.0,0.0,2.0,1.0,3.0,4.0,6.0,0.0,0.0,0.0,0.0,-17.0
+2026-27,regular,401910006,2026-11-17,LAC,LA Clippers,UTAH,Utah Jazz,1,4702352,Kobe Sanders,0,0,18.0,5.0,1.0,1.0,0.0,3.0,2.0,0.0,2.0,1.0,2.0,6.0,0.0,3.0,1.0,1.0,-17.0
+2026-27,regular,401910006,2026-11-17,LAC,LA Clippers,UTAH,Utah Jazz,1,5254165,Keaton Wagler,0,0,18.0,15.0,2.0,1.0,1.0,0.0,0.0,0.0,1.0,0.0,5.0,9.0,1.0,3.0,4.0,5.0,-14.0
+2026-27,regular,401910006,2026-11-17,LAC,LA Clippers,UTAH,Utah Jazz,1,5106258,Gradey Dick,0,0,17.0,0.0,0.0,0.0,0.0,1.0,0.0,0.0,0.0,1.0,0.0,2.0,0.0,0.0,0.0,0.0,-8.0
+2026-27,regular,401910006,2026-11-17,LAC,LA Clippers,UTAH,Utah Jazz,1,5075626,Baba Miller,0,0,4.0,3.0,0.0,0.0,0.0,0.0,0.0,0.0,2.0,0.0,1.0,2.0,1.0,2.0,0.0,0.0,-5.0
+2026-27,regular,401910006,2026-11-17,LAC,LA Clippers,UTAH,Utah Jazz,1,5105832,Nick Martinelli,0,0,4.0,0.0,1.0,0.0,1.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,-5.0
+2026-27,regular,401910006,2026-11-17,LAC,LA Clippers,UTAH,Utah Jazz,1,4845363,Cam Christie,0,0,4.0,3.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,1.0,3.0,1.0,3.0,0.0,0.0,-5.0
+2026-27,regular,401910006,2026-11-17,UTAH,Utah Jazz,LAC,LA Clippers,0,4433627,Keyonte George,1,0,35.0,30.0,2.0,0.0,2.0,11.0,0.0,2.0,2.0,2.0,10.0,17.0,4.0,8.0,6.0,6.0,10.0
+2026-27,regular,401910006,2026-11-17,UTAH,Utah Jazz,LAC,LA Clippers,0,4277919,Mo Bamba,1,0,31.0,15.0,10.0,1.0,9.0,3.0,0.0,1.0,1.0,3.0,6.0,7.0,1.0,2.0,2.0,2.0,11.0
+2026-27,regular,401910006,2026-11-17,UTAH,Utah Jazz,LAC,LA Clippers,0,5041955,Darryn Peterson,1,0,31.0,13.0,5.0,2.0,3.0,2.0,1.0,0.0,3.0,0.0,3.0,10.0,2.0,4.0,5.0,7.0,14.0
+2026-27,regular,401910006,2026-11-17,UTAH,Utah Jazz,LAC,LA Clippers,0,4873138,Ace Bailey,1,0,23.0,5.0,1.0,0.0,1.0,4.0,3.0,0.0,1.0,2.0,2.0,8.0,1.0,4.0,0.0,0.0,3.0
+2026-27,regular,401910006,2026-11-17,UTAH,Utah Jazz,LAC,LA Clippers,0,4432811,Josh Green,1,0,13.0,9.0,1.0,0.0,1.0,0.0,0.0,0.0,2.0,2.0,4.0,5.0,1.0,1.0,0.0,0.0,0.0
+2026-27,regular,401910006,2026-11-17,UTAH,Utah Jazz,LAC,LA Clippers,0,5105839,Brice Sensabaugh,0,0,35.0,40.0,11.0,1.0,10.0,5.0,0.0,1.0,2.0,4.0,16.0,21.0,8.0,11.0,0.0,1.0,24.0
+2026-27,regular,401910006,2026-11-17,UTAH,Utah Jazz,LAC,LA Clippers,0,3133602,Svi Mykhailiuk,0,0,33.0,8.0,7.0,1.0,6.0,5.0,1.0,0.0,1.0,4.0,3.0,7.0,2.0,5.0,0.0,0.0,18.0
+2026-27,regular,401910006,2026-11-17,UTAH,Utah Jazz,LAC,LA Clippers,0,4065663,Josh Okogie,0,0,22.0,9.0,2.0,1.0,1.0,4.0,2.0,0.0,1.0,2.0,4.0,6.0,1.0,3.0,0.0,0.0,31.0
+2026-27,regular,401910006,2026-11-17,UTAH,Utah Jazz,LAC,LA Clippers,0,4065673,Tony Bradley,0,0,17.0,3.0,7.0,2.0,5.0,1.0,0.0,0.0,2.0,1.0,1.0,3.0,0.0,0.0,1.0,2.0,14.0
+2026-27,regular,401910006,2026-11-17,UTAH,Utah Jazz,LAC,LA Clippers,0,4684793,Kyle Filipowski,0,1,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+2026-27,regular,401910006,2026-11-17,UTAH,Utah Jazz,LAC,LA Clippers,0,4684682,Jonas Aidoo,0,1,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+2026-27,regular,401910006,2026-11-17,UTAH,Utah Jazz,LAC,LA Clippers,0,4683766,Isaiah Collier,0,1,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
