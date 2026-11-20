@@ -1,86 +1,86 @@
 {
- "through": "2026-11-18",
- "lines": 23865,
+ "through": "2026-11-19",
+ "lines": 24429,
  "markets": {
   "points": {
    "label": "Points",
-   "lines": 3785,
-   "shift": 0.029,
-   "weight": 0.306,
-   "over_rate": 0.478,
-   "brier_model": 0.2554,
+   "lines": 3875,
+   "shift": 0.039,
+   "weight": 0.281,
+   "over_rate": 0.48,
+   "brier_model": 0.2555,
    "brier_market": 0.2495,
-   "brier_tuned": 0.2498
+   "brier_tuned": 0.2497
   },
   "rebounds": {
    "label": "Rebounds",
-   "lines": 3267,
-   "shift": 0.018,
-   "weight": 0.366,
-   "over_rate": 0.471,
-   "brier_model": 0.2471,
+   "lines": 3342,
+   "shift": 0.009,
+   "weight": 0.388,
+   "over_rate": 0.468,
+   "brier_model": 0.247,
    "brier_market": 0.244,
    "brier_tuned": 0.2436
   },
   "assists": {
    "label": "Assists",
-   "lines": 2631,
-   "shift": 0.024,
+   "lines": 2688,
+   "shift": 0.032,
    "weight": 0.303,
-   "over_rate": 0.482,
-   "brier_model": 0.2499,
-   "brier_market": 0.2427,
+   "over_rate": 0.483,
+   "brier_model": 0.2503,
+   "brier_market": 0.2426,
    "brier_tuned": 0.2433
   },
   "threePointersMade": {
    "label": "3-Pointers",
-   "lines": 2432,
-   "shift": 0.052,
-   "weight": 0.313,
+   "lines": 2486,
+   "shift": 0.053,
+   "weight": 0.312,
    "over_rate": 0.479,
    "brier_model": 0.2477,
-   "brier_market": 0.2428,
-   "brier_tuned": 0.2432
+   "brier_market": 0.2429,
+   "brier_tuned": 0.2433
   },
   "points+rebounds+assists": {
    "label": "Pts+Reb+Ast",
-   "lines": 3071,
+   "lines": 3149,
    "shift": 0.026,
-   "weight": 0.326,
-   "over_rate": 0.475,
-   "brier_model": 0.2575,
-   "brier_market": 0.2498,
-   "brier_tuned": 0.2503
+   "weight": 0.325,
+   "over_rate": 0.474,
+   "brier_model": 0.2571,
+   "brier_market": 0.2497,
+   "brier_tuned": 0.2501
   },
   "points+rebounds": {
    "label": "Pts+Reb",
-   "lines": 3544,
+   "lines": 3624,
    "shift": 0.019,
-   "weight": 0.336,
-   "over_rate": 0.477,
-   "brier_model": 0.254,
+   "weight": 0.359,
+   "over_rate": 0.476,
+   "brier_model": 0.2536,
    "brier_market": 0.2495,
-   "brier_tuned": 0.2492
+   "brier_tuned": 0.2491
   },
   "points+assists": {
    "label": "Pts+Ast",
-   "lines": 2673,
-   "shift": 0.024,
-   "weight": 0.36,
+   "lines": 2747,
+   "shift": 0.032,
+   "weight": 0.379,
    "over_rate": 0.481,
-   "brier_model": 0.255,
-   "brier_market": 0.2496,
-   "brier_tuned": 0.2495
+   "brier_model": 0.2545,
+   "brier_market": 0.2495,
+   "brier_tuned": 0.2494
   },
   "rebounds+assists": {
    "label": "Reb+Ast",
-   "lines": 2462,
+   "lines": 2518,
    "shift": 0.023,
    "weight": 0.424,
    "over_rate": 0.471,
-   "brier_model": 0.2509,
-   "brier_market": 0.2481,
-   "brier_tuned": 0.2471
+   "brier_model": 0.2512,
+   "brier_market": 0.248,
+   "brier_tuned": 0.2472
   }
  }
 }

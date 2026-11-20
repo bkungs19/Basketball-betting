@@ -30,7 +30,9 @@
    "n_books": 3,
    "teammates_out": "Myles Turner, Kyle Kuzma, Ousmane Dieng",
    "out_min_gain": 0.1466881496,
-   "out_usg_gain": -0.0019765064
+   "out_usg_gain": -0.0019765064,
+   "actual": 5.0,
+   "result": "win"
   },
   {
    "player_name": "Terrence Shannon Jr.",
@@ -58,7 +60,9 @@
    "n_books": 4,
    "teammates_out": "",
    "out_min_gain": 0.0,
-   "out_usg_gain": 0.0
+   "out_usg_gain": 0.0,
+   "actual": 4.0,
+   "result": "loss"
   },
   {
    "player_name": "Keldon Johnson",
@@ -86,7 +90,9 @@
    "n_books": 5,
    "teammates_out": "Dylan Harper",
    "out_min_gain": 0.3223259271,
-   "out_usg_gain": -0.0013256772
+   "out_usg_gain": -0.0013256772,
+   "actual": 15.0,
+   "result": "win"
   },
   {
    "player_name": "Donovan Clingan",
@@ -114,7 +120,9 @@
    "n_books": 3,
    "teammates_out": "Robert Williams III, Vit Krejci",
    "out_min_gain": 2.1595760531,
-   "out_usg_gain": 0.0093893638
+   "out_usg_gain": 0.0093893638,
+   "actual": 15.0,
+   "result": "win"
   },
   {
    "player_name": "Al Horford",
@@ -142,7 +150,9 @@
    "n_books": 5,
    "teammates_out": "Stephen Curry, Brandon Williams, Draymond Green",
    "out_min_gain": -6.3447856925,
-   "out_usg_gain": -0.0061721522
+   "out_usg_gain": -0.0061721522,
+   "actual": 4.0,
+   "result": "win"
   },
   {
    "player_name": "Ayo Dosunmu",
@@ -170,7 +180,9 @@
    "n_books": 6,
    "teammates_out": "",
    "out_min_gain": 0.0,
-   "out_usg_gain": 0.0
+   "out_usg_gain": 0.0,
+   "actual": 8.0,
+   "result": "win"
   },
   {
    "player_name": "Nate Ament",
@@ -198,7 +210,9 @@
    "n_books": 5,
    "teammates_out": "Myles Turner, Kyle Kuzma, Ousmane Dieng",
    "out_min_gain": -0.3071381616,
-   "out_usg_gain": -0.0102658185
+   "out_usg_gain": -0.0102658185,
+   "actual": 27.0,
+   "result": "loss"
   },
   {
    "player_name": "Bones Hyland",
@@ -226,7 +240,9 @@
    "n_books": 3,
    "teammates_out": "",
    "out_min_gain": 0.0,
-   "out_usg_gain": 0.0
+   "out_usg_gain": 0.0,
+   "actual": 1.0,
+   "result": "win"
   },
   {
    "player_name": "Cam Spencer",
@@ -254,7 +270,9 @@
    "n_books": 6,
    "teammates_out": "Ty Jerome, Zach Edey, GG Jackson",
    "out_min_gain": 10.6508028359,
-   "out_usg_gain": 0.0453294657
+   "out_usg_gain": 0.0453294657,
+   "actual": 13.0,
+   "result": "loss"
   },
   {
    "player_name": "Isaiah Stewart",
@@ -282,7 +300,9 @@
    "n_books": 6,
    "teammates_out": "Ty Jerome, Zach Edey, GG Jackson",
    "out_min_gain": 0.8238907556,
-   "out_usg_gain": 0.0276730641
+   "out_usg_gain": 0.0276730641,
+   "actual": 4.0,
+   "result": "win"
   },
   {
    "player_name": "Stephon Castle",
@@ -310,7 +330,9 @@
    "n_books": 6,
    "teammates_out": "Dylan Harper",
    "out_min_gain": 0.7813475443,
-   "out_usg_gain": -0.0051780833
+   "out_usg_gain": -0.0051780833,
+   "actual": 18.0,
+   "result": "loss"
   },
   {
    "player_name": "Rudy Gobert",
@@ -338,7 +360,9 @@
    "n_books": 5,
    "teammates_out": "",
    "out_min_gain": 0.0,
-   "out_usg_gain": 0.0
+   "out_usg_gain": 0.0,
+   "actual": 16.0,
+   "result": "win"
   },
   {
    "player_name": "Gui Santos",
@@ -366,7 +390,9 @@
    "n_books": 3,
    "teammates_out": "Stephen Curry, Brandon Williams, Draymond Green",
    "out_min_gain": 5.2320513953,
-   "out_usg_gain": 0.0322882447
+   "out_usg_gain": 0.0322882447,
+   "actual": 0.0,
+   "result": "win"
   },
   {
    "player_name": "Scoot Henderson",
@@ -394,7 +420,9 @@
    "n_books": 5,
    "teammates_out": "Robert Williams III, Vit Krejci",
    "out_min_gain": -0.85099802,
-   "out_usg_gain": -0.0064161809
+   "out_usg_gain": -0.0064161809,
+   "actual": 27.0,
+   "result": "loss"
   },
   {
    "player_name": "De'Aaron Fox",
@@ -422,9 +450,11 @@
    "n_books": 6,
    "teammates_out": "Dylan Harper",
    "out_min_gain": -0.4683118977,
-   "out_usg_gain": -0.0023125737
+   "out_usg_gain": -0.0023125737,
+   "actual": 7.0,
+   "result": "win"
   }
  ],
- "graded": false,
+ "graded": true,
  "final": true
 }
