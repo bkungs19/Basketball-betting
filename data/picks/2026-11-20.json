@@ -30,7 +30,9 @@
    "n_books": 5,
    "teammates_out": "",
    "out_min_gain": 0.0,
-   "out_usg_gain": 0.0
+   "out_usg_gain": 0.0,
+   "actual": 21.0,
+   "result": "loss"
   },
   {
    "player_name": "Walker Kessler",
@@ -58,7 +60,9 @@
    "n_books": 2,
    "teammates_out": "Austin Reaves",
    "out_min_gain": 0.2890187161,
-   "out_usg_gain": 0.0075134313
+   "out_usg_gain": 0.0075134313,
+   "actual": 9.0,
+   "result": "loss"
   },
   {
    "player_name": "Aaron Wiggins",
@@ -86,7 +90,9 @@
    "n_books": 5,
    "teammates_out": "CJ McCollum, Jock Landale, Kingston Flemings",
    "out_min_gain": 7.3454075666,
-   "out_usg_gain": 0.0411385582
+   "out_usg_gain": 0.0411385582,
+   "actual": 2.0,
+   "result": "win"
   },
   {
    "player_name": "Ivica Zubac",
@@ -114,7 +120,9 @@
    "n_books": 4,
    "teammates_out": "",
    "out_min_gain": 0.0,
-   "out_usg_gain": 0.0
+   "out_usg_gain": 0.0,
+   "actual": 10.0,
+   "result": "loss"
   },
   {
    "player_name": "Darryn Peterson",
@@ -142,7 +150,9 @@
    "n_books": 6,
    "teammates_out": "Lauri Markkanen",
    "out_min_gain": -0.2998771354,
-   "out_usg_gain": 0.0212728692
+   "out_usg_gain": 0.0212728692,
+   "actual": 18.0,
+   "result": "loss"
   },
   {
    "player_name": "Kevin Huerter",
@@ -170,7 +180,9 @@
    "n_books": 6,
    "teammates_out": "Taurean Prince, Duncan Robinson",
    "out_min_gain": 11.5848002914,
-   "out_usg_gain": 0.0497465672
+   "out_usg_gain": 0.0497465672,
+   "actual": 3.0,
+   "result": "win"
   },
   {
    "player_name": "Jaylin Williams",
@@ -198,7 +210,9 @@
    "n_books": 6,
    "teammates_out": "",
    "out_min_gain": 0.0,
-   "out_usg_gain": 0.0
+   "out_usg_gain": 0.0,
+   "actual": 4.0,
+   "result": "win"
   },
   {
    "player_name": "Jaxson Hayes",
@@ -226,7 +240,9 @@
    "n_books": 3,
    "teammates_out": "Lauri Markkanen",
    "out_min_gain": 2.5935933448,
-   "out_usg_gain": 0.0068689919
+   "out_usg_gain": 0.0068689919,
+   "actual": 14.0,
+   "result": "loss"
   },
   {
    "player_name": "Sam Merrill",
@@ -254,7 +270,9 @@
    "n_books": 2,
    "teammates_out": "Evan Mobley, Jaylon Tyson",
    "out_min_gain": 4.7923513422,
-   "out_usg_gain": 0.0236021782
+   "out_usg_gain": 0.0236021782,
+   "actual": 7.0,
+   "result": "loss"
   },
   {
    "player_name": "Franz Wagner",
@@ -282,7 +300,9 @@
    "n_books": 6,
    "teammates_out": "",
    "out_min_gain": 0.0,
-   "out_usg_gain": 0.0
+   "out_usg_gain": 0.0,
+   "actual": 12.0,
+   "result": "win"
   },
   {
    "player_name": "Kenrich Williams",
@@ -310,7 +330,9 @@
    "n_books": 6,
    "teammates_out": "",
    "out_min_gain": 0.0,
-   "out_usg_gain": 0.0
+   "out_usg_gain": 0.0,
+   "actual": 2.0,
+   "result": "win"
   },
   {
    "player_name": "Malik Monk",
@@ -338,7 +360,9 @@
    "n_books": 4,
    "teammates_out": "Precious Achiuwa",
    "out_min_gain": 1.1316028364,
-   "out_usg_gain": 0.0001414915
+   "out_usg_gain": 0.0001414915,
+   "actual": 3.0,
+   "result": "win"
   },
   {
    "player_name": "Julius Randle",
@@ -366,7 +390,9 @@
    "n_books": 6,
    "teammates_out": "",
    "out_min_gain": 0.0,
-   "out_usg_gain": 0.0
+   "out_usg_gain": 0.0,
+   "actual": 15.0,
+   "result": "loss"
   },
   {
    "player_name": "Ajay Mitchell",
@@ -394,7 +420,9 @@
    "n_books": 5,
    "teammates_out": "",
    "out_min_gain": 0.0,
-   "out_usg_gain": 0.0
+   "out_usg_gain": 0.0,
+   "actual": 12.0,
+   "result": "win"
   },
   {
    "player_name": "Nolan Traore",
@@ -422,7 +450,9 @@
    "n_books": 5,
    "teammates_out": "",
    "out_min_gain": 0.0,
-   "out_usg_gain": 0.0
+   "out_usg_gain": 0.0,
+   "actual": 2.0,
+   "result": "win"
   },
   {
    "player_name": "Jakob Poeltl",
@@ -450,7 +480,9 @@
    "n_books": 5,
    "teammates_out": "RJ Barrett, Collin Murray-Boyles",
    "out_min_gain": -0.1671879064,
-   "out_usg_gain": -0.0052645973
+   "out_usg_gain": -0.0052645973,
+   "actual": 9.0,
+   "result": "loss"
   },
   {
    "player_name": "Jamal Shead",
@@ -478,7 +510,9 @@
    "n_books": 6,
    "teammates_out": "RJ Barrett, Collin Murray-Boyles",
    "out_min_gain": 4.4664200965,
-   "out_usg_gain": 0.016418464
+   "out_usg_gain": 0.016418464,
+   "actual": 4.0,
+   "result": "loss"
   },
   {
    "player_name": "Jamison Battle",
@@ -506,7 +540,9 @@
    "n_books": 6,
    "teammates_out": "RJ Barrett, Collin Murray-Boyles",
    "out_min_gain": 0.8952345338,
-   "out_usg_gain": 0.0019072945
+   "out_usg_gain": 0.0019072945,
+   "actual": 10.0,
+   "result": "win"
   },
   {
    "player_name": "Anthony Black",
@@ -534,7 +570,9 @@
    "n_books": 5,
    "teammates_out": "",
    "out_min_gain": 0.0,
-   "out_usg_gain": 0.0
+   "out_usg_gain": 0.0,
+   "actual": 20.0,
+   "result": "win"
   },
   {
    "player_name": "Nikola Joki\u0107",
@@ -562,7 +600,9 @@
    "n_books": 4,
    "teammates_out": "",
    "out_min_gain": 0.0,
-   "out_usg_gain": 0.0
+   "out_usg_gain": 0.0,
+   "actual": 18.0,
+   "result": "win"
   },
   {
    "player_name": "Mo Bamba",
@@ -590,7 +630,9 @@
    "n_books": 2,
    "teammates_out": "Lauri Markkanen",
    "out_min_gain": 4.8974101995,
-   "out_usg_gain": 0.0128897724
+   "out_usg_gain": 0.0128897724,
+   "actual": 2.0,
+   "result": "win"
   },
   {
    "player_name": "Paul Reed",
@@ -618,9 +660,11 @@
    "n_books": 6,
    "teammates_out": "Taurean Prince, Duncan Robinson",
    "out_min_gain": 7.9269047941,
-   "out_usg_gain": 0.0286361503
+   "out_usg_gain": 0.0286361503,
+   "actual": 7.0,
+   "result": "loss"
   }
  ],
- "graded": false,
+ "graded": true,
  "final": true
 }
