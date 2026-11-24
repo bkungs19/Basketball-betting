@@ -30,7 +30,9 @@
    "n_books": 5,
    "teammates_out": "Dylan Harper",
    "out_min_gain": -0.6161058953,
-   "out_usg_gain": -0.0077167613
+   "out_usg_gain": -0.0077167613,
+   "actual": null,
+   "result": "void"
   },
   {
    "player_name": "Collin Murray-Boyles",
@@ -58,7 +60,9 @@
    "n_books": 5,
    "teammates_out": "RJ Barrett",
    "out_min_gain": 1.2690926951,
-   "out_usg_gain": 0.0028393423
+   "out_usg_gain": 0.0028393423,
+   "actual": 17.0,
+   "result": "win"
   },
   {
    "player_name": "Amen Thompson",
@@ -86,7 +90,9 @@
    "n_books": 6,
    "teammates_out": "",
    "out_min_gain": 0.0,
-   "out_usg_gain": 0.0
+   "out_usg_gain": 0.0,
+   "actual": 9.0,
+   "result": "loss"
   },
   {
    "player_name": "Moussa Diabate",
@@ -114,7 +120,9 @@
    "n_books": 5,
    "teammates_out": "Dennis Schroder, Grayson Allen, Grant Williams, Kon Knueppel",
    "out_min_gain": 9.0525372655,
-   "out_usg_gain": 0.045983968
+   "out_usg_gain": 0.045983968,
+   "actual": 13.0,
+   "result": "win"
   },
   {
    "player_name": "Stephon Castle",
@@ -142,7 +150,9 @@
    "n_books": 2,
    "teammates_out": "Dylan Harper",
    "out_min_gain": 0.7270782339,
-   "out_usg_gain": -0.0041346873
+   "out_usg_gain": -0.0041346873,
+   "actual": 47.0,
+   "result": "loss"
   },
   {
    "player_name": "Kenrich Williams",
@@ -170,7 +180,9 @@
    "n_books": 2,
    "teammates_out": "Alex Caruso, Jaylin Williams, Aday Mara",
    "out_min_gain": 9.4769774328,
-   "out_usg_gain": 0.0470106405
+   "out_usg_gain": 0.0470106405,
+   "actual": 29.0,
+   "result": "loss"
   },
   {
    "player_name": "Mikel Brown Jr.",
@@ -198,7 +210,9 @@
    "n_books": 6,
    "teammates_out": "Nolan Traore",
    "out_min_gain": 0.0,
-   "out_usg_gain": 0.0
+   "out_usg_gain": 0.0,
+   "actual": 22.0,
+   "result": "loss"
   },
   {
    "player_name": "Brandon Ingram",
@@ -226,7 +240,9 @@
    "n_books": 6,
    "teammates_out": "",
    "out_min_gain": 0.0,
-   "out_usg_gain": 0.0
+   "out_usg_gain": 0.0,
+   "actual": 7.0,
+   "result": "win"
   },
   {
    "player_name": "Meleek Thomas",
@@ -254,7 +270,9 @@
    "n_books": 2,
    "teammates_out": "Evan Mobley, Jaylon Tyson",
    "out_min_gain": 1.7657388645,
-   "out_usg_gain": 0.0037620505
+   "out_usg_gain": 0.0037620505,
+   "actual": 15.0,
+   "result": "win"
   },
   {
    "player_name": "Terrence Shannon Jr.",
@@ -282,7 +300,9 @@
    "n_books": 3,
    "teammates_out": "",
    "out_min_gain": 0.0,
-   "out_usg_gain": 0.0
+   "out_usg_gain": 0.0,
+   "actual": 23.0,
+   "result": "loss"
   },
   {
    "player_name": "Scoot Henderson",
@@ -310,7 +330,9 @@
    "n_books": 3,
    "teammates_out": "",
    "out_min_gain": 0.0,
-   "out_usg_gain": 0.0
+   "out_usg_gain": 0.0,
+   "actual": 6.0,
+   "result": "loss"
   },
   {
    "player_name": "Sion James",
@@ -338,7 +360,9 @@
    "n_books": 6,
    "teammates_out": "Dennis Schroder, Grayson Allen, Grant Williams, Kon Knueppel",
    "out_min_gain": 11.6162495307,
-   "out_usg_gain": 0.0280731799
+   "out_usg_gain": 0.0280731799,
+   "actual": 13.0,
+   "result": "loss"
   },
   {
    "player_name": "Jaylen Brown",
@@ -366,7 +390,9 @@
    "n_books": 2,
    "teammates_out": "Joel Embiid",
    "out_min_gain": 0.5759614041,
-   "out_usg_gain": -0.0070525918
+   "out_usg_gain": -0.0070525918,
+   "actual": 22.0,
+   "result": "loss"
   },
   {
    "player_name": "Mo Bamba",
@@ -394,7 +420,9 @@
    "n_books": 4,
    "teammates_out": "Lauri Markkanen, Jaxson Hayes",
    "out_min_gain": 11.4649416354,
-   "out_usg_gain": 0.0356244491
+   "out_usg_gain": 0.0356244491,
+   "actual": 6.0,
+   "result": "win"
   },
   {
    "player_name": "Derik Queen",
@@ -422,9 +450,11 @@
    "n_books": 2,
    "teammates_out": "Dejounte Murray, Bennedict Mathurin",
    "out_min_gain": 0.5290470245,
-   "out_usg_gain": -0.000180773
+   "out_usg_gain": -0.000180773,
+   "actual": 9.0,
+   "result": "win"
   }
  ],
- "graded": false,
+ "graded": true,
  "final": true
 }
