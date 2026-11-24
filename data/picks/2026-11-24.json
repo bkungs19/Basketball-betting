@@ -1,38 +1,9 @@
 {
  "date": "2026-11-24",
- "generated_at": "2026-11-24T19:33:11+00:00",
+ "generated_at": "2026-11-24T23:04:40+00:00",
  "games": 3,
- "props_scored": 1433,
- "top_props": [
-  {
-   "player_name": "Daniel Gafford",
-   "player_id": "4278049",
-   "team": "DAL",
-   "opp_abbr": "DEN",
-   "event_id": "MkeoQuI6mutTqPUONP8O",
-   "start": "2026-11-24T22:00:00-05:00",
-   "stat": "rebounds+assists",
-   "market": "Reb+Ast",
-   "side": "Under",
-   "line": 8.5,
-   "odds": -105,
-   "decimal": 1.9523809524,
-   "p_hit": 0.5414786602,
-   "p_model_hit": 0.6476785125,
-   "p_market_hit": 0.4798895113,
-   "ev": 0.0571726223,
-   "proj": 7.5747184698,
-   "recent_avg": 7.5132669464,
-   "book": "any",
-   "deeplink": "",
-   "injury": "",
-   "min_odds": -118,
-   "n_books": 6,
-   "teammates_out": "",
-   "out_min_gain": 0.0,
-   "out_usg_gain": 0.0
-  }
- ],
+ "props_scored": 1440,
+ "top_props": [],
  "graded": false,
- "final": false
+ "final": true
 }
