@@ -30,7 +30,9 @@
    "n_books": 4,
    "teammates_out": "OG Anunoby, Miles McBride",
    "out_min_gain": 0.5511241038,
-   "out_usg_gain": 0.0049055865
+   "out_usg_gain": 0.0049055865,
+   "actual": 21.0,
+   "result": "loss"
   },
   {
    "player_name": "De'Aaron Fox",
@@ -58,7 +60,9 @@
    "n_books": 3,
    "teammates_out": "Dylan Harper",
    "out_min_gain": -0.6161058953,
-   "out_usg_gain": -0.0077167613
+   "out_usg_gain": -0.0077167613,
+   "actual": null,
+   "result": "void"
   },
   {
    "player_name": "Alex Caruso",
@@ -86,7 +90,9 @@
    "n_books": 3,
    "teammates_out": "Jaylin Williams, Aday Mara",
    "out_min_gain": -2.0370435878,
-   "out_usg_gain": -0.0045793792
+   "out_usg_gain": -0.0045793792,
+   "actual": 13.0,
+   "result": "loss"
   },
   {
    "player_name": "Josh Hart",
@@ -114,7 +120,9 @@
    "n_books": 5,
    "teammates_out": "OG Anunoby, Miles McBride",
    "out_min_gain": 2.6719289076,
-   "out_usg_gain": 0.0174979358
+   "out_usg_gain": 0.0174979358,
+   "actual": 26.0,
+   "result": "loss"
   },
   {
    "player_name": "Mikel Brown Jr.",
@@ -142,7 +150,9 @@
    "n_books": 4,
    "teammates_out": "Nolan Traore",
    "out_min_gain": 1.0085456424,
-   "out_usg_gain": 0.008154416
+   "out_usg_gain": 0.008154416,
+   "actual": 8.0,
+   "result": "win"
   },
   {
    "player_name": "Cam Spencer",
@@ -170,7 +180,9 @@
    "n_books": 6,
    "teammates_out": "Jerami Grant, Cameron Boozer, GG Jackson",
    "out_min_gain": 5.2369330333,
-   "out_usg_gain": 0.0276103014
+   "out_usg_gain": 0.0276103014,
+   "actual": 20.0,
+   "result": "win"
   },
   {
    "player_name": "Kris Murray",
@@ -198,7 +210,9 @@
    "n_books": 3,
    "teammates_out": "Jerami Grant, Cameron Boozer, GG Jackson",
    "out_min_gain": 4.8160589181,
-   "out_usg_gain": 0.0142899197
+   "out_usg_gain": 0.0142899197,
+   "actual": 7.0,
+   "result": "loss"
   },
   {
    "player_name": "Charles Bassey",
@@ -226,7 +240,9 @@
    "n_books": 6,
    "teammates_out": "Stephen Curry, Brandon Williams",
    "out_min_gain": 10.9496291697,
-   "out_usg_gain": 0.0418810256
+   "out_usg_gain": 0.0418810256,
+   "actual": 7.0,
+   "result": "win"
   },
   {
    "player_name": "Jabari Walker",
@@ -254,7 +270,9 @@
    "n_books": 5,
    "teammates_out": "Joel Embiid",
    "out_min_gain": 0.3517373002,
-   "out_usg_gain": 0.0050160118
+   "out_usg_gain": 0.0050160118,
+   "actual": 2.0,
+   "result": "win"
   },
   {
    "player_name": "Brandon Ingram",
@@ -282,7 +300,9 @@
    "n_books": 3,
    "teammates_out": "",
    "out_min_gain": 0.0,
-   "out_usg_gain": 0.0
+   "out_usg_gain": 0.0,
+   "actual": 5.0,
+   "result": "win"
   },
   {
    "player_name": "Kenrich Williams",
@@ -310,7 +330,9 @@
    "n_books": 6,
    "teammates_out": "Jaylin Williams, Aday Mara",
    "out_min_gain": 5.5730559352,
-   "out_usg_gain": 0.0306305692
+   "out_usg_gain": 0.0306305692,
+   "actual": 6.0,
+   "result": "win"
   },
   {
    "player_name": "Stephon Castle",
@@ -338,7 +360,9 @@
    "n_books": 3,
    "teammates_out": "Dylan Harper",
    "out_min_gain": 1.0391711408,
-   "out_usg_gain": 0.0007450043
+   "out_usg_gain": 0.0007450043,
+   "actual": 29.0,
+   "result": "loss"
   },
   {
    "player_name": "Michael Porter Jr.",
@@ -366,7 +390,9 @@
    "n_books": 6,
    "teammates_out": "Nolan Traore",
    "out_min_gain": -1.2070858433,
-   "out_usg_gain": 0.0098295015
+   "out_usg_gain": 0.0098295015,
+   "actual": 27.0,
+   "result": "win"
   },
   {
    "player_name": "Draymond Green",
@@ -394,7 +420,9 @@
    "n_books": 5,
    "teammates_out": "Stephen Curry, Brandon Williams",
    "out_min_gain": -4.4644849879,
-   "out_usg_gain": -0.020105585
+   "out_usg_gain": -0.020105585,
+   "actual": 17.0,
+   "result": "loss"
   },
   {
    "player_name": "Marcus Smart",
@@ -422,7 +450,9 @@
    "n_books": 2,
    "teammates_out": "",
    "out_min_gain": 0.0,
-   "out_usg_gain": 0.0
+   "out_usg_gain": 0.0,
+   "actual": 6.0,
+   "result": "win"
   },
   {
    "player_name": "Brayden Burries",
@@ -450,9 +480,11 @@
    "n_books": 5,
    "teammates_out": "",
    "out_min_gain": 0.0,
-   "out_usg_gain": 0.0
+   "out_usg_gain": 0.0,
+   "actual": 6.0,
+   "result": "win"
   }
  ],
- "graded": false,
+ "graded": true,
  "final": true
 }
